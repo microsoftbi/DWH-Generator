@@ -9,11 +9,11 @@ namespace CodeGenerator
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(PSA.GenerateLandingZone());
-            Console.WriteLine(PSA.GenerateSTG());
-            Console.WriteLine(PSA.GenerateHIS());
+            //Console.WriteLine(PSA.GenerateLandingZone());
+            //Console.WriteLine(PSA.GenerateSTG());
+            //Console.WriteLine(PSA.GenerateHIS());
             Console.WriteLine(PSA.GenerateUSPSTG());
-            Console.WriteLine(PSA.GenerateUSPHIS());
+            //Console.WriteLine(PSA.GenerateUSPHIS());
 
             Console.ReadLine();
         }
