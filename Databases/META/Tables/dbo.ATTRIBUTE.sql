@@ -10,6 +10,7 @@ CREATE TABLE [dbo].[ATTRIBUTE]
 [NUMERIC_SCALE] [int] NULL,
 [BK] [int] NULL,
 [PK] [int] NULL,
-[DI] [int] NULL
+[DI] [int] NULL,
+[DVID] [int] NULL
 ) ON [PRIMARY]
 GO

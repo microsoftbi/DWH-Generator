@@ -1,0 +1,9 @@
+CREATE TABLE [dbo].[LOG]
+(
+[ID] [bigint] NOT NULL IDENTITY(1, 1),
+[LOGDATE] [datetime] NULL CONSTRAINT [DF_LOG_LOGDATE] DEFAULT (getdate()),
+[LOGMESSAGE] [nvarchar] (600) COLLATE Chinese_PRC_CI_AS NULL,
+[LOGSOURCE] [nvarchar] (100) COLLATE Chinese_PRC_CI_AS NULL,
+[MESSAGETYPE] [nvarchar] (1) COLLATE Chinese_PRC_CI_AS NULL
+) ON [PRIMARY]
+GO
