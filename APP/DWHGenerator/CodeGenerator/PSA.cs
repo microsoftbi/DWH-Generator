@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CodeGenerator
 {
-    class PSA
+    public class PSA
     {
         public static string GenerateLandingZone()
         { 

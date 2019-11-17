@@ -1,0 +1,12 @@
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\Generator.exe
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\Generator.pdb
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\CodeGenerator.exe
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\CodeGenerator.pdb
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\CodeGenerator.exe.config
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.csprojAssemblyReference.cache
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.Main.resources
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.Properties.Resources.resources
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.csproj.GenerateResource.cache
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.csproj.CopyComplete
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.exe
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.pdb
