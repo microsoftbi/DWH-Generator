@@ -46,6 +46,8 @@ namespace CodeGenerator
                 }
 
                 sb.AppendLine(")");
+                sb.AppendLine("");
+                sb.AppendLine("");
             }
 
             result = sb.ToString();
@@ -83,6 +85,8 @@ namespace CodeGenerator
                 sb.AppendLine("\t[INSERT TIME] [datetime] NULL");
 
                 sb.AppendLine(")");
+                sb.AppendLine("");
+                sb.AppendLine("");
             }
 
             result = sb.ToString();
@@ -123,6 +127,8 @@ namespace CodeGenerator
                 sb.AppendLine("\t[IS CURRENT] [int] NULL");
 
                 sb.AppendLine(")");
+                sb.AppendLine("");
+                sb.AppendLine("");
             }
 
             result = sb.ToString();
@@ -211,6 +217,7 @@ namespace CodeGenerator
                 sb.AppendLine("END;");
                 sb.AppendLine("GO");
                 sb.AppendLine("");
+                sb.AppendLine("");
             }
 
             result = sb.ToString();
@@ -246,7 +253,7 @@ namespace CodeGenerator
                 sb.AppendLine("\tDECLARE @VALIDFROM AS DATETIME;");
                 sb.AppendLine("\tDECLARE @VALIDTO AS DATETIME;");
                 sb.AppendLine("\tDECLARE @DEFAULTVALIDTO AS DATETIME;");
-                sb.AppendLine("\tDECLARE @DEFAULTVALIDTO AS DATETIME;");
+                //sb.AppendLine("\tDECLARE @DEFAULTVALIDTO AS DATETIME;");
                 sb.AppendLine("\tDECLARE @LOGSOURCE AS NVARCHAR(100);");
                 sb.AppendLine("\tSET @VALIDFROM = GETDATE();");
                 sb.AppendLine("\tSET @VALIDTO = GETDATE();");
@@ -311,7 +318,7 @@ namespace CodeGenerator
                 sb.AppendLine("\t\t\t\t\t\tSOURCE.HD,");
                 sb.AppendLine("\t\t\t\t\t\tGETDATE(),");
                 sb.AppendLine("\t\t\t\t\t\t@VALIDFROM,");
-                sb.AppendLine("\t\t\t\t\t\t@VALIDTO,");
+                //sb.AppendLine("\t\t\t\t\t\t@VALIDTO,");
                 sb.AppendLine("\t\t\t\t\t\t@DEFAULTVALIDTO,");
                 sb.AppendLine("\t\t\t\t\t\t1");
                 sb.AppendLine("\t\t\t\t\t)");
@@ -348,8 +355,8 @@ namespace CodeGenerator
 
                 sb.AppendLine("\tEND;");
                 sb.AppendLine("GO");
-
-
+                sb.AppendLine("");
+                sb.AppendLine("");
             }
 
             result = sb.ToString();
@@ -357,7 +364,15 @@ namespace CodeGenerator
             return result;
         }
 
-
+        /// <summary>
+        /// Generate filed expr script accouding to type defination information.
+        /// </summary>
+        /// <param name="FieldName"></param>
+        /// <param name="FieldType"></param>
+        /// <param name="CharLen"></param>
+        /// <param name="nPrecision"></param>
+        /// <param name="nScale"></param>
+        /// <returns></returns>
         public static string FieldGenerate(string FieldName, string FieldType, int? CharLen, int? nPrecision, int? nScale)
         {
             string result="";
