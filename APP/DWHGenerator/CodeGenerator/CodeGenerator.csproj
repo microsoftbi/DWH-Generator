@@ -61,9 +61,9 @@
       <DependentUpon>META.cs</DependentUpon>
     </Compile>
     <Compile Include="METADataSet.Designer.cs">
+      <DependentUpon>METADataSet.xsd</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>METADataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

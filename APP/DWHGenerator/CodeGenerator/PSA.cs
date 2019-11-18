@@ -105,7 +105,7 @@ namespace CodeGenerator
             //Table
             foreach (var itemTable in lstTables.Distinct())
             {
-                sb.AppendLine("CREATE TABLE [dbo].[" + itemTable + "_STG]");
+                sb.AppendLine("CREATE TABLE [dbo].[" + itemTable + "_HIS]");
                 sb.AppendLine("(");
 
                 //Fields
@@ -147,7 +147,8 @@ namespace CodeGenerator
             {
 
                 sb.AppendLine("USE [STAGE]");
-                sb.AppendLine("CREATE PROCEDURE [STAGE].[dbo].[USP_"+itemTable+"_STG]");
+                sb.AppendLine("GO");
+                sb.AppendLine("CREATE PROCEDURE [dbo].[USP_"+itemTable+"_STG]");
                 sb.AppendLine("AS");
                 sb.AppendLine("\tBEGIN");
                 sb.AppendLine("\tDECLARE @LOGSOURCE AS NVARCHAR(100);");
@@ -166,7 +167,7 @@ namespace CodeGenerator
 
                 foreach (var itemColumn in lstColumns)
                 {
-                    sb.AppendLine("\t\t\t\t" + itemColumn.COLUMN_NAME + ",");
+                    sb.AppendLine("\t\t\t\t[" + itemColumn.COLUMN_NAME + "],");
                 }
 
 
@@ -182,7 +183,7 @@ namespace CodeGenerator
                 {
                     pt++;
 
-                    if (pt < n)
+                    if (pt == 1)
                     {
                         sb.AppendLine("\t\t\t\t\tISNULL(TRIM(CONVERT(NVARCHAR(255), [" + itemColumn.COLUMN_NAME+"])), N'') + N'W|D'");
                     }
@@ -208,6 +209,8 @@ namespace CodeGenerator
                 sb.AppendLine("\tEND CATCH");
                 sb.AppendLine("");
                 sb.AppendLine("END;");
+                sb.AppendLine("GO");
+                sb.AppendLine("");
             }
 
             result = sb.ToString();
@@ -235,7 +238,8 @@ namespace CodeGenerator
                 PK = (from p in dc.ATTRIBUTE where p.TABLE_NAME == itemTable select p.COLUMN_NAME).ToList()[0];
 
                 sb.AppendLine("USE [STAGE]");
-                sb.AppendLine("CREATE PROCEDURE [STAGE].[dbo].[USP_" + itemTable + "_HIS]");
+                sb.AppendLine("GO");
+                sb.AppendLine("CREATE PROCEDURE [dbo].[USP_" + itemTable + "_HIS]");
                 sb.AppendLine("AS");
                 sb.AppendLine("BEGIN");
 
@@ -261,7 +265,7 @@ namespace CodeGenerator
 
                 foreach (var itemColumn in lstColumns)
                 {
-                    sb.AppendLine("\t\t\t\t" + itemColumn.COLUMN_NAME + ",");
+                    sb.AppendLine("\t\t\t\t[" + itemColumn.COLUMN_NAME + "],");
                 }
 
                 sb.AppendLine("\t\t\t\t[HD],");
@@ -286,7 +290,7 @@ namespace CodeGenerator
 
                 foreach (var itemColumn in lstColumns)
                 {
-                    sb.AppendLine("\t\t\t\t\t\t" + itemColumn.COLUMN_NAME + ",");
+                    sb.AppendLine("\t\t\t\t\t\t[" + itemColumn.COLUMN_NAME + "],");
                 }
 
                 sb.AppendLine("\t\t\t\t\t\t[HD],");
@@ -301,7 +305,7 @@ namespace CodeGenerator
 
                 foreach (var itemColumn in lstColumns)
                 {
-                    sb.AppendLine("\t\t\t\t\t\tSOURCE." + itemColumn.COLUMN_NAME + ",");
+                    sb.AppendLine("\t\t\t\t\t\tSOURCE.[" + itemColumn.COLUMN_NAME + "],");
                 }
 
                 sb.AppendLine("\t\t\t\t\t\tSOURCE.HD,");
@@ -320,7 +324,7 @@ namespace CodeGenerator
 
                 foreach (var itemColumn in lstColumns)
                 {
-                    sb.AppendLine("\t\t\t\t\tSOURCE." + itemColumn.COLUMN_NAME + ",");
+                    sb.AppendLine("\t\t\t\t\tSOURCE.[" + itemColumn.COLUMN_NAME + "],");
                 }
 
                 sb.AppendLine("\t\t\t\t\tSOURCE.[HD],");

@@ -1,7 +1,6 @@
 C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\CodeGenerator\bin\Debug\CodeGenerator.exe.config
 C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\CodeGenerator\bin\Debug\CodeGenerator.exe
 C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\CodeGenerator\bin\Debug\CodeGenerator.pdb
-C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\CodeGenerator\obj\Debug\CodeGenerator.csprojAssemblyReference.cache
 C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\CodeGenerator\obj\Debug\CodeGenerator.csproj.CopyComplete
 C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\CodeGenerator\obj\Debug\CodeGenerator.exe
 C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\CodeGenerator\obj\Debug\CodeGenerator.pdb
