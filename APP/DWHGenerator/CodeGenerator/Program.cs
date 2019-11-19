@@ -12,8 +12,9 @@ namespace CodeGenerator
             //Console.WriteLine(PSA.GenerateLandingZone());
             //Console.WriteLine(PSA.GenerateSTG());
             //Console.WriteLine(PSA.GenerateHIS());
-            Console.WriteLine(PSA.GenerateUSPSTG());
+            //Console.WriteLine(PSA.GenerateUSPSTG());
             //Console.WriteLine(PSA.GenerateUSPHIS());
+            Console.WriteLine("Please double click Generator.exe to start.");
 
             Console.ReadLine();
         }

@@ -19,23 +19,30 @@ namespace Generator
 
         private void lbType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            switch (lbType.SelectedIndex)
+            try
             {
-                case 0:
-                    rtbContent.Text = PSA.GenerateLandingZone();
-                    break;
-                case 1:
-                    rtbContent.Text = PSA.GenerateUSPSTG();
-                    break;
-                case 2:
-                    rtbContent.Text = PSA.GenerateSTG();
-                    break;
-                case 3:
-                    rtbContent.Text = PSA.GenerateUSPHIS();
-                    break;
-                case 4:
-                    rtbContent.Text = PSA.GenerateHIS();
-                    break;
+                switch (lbType.SelectedIndex)
+                {
+                    case 0:
+                        rtbContent.Text = PSA.GenerateLandingZone();
+                        break;
+                    case 1:
+                        rtbContent.Text = PSA.GenerateUSPSTG();
+                        break;
+                    case 2:
+                        rtbContent.Text = PSA.GenerateSTG();
+                        break;
+                    case 3:
+                        rtbContent.Text = PSA.GenerateUSPHIS();
+                        break;
+                    case 4:
+                        rtbContent.Text = PSA.GenerateHIS();
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
 

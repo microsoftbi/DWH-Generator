@@ -31,6 +31,7 @@
             this.lbType = new System.Windows.Forms.ListBox();
             this.rtbContent = new System.Windows.Forms.RichTextBox();
             this.btnShowMETA = new System.Windows.Forms.Button();
+            this.btnDeploy = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbType
@@ -43,7 +44,7 @@
             "Stage table",
             "USP HIS",
             "HIS table"});
-            this.lbType.Location = new System.Drawing.Point(12, 12);
+            this.lbType.Location = new System.Drawing.Point(-1, 1);
             this.lbType.Name = "lbType";
             this.lbType.Size = new System.Drawing.Size(292, 79);
             this.lbType.TabIndex = 0;
@@ -51,15 +52,15 @@
             // 
             // rtbContent
             // 
-            this.rtbContent.Location = new System.Drawing.Point(10, 110);
+            this.rtbContent.Location = new System.Drawing.Point(-1, 86);
             this.rtbContent.Name = "rtbContent";
-            this.rtbContent.Size = new System.Drawing.Size(1017, 600);
+            this.rtbContent.Size = new System.Drawing.Size(1043, 680);
             this.rtbContent.TabIndex = 1;
             this.rtbContent.Text = "";
             // 
             // btnShowMETA
             // 
-            this.btnShowMETA.Location = new System.Drawing.Point(748, 12);
+            this.btnShowMETA.Location = new System.Drawing.Point(763, 12);
             this.btnShowMETA.Name = "btnShowMETA";
             this.btnShowMETA.Size = new System.Drawing.Size(279, 34);
             this.btnShowMETA.TabIndex = 2;
@@ -67,11 +68,22 @@
             this.btnShowMETA.UseVisualStyleBackColor = true;
             this.btnShowMETA.Click += new System.EventHandler(this.btnShowMETA_Click);
             // 
+            // btnDeploy
+            // 
+            this.btnDeploy.Enabled = false;
+            this.btnDeploy.Location = new System.Drawing.Point(763, 52);
+            this.btnDeploy.Name = "btnDeploy";
+            this.btnDeploy.Size = new System.Drawing.Size(279, 34);
+            this.btnDeploy.TabIndex = 3;
+            this.btnDeploy.Text = "Deploy";
+            this.btnDeploy.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1040, 722);
+            this.ClientSize = new System.Drawing.Size(1040, 765);
+            this.Controls.Add(this.btnDeploy);
             this.Controls.Add(this.btnShowMETA);
             this.Controls.Add(this.rtbContent);
             this.Controls.Add(this.lbType);
@@ -89,6 +101,7 @@
         private System.Windows.Forms.ListBox lbType;
         private System.Windows.Forms.RichTextBox rtbContent;
         private System.Windows.Forms.Button btnShowMETA;
+        private System.Windows.Forms.Button btnDeploy;
     }
 }
 
