@@ -1,4 +1,4 @@
-﻿namespace CodeGenerator
+﻿namespace Generator
 {
     partial class META
     {
@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.mETADataSet = new CodeGenerator.METADataSet();
+            this.mETADataSet = new Generator.METADataSet();
             this.aTTRIBUTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.aTTRIBUTETableAdapter = new CodeGenerator.METADataSetTableAdapters.ATTRIBUTETableAdapter();
+            this.aTTRIBUTETableAdapter = new Generator.METADataSetTableAdapters.ATTRIBUTETableAdapter();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tABLECATALOGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tABLENAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -52,7 +52,6 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -72,10 +71,9 @@
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(1099, 750);
+            this.dataGridView1.Size = new System.Drawing.Size(1077, 761);
             this.dataGridView1.TabIndex = 0;
             // 
             // mETADataSet
@@ -107,7 +105,6 @@
             this.tABLECATALOGDataGridViewTextBoxColumn.HeaderText = "TABLE_CATALOG";
             this.tABLECATALOGDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.tABLECATALOGDataGridViewTextBoxColumn.Name = "tABLECATALOGDataGridViewTextBoxColumn";
-            this.tABLECATALOGDataGridViewTextBoxColumn.ReadOnly = true;
             this.tABLECATALOGDataGridViewTextBoxColumn.Width = 125;
             // 
             // tABLENAMEDataGridViewTextBoxColumn
@@ -116,7 +113,6 @@
             this.tABLENAMEDataGridViewTextBoxColumn.HeaderText = "TABLE_NAME";
             this.tABLENAMEDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.tABLENAMEDataGridViewTextBoxColumn.Name = "tABLENAMEDataGridViewTextBoxColumn";
-            this.tABLENAMEDataGridViewTextBoxColumn.ReadOnly = true;
             this.tABLENAMEDataGridViewTextBoxColumn.Width = 125;
             // 
             // cOLUMNNAMEDataGridViewTextBoxColumn
@@ -125,7 +121,6 @@
             this.cOLUMNNAMEDataGridViewTextBoxColumn.HeaderText = "COLUMN_NAME";
             this.cOLUMNNAMEDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.cOLUMNNAMEDataGridViewTextBoxColumn.Name = "cOLUMNNAMEDataGridViewTextBoxColumn";
-            this.cOLUMNNAMEDataGridViewTextBoxColumn.ReadOnly = true;
             this.cOLUMNNAMEDataGridViewTextBoxColumn.Width = 125;
             // 
             // dATATYPEDataGridViewTextBoxColumn
@@ -134,7 +129,6 @@
             this.dATATYPEDataGridViewTextBoxColumn.HeaderText = "DATA_TYPE";
             this.dATATYPEDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.dATATYPEDataGridViewTextBoxColumn.Name = "dATATYPEDataGridViewTextBoxColumn";
-            this.dATATYPEDataGridViewTextBoxColumn.ReadOnly = true;
             this.dATATYPEDataGridViewTextBoxColumn.Width = 125;
             // 
             // cHARACTERMAXIMUMLENGTHDataGridViewTextBoxColumn
@@ -143,7 +137,6 @@
             this.cHARACTERMAXIMUMLENGTHDataGridViewTextBoxColumn.HeaderText = "CHARACTER_MAXIMUM_LENGTH";
             this.cHARACTERMAXIMUMLENGTHDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.cHARACTERMAXIMUMLENGTHDataGridViewTextBoxColumn.Name = "cHARACTERMAXIMUMLENGTHDataGridViewTextBoxColumn";
-            this.cHARACTERMAXIMUMLENGTHDataGridViewTextBoxColumn.ReadOnly = true;
             this.cHARACTERMAXIMUMLENGTHDataGridViewTextBoxColumn.Width = 125;
             // 
             // nUMERICPRECISIONDataGridViewTextBoxColumn
@@ -152,7 +145,6 @@
             this.nUMERICPRECISIONDataGridViewTextBoxColumn.HeaderText = "NUMERIC_PRECISION";
             this.nUMERICPRECISIONDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.nUMERICPRECISIONDataGridViewTextBoxColumn.Name = "nUMERICPRECISIONDataGridViewTextBoxColumn";
-            this.nUMERICPRECISIONDataGridViewTextBoxColumn.ReadOnly = true;
             this.nUMERICPRECISIONDataGridViewTextBoxColumn.Width = 125;
             // 
             // nUMERICSCALEDataGridViewTextBoxColumn
@@ -161,7 +153,6 @@
             this.nUMERICSCALEDataGridViewTextBoxColumn.HeaderText = "NUMERIC_SCALE";
             this.nUMERICSCALEDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.nUMERICSCALEDataGridViewTextBoxColumn.Name = "nUMERICSCALEDataGridViewTextBoxColumn";
-            this.nUMERICSCALEDataGridViewTextBoxColumn.ReadOnly = true;
             this.nUMERICSCALEDataGridViewTextBoxColumn.Width = 125;
             // 
             // bKDataGridViewTextBoxColumn
@@ -170,7 +161,6 @@
             this.bKDataGridViewTextBoxColumn.HeaderText = "BK";
             this.bKDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.bKDataGridViewTextBoxColumn.Name = "bKDataGridViewTextBoxColumn";
-            this.bKDataGridViewTextBoxColumn.ReadOnly = true;
             this.bKDataGridViewTextBoxColumn.Width = 125;
             // 
             // pKDataGridViewTextBoxColumn
@@ -179,7 +169,6 @@
             this.pKDataGridViewTextBoxColumn.HeaderText = "PK";
             this.pKDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.pKDataGridViewTextBoxColumn.Name = "pKDataGridViewTextBoxColumn";
-            this.pKDataGridViewTextBoxColumn.ReadOnly = true;
             this.pKDataGridViewTextBoxColumn.Width = 125;
             // 
             // dIDataGridViewTextBoxColumn
@@ -188,7 +177,6 @@
             this.dIDataGridViewTextBoxColumn.HeaderText = "DI";
             this.dIDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.dIDataGridViewTextBoxColumn.Name = "dIDataGridViewTextBoxColumn";
-            this.dIDataGridViewTextBoxColumn.ReadOnly = true;
             this.dIDataGridViewTextBoxColumn.Width = 125;
             // 
             // dVIDDataGridViewTextBoxColumn
@@ -197,14 +185,13 @@
             this.dVIDDataGridViewTextBoxColumn.HeaderText = "DVID";
             this.dVIDDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.dVIDDataGridViewTextBoxColumn.Name = "dVIDDataGridViewTextBoxColumn";
-            this.dVIDDataGridViewTextBoxColumn.ReadOnly = true;
             this.dVIDDataGridViewTextBoxColumn.Width = 125;
             // 
             // META
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1099, 750);
+            this.ClientSize = new System.Drawing.Size(1077, 761);
             this.Controls.Add(this.dataGridView1);
             this.Name = "META";
             this.Text = "META";

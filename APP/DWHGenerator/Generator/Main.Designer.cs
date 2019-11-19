@@ -59,11 +59,11 @@
             // 
             // btnShowMETA
             // 
-            this.btnShowMETA.Location = new System.Drawing.Point(688, 12);
+            this.btnShowMETA.Location = new System.Drawing.Point(748, 12);
             this.btnShowMETA.Name = "btnShowMETA";
             this.btnShowMETA.Size = new System.Drawing.Size(279, 34);
             this.btnShowMETA.TabIndex = 2;
-            this.btnShowMETA.Text = "Show META";
+            this.btnShowMETA.Text = "Show META data";
             this.btnShowMETA.UseVisualStyleBackColor = true;
             this.btnShowMETA.Click += new System.EventHandler(this.btnShowMETA_Click);
             // 
@@ -75,6 +75,9 @@
             this.Controls.Add(this.btnShowMETA);
             this.Controls.Add(this.rtbContent);
             this.Controls.Add(this.lbType);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Main";
             this.Text = "Main";
             this.ResumeLayout(false);

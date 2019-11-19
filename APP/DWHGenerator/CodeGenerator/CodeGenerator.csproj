@@ -54,17 +54,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </Compile>
-    <Compile Include="META.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="META.Designer.cs">
-      <DependentUpon>META.cs</DependentUpon>
-    </Compile>
-    <Compile Include="METADataSet.Designer.cs">
-      <DependentUpon>METADataSet.xsd</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
@@ -84,17 +73,6 @@
     <None Include="DataClasses.dbml.layout">
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </None>
-    <None Include="METADataSet.xsc">
-      <DependentUpon>METADataSet.xsd</DependentUpon>
-    </None>
-    <None Include="METADataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>METADataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="METADataSet.xss">
-      <DependentUpon>METADataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -103,11 +81,6 @@
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="META.resx">
-      <DependentUpon>META.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

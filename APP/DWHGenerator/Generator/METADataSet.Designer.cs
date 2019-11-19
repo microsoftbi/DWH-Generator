@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace CodeGenerator {
+namespace Generator {
     
     
     /// <summary>
@@ -1035,7 +1035,7 @@ namespace CodeGenerator {
         }
     }
 }
-namespace CodeGenerator.METADataSetTableAdapters {
+namespace Generator.METADataSetTableAdapters {
     
     
     /// <summary>
@@ -1193,7 +1193,7 @@ namespace CodeGenerator.METADataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::CodeGenerator.Properties.Settings.Default.METAConnectionString;
+            this._connection.ConnectionString = global::Generator.Properties.Settings.Default.METAConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
