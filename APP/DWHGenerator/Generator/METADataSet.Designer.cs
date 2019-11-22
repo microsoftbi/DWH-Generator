@@ -303,6 +303,8 @@ namespace Generator {
             
             private global::System.Data.DataColumn columnDVID;
             
+            private global::System.Data.DataColumn columnRecordSource;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ATTRIBUTEDataTable() {
@@ -434,6 +436,14 @@ namespace Generator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn RecordSourceColumn {
+                get {
+                    return this.columnRecordSource;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -469,7 +479,7 @@ namespace Generator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public ATTRIBUTERow AddATTRIBUTERow(string TABLE_CATALOG, string TABLE_NAME, string COLUMN_NAME, string DATA_TYPE, int CHARACTER_MAXIMUM_LENGTH, byte NUMERIC_PRECISION, int NUMERIC_SCALE, int BK, int PK, int DI, int DVID) {
+            public ATTRIBUTERow AddATTRIBUTERow(string TABLE_CATALOG, string TABLE_NAME, string COLUMN_NAME, string DATA_TYPE, int CHARACTER_MAXIMUM_LENGTH, byte NUMERIC_PRECISION, int NUMERIC_SCALE, int BK, int PK, int DI, int DVID, string RecordSource) {
                 ATTRIBUTERow rowATTRIBUTERow = ((ATTRIBUTERow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -483,7 +493,8 @@ namespace Generator {
                         BK,
                         PK,
                         DI,
-                        DVID};
+                        DVID,
+                        RecordSource};
                 rowATTRIBUTERow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowATTRIBUTERow);
                 return rowATTRIBUTERow;
@@ -518,6 +529,7 @@ namespace Generator {
                 this.columnPK = base.Columns["PK"];
                 this.columnDI = base.Columns["DI"];
                 this.columnDVID = base.Columns["DVID"];
+                this.columnRecordSource = base.Columns["RecordSource"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -547,6 +559,8 @@ namespace Generator {
                 base.Columns.Add(this.columnDI);
                 this.columnDVID = new global::System.Data.DataColumn("DVID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDVID);
+                this.columnRecordSource = new global::System.Data.DataColumn("RecordSource", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRecordSource);
                 this.columnID.AutoIncrement = true;
                 this.columnID.AutoIncrementSeed = -1;
                 this.columnID.AutoIncrementStep = -1;
@@ -557,6 +571,7 @@ namespace Generator {
                 this.columnTABLE_NAME.MaxLength = 128;
                 this.columnCOLUMN_NAME.MaxLength = 128;
                 this.columnDATA_TYPE.MaxLength = 128;
+                this.columnRecordSource.MaxLength = 20;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -881,6 +896,22 @@ namespace Generator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string RecordSource {
+                get {
+                    try {
+                        return ((string)(this[this.tableATTRIBUTE.RecordSourceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("表“ATTRIBUTE”中列“RecordSource”的值为 DBNull。", e);
+                    }
+                }
+                set {
+                    this[this.tableATTRIBUTE.RecordSourceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsTABLE_CATALOGNull() {
                 return this.IsNull(this.tableATTRIBUTE.TABLE_CATALOGColumn);
             }
@@ -997,6 +1028,18 @@ namespace Generator {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetDVIDNull() {
                 this[this.tableATTRIBUTE.DVIDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsRecordSourceNull() {
+                return this.IsNull(this.tableATTRIBUTE.RecordSourceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetRecordSourceNull() {
+                this[this.tableATTRIBUTE.RecordSourceColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1171,10 +1214,11 @@ namespace Generator.METADataSetTableAdapters {
             tableMapping.ColumnMappings.Add("PK", "PK");
             tableMapping.ColumnMappings.Add("DI", "DI");
             tableMapping.ColumnMappings.Add("DVID", "DVID");
+            tableMapping.ColumnMappings.Add("RecordSource", "RecordSource");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[ATTRIBUTE] ([TABLE_CATALOG], [TABLE_NAME], [COLUMN_NAME], [DATA_TYPE], [CHARACTER_MAXIMUM_LENGTH], [NUMERIC_PRECISION], [NUMERIC_SCALE], [BK], [PK], [DI], [DVID]) VALUES (@TABLE_CATALOG, @TABLE_NAME, @COLUMN_NAME, @DATA_TYPE, @CHARACTER_MAXIMUM_LENGTH, @NUMERIC_PRECISION, @NUMERIC_SCALE, @BK, @PK, @DI, @DVID)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[ATTRIBUTE] ([TABLE_CATALOG], [TABLE_NAME], [COLUMN_NAME], [DATA_TYPE], [CHARACTER_MAXIMUM_LENGTH], [NUMERIC_PRECISION], [NUMERIC_SCALE], [RecordSource], [BK], [PK], [DI], [DVID]) VALUES (@TABLE_CATALOG, @TABLE_NAME, @COLUMN_NAME, @DATA_TYPE, @CHARACTER_MAXIMUM_LENGTH, @NUMERIC_PRECISION, @NUMERIC_SCALE, @RecordSource, @BK, @PK, @DI, @DVID)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TABLE_CATALOG", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TABLE_CATALOG", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@TABLE_NAME", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "TABLE_NAME", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1183,6 +1227,7 @@ namespace Generator.METADataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@CHARACTER_MAXIMUM_LENGTH", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CHARACTER_MAXIMUM_LENGTH", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NUMERIC_PRECISION", global::System.Data.SqlDbType.TinyInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NUMERIC_PRECISION", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@NUMERIC_SCALE", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NUMERIC_SCALE", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RecordSource", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "RecordSource", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BK", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BK", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@PK", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "PK", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@DI", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "DI", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1203,7 +1248,8 @@ namespace Generator.METADataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID, TABLE_CATALOG, TABLE_NAME, COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_L" +
-                "ENGTH, NUMERIC_PRECISION, NUMERIC_SCALE, BK, PK, DI, DVID FROM dbo.ATTRIBUTE";
+                "ENGTH, NUMERIC_PRECISION, NUMERIC_SCALE,RecordSource, BK, PK, DI, DVID FROM dbo." +
+                "ATTRIBUTE";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1264,7 +1310,7 @@ namespace Generator.METADataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string TABLE_CATALOG, string TABLE_NAME, string COLUMN_NAME, string DATA_TYPE, global::System.Nullable<int> CHARACTER_MAXIMUM_LENGTH, global::System.Nullable<byte> NUMERIC_PRECISION, global::System.Nullable<int> NUMERIC_SCALE, global::System.Nullable<int> BK, global::System.Nullable<int> PK, global::System.Nullable<int> DI, global::System.Nullable<int> DVID) {
+        public virtual int Insert(string TABLE_CATALOG, string TABLE_NAME, string COLUMN_NAME, string DATA_TYPE, global::System.Nullable<int> CHARACTER_MAXIMUM_LENGTH, global::System.Nullable<byte> NUMERIC_PRECISION, global::System.Nullable<int> NUMERIC_SCALE, string RecordSource, global::System.Nullable<int> BK, global::System.Nullable<int> PK, global::System.Nullable<int> DI, global::System.Nullable<int> DVID) {
             if ((TABLE_CATALOG == null)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -1307,29 +1353,35 @@ namespace Generator.METADataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((BK.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(BK.Value));
-            }
-            else {
+            if ((RecordSource == null)) {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((PK.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(PK.Value));
+            else {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(RecordSource));
+            }
+            if ((BK.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((int)(BK.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((DI.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((int)(DI.Value));
+            if ((PK.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((int)(PK.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((DVID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((int)(DVID.Value));
+            if ((DI.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((int)(DI.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((DVID.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[11].Value = ((int)(DVID.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 

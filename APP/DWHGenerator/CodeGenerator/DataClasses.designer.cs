@@ -91,11 +91,15 @@ namespace CodeGenerator
 		
 		private System.Nullable<int> _NUMERIC_SCALE;
 		
+		private string _RecordSource;
+		
 		private System.Nullable<int> _BK;
 		
 		private System.Nullable<int> _PK;
 		
 		private System.Nullable<int> _DI;
+		
+		private System.Nullable<int> _DVID;
 		
 		public ATTRIBUTE()
 		{
@@ -229,6 +233,22 @@ namespace CodeGenerator
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RecordSource", DbType="NVarChar(20)")]
+		public string RecordSource
+		{
+			get
+			{
+				return this._RecordSource;
+			}
+			set
+			{
+				if ((this._RecordSource != value))
+				{
+					this._RecordSource = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BK", DbType="Int")]
 		public System.Nullable<int> BK
 		{
@@ -273,6 +293,22 @@ namespace CodeGenerator
 				if ((this._DI != value))
 				{
 					this._DI = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DVID", DbType="Int")]
+		public System.Nullable<int> DVID
+		{
+			get
+			{
+				return this._DVID;
+			}
+			set
+			{
+				if ((this._DVID != value))
+				{
+					this._DVID = value;
 				}
 			}
 		}

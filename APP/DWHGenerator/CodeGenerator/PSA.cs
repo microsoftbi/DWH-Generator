@@ -15,18 +15,18 @@ namespace CodeGenerator
 
             var lstMetas = (from p in dc.ATTRIBUTE select p).ToList();
 
-            List<string> lstTables = (from p in lstMetas select p.TABLE_NAME).ToList();
+            List<ATTRIBUTE> lstTables = (from p in lstMetas select p).ToList();
 
             StringBuilder sb = new StringBuilder();
 
             //Table
             foreach (var itemTable in lstTables.Distinct())
             {
-                sb.AppendLine("CREATE TABLE [dbo].["+ itemTable+"]");
+                sb.AppendLine("CREATE TABLE [" + itemTable.RecordSource + "].[" + itemTable.TABLE_NAME + "]");
                 sb.AppendLine("(");
 
                 //Fields
-                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable where p.PK==1 || p.BK==1 || p.DI==1 select p).ToList();
+                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK==1 || p.BK==1 || p.DI==1 select p).ToList();
 
                 int n = lstColumns.Count;
                 int pt = 0;
@@ -63,18 +63,18 @@ namespace CodeGenerator
 
             var lstMetas = (from p in dc.ATTRIBUTE select p).ToList();
 
-            List<string> lstTables = (from p in lstMetas select p.TABLE_NAME).ToList();
+            List<ATTRIBUTE> lstTables = (from p in lstMetas select p).ToList();
 
             StringBuilder sb = new StringBuilder();
 
             //Table
             foreach (var itemTable in lstTables.Distinct())
             {
-                sb.AppendLine("CREATE TABLE [dbo].[" + itemTable + "_STG]");
+                sb.AppendLine("CREATE TABLE ["+itemTable.RecordSource+"].[" + itemTable.TABLE_NAME + "_STG]");
                 sb.AppendLine("(");
 
                 //Fields
-                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable where p.PK == 1 || p.BK == 1 || p.DI == 1 select p).ToList();
+                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == 1 || p.BK == 1 || p.DI == 1 select p).ToList();
 
                 foreach (var itemColumn in lstColumns)
                 {
@@ -102,18 +102,18 @@ namespace CodeGenerator
 
             var lstMetas = (from p in dc.ATTRIBUTE select p).ToList();
 
-            List<string> lstTables = (from p in lstMetas select p.TABLE_NAME).ToList();
+            List<ATTRIBUTE> lstTables = (from p in lstMetas select p).ToList();
 
             StringBuilder sb = new StringBuilder();
 
             //Table
             foreach (var itemTable in lstTables.Distinct())
             {
-                sb.AppendLine("CREATE TABLE [dbo].[" + itemTable + "_HIS]");
+                sb.AppendLine("CREATE TABLE ["+itemTable.RecordSource+"].[" + itemTable.TABLE_NAME + "_HIS]");
                 sb.AppendLine("(");
 
                 //Fields
-                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable where p.PK == 1 || p.BK == 1 || p.DI == 1 select p).ToList();
+                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == 1 || p.BK == 1 || p.DI == 1 select p).ToList();
 
                 foreach (var itemColumn in lstColumns)
                 {
@@ -144,7 +144,7 @@ namespace CodeGenerator
 
             var lstMetas = (from p in dc.ATTRIBUTE select p).ToList();
 
-            List<string> lstTables = (from p in lstMetas select p.TABLE_NAME).ToList();
+            List<ATTRIBUTE> lstTables = (from p in lstMetas select p).ToList();
 
             StringBuilder sb = new StringBuilder();
 
@@ -154,22 +154,22 @@ namespace CodeGenerator
 
                 sb.AppendLine("USE [STAGE]");
                 sb.AppendLine("GO");
-                sb.AppendLine("CREATE PROCEDURE [dbo].[USP_"+itemTable+"_STG]");
+                sb.AppendLine("CREATE PROCEDURE ["+itemTable.RecordSource+"].[USP_"+itemTable.TABLE_NAME+"_STG]");
                 sb.AppendLine("AS");
                 sb.AppendLine("\tBEGIN");
                 sb.AppendLine("\tDECLARE @LOGSOURCE AS NVARCHAR(100);");
-                sb.AppendLine("\tSET @LOGSOURCE = N'STAGE.dbo.USP_" + itemTable + "_HIS';");
-                sb.AppendLine("\tEXEC META.dbo.USP_WRITELOG N'Start to load " + itemTable + "_HIS', @LOGSOURCE, N'N';");
+                sb.AppendLine("\tSET @LOGSOURCE = N'STAGE.dbo.USP_" + itemTable.TABLE_NAME + "_HIS';");
+                sb.AppendLine("\tEXEC META.dbo.USP_WRITELOG N'Start to load " + itemTable.TABLE_NAME + "_HIS', @LOGSOURCE, N'N';");
                 sb.AppendLine("");
                 sb.AppendLine("\tBEGIN TRY");
                 sb.AppendLine("\t\tBEGIN TRAN;");
-                sb.AppendLine("\t\t\tTRUNCATE TABLE [STAGE].[dbo].[" + itemTable+"_STG];");
+                sb.AppendLine("\t\t\tTRUNCATE TABLE [STAGE].[dbo].[" + itemTable.TABLE_NAME + "_STG];");
                 sb.AppendLine("");
-                sb.AppendLine("\t\t\tINSERT INTO [STAGE].[dbo].[" + itemTable+"_STG]");
+                sb.AppendLine("\t\t\tINSERT INTO [STAGE].[dbo].[" + itemTable.TABLE_NAME + "_STG]");
                 sb.AppendLine("\t\t\tSELECT");
 
                 //Fields
-                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable where p.PK == 1 || p.BK == 1 || p.DI == 1 select p).ToList();
+                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == 1 || p.BK == 1 || p.DI == 1 select p).ToList();
 
                 foreach (var itemColumn in lstColumns)
                 {
@@ -203,14 +203,14 @@ namespace CodeGenerator
                 sb.AppendLine("\t\t\t\t2");
                 sb.AppendLine("\t\t\t\t) AS HD,");
                 sb.AppendLine("\t\t\t\tGETDATE() AS [INSERT TIME]");
-                sb.AppendLine("\t\t\tFROM [STAGE].[dbo].[" + itemTable+"];");
+                sb.AppendLine("\t\t\tFROM [STAGE].[dbo].[" + itemTable.TABLE_NAME + "];");
                 sb.AppendLine("\t\tCOMMIT TRAN;");
                 sb.AppendLine("\tEND TRY");
 
                 sb.AppendLine("\tBEGIN CATCH");
                 sb.AppendLine("\t\tROLLBACK TRAN;");
                 sb.AppendLine("\t\tDECLARE @ERROR_MESSAGE AS NVARCHAR(4000);");
-                sb.AppendLine("\t\tSET @ERROR_MESSAGE = N'Failed to load " + itemTable + "_HIS' + ISNULL(ERROR_MESSAGE(), '');");
+                sb.AppendLine("\t\tSET @ERROR_MESSAGE = N'Failed to load " + itemTable.TABLE_NAME + "_HIS' + ISNULL(ERROR_MESSAGE(), '');");
                 sb.AppendLine("\t\tEXEC META.dbo.USP_WRITELOG @ERROR_MESSAGE, @LOGSOURCE, N'E';");
                 sb.AppendLine("\tEND CATCH");
                 sb.AppendLine("");
@@ -233,7 +233,7 @@ namespace CodeGenerator
 
             var lstMetas = (from p in dc.ATTRIBUTE select p).ToList();
 
-            List<string> lstTables = (from p in lstMetas select p.TABLE_NAME).ToList();
+            List<ATTRIBUTE> lstTables = (from p in lstMetas select p).ToList();
 
             StringBuilder sb = new StringBuilder();
 
@@ -242,11 +242,11 @@ namespace CodeGenerator
             //Table
             foreach (var itemTable in lstTables.Distinct())
             {
-                PK = (from p in dc.ATTRIBUTE where p.TABLE_NAME == itemTable select p.COLUMN_NAME).ToList()[0];
+                PK = (from p in dc.ATTRIBUTE where p.TABLE_NAME == itemTable.TABLE_NAME select p.COLUMN_NAME).ToList()[0];
 
                 sb.AppendLine("USE [STAGE]");
                 sb.AppendLine("GO");
-                sb.AppendLine("CREATE PROCEDURE [dbo].[USP_" + itemTable + "_HIS]");
+                sb.AppendLine("CREATE PROCEDURE ["+itemTable.RecordSource+"].[USP_" + itemTable.TABLE_NAME + "_HIS]");
                 sb.AppendLine("AS");
                 sb.AppendLine("BEGIN");
 
@@ -258,17 +258,17 @@ namespace CodeGenerator
                 sb.AppendLine("\tSET @VALIDFROM = GETDATE();");
                 sb.AppendLine("\tSET @VALIDTO = GETDATE();");
                 sb.AppendLine("\tSET @DEFAULTVALIDTO = '2199-12-31';");
-                sb.AppendLine("\tSET @LOGSOURCE = N'STAGE.dbo.USP_"+itemTable+"_HIS';");
+                sb.AppendLine("\tSET @LOGSOURCE = N'STAGE.dbo.USP_"+itemTable.TABLE_NAME + "_HIS';");
                 sb.AppendLine("");
-                sb.AppendLine("\tEXEC META.dbo.USP_WRITELOG N'Start to load "+itemTable+"_HIS', @LOGSOURCE, N'N';");
+                sb.AppendLine("\tEXEC META.dbo.USP_WRITELOG N'Start to load "+itemTable.TABLE_NAME + "_HIS', @LOGSOURCE, N'N';");
                 sb.AppendLine("");
                 sb.AppendLine("\tBEGIN TRY");
                 sb.AppendLine("\t\tBEGIN TRAN;");
-                sb.AppendLine("\t\t\tINSERT INTO [dbo].[" + itemTable+"_HIS]");
+                sb.AppendLine("\t\t\tINSERT INTO [dbo].[" + itemTable.TABLE_NAME + "_HIS]");
                 sb.AppendLine("\t\t\tSELECT");
 
                 //Fields
-                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable where p.PK == 1 || p.BK == 1 || p.DI == 1 select p).ToList();
+                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == 1 || p.BK == 1 || p.DI == 1 select p).ToList();
 
                 foreach (var itemColumn in lstColumns)
                 {
@@ -282,8 +282,8 @@ namespace CodeGenerator
                 sb.AppendLine("\t\t\t\t[IS CURRENT]");
                 sb.AppendLine("\t\t\tFROM");
                 sb.AppendLine("\t\t\t(");
-                sb.AppendLine("\t\t\t\tMERGE [dbo].[" + itemTable + "_HIS] AS TARGET");
-                sb.AppendLine("\t\t\t\tUSING [dbo].[" + itemTable + "_STG] AS SOURCE");
+                sb.AppendLine("\t\t\t\tMERGE [dbo].[" + itemTable.TABLE_NAME + "_HIS] AS TARGET");
+                sb.AppendLine("\t\t\t\tUSING [dbo].[" + itemTable.TABLE_NAME + "_STG] AS SOURCE");
                 sb.AppendLine("\t\t\t\t\tON TARGET." + PK + " = SOURCE." + PK + "");
 
                 sb.AppendLine("\t\t\t\tWHEN MATCHED AND SOURCE.HD <> TARGET.HD THEN");
@@ -342,14 +342,14 @@ namespace CodeGenerator
                 sb.AppendLine("\t\t\t\t) MERGE_OUTPUT");
                 sb.AppendLine("\t\t\tWHERE MERGE_OUTPUT.MERGE_ACTION = 'UPDATE';");
                 sb.AppendLine("");
-                sb.AppendLine("\t\tEXEC META.dbo.USP_WRITELOG N'Finish to load " + itemTable + "_HIS', @LOGSOURCE, N'N';");
+                sb.AppendLine("\t\tEXEC META.dbo.USP_WRITELOG N'Finish to load " + itemTable.TABLE_NAME + "_HIS', @LOGSOURCE, N'N';");
                 sb.AppendLine("\t\tCOMMIT TRAN;");
                 sb.AppendLine("\tEND TRY");
 
                 sb.AppendLine("\tBEGIN CATCH");
                 sb.AppendLine("\t\tROLLBACK TRAN;");
                 sb.AppendLine("\t\tDECLARE @ERROR_MESSAGE AS NVARCHAR(4000);");
-                sb.AppendLine("\t\tSET @ERROR_MESSAGE = N'Failed to load "+itemTable+"_HIS' + ISNULL(ERROR_MESSAGE(), '');");
+                sb.AppendLine("\t\tSET @ERROR_MESSAGE = N'Failed to load "+itemTable.TABLE_NAME + "_HIS' + ISNULL(ERROR_MESSAGE(), '');");
                 sb.AppendLine("\t\tEXEC META.dbo.USP_WRITELOG @ERROR_MESSAGE, @LOGSOURCE, N'E';");
                 sb.AppendLine("\tEND CATCH");
 
@@ -365,7 +365,7 @@ namespace CodeGenerator
         }
 
         /// <summary>
-        /// Generate filed expr script accouding to type defination information.
+        /// Generate filed expr script accouding to type defination information.(Information schema)
         /// </summary>
         /// <param name="FieldName"></param>
         /// <param name="FieldType"></param>

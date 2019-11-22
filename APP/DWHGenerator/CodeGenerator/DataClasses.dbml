@@ -10,9 +10,11 @@
       <Column Name="CHARACTER_MAXIMUM_LENGTH" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="NUMERIC_PRECISION" Type="System.Byte" DbType="TinyInt" CanBeNull="true" />
       <Column Name="NUMERIC_SCALE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RecordSource" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
       <Column Name="BK" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PK" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DI" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DVID" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
