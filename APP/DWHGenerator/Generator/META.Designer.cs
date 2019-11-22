@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.aTTRIBUTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mETADataSet = new Generator.METADataSet();
-            this.aTTRIBUTETableAdapter = new Generator.METADataSetTableAdapters.ATTRIBUTETableAdapter();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tABLECATALOGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tABLENAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,6 +43,9 @@
             this.pKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dIDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dVIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aTTRIBUTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mETADataSet = new Generator.METADataSet();
+            this.aTTRIBUTETableAdapter = new Generator.METADataSetTableAdapters.ATTRIBUTETableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aTTRIBUTEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mETADataSet)).BeginInit();
@@ -75,22 +75,8 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(1077, 761);
+            this.dataGridView1.Size = new System.Drawing.Size(1112, 761);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // aTTRIBUTEBindingSource
-            // 
-            this.aTTRIBUTEBindingSource.DataMember = "ATTRIBUTE";
-            this.aTTRIBUTEBindingSource.DataSource = this.mETADataSet;
-            // 
-            // mETADataSet
-            // 
-            this.mETADataSet.DataSetName = "METADataSet";
-            this.mETADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // aTTRIBUTETableAdapter
-            // 
-            this.aTTRIBUTETableAdapter.ClearBeforeFill = true;
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -197,13 +183,28 @@
             this.dVIDDataGridViewTextBoxColumn.Name = "dVIDDataGridViewTextBoxColumn";
             this.dVIDDataGridViewTextBoxColumn.Width = 125;
             // 
+            // aTTRIBUTEBindingSource
+            // 
+            this.aTTRIBUTEBindingSource.DataMember = "ATTRIBUTE";
+            this.aTTRIBUTEBindingSource.DataSource = this.mETADataSet;
+            // 
+            // mETADataSet
+            // 
+            this.mETADataSet.DataSetName = "METADataSet";
+            this.mETADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // aTTRIBUTETableAdapter
+            // 
+            this.aTTRIBUTETableAdapter.ClearBeforeFill = true;
+            // 
             // META
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1077, 761);
+            this.ClientSize = new System.Drawing.Size(1112, 761);
             this.Controls.Add(this.dataGridView1);
             this.Name = "META";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "META";
             this.Load += new System.EventHandler(this.META_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

@@ -21,22 +21,22 @@ namespace Generator
         {
             try
             {
-                switch (lbType.SelectedIndex)
+                switch (lbType1.SelectedIndex)
                 {
                     case 0:
-                        rtbContent.Text = PSA.GenerateLandingZone();
+                        rtbContent.Text = PSA_TYPE1.GenerateLandingZone();
                         break;
                     case 1:
-                        rtbContent.Text = PSA.GenerateUSPSTG();
+                        rtbContent.Text = PSA_TYPE1.GenerateUSPSTG();
                         break;
                     case 2:
-                        rtbContent.Text = PSA.GenerateSTG();
+                        rtbContent.Text = PSA_TYPE1.GenerateSTG();
                         break;
                     case 3:
-                        rtbContent.Text = PSA.GenerateUSPHIS();
+                        rtbContent.Text = PSA_TYPE1.GenerateUSPHIS();
                         break;
                     case 4:
-                        rtbContent.Text = PSA.GenerateHIS();
+                        rtbContent.Text = PSA_TYPE1.GenerateHIS();
                         break;
                 }
             }
@@ -50,6 +50,41 @@ namespace Generator
         {
             META winMeta = new META();
             winMeta.ShowDialog();
+        }
+
+        private void lbType2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                switch (lbType2.SelectedIndex)
+                {
+                    case 0:
+                        rtbContent.Text = PSA_TYPE2.GenerateTableSTG();
+                        break;
+                    case 1:
+                        rtbContent.Text = PSA_TYPE2.GenerateVIEWMTA();
+                        break;
+                    case 2:
+                        rtbContent.Text = PSA_TYPE2.GenerateUSPCDC();
+                        break;
+                    case 3:
+                        rtbContent.Text = PSA_TYPE2.GenerateTableCDC();
+                        break;
+                    case 4:
+                        rtbContent.Text = PSA_TYPE2.GenerateUSPLOG();
+                        break;
+                    case 5:
+                        rtbContent.Text = PSA_TYPE2.GenerateTableLOG();
+                        break;
+                    case 6:
+                        rtbContent.Text = PSA_TYPE2.GenerateVIECURRENT();
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

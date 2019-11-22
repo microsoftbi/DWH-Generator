@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CodeGenerator
 {
-    public class PSA
+    public class PSA_TYPE1
     {
         public static string GenerateLandingZone()
         { 
@@ -15,7 +15,7 @@ namespace CodeGenerator
 
             var lstMetas = (from p in dc.ATTRIBUTE select p).ToList();
 
-            List<ATTRIBUTE> lstTables = (from p in lstMetas select p).ToList();
+            var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RecordSource}).ToList();
 
             StringBuilder sb = new StringBuilder();
 
@@ -37,11 +37,11 @@ namespace CodeGenerator
 
                     if (pt < n)
                     {
-                        sb.AppendLine(FieldGenerate(itemColumn.COLUMN_NAME, itemColumn.DATA_TYPE, itemColumn.CHARACTER_MAXIMUM_LENGTH, itemColumn.NUMERIC_PRECISION, itemColumn.NUMERIC_SCALE)+",");
+                        sb.AppendLine(Common.FieldGenerate(itemColumn.COLUMN_NAME, itemColumn.DATA_TYPE, itemColumn.CHARACTER_MAXIMUM_LENGTH, itemColumn.NUMERIC_PRECISION, itemColumn.NUMERIC_SCALE)+",");
                     }
                     else
                     {
-                        sb.AppendLine(FieldGenerate(itemColumn.COLUMN_NAME, itemColumn.DATA_TYPE, itemColumn.CHARACTER_MAXIMUM_LENGTH, itemColumn.NUMERIC_PRECISION, itemColumn.NUMERIC_SCALE));
+                        sb.AppendLine(Common.FieldGenerate(itemColumn.COLUMN_NAME, itemColumn.DATA_TYPE, itemColumn.CHARACTER_MAXIMUM_LENGTH, itemColumn.NUMERIC_PRECISION, itemColumn.NUMERIC_SCALE));
                     }
                 }
 
@@ -63,7 +63,7 @@ namespace CodeGenerator
 
             var lstMetas = (from p in dc.ATTRIBUTE select p).ToList();
 
-            List<ATTRIBUTE> lstTables = (from p in lstMetas select p).ToList();
+            var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RecordSource }).ToList();
 
             StringBuilder sb = new StringBuilder();
 
@@ -78,7 +78,7 @@ namespace CodeGenerator
 
                 foreach (var itemColumn in lstColumns)
                 {
-                    sb.AppendLine(FieldGenerate(itemColumn.COLUMN_NAME, itemColumn.DATA_TYPE, itemColumn.CHARACTER_MAXIMUM_LENGTH, itemColumn.NUMERIC_PRECISION, itemColumn.NUMERIC_SCALE) + ",");
+                    sb.AppendLine(Common.FieldGenerate(itemColumn.COLUMN_NAME, itemColumn.DATA_TYPE, itemColumn.CHARACTER_MAXIMUM_LENGTH, itemColumn.NUMERIC_PRECISION, itemColumn.NUMERIC_SCALE) + ",");
                 }
 
                 sb.AppendLine("\t[HD] [char] (32),");
@@ -102,7 +102,7 @@ namespace CodeGenerator
 
             var lstMetas = (from p in dc.ATTRIBUTE select p).ToList();
 
-            List<ATTRIBUTE> lstTables = (from p in lstMetas select p).ToList();
+            var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RecordSource }).ToList();
 
             StringBuilder sb = new StringBuilder();
 
@@ -117,7 +117,7 @@ namespace CodeGenerator
 
                 foreach (var itemColumn in lstColumns)
                 {
-                    sb.AppendLine(FieldGenerate(itemColumn.COLUMN_NAME, itemColumn.DATA_TYPE, itemColumn.CHARACTER_MAXIMUM_LENGTH, itemColumn.NUMERIC_PRECISION, itemColumn.NUMERIC_SCALE) + ",");
+                    sb.AppendLine(Common.FieldGenerate(itemColumn.COLUMN_NAME, itemColumn.DATA_TYPE, itemColumn.CHARACTER_MAXIMUM_LENGTH, itemColumn.NUMERIC_PRECISION, itemColumn.NUMERIC_SCALE) + ",");
                 }
 
                 sb.AppendLine("\t[HD] [char] (32),");
@@ -144,7 +144,7 @@ namespace CodeGenerator
 
             var lstMetas = (from p in dc.ATTRIBUTE select p).ToList();
 
-            List<ATTRIBUTE> lstTables = (from p in lstMetas select p).ToList();
+            var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RecordSource }).ToList();
 
             StringBuilder sb = new StringBuilder();
 
@@ -188,6 +188,9 @@ namespace CodeGenerator
                 foreach (var itemColumn in lstColumns)
                 {
                     pt++;
+
+                    if (itemColumn.PK == 1) continue;
+
 
                     if (pt == 1)
                     {
@@ -233,7 +236,7 @@ namespace CodeGenerator
 
             var lstMetas = (from p in dc.ATTRIBUTE select p).ToList();
 
-            List<ATTRIBUTE> lstTables = (from p in lstMetas select p).ToList();
+            var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RecordSource }).ToList();
 
             StringBuilder sb = new StringBuilder();
 
@@ -242,7 +245,7 @@ namespace CodeGenerator
             //Table
             foreach (var itemTable in lstTables.Distinct())
             {
-                PK = (from p in dc.ATTRIBUTE where p.TABLE_NAME == itemTable.TABLE_NAME select p.COLUMN_NAME).ToList()[0];
+                PK = (from p in dc.ATTRIBUTE where p.TABLE_NAME == itemTable.TABLE_NAME && p.PK == 1 select p.COLUMN_NAME).ToList()[0];
 
                 sb.AppendLine("USE [STAGE]");
                 sb.AppendLine("GO");
@@ -364,33 +367,6 @@ namespace CodeGenerator
             return result;
         }
 
-        /// <summary>
-        /// Generate filed expr script accouding to type defination information.(Information schema)
-        /// </summary>
-        /// <param name="FieldName"></param>
-        /// <param name="FieldType"></param>
-        /// <param name="CharLen"></param>
-        /// <param name="nPrecision"></param>
-        /// <param name="nScale"></param>
-        /// <returns></returns>
-        public static string FieldGenerate(string FieldName, string FieldType, int? CharLen, int? nPrecision, int? nScale)
-        {
-            string result="";
-
-            //[ID] [int] NULL,
-            result = "\t[" + FieldName + "] " + FieldType+ "";
-            if (FieldType.ToUpper() == "NVARCHAR")
-            {
-                result += "("+CharLen.ToString()+")";
-            }
-            if (FieldType.ToUpper() == "DECIMAL")
-            {
-                result += "(" + nPrecision.ToString() + "," + nScale.ToString() + ")";
-            }
-
-            result += " NULL";
-
-            return result;
-        }
+        
     }
 }
