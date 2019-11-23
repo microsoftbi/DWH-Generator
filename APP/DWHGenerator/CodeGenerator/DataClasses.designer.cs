@@ -69,6 +69,14 @@ namespace CodeGenerator
 				return this.GetTable<ATTRIBUTE>();
 			}
 		}
+		
+		public System.Data.Linq.Table<Layers> Layers
+		{
+			get
+			{
+				return this.GetTable<Layers>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.ATTRIBUTE")]
@@ -309,6 +317,69 @@ namespace CodeGenerator
 				if ((this._DVID != value))
 				{
 					this._DVID = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Layers")]
+	public partial class Layers
+	{
+		
+		private int _ID;
+		
+		private string _LayerName;
+		
+		private string _DatabaseName;
+		
+		public Layers()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LayerName", DbType="NVarChar(20)")]
+		public string LayerName
+		{
+			get
+			{
+				return this._LayerName;
+			}
+			set
+			{
+				if ((this._LayerName != value))
+				{
+					this._LayerName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DatabaseName", DbType="NVarChar(20)")]
+		public string DatabaseName
+		{
+			get
+			{
+				return this._DatabaseName;
+			}
+			set
+			{
+				if ((this._DatabaseName != value))
+				{
+					this._DatabaseName = value;
 				}
 			}
 		}

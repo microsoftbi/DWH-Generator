@@ -19,6 +19,10 @@ namespace CodeGenerator
 
             StringBuilder sb = new StringBuilder();
 
+            sb.AppendLine("USE "+Common.GetPSADatabaseName());
+            sb.AppendLine("GO");
+            sb.AppendLine();
+
             //Table
             foreach (var itemTable in lstTables.Distinct())
             {
@@ -73,6 +77,10 @@ namespace CodeGenerator
             var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RecordSource }).ToList();
 
             StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("USE " + Common.GetPSADatabaseName());
+            sb.AppendLine("GO;");
+            sb.AppendLine();
 
             //Table
             foreach (var itemTable in lstTables.Distinct())
@@ -146,6 +154,10 @@ namespace CodeGenerator
 
             StringBuilder sb = new StringBuilder();
 
+            sb.AppendLine("USE " + Common.GetPSADatabaseName());
+            sb.AppendLine("GO;");
+            sb.AppendLine();
+
             string PK = "";
 
             //Table
@@ -155,8 +167,6 @@ namespace CodeGenerator
                 //Fields
                 var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == 1 || p.BK == 1 || p.DI == 1 select p).ToList();
 
-                sb.AppendLine("USE [STAGE]");
-                sb.AppendLine("GO");
                 sb.AppendLine("CREATE VIEW [" + itemTable.RecordSource + "].[V_" + itemTable.TABLE_NAME + "_MTA]");
                 sb.AppendLine("AS");
 
@@ -263,6 +273,11 @@ namespace CodeGenerator
 
             StringBuilder sb = new StringBuilder();
 
+
+            sb.AppendLine("USE " + Common.GetPSADatabaseName());
+            sb.AppendLine("GO;");
+            sb.AppendLine();
+
             string PK = "";
 
             //Table
@@ -272,8 +287,6 @@ namespace CodeGenerator
                 //Fields
                 var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == 1 || p.BK == 1 || p.DI == 1 select p).ToList();
 
-                sb.AppendLine("USE [STAGE]");
-                sb.AppendLine("GO");
                 sb.AppendLine("CREATE VIEW [" + itemTable.RecordSource + "].[V_" + itemTable.TABLE_NAME + "_LOG_CURRENT]");
                 sb.AppendLine("AS");
 
@@ -335,12 +348,13 @@ namespace CodeGenerator
 
             StringBuilder sb = new StringBuilder();
 
+            sb.AppendLine("USE " + Common.GetPSADatabaseName());
+            sb.AppendLine("GO;");
+            sb.AppendLine();
+
             //Table
             foreach (var itemTable in lstTables.Distinct())
             {
-
-                sb.AppendLine("USE [STAGE]");
-                sb.AppendLine("GO");
                 sb.AppendLine("CREATE PROCEDURE [" + itemTable.RecordSource + "].[USP_" + itemTable.TABLE_NAME + "_LOG]");
                 sb.AppendLine("AS");
                 sb.AppendLine("\tBEGIN");
@@ -457,12 +471,13 @@ namespace CodeGenerator
 
             StringBuilder sb = new StringBuilder();
 
+            sb.AppendLine("USE " + Common.GetPSADatabaseName());
+            sb.AppendLine("GO;");
+            sb.AppendLine();
+
             //Table
             foreach (var itemTable in lstTables.Distinct())
             {
-
-                sb.AppendLine("USE [STAGE]");
-                sb.AppendLine("GO");
                 sb.AppendLine("CREATE PROCEDURE [" + itemTable.RecordSource + "].[USP_" + itemTable.TABLE_NAME + "_CDC]");
                 sb.AppendLine("AS");
                 sb.AppendLine("\tBEGIN");

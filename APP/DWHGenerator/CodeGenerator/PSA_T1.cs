@@ -19,6 +19,10 @@ namespace CodeGenerator
 
             StringBuilder sb = new StringBuilder();
 
+            sb.AppendLine("USE " + Common.GetPSADatabaseName());
+            sb.AppendLine("GO;");
+            sb.AppendLine();
+
             //Table
             foreach (var itemTable in lstTables.Distinct())
             {
@@ -67,6 +71,10 @@ namespace CodeGenerator
 
             StringBuilder sb = new StringBuilder();
 
+            sb.AppendLine("USE " + Common.GetPSADatabaseName());
+            sb.AppendLine("GO;");
+            sb.AppendLine();
+
             //Table
             foreach (var itemTable in lstTables.Distinct())
             {
@@ -105,6 +113,10 @@ namespace CodeGenerator
             var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RecordSource }).ToList();
 
             StringBuilder sb = new StringBuilder();
+
+            sb.AppendLine("USE " + Common.GetPSADatabaseName());
+            sb.AppendLine("GO;");
+            sb.AppendLine();
 
             //Table
             foreach (var itemTable in lstTables.Distinct())
@@ -148,12 +160,13 @@ namespace CodeGenerator
 
             StringBuilder sb = new StringBuilder();
 
+            sb.AppendLine("USE " + Common.GetPSADatabaseName());
+            sb.AppendLine("GO;");
+            sb.AppendLine();
+
             //Table
             foreach (var itemTable in lstTables.Distinct())
             {
-
-                sb.AppendLine("USE [STAGE]");
-                sb.AppendLine("GO");
                 sb.AppendLine("CREATE PROCEDURE ["+itemTable.RecordSource+"].[USP_"+itemTable.TABLE_NAME+"_STG]");
                 sb.AppendLine("AS");
                 sb.AppendLine("\tBEGIN");
@@ -240,6 +253,10 @@ namespace CodeGenerator
 
             StringBuilder sb = new StringBuilder();
 
+            sb.AppendLine("USE " + Common.GetPSADatabaseName());
+            sb.AppendLine("GO;");
+            sb.AppendLine();
+
             string PK = "";
 
             //Table
@@ -247,8 +264,6 @@ namespace CodeGenerator
             {
                 PK = (from p in dc.ATTRIBUTE where p.TABLE_NAME == itemTable.TABLE_NAME && p.PK == 1 select p.COLUMN_NAME).ToList()[0];
 
-                sb.AppendLine("USE [STAGE]");
-                sb.AppendLine("GO");
                 sb.AppendLine("CREATE PROCEDURE ["+itemTable.RecordSource+"].[USP_" + itemTable.TABLE_NAME + "_HIS]");
                 sb.AppendLine("AS");
                 sb.AppendLine("BEGIN");

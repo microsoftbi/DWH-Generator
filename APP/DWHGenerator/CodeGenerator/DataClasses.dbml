@@ -17,4 +17,11 @@
       <Column Name="DVID" Type="System.Int32" DbType="Int" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Layers" Member="Layers">
+    <Type Name="Layers">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LayerName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="DatabaseName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

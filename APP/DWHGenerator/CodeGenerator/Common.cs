@@ -35,5 +35,20 @@ namespace CodeGenerator
 
             return result;
         }
+
+        /// <summary>
+        /// Get PSA database name
+        /// </summary>
+        /// <returns></returns>
+        public static string GetPSADatabaseName()
+        {
+            string result="";
+
+            DataClassesDataContext dc = new DataClassesDataContext();
+
+            result = (from p in dc.Layers where p.LayerName == "PSA" select p.DatabaseName).First();
+
+            return result;
+        }
     }
 }

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using CodeGenerator;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Generator
 {
@@ -84,6 +86,37 @@ namespace Generator
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            LAYERS frmLayers = new LAYERS();
+            frmLayers.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RECORDSOURCE frmRS = new RECORDSOURCE();
+            frmRS.ShowDialog();
+        }
+
+        private void btnDeploy_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection();
+                conn.ConnectionString = ConfigurationManager.ConnectionStrings["Generator.Properties.Settings.METAConnectionString"].ConnectionString;
+                conn.Open();
+
+                SqlCommand comm = new SqlCommand(rtbContent.Text, conn);
+                comm.ExecuteNonQuery();
+
+                MessageBox.Show("Script deployed successfully");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Deploy Failed!\n" + ex.Message);
             }
         }
     }

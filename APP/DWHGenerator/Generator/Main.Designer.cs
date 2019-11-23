@@ -35,37 +35,42 @@
             this.lbType2 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbType1
             // 
             this.lbType1.FormattingEnabled = true;
-            this.lbType1.ItemHeight = 15;
+            this.lbType1.ItemHeight = 12;
             this.lbType1.Items.AddRange(new object[] {
             "Table Landing Zone",
             "USP Stage",
             "Table Stage",
             "USP HIS",
             "Table HIS"});
-            this.lbType1.Location = new System.Drawing.Point(1, 25);
+            this.lbType1.Location = new System.Drawing.Point(1, 20);
+            this.lbType1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lbType1.Name = "lbType1";
-            this.lbType1.Size = new System.Drawing.Size(159, 79);
+            this.lbType1.Size = new System.Drawing.Size(120, 64);
             this.lbType1.TabIndex = 0;
             this.lbType1.SelectedIndexChanged += new System.EventHandler(this.lbType_SelectedIndexChanged);
             // 
             // rtbContent
             // 
-            this.rtbContent.Location = new System.Drawing.Point(164, 5);
+            this.rtbContent.Location = new System.Drawing.Point(123, 4);
+            this.rtbContent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rtbContent.Name = "rtbContent";
-            this.rtbContent.Size = new System.Drawing.Size(1186, 864);
+            this.rtbContent.Size = new System.Drawing.Size(890, 692);
             this.rtbContent.TabIndex = 1;
             this.rtbContent.Text = "";
             // 
             // btnShowMETA
             // 
-            this.btnShowMETA.Location = new System.Drawing.Point(1, 282);
+            this.btnShowMETA.Location = new System.Drawing.Point(1, 226);
+            this.btnShowMETA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnShowMETA.Name = "btnShowMETA";
-            this.btnShowMETA.Size = new System.Drawing.Size(148, 34);
+            this.btnShowMETA.Size = new System.Drawing.Size(119, 27);
             this.btnShowMETA.TabIndex = 2;
             this.btnShowMETA.Text = "Show META data";
             this.btnShowMETA.UseVisualStyleBackColor = true;
@@ -73,18 +78,19 @@
             // 
             // btnDeploy
             // 
-            this.btnDeploy.Enabled = false;
-            this.btnDeploy.Location = new System.Drawing.Point(1, 322);
+            this.btnDeploy.Location = new System.Drawing.Point(1, 486);
+            this.btnDeploy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDeploy.Name = "btnDeploy";
-            this.btnDeploy.Size = new System.Drawing.Size(148, 34);
+            this.btnDeploy.Size = new System.Drawing.Size(118, 27);
             this.btnDeploy.TabIndex = 3;
             this.btnDeploy.Text = "Deploy";
             this.btnDeploy.UseVisualStyleBackColor = true;
+            this.btnDeploy.Click += new System.EventHandler(this.btnDeploy_Click);
             // 
             // lbType2
             // 
             this.lbType2.FormattingEnabled = true;
-            this.lbType2.ItemHeight = 15;
+            this.lbType2.ItemHeight = 12;
             this.lbType2.Items.AddRange(new object[] {
             "Table STG",
             "View MTA",
@@ -93,35 +99,62 @@
             "USP LOG",
             "Table LOG",
             "View Current"});
-            this.lbType2.Location = new System.Drawing.Point(1, 154);
+            this.lbType2.Location = new System.Drawing.Point(1, 123);
+            this.lbType2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lbType2.Name = "lbType2";
-            this.lbType2.Size = new System.Drawing.Size(159, 109);
+            this.lbType2.Size = new System.Drawing.Size(120, 88);
             this.lbType2.TabIndex = 4;
             this.lbType2.SelectedIndexChanged += new System.EventHandler(this.lbType2_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(-2, 5);
+            this.label1.Location = new System.Drawing.Point(-2, 4);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 15);
+            this.label1.Size = new System.Drawing.Size(65, 12);
             this.label1.TabIndex = 5;
             this.label1.Text = "PSA Type 1";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(-2, 134);
+            this.label2.Location = new System.Drawing.Point(-2, 107);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 15);
+            this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 6;
             this.label2.Text = "PSA Type 2";
             // 
+            // btn
+            // 
+            this.btn.Location = new System.Drawing.Point(1, 258);
+            this.btn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btn.Name = "btn";
+            this.btn.Size = new System.Drawing.Size(119, 29);
+            this.btn.TabIndex = 7;
+            this.btn.Text = "Show Layers";
+            this.btn.UseVisualStyleBackColor = true;
+            this.btn.Click += new System.EventHandler(this.btn_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1, 292);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 28);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Show RecordSource";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Main
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1353, 869);
+            this.ClientSize = new System.Drawing.Size(1015, 676);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbType2);
@@ -130,6 +163,7 @@
             this.Controls.Add(this.rtbContent);
             this.Controls.Add(this.lbType1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Main";
@@ -149,6 +183,8 @@
         private System.Windows.Forms.ListBox lbType2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btn;
+        private System.Windows.Forms.Button button1;
     }
 }
 
