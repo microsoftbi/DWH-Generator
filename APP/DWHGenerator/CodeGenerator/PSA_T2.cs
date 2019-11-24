@@ -254,10 +254,10 @@ namespace CodeGenerator
                 sb.AppendLine("\t\tCAST(NULL AS DATETIMEOFFSET(7)) AS [SOURCE_SLICE_DTS],");
                 sb.AppendLine("\t\tCAST('FULL' AS NVARCHAR(10)) AS [LOAD_TYPE],");
                 sb.AppendLine("\t\tCONVERT(CHAR(32), HASHBYTES('MD5', ISNULL(TRIM(CONVERT(NVARCHAR(50), ["+PK+"])), N'') + N'W|D'), 2) AS HK,");
-                sb.AppendLine("\t\t\tCONVERT(");
-                sb.AppendLine("\t\t\t\tCHAR(32),");
-                sb.AppendLine("\t\t\t\tHASHBYTES(");
-                sb.AppendLine("\t\t\t\t\t'MD5',");
+                sb.AppendLine("\t\tCONVERT(");
+                sb.AppendLine("\t\t\tCHAR(32),");
+                sb.AppendLine("\t\t\tHASHBYTES(");
+                sb.AppendLine("\t\t\t\t'MD5',");
 
                 int n = lstColumns.Count;
                 int pt = 0;
@@ -270,23 +270,23 @@ namespace CodeGenerator
 
                     if (pt == 1)
                     {
-                        sb.AppendLine("\t\t\t\t\tISNULL(TRIM(CONVERT(NVARCHAR(255), [" + itemColumn.COLUMN_NAME + "])), N'') + N'W|D'");
+                        sb.AppendLine("\t\t\t\tISNULL(TRIM(CONVERT(NVARCHAR(255), [" + itemColumn.COLUMN_NAME + "])), N'') + N'W|D'");
                     }
                     else
                     {
-                        sb.AppendLine("\t\t\t\t\t+ ISNULL(TRIM(CONVERT(NVARCHAR(255), [" + itemColumn.COLUMN_NAME + "])), N'') + N'W|D'");
+                        sb.AppendLine("\t\t\t\t+ ISNULL(TRIM(CONVERT(NVARCHAR(255), [" + itemColumn.COLUMN_NAME + "])), N'') + N'W|D'");
                     }
                 }
 
                 sb.AppendLine("\t\t\t\t),");
-                sb.AppendLine("\t\t\t\t2");
-                sb.AppendLine("\t\t\t\t) AS HD,");
+                sb.AppendLine("\t\t\t2");
+                sb.AppendLine("\t\t\t) AS HD,");
 
                 //sb.AppendLine("\t\tCONVERT(CHAR(32), HASHBYTES('MD5', ISNULL(TRIM(CONVERT(NVARCHAR(50), ["+PK+"])), N'') + N'W|D'), 2) AS HK,");
-                sb.AppendLine("\t\t\tCONVERT(");
-                sb.AppendLine("\t\t\t\tCHAR(32),");
-                sb.AppendLine("\t\t\t\tHASHBYTES(");
-                sb.AppendLine("\t\t\t\t\t'MD5',");
+                sb.AppendLine("\t\tCONVERT(");
+                sb.AppendLine("\t\t\tCHAR(32),");
+                sb.AppendLine("\t\t\tHASHBYTES(");
+                sb.AppendLine("\t\t\t\t'MD5',");
 
                 //int n = lstColumns.Count;
                 pt = 0;
@@ -297,27 +297,27 @@ namespace CodeGenerator
 
                     if (pt == 1)
                     {
-                        sb.AppendLine("\t\t\t\t\tISNULL(TRIM(CONVERT(NVARCHAR(255), [" + itemColumn.COLUMN_NAME + "])), N'') + N'W|D'");
+                        sb.AppendLine("\t\t\t\tISNULL(TRIM(CONVERT(NVARCHAR(255), [" + itemColumn.COLUMN_NAME + "])), N'') + N'W|D'");
                     }
                     else
                     {
-                        sb.AppendLine("\t\t\t\t\t+ ISNULL(TRIM(CONVERT(NVARCHAR(255), [" + itemColumn.COLUMN_NAME + "])), N'') + N'W|D'");
+                        sb.AppendLine("\t\t\t\t+ ISNULL(TRIM(CONVERT(NVARCHAR(255), [" + itemColumn.COLUMN_NAME + "])), N'') + N'W|D'");
                     }
                 }
 
                 sb.AppendLine("\t\t\t\t),");
-                sb.AppendLine("\t\t\t\t2");
-                sb.AppendLine("\t\t\t\t) AS HF,");
+                sb.AppendLine("\t\t\t2");
+                sb.AppendLine("\t\t\t) AS HF,");
 
                 //DI fields
                 pt = 0;
                 foreach (var itemColumn in lstColumns)
                 {
                     pt++;
-                    if (pt < n - 1)
-                        sb.AppendLine("\t\t\t\t[" + itemColumn.COLUMN_NAME + "],");
+                    if (pt < n)
+                        sb.AppendLine("\t\t[" + itemColumn.COLUMN_NAME + "],");
                     else
-                        sb.AppendLine("\t\t\t\t[" + itemColumn.COLUMN_NAME + "]");
+                        sb.AppendLine("\t\t[" + itemColumn.COLUMN_NAME + "]");
                 }
 
                 sb.AppendLine("\tFROM [" + itemTable.RecordSource + "].[" + itemTable.TABLE_NAME + "];");
@@ -364,32 +364,32 @@ namespace CodeGenerator
                 sb.AppendLine("CREATE VIEW [" + itemTable.RecordSource + "].[V_" + itemTable.TABLE_NAME + "_LOG_CURRENT]");
                 sb.AppendLine("AS");
 
-                sb.AppendLine("\tSELECT LogTable.[LOAD_DTS]");
-                sb.AppendLine("\t\t,LogTable.[LOAD_DTS_BATCH]");
-                sb.AppendLine("\t\t,LogTable.[SEQUENCE_NO]");
-                sb.AppendLine("\t\t,LogTable.[CDC_OPERATION_CODE]");
-                sb.AppendLine("\t\t,LogTable.[RECORD_SOURCE]");
-                sb.AppendLine("\t\t,LogTable.[FULLY_QUALIFIED_FILE_NAME]");
-                sb.AppendLine("\t\t,LogTable.[INSERT_DTS]");
-                sb.AppendLine("\t\t,LogTable.[UPDATE_DTS]");
-                sb.AppendLine("\t\t,LogTable.[EXPORT_DTS]");
-                sb.AppendLine("\t\t,LogTable.[FILE_TRANSFER_DTS]");
-                sb.AppendLine("\t\t,LogTable.[SESSION_DTS]");
-                sb.AppendLine("\t\t,LogTable.[SOURCE_SLICE_DTS]");
-                sb.AppendLine("\t\t,LogTable.[LOAD_TYPE]");
-                sb.AppendLine("\t\t,LogTable.[HK]");
-                sb.AppendLine("\t\t,LogTable.[HD]");
-                sb.AppendLine("\t\t,LogTable.[HF]");
+                sb.AppendLine("\tSELECT LogTable.[LOAD_DTS],");
+                sb.AppendLine("\t\tLogTable.[LOAD_DTS_BATCH],");
+                sb.AppendLine("\t\tLogTable.[SEQUENCE_NO],");
+                sb.AppendLine("\t\tLogTable.[CDC_OPERATION_CODE],");
+                sb.AppendLine("\t\tLogTable.[RECORD_SOURCE],");
+                sb.AppendLine("\t\tLogTable.[FULLY_QUALIFIED_FILE_NAME],");
+                sb.AppendLine("\t\tLogTable.[INSERT_DTS],");
+                sb.AppendLine("\t\tLogTable.[UPDATE_DTS],");
+                sb.AppendLine("\t\tLogTable.[EXPORT_DTS],");
+                sb.AppendLine("\t\tLogTable.[FILE_TRANSFER_DTS],");
+                sb.AppendLine("\t\tLogTable.[SESSION_DTS],");
+                sb.AppendLine("\t\tLogTable.[SOURCE_SLICE_DTS],");
+                sb.AppendLine("\t\tLogTable.[LOAD_TYPE],");
+                sb.AppendLine("\t\tLogTable.[HK],");
+                sb.AppendLine("\t\tLogTable.[HD],");
+                sb.AppendLine("\t\tLogTable.[HF],");
 
                 //DI fields
                 pt = 0;
                 foreach (var itemColumn in lstColumns)
                 {
                     pt++;
-                    if (pt < n - 1)
-                        sb.AppendLine("\t\t\t\t[" + itemColumn.COLUMN_NAME + "],");
+                    if (pt < n)
+                        sb.AppendLine("\t\t[" + itemColumn.COLUMN_NAME + "],");
                     else
-                        sb.AppendLine("\t\t\t\t[" + itemColumn.COLUMN_NAME + "]");
+                        sb.AppendLine("\t\t[" + itemColumn.COLUMN_NAME + "]");
                 }
 
                 sb.AppendLine("\tFROM [" + itemTable.RecordSource + "].[" + itemTable.TABLE_NAME + "_LOG] AS LogTable");
@@ -683,14 +683,10 @@ namespace CodeGenerator
                 sb.AppendLine("\t\t\t\t\t[HD],");
                 sb.AppendLine("\t\t\t\t\t[HF],");
 
-                p = 0;
+
                 foreach (var itemColumn in lstColumns)
                 {
-                    p++;
-                    if (p < n)
-                        sb.AppendLine("\t\t\t\t\t[" + itemColumn.COLUMN_NAME + "],");
-                    else
-                        sb.AppendLine("\t\t\t\t\t[" + itemColumn.COLUMN_NAME + "]");
+                    sb.AppendLine("\t\t\t\t\t[" + itemColumn.COLUMN_NAME + "],");
                 }
 
                 sb.AppendLine("\t\t\t\t\t[SOURCE_ENTITY],");
