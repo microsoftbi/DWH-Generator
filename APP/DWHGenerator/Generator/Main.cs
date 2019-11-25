@@ -118,5 +118,26 @@ namespace Generator
                 MessageBox.Show("Deploy Failed!\n" + ex.Message);
             }
         }
+
+        private void LbDV_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                switch (lbDV.SelectedIndex)
+                {
+                    case 0:
+                        rtbContent.Text = DATAVAULT.Generate();
+                        break;
+                    case 1:
+                        //rtbContent.Text = PSA_TYPE2.GenerateVIEWMTA();
+                        break;
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

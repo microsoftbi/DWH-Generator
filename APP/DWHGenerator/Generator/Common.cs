@@ -20,16 +20,35 @@ namespace Generator
         {
             string result = "";
 
-            //[ID] [int] NULL,
             result = "\t[" + FieldName + "] " + FieldType + "";
-            if (FieldType.ToUpper() == "NVARCHAR")
+            switch (FieldType.ToUpper())
             {
-                result += "(" + CharLen.ToString() + ")";
+                case "NVARCHAR":
+                    result += "(" + CharLen.ToString() + ")";
+                    break;
+                case "CHAR":
+                    result += "(" + CharLen.ToString() + ")";
+                    break;
+                case "NCHAR":
+                    result += "(" + CharLen.ToString() + ")";
+                    break;
+                case "VARCHAR":
+                    result += "(" + CharLen.ToString() + ")";
+                    break;
+                case "DECIMAL":
+                    result += "(" + nPrecision.ToString() + "," + nScale.ToString() + ")";
+                    break;
             }
-            if (FieldType.ToUpper() == "DECIMAL")
-            {
-                result += "(" + nPrecision.ToString() + "," + nScale.ToString() + ")";
-            }
+
+            //result = "\t[" + FieldName + "] " + FieldType + "";
+            //if (FieldType.ToUpper() == "NVARCHAR")
+            //{
+            //    result += "(" + CharLen.ToString() + ")";
+            //}
+            //if (FieldType.ToUpper() == "DECIMAL")
+            //{
+            //    result += "(" + nPrecision.ToString() + "," + nScale.ToString() + ")";
+            //}
 
             result += " NULL";
 
@@ -47,6 +66,21 @@ namespace Generator
             DataClassesDataContext dc = new DataClassesDataContext();
 
             result = (from p in dc.Layers where p.LayerName == "PSA" select p.DatabaseName).First();
+
+            return result;
+        }
+
+        /// <summary>
+        /// Get Data Vault database name
+        /// </summary>
+        /// <returns></returns>
+        public static string GetDVDatabaseName()
+        {
+            string result = "";
+
+            DataClassesDataContext dc = new DataClassesDataContext();
+
+            result = (from p in dc.Layers where p.LayerName == "DV" select p.DatabaseName).First();
 
             return result;
         }

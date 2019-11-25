@@ -52,6 +52,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </Compile>
+    <Compile Include="DATAVAULT.cs" />
     <Compile Include="LAYERS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -85,6 +86,12 @@
     <Compile Include="RECORDSOURCE.Designer.cs">
       <DependentUpon>RECORDSOURCE.cs</DependentUpon>
     </Compile>
+    <Compile Include="WINDV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WINDV.Designer.cs">
+      <DependentUpon>WINDV.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="LAYERS.resx">
       <DependentUpon>LAYERS.cs</DependentUpon>
     </EmbeddedResource>
@@ -105,6 +112,9 @@
     </Compile>
     <EmbeddedResource Include="RECORDSOURCE.resx">
       <DependentUpon>RECORDSOURCE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WINDV.resx">
+      <DependentUpon>WINDV.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="DataClasses.dbml">

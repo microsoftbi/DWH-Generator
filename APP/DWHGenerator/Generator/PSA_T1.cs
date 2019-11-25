@@ -13,9 +13,9 @@ namespace Generator
 
             DataClassesDataContext dc = new DataClassesDataContext();
 
-            var lstMetas = (from p in dc.ATTRIBUTE select p).ToList();
+            var lstMetas = (from p in dc.ATTRIBUTEs select p).ToList();
 
-            var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RecordSource}).ToList();
+            var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RECORDSOURCE}).ToList();
 
             StringBuilder sb = new StringBuilder();
 
@@ -26,7 +26,7 @@ namespace Generator
             //Table
             foreach (var itemTable in lstTables.Distinct())
             {
-                sb.AppendLine("CREATE TABLE [" + itemTable.RecordSource + "].[" + itemTable.TABLE_NAME + "]");
+                sb.AppendLine("CREATE TABLE [" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "]");
                 sb.AppendLine("(");
 
                 //Fields
@@ -65,9 +65,9 @@ namespace Generator
 
             DataClassesDataContext dc = new DataClassesDataContext();
 
-            var lstMetas = (from p in dc.ATTRIBUTE select p).ToList();
+            var lstMetas = (from p in dc.ATTRIBUTEs select p).ToList();
 
-            var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RecordSource }).ToList();
+            var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RECORDSOURCE }).ToList();
 
             StringBuilder sb = new StringBuilder();
 
@@ -78,7 +78,7 @@ namespace Generator
             //Table
             foreach (var itemTable in lstTables.Distinct())
             {
-                sb.AppendLine("CREATE TABLE ["+itemTable.RecordSource+"].[" + itemTable.TABLE_NAME + "_STG]");
+                sb.AppendLine("CREATE TABLE ["+itemTable.RECORDSOURCE+"].[" + itemTable.TABLE_NAME + "_STG]");
                 sb.AppendLine("(");
 
                 //Fields
@@ -108,9 +108,9 @@ namespace Generator
 
             DataClassesDataContext dc = new DataClassesDataContext();
 
-            var lstMetas = (from p in dc.ATTRIBUTE select p).ToList();
+            var lstMetas = (from p in dc.ATTRIBUTEs select p).ToList();
 
-            var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RecordSource }).ToList();
+            var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RECORDSOURCE }).ToList();
 
             StringBuilder sb = new StringBuilder();
 
@@ -121,7 +121,7 @@ namespace Generator
             //Table
             foreach (var itemTable in lstTables.Distinct())
             {
-                sb.AppendLine("CREATE TABLE ["+itemTable.RecordSource+"].[" + itemTable.TABLE_NAME + "_HIS]");
+                sb.AppendLine("CREATE TABLE ["+itemTable.RECORDSOURCE+"].[" + itemTable.TABLE_NAME + "_HIS]");
                 sb.AppendLine("(");
 
                 //Fields
@@ -154,9 +154,9 @@ namespace Generator
 
             DataClassesDataContext dc = new DataClassesDataContext();
 
-            var lstMetas = (from p in dc.ATTRIBUTE select p).ToList();
+            var lstMetas = (from p in dc.ATTRIBUTEs select p).ToList();
 
-            var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RecordSource }).ToList();
+            var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RECORDSOURCE }).ToList();
 
             StringBuilder sb = new StringBuilder();
 
@@ -167,7 +167,7 @@ namespace Generator
             //Table
             foreach (var itemTable in lstTables.Distinct())
             {
-                sb.AppendLine("CREATE PROCEDURE ["+itemTable.RecordSource+"].[USP_"+itemTable.TABLE_NAME+"_STG]");
+                sb.AppendLine("CREATE PROCEDURE ["+itemTable.RECORDSOURCE+"].[USP_"+itemTable.TABLE_NAME+"_STG]");
                 sb.AppendLine("AS");
                 sb.AppendLine("\tBEGIN");
                 sb.AppendLine("\tDECLARE @LOGSOURCE AS NVARCHAR(100);");
@@ -247,9 +247,9 @@ namespace Generator
 
             DataClassesDataContext dc = new DataClassesDataContext();
 
-            var lstMetas = (from p in dc.ATTRIBUTE select p).ToList();
+            var lstMetas = (from p in dc.ATTRIBUTEs select p).ToList();
 
-            var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RecordSource }).ToList();
+            var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RECORDSOURCE }).ToList();
 
             StringBuilder sb = new StringBuilder();
 
@@ -262,9 +262,9 @@ namespace Generator
             //Table
             foreach (var itemTable in lstTables.Distinct())
             {
-                PK = (from p in dc.ATTRIBUTE where p.TABLE_NAME == itemTable.TABLE_NAME && p.PK == 1 select p.COLUMN_NAME).ToList()[0];
+                PK = (from p in dc.ATTRIBUTEs where p.TABLE_NAME == itemTable.TABLE_NAME && p.PK == 1 select p.COLUMN_NAME).ToList()[0];
 
-                sb.AppendLine("CREATE PROCEDURE ["+itemTable.RecordSource+"].[USP_" + itemTable.TABLE_NAME + "_HIS]");
+                sb.AppendLine("CREATE PROCEDURE ["+itemTable.RECORDSOURCE+"].[USP_" + itemTable.TABLE_NAME + "_HIS]");
                 sb.AppendLine("AS");
                 sb.AppendLine("BEGIN");
 

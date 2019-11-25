@@ -38,17 +38,18 @@
             this.cHARACTERMAXIMUMLENGTHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nUMERICPRECISIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nUMERICSCALEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RecordSource = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dIDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dVIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aTTRIBUTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mETADataSet = new Generator.METADataSet();
-            this.aTTRIBUTETableAdapter = new Generator.METADataSetTableAdapters.ATTRIBUTETableAdapter();
+            this.aTTRIBUTETableAdapter = new Generator.METADataSetTableAdapters.V_ATTRIBUTETableAdapter();
+            this.vATTRIBUTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.aTTRIBUTEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mETADataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vATTRIBUTEBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -64,18 +65,17 @@
             this.cHARACTERMAXIMUMLENGTHDataGridViewTextBoxColumn,
             this.nUMERICPRECISIONDataGridViewTextBoxColumn,
             this.nUMERICSCALEDataGridViewTextBoxColumn,
-            this.RecordSource,
             this.bKDataGridViewTextBoxColumn,
             this.pKDataGridViewTextBoxColumn,
             this.dIDataGridViewTextBoxColumn,
             this.dVIDDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.aTTRIBUTEBindingSource;
+            this.dataGridView1.DataSource = this.vATTRIBUTEBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(1112, 761);
+            this.dataGridView1.Size = new System.Drawing.Size(1112, 812);
             this.dataGridView1.TabIndex = 0;
             // 
             // iDDataGridViewTextBoxColumn
@@ -143,14 +143,6 @@
             this.nUMERICSCALEDataGridViewTextBoxColumn.Name = "nUMERICSCALEDataGridViewTextBoxColumn";
             this.nUMERICSCALEDataGridViewTextBoxColumn.Width = 125;
             // 
-            // RecordSource
-            // 
-            this.RecordSource.DataPropertyName = "RecordSource";
-            this.RecordSource.HeaderText = "RecordSource";
-            this.RecordSource.MinimumWidth = 6;
-            this.RecordSource.Name = "RecordSource";
-            this.RecordSource.Width = 125;
-            // 
             // bKDataGridViewTextBoxColumn
             // 
             this.bKDataGridViewTextBoxColumn.DataPropertyName = "BK";
@@ -185,7 +177,7 @@
             // 
             // aTTRIBUTEBindingSource
             // 
-            this.aTTRIBUTEBindingSource.DataMember = "ATTRIBUTE";
+            this.aTTRIBUTEBindingSource.DataMember = "V_ATTRIBUTE";
             this.aTTRIBUTEBindingSource.DataSource = this.mETADataSet;
             // 
             // mETADataSet
@@ -197,11 +189,16 @@
             // 
             this.aTTRIBUTETableAdapter.ClearBeforeFill = true;
             // 
+            // vATTRIBUTEBindingSource
+            // 
+            this.vATTRIBUTEBindingSource.DataMember = "V_ATTRIBUTE";
+            this.vATTRIBUTEBindingSource.DataSource = this.mETADataSet;
+            // 
             // META
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1112, 761);
+            this.ClientSize = new System.Drawing.Size(1112, 812);
             this.Controls.Add(this.dataGridView1);
             this.Name = "META";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -210,6 +207,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.aTTRIBUTEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mETADataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vATTRIBUTEBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -219,7 +217,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private METADataSet mETADataSet;
         private System.Windows.Forms.BindingSource aTTRIBUTEBindingSource;
-        private METADataSetTableAdapters.ATTRIBUTETableAdapter aTTRIBUTETableAdapter;
+        private METADataSetTableAdapters.V_ATTRIBUTETableAdapter aTTRIBUTETableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tABLECATALOGDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tABLENAMEDataGridViewTextBoxColumn;
@@ -228,10 +226,11 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cHARACTERMAXIMUMLENGTHDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nUMERICPRECISIONDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nUMERICSCALEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RecordSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RECORDSOURCE;
         private System.Windows.Forms.DataGridViewTextBoxColumn bKDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pKDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dIDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dVIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource vATTRIBUTEBindingSource;
     }
 }
