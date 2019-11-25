@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="META" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=META;Integrated Security=True" SettingsObjectName="CodeGenerator.Properties.Settings" SettingsPropertyName="METAConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=META;Integrated Security=True" SettingsObjectName="Generator.Properties.Settings" SettingsPropertyName="METAConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.ATTRIBUTE" Member="ATTRIBUTE">
     <Type Name="ATTRIBUTE">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
@@ -15,6 +15,13 @@
       <Column Name="PK" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DI" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DVID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RecordSource" Member="RecordSource">
+    <Type Name="RecordSource">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="RecordSourceName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="RecordSourceDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.Layers" Member="Layers">
