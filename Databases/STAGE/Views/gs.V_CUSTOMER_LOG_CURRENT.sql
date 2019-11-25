@@ -1,0 +1,41 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+CREATE VIEW [gs].[V_CUSTOMER_LOG_CURRENT]
+AS
+	SELECT LogTable.[LOAD_DTS],
+		LogTable.[LOAD_DTS_BATCH],
+		LogTable.[SEQUENCE_NO],
+		LogTable.[CDC_OPERATION_CODE],
+		LogTable.[RECORD_SOURCE],
+		LogTable.[FULLY_QUALIFIED_FILE_NAME],
+		LogTable.[INSERT_DTS],
+		LogTable.[UPDATE_DTS],
+		LogTable.[EXPORT_DTS],
+		LogTable.[FILE_TRANSFER_DTS],
+		LogTable.[SESSION_DTS],
+		LogTable.[SOURCE_SLICE_DTS],
+		LogTable.[LOAD_TYPE],
+		LogTable.[HK],
+		LogTable.[HD],
+		LogTable.[HF],
+		[CustomerID],
+		[CustomerName],
+		[Birth],
+		[Gender],
+		[Address]
+	FROM [gs].[CUSTOMER_LOG] AS LogTable
+	INNER JOIN
+	(
+		SELECT HK,
+			MAX(LOAD_DTS) AS MAX_LOAD_DTS
+		FROM [gs].[CUSTOMER_LOG] WITH (NOLOCK)
+		GROUP BY HK
+	) AS HDA_MAX
+	ON LogTable.HK = HDA_MAX.HK
+		AND LogTable.LOAD_DTS = HDA_MAX.MAX_LOAD_DTS
+	WHERE LogTable.CDC_OPERATION_CODE != 'D';
+GO
