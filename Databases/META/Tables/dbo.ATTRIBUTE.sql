@@ -8,6 +8,7 @@ CREATE TABLE [dbo].[ATTRIBUTE]
 [CHARACTER_MAXIMUM_LENGTH] [int] NULL,
 [NUMERIC_PRECISION] [tinyint] NULL,
 [NUMERIC_SCALE] [int] NULL,
+[RecordSource] [nvarchar] (20) COLLATE Chinese_PRC_CI_AS NULL,
 [BK] [int] NULL,
 [PK] [int] NULL,
 [DI] [int] NULL,
