@@ -11,6 +11,7 @@ CREATE TABLE [dbo].[ATTRIBUTE]
 [BK] [int] NULL,
 [PK] [int] NULL,
 [DI] [int] NULL,
-[DVID] [int] NULL
+[DV_SAT_ID] [int] NULL,
+[DV_HUB_ID] [int] NULL
 ) ON [PRIMARY]
 GO
