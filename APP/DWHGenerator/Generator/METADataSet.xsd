@@ -68,7 +68,7 @@
               <DbSource ConnectionRef="METAConnectionString (Settings)" DbObjectName="META.dbo.V_ATTRIBUTE" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, TABLE_CATALOG, TABLE_NAME, COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, NUMERIC_PRECISION, NUMERIC_SCALE, RECORDSOURCE, BK, PK, DI, DVID FROM dbo.V_ATTRIBUTE</CommandText>
+                    <CommandText>SELECT ID, TABLE_CATALOG, TABLE_NAME, COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, NUMERIC_PRECISION, NUMERIC_SCALE, RECORDSOURCE, BK, PK, DI, DV_SAT_TABLENAME, DV_HUB_TABLENAME, DV_HUB_BK FROM dbo.V_ATTRIBUTE</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -87,7 +87,9 @@
               <Mapping SourceColumn="BK" DataSetColumn="BK" />
               <Mapping SourceColumn="PK" DataSetColumn="PK" />
               <Mapping SourceColumn="DI" DataSetColumn="DI" />
-              <Mapping SourceColumn="DVID" DataSetColumn="DVID" />
+              <Mapping SourceColumn="DV_SAT_TABLENAME" DataSetColumn="DV_SAT_TABLENAME" />
+              <Mapping SourceColumn="DV_HUB_TABLENAME" DataSetColumn="DV_HUB_TABLENAME" />
+              <Mapping SourceColumn="DV_HUB_BK" DataSetColumn="DV_HUB_BK" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -99,7 +101,7 @@
   <xs:element name="METADataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="METADataSet" msprop:Generator_UserDSName="METADataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Layers" msprop:Generator_TableClassName="LayersDataTable" msprop:Generator_TableVarName="tableLayers" msprop:Generator_TablePropName="Layers" msprop:Generator_RowDeletingName="LayersRowDeleting" msprop:Generator_RowChangingName="LayersRowChanging" msprop:Generator_RowEvHandlerName="LayersRowChangeEventHandler" msprop:Generator_RowDeletedName="LayersRowDeleted" msprop:Generator_UserTableName="Layers" msprop:Generator_RowChangedName="LayersRowChanged" msprop:Generator_RowEvArgName="LayersRowChangeEvent" msprop:Generator_RowClassName="LayersRow">
+        <xs:element name="Layers" msprop:Generator_TableClassName="LayersDataTable" msprop:Generator_TableVarName="tableLayers" msprop:Generator_RowChangedName="LayersRowChanged" msprop:Generator_TablePropName="Layers" msprop:Generator_RowDeletingName="LayersRowDeleting" msprop:Generator_RowChangingName="LayersRowChanging" msprop:Generator_RowEvHandlerName="LayersRowChangeEventHandler" msprop:Generator_RowDeletedName="LayersRowDeleted" msprop:Generator_RowClassName="LayersRow" msprop:Generator_UserTableName="Layers" msprop:Generator_RowEvArgName="LayersRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -120,7 +122,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="RecordSource" msprop:Generator_TableClassName="RecordSourceDataTable" msprop:Generator_TableVarName="tableRecordSource" msprop:Generator_RowChangedName="RecordSourceRowChanged" msprop:Generator_TablePropName="RecordSource" msprop:Generator_RowDeletingName="RecordSourceRowDeleting" msprop:Generator_RowChangingName="RecordSourceRowChanging" msprop:Generator_RowEvHandlerName="RecordSourceRowChangeEventHandler" msprop:Generator_RowDeletedName="RecordSourceRowDeleted" msprop:Generator_RowClassName="RecordSourceRow" msprop:Generator_UserTableName="RecordSource" msprop:Generator_RowEvArgName="RecordSourceRowChangeEvent">
+        <xs:element name="RecordSource" msprop:Generator_TableClassName="RecordSourceDataTable" msprop:Generator_TableVarName="tableRecordSource" msprop:Generator_TablePropName="RecordSource" msprop:Generator_RowDeletingName="RecordSourceRowDeleting" msprop:Generator_RowChangingName="RecordSourceRowChanging" msprop:Generator_RowEvHandlerName="RecordSourceRowChangeEventHandler" msprop:Generator_RowDeletedName="RecordSourceRowDeleted" msprop:Generator_UserTableName="RecordSource" msprop:Generator_RowChangedName="RecordSourceRowChanged" msprop:Generator_RowEvArgName="RecordSourceRowChangeEvent" msprop:Generator_RowClassName="RecordSourceRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
@@ -193,7 +195,27 @@
               <xs:element name="BK" msprop:Generator_ColumnVarNameInTable="columnBK" msprop:Generator_ColumnPropNameInRow="BK" msprop:Generator_ColumnPropNameInTable="BKColumn" msprop:Generator_UserColumnName="BK" type="xs:int" minOccurs="0" />
               <xs:element name="PK" msprop:Generator_ColumnVarNameInTable="columnPK" msprop:Generator_ColumnPropNameInRow="PK" msprop:Generator_ColumnPropNameInTable="PKColumn" msprop:Generator_UserColumnName="PK" type="xs:int" minOccurs="0" />
               <xs:element name="DI" msprop:Generator_ColumnVarNameInTable="columnDI" msprop:Generator_ColumnPropNameInRow="DI" msprop:Generator_ColumnPropNameInTable="DIColumn" msprop:Generator_UserColumnName="DI" type="xs:int" minOccurs="0" />
-              <xs:element name="DVID" msprop:Generator_ColumnVarNameInTable="columnDVID" msprop:Generator_ColumnPropNameInRow="DVID" msprop:Generator_ColumnPropNameInTable="DVIDColumn" msprop:Generator_UserColumnName="DVID" type="xs:int" minOccurs="0" />
+              <xs:element name="DV_SAT_TABLENAME" msprop:Generator_ColumnVarNameInTable="columnDV_SAT_TABLENAME" msprop:Generator_ColumnPropNameInRow="DV_SAT_TABLENAME" msprop:Generator_ColumnPropNameInTable="DV_SAT_TABLENAMEColumn" msprop:Generator_UserColumnName="DV_SAT_TABLENAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DV_HUB_TABLENAME" msprop:Generator_ColumnVarNameInTable="columnDV_HUB_TABLENAME" msprop:Generator_ColumnPropNameInRow="DV_HUB_TABLENAME" msprop:Generator_ColumnPropNameInTable="DV_HUB_TABLENAMEColumn" msprop:Generator_UserColumnName="DV_HUB_TABLENAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DV_HUB_BK" msprop:Generator_ColumnVarNameInTable="columnDV_HUB_BK" msprop:Generator_ColumnPropNameInRow="DV_HUB_BK" msprop:Generator_ColumnPropNameInTable="DV_HUB_BKColumn" msprop:Generator_UserColumnName="DV_HUB_BK" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

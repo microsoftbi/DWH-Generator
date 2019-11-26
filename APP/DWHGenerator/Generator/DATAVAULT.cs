@@ -7,7 +7,7 @@ namespace Generator
 {
     public static class DATAVAULT
     {
-        public static string GenerateTable()
+        public static string GenerateTableSAT()
         {
             string result = "";
 
@@ -15,7 +15,7 @@ namespace Generator
 
             var lstMetas = (from p in dc.ATTRIBUTEs select p).ToList();
 
-            List<string> lstDVTables = (from p in lstMetas where string.IsNullOrEmpty(p.DV_TABLENAME)==false select p.DV_TABLENAME).ToList();
+            List<string> lstDVTables = (from p in lstMetas where string.IsNullOrEmpty(p.DV_SAT_TABLENAME)==false select p.DV_SAT_TABLENAME).ToList();
 
             StringBuilder sb = new StringBuilder();
 
@@ -40,7 +40,7 @@ namespace Generator
 
 
                 //Fields
-                var lstColumns = (from p in lstMetas where p.DV_TABLENAME == itemTable && string.IsNullOrEmpty(p.DV_TABLENAME) == false select p).ToList();
+                var lstColumns = (from p in lstMetas where p.DV_SAT_TABLENAME == itemTable && string.IsNullOrEmpty(p.DV_SAT_TABLENAME) == false select p).ToList();
 
                 int n = lstColumns.Count;
                 int pt = 0;
@@ -69,7 +69,7 @@ namespace Generator
             return result;
         }
 
-        public static string GenerateUSP()
+        public static string GenerateUSPSAT()
         {
             string result = "";
 
@@ -78,7 +78,7 @@ namespace Generator
 
             var lstMetas = (from p in dc.ATTRIBUTEs select p).ToList();
 
-            var lstDVTables = (from p in lstMetas where string.IsNullOrEmpty(p.DV_TABLENAME) == false select new { p.DV_TABLENAME, p.TABLE_NAME, p.RECORDSOURCE }).ToList();
+            var lstDVTables = (from p in lstMetas where string.IsNullOrEmpty(p.DV_SAT_TABLENAME) == false select new { p.DV_SAT_TABLENAME, p.TABLE_NAME, p.RECORDSOURCE }).ToList();
 
             StringBuilder sb = new StringBuilder();
 
@@ -94,26 +94,26 @@ namespace Generator
             //Table
             foreach (var itemTable in lstDVTables.Distinct())
             {
-                PK = (from p in dc.ATTRIBUTEs where p.DV_TABLENAME == itemTable.DV_TABLENAME && p.PK == 1 select p.COLUMN_NAME).ToList()[0];
+                PK = (from p in dc.ATTRIBUTEs where p.DV_SAT_TABLENAME == itemTable.DV_SAT_TABLENAME && p.PK == 1 select p.COLUMN_NAME).ToList()[0];
 
                 //Fields
-                var lstColumns = (from p in lstMetas where p.DV_TABLENAME == itemTable.DV_TABLENAME && string.IsNullOrEmpty(p.DV_TABLENAME) == false select p).ToList();
+                var lstColumns = (from p in lstMetas where p.DV_SAT_TABLENAME == itemTable.DV_SAT_TABLENAME && string.IsNullOrEmpty(p.DV_SAT_TABLENAME) == false select p).ToList();
 
                 int n = lstColumns.Count;
                 int pt = 0;
 
-                sb.AppendLine("CREATE PROCEDURE [DBO].[USP_" + itemTable.DV_TABLENAME + "]");
+                sb.AppendLine("CREATE PROCEDURE [DBO].[USP_" + itemTable.DV_SAT_TABLENAME + "]");
                 sb.AppendLine("AS");
                 sb.AppendLine("BEGIN");
                 sb.AppendLine("\tDECLARE @LOGSOURCE AS NVARCHAR(100);");
-                sb.AppendLine("\tSET @LOGSOURCE = N'STAGE.dbo.USP_" + itemTable.DV_TABLENAME + "';");
+                sb.AppendLine("\tSET @LOGSOURCE = N'STAGE.dbo.USP_" + itemTable.DV_SAT_TABLENAME + "';");
                 sb.AppendLine("");
-                sb.AppendLine("\tEXEC META.dbo.USP_WRITELOG N'Start to load ["+strDVDBName+"].[DBO].["+itemTable.DV_TABLENAME + "]', @LOGSOURCE, N'N';");
+                sb.AppendLine("\tEXEC META.dbo.USP_WRITELOG N'Start to load ["+strDVDBName+"].[DBO].["+itemTable.DV_SAT_TABLENAME + "]', @LOGSOURCE, N'N';");
                 sb.AppendLine("");
                 sb.AppendLine("\tBEGIN TRY");
                 sb.AppendLine("\t\tBEGIN TRAN;");
                 sb.AppendLine("");
-                sb.AppendLine("\t\t\tINSERT INTO ["+strDVDBName+"].[dbo].["+itemTable.DV_TABLENAME + "]");
+                sb.AppendLine("\t\t\tINSERT INTO ["+strDVDBName+"].[dbo].["+itemTable.DV_SAT_TABLENAME + "]");
                 sb.AppendLine("\t\t\t(");
                 sb.AppendLine("\t\t\t\t[HK],");
                 sb.AppendLine("\t\t\t\t[LOAD_DTS],");
@@ -179,16 +179,16 @@ namespace Generator
                 sb.AppendLine("\t\t\tWHERE t.RN = 1");
                 sb.AppendLine("\t\t\t\tAND t.[HASH_DIFF] NOT IN");
                 sb.AppendLine("\t\t\t\t(");
-                sb.AppendLine("\t\t\t\t\t    SELECT [HASH_DIFF] FROM ["+strDVDBName+"].[dbo].["+itemTable.DV_TABLENAME+"]");
+                sb.AppendLine("\t\t\t\t\t    SELECT [HASH_DIFF] FROM ["+strDVDBName+"].[dbo].["+itemTable.DV_SAT_TABLENAME + "]");
                 sb.AppendLine("\t\t\t\t);");
                 sb.AppendLine("");
-                sb.AppendLine("\t\t\tEXEC META.dbo.USP_WRITELOG N'Finish to load [" + strDVDBName + "].[DBO].[" + itemTable.DV_TABLENAME + "]', @LOGSOURCE, N'N';");
+                sb.AppendLine("\t\t\tEXEC META.dbo.USP_WRITELOG N'Finish to load [" + strDVDBName + "].[DBO].[" + itemTable.DV_SAT_TABLENAME + "]', @LOGSOURCE, N'N';");
                 sb.AppendLine("");
                 sb.AppendLine("\t\tCOMMIT TRAN;");
                 sb.AppendLine("\tEND TRY");
                 sb.AppendLine("\tBEGIN CATCH");
                 sb.AppendLine("\t\tDECLARE @ERROR_MESSAGE AS NVARCHAR(4000);");
-                sb.AppendLine("\t\tSET @ERROR_MESSAGE = N'Failed to load [" + strDVDBName + "].[DBO].[" + itemTable.DV_TABLENAME + "]' + ISNULL(ERROR_MESSAGE(), '');");
+                sb.AppendLine("\t\tSET @ERROR_MESSAGE = N'Failed to load [" + strDVDBName + "].[DBO].[" + itemTable.DV_SAT_TABLENAME + "]' + ISNULL(ERROR_MESSAGE(), '');");
                 sb.AppendLine("\t\tEXEC META.dbo.USP_WRITELOG @ERROR_MESSAGE, @LOGSOURCE, N'E';");
                 sb.AppendLine("\tEND CATCH");
                 sb.AppendLine("");
@@ -206,5 +206,128 @@ namespace Generator
 
             return result;
         }
+
+        public static string GenerateTableHUB()
+        {
+            string result = "";
+
+            DataClassesDataContext dc = new DataClassesDataContext();
+
+            var lstMetas = (from p in dc.ATTRIBUTEs select p).ToList();
+
+            var lstDVTables = (from p in lstMetas where string.IsNullOrEmpty(p.DV_HUB_TABLENAME) == false select new { p.DV_HUB_TABLENAME, p.TABLE_NAME, p.RECORDSOURCE,p.DV_HUB_BK }).ToList();
+
+            StringBuilder sb = new StringBuilder();
+
+            string strDVDBName = Common.GetDVDatabaseName();
+            string strPSADBName = Common.GetPSADatabaseName();
+
+            sb.AppendLine("USE " + strDVDBName);
+            sb.AppendLine("GO");
+            sb.AppendLine();
+
+            string PK = "";
+
+            //Table
+            foreach (var itemTable in lstDVTables.Distinct())
+            {
+                PK = (from p in dc.ATTRIBUTEs where p.DV_HUB_TABLENAME == itemTable.DV_HUB_TABLENAME && p.PK == 1 select p.COLUMN_NAME).ToList()[0];
+
+                sb.AppendLine("CREATE TABLE [dbo].["+itemTable.DV_HUB_TABLENAME+"]");
+                sb.AppendLine("(");
+                sb.AppendLine("\t[HK] [CHAR](32) NOT NULL,");
+                sb.AppendLine("\t[" + itemTable.DV_HUB_BK + "] [NVARCHAR](50) NOT NULL,");
+                sb.AppendLine("\t[LOAD_DTS] [DATETIME] NOT NULL,");
+                sb.AppendLine("\t[REC_SRC] [NVARCHAR](50) NOT NULL,");
+                sb.AppendLine(")");
+                sb.AppendLine("GO");
+
+            }
+
+            result = sb.ToString();
+
+            return result;
+        }
+
+        public static string GenerateUSPHUB()
+        {
+            string result = "";
+
+            DataClassesDataContext dc = new DataClassesDataContext();
+
+            var lstMetas = (from p in dc.ATTRIBUTEs select p).ToList();
+
+            var lstDVTables = (from p in lstMetas where string.IsNullOrEmpty(p.DV_HUB_TABLENAME) == false select new { p.DV_HUB_TABLENAME, p.TABLE_NAME, p.RECORDSOURCE, p.DV_HUB_BK }).ToList();
+
+            StringBuilder sb = new StringBuilder();
+
+            string strDVDBName = Common.GetDVDatabaseName();
+            string strPSADBName = Common.GetPSADatabaseName();
+
+            sb.AppendLine("USE " + strDVDBName);
+            sb.AppendLine("GO");
+            sb.AppendLine();
+
+            string PK = "";
+
+            //Table
+            foreach (var itemTable in lstDVTables.Distinct())
+            {
+                PK = (from p in dc.ATTRIBUTEs where p.DV_HUB_TABLENAME == itemTable.DV_HUB_TABLENAME && p.PK == 1 select p.COLUMN_NAME).ToList()[0];
+
+                //Fields
+                var lstColumns = (from p in lstMetas where p.DV_SAT_TABLENAME == itemTable.DV_HUB_TABLENAME && string.IsNullOrEmpty(p.DV_SAT_TABLENAME) == false select p).ToList();
+
+                int n = lstColumns.Count;
+                int pt = 0;
+
+                sb.AppendLine("CREATE PROCEDURE [DBO].[USP_" + itemTable.DV_HUB_TABLENAME + "]");
+                sb.AppendLine("AS");
+                sb.AppendLine("BEGIN");
+                sb.AppendLine("\tDECLARE @LOGSOURCE AS NVARCHAR(100);");
+                sb.AppendLine("\tSET @LOGSOURCE = N'STAGE.dbo.USP_" + itemTable.DV_HUB_TABLENAME + "';");
+                sb.AppendLine("");
+                sb.AppendLine("\tEXEC META.dbo.USP_WRITELOG N'Start to load [" + strDVDBName + "].[DBO].[" + itemTable.DV_HUB_TABLENAME + "]', @LOGSOURCE, N'N';");
+                sb.AppendLine("");
+                sb.AppendLine("\tBEGIN TRY");
+                sb.AppendLine("\t\tBEGIN TRAN;");
+                sb.AppendLine("");
+                sb.AppendLine("\t\t\tINSERT INTO [" + strDVDBName + "].[dbo].[" + itemTable.DV_HUB_TABLENAME + "]");
+
+                sb.AppendLine("\t\t\t\tSELECT ");
+                sb.AppendLine("\t\t\t\t[HK]");
+                sb.AppendLine("\t\t\t\t,[" + PK + "]");
+                sb.AppendLine("\t\t\t\t,GETDATE() AS LOAD_DTS");
+                sb.AppendLine("\t\t\t\t,'" + itemTable.RECORDSOURCE + "' AS RECORDSOURCE");
+                sb.AppendLine("\t\t\tFROM [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_LOG] STG");
+                sb.AppendLine("\t\t\tWHERE NOT EXISTS (");
+
+                sb.AppendLine("\t\t\t\tSELECT HK FROM "+strDVDBName+".dbo."+itemTable.DV_HUB_TABLENAME+" HUB WHERE HUB.HK=STG.HK");
+                sb.AppendLine("\t\t\t)");
+                sb.AppendLine("");
+                sb.AppendLine("\t\t\tEXEC META.dbo.USP_WRITELOG N'Finish to load [" + strDVDBName + "].[DBO].[" + itemTable.DV_HUB_TABLENAME + "]', @LOGSOURCE, N'N';");
+
+                sb.AppendLine("");
+                sb.AppendLine("\t\tCOMMIT TRAN;");
+                sb.AppendLine("\tEND TRY");
+                sb.AppendLine("\tBEGIN CATCH");
+                sb.AppendLine("\t\tDECLARE @ERROR_MESSAGE AS NVARCHAR(4000);");
+                sb.AppendLine("\t\tSET @ERROR_MESSAGE = N'Failed to load [" + strDVDBName + "].[DBO].[" + itemTable.DV_HUB_TABLENAME + "]' + ISNULL(ERROR_MESSAGE(), '');");
+                sb.AppendLine("\t\tEXEC META.dbo.USP_WRITELOG @ERROR_MESSAGE, @LOGSOURCE, N'E';");
+                sb.AppendLine("\tEND CATCH");
+                sb.AppendLine("");
+                sb.AppendLine("END;");
+                sb.AppendLine("");
+                sb.AppendLine("GO");
+
+                sb.AppendLine("");
+                sb.AppendLine("");
+            }
+
+            result = sb.ToString();
+
+            return result;
+        }
+
     }
 }

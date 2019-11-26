@@ -952,7 +952,11 @@ namespace Generator {
             
             private global::System.Data.DataColumn columnDI;
             
-            private global::System.Data.DataColumn columnDVID;
+            private global::System.Data.DataColumn columnDV_SAT_TABLENAME;
+            
+            private global::System.Data.DataColumn columnDV_HUB_TABLENAME;
+            
+            private global::System.Data.DataColumn columnDV_HUB_BK;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -1085,9 +1089,25 @@ namespace Generator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DVIDColumn {
+            public global::System.Data.DataColumn DV_SAT_TABLENAMEColumn {
                 get {
-                    return this.columnDVID;
+                    return this.columnDV_SAT_TABLENAME;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DV_HUB_TABLENAMEColumn {
+                get {
+                    return this.columnDV_HUB_TABLENAME;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DV_HUB_BKColumn {
+                get {
+                    return this.columnDV_HUB_BK;
                 }
             }
             
@@ -1128,7 +1148,7 @@ namespace Generator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public V_ATTRIBUTERow AddV_ATTRIBUTERow(int ID, string TABLE_CATALOG, string TABLE_NAME, string COLUMN_NAME, string DATA_TYPE, int CHARACTER_MAXIMUM_LENGTH, byte NUMERIC_PRECISION, int NUMERIC_SCALE, string RECORDSOURCE, int BK, int PK, int DI, int DVID) {
+            public V_ATTRIBUTERow AddV_ATTRIBUTERow(int ID, string TABLE_CATALOG, string TABLE_NAME, string COLUMN_NAME, string DATA_TYPE, int CHARACTER_MAXIMUM_LENGTH, byte NUMERIC_PRECISION, int NUMERIC_SCALE, string RECORDSOURCE, int BK, int PK, int DI, string DV_SAT_TABLENAME, string DV_HUB_TABLENAME, string DV_HUB_BK) {
                 V_ATTRIBUTERow rowV_ATTRIBUTERow = ((V_ATTRIBUTERow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
@@ -1143,7 +1163,9 @@ namespace Generator {
                         BK,
                         PK,
                         DI,
-                        DVID};
+                        DV_SAT_TABLENAME,
+                        DV_HUB_TABLENAME,
+                        DV_HUB_BK};
                 rowV_ATTRIBUTERow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowV_ATTRIBUTERow);
                 return rowV_ATTRIBUTERow;
@@ -1178,7 +1200,9 @@ namespace Generator {
                 this.columnBK = base.Columns["BK"];
                 this.columnPK = base.Columns["PK"];
                 this.columnDI = base.Columns["DI"];
-                this.columnDVID = base.Columns["DVID"];
+                this.columnDV_SAT_TABLENAME = base.Columns["DV_SAT_TABLENAME"];
+                this.columnDV_HUB_TABLENAME = base.Columns["DV_HUB_TABLENAME"];
+                this.columnDV_HUB_BK = base.Columns["DV_HUB_BK"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1208,8 +1232,12 @@ namespace Generator {
                 base.Columns.Add(this.columnPK);
                 this.columnDI = new global::System.Data.DataColumn("DI", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDI);
-                this.columnDVID = new global::System.Data.DataColumn("DVID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDVID);
+                this.columnDV_SAT_TABLENAME = new global::System.Data.DataColumn("DV_SAT_TABLENAME", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDV_SAT_TABLENAME);
+                this.columnDV_HUB_TABLENAME = new global::System.Data.DataColumn("DV_HUB_TABLENAME", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDV_HUB_TABLENAME);
+                this.columnDV_HUB_BK = new global::System.Data.DataColumn("DV_HUB_BK", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDV_HUB_BK);
                 this.columnID.AllowDBNull = false;
                 this.columnTABLE_CATALOG.MaxLength = 128;
                 this.columnTABLE_NAME.AllowDBNull = false;
@@ -1217,6 +1245,9 @@ namespace Generator {
                 this.columnCOLUMN_NAME.MaxLength = 128;
                 this.columnDATA_TYPE.MaxLength = 128;
                 this.columnRECORDSOURCE.MaxLength = 20;
+                this.columnDV_SAT_TABLENAME.MaxLength = 30;
+                this.columnDV_HUB_TABLENAME.MaxLength = 30;
+                this.columnDV_HUB_BK.MaxLength = 30;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1734,17 +1765,49 @@ namespace Generator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int DVID {
+            public string DV_SAT_TABLENAME {
                 get {
                     try {
-                        return ((int)(this[this.tableV_ATTRIBUTE.DVIDColumn]));
+                        return ((string)(this[this.tableV_ATTRIBUTE.DV_SAT_TABLENAMEColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DVID\' in table \'V_ATTRIBUTE\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'DV_SAT_TABLENAME\' in table \'V_ATTRIBUTE\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableV_ATTRIBUTE.DVIDColumn] = value;
+                    this[this.tableV_ATTRIBUTE.DV_SAT_TABLENAMEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DV_HUB_TABLENAME {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_ATTRIBUTE.DV_HUB_TABLENAMEColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DV_HUB_TABLENAME\' in table \'V_ATTRIBUTE\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ATTRIBUTE.DV_HUB_TABLENAMEColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string DV_HUB_BK {
+                get {
+                    try {
+                        return ((string)(this[this.tableV_ATTRIBUTE.DV_HUB_BKColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'DV_HUB_BK\' in table \'V_ATTRIBUTE\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableV_ATTRIBUTE.DV_HUB_BKColumn] = value;
                 }
             }
             
@@ -1870,14 +1933,38 @@ namespace Generator {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDVIDNull() {
-                return this.IsNull(this.tableV_ATTRIBUTE.DVIDColumn);
+            public bool IsDV_SAT_TABLENAMENull() {
+                return this.IsNull(this.tableV_ATTRIBUTE.DV_SAT_TABLENAMEColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDVIDNull() {
-                this[this.tableV_ATTRIBUTE.DVIDColumn] = global::System.Convert.DBNull;
+            public void SetDV_SAT_TABLENAMENull() {
+                this[this.tableV_ATTRIBUTE.DV_SAT_TABLENAMEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDV_HUB_TABLENAMENull() {
+                return this.IsNull(this.tableV_ATTRIBUTE.DV_HUB_TABLENAMEColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDV_HUB_TABLENAMENull() {
+                this[this.tableV_ATTRIBUTE.DV_HUB_TABLENAMEColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDV_HUB_BKNull() {
+                return this.IsNull(this.tableV_ATTRIBUTE.DV_HUB_BKColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDV_HUB_BKNull() {
+                this[this.tableV_ATTRIBUTE.DV_HUB_BKColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2605,7 +2692,9 @@ namespace Generator.METADataSetTableAdapters {
             tableMapping.ColumnMappings.Add("BK", "BK");
             tableMapping.ColumnMappings.Add("PK", "PK");
             tableMapping.ColumnMappings.Add("DI", "DI");
-            tableMapping.ColumnMappings.Add("DVID", "DVID");
+            tableMapping.ColumnMappings.Add("DV_SAT_TABLENAME", "DV_SAT_TABLENAME");
+            tableMapping.ColumnMappings.Add("DV_HUB_TABLENAME", "DV_HUB_TABLENAME");
+            tableMapping.ColumnMappings.Add("DV_HUB_BK", "DV_HUB_BK");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -2623,8 +2712,8 @@ namespace Generator.METADataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT ID, TABLE_CATALOG, TABLE_NAME, COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_L" +
-                "ENGTH, NUMERIC_PRECISION, NUMERIC_SCALE, RECORDSOURCE, BK, PK, DI, DVID FROM dbo" +
-                ".V_ATTRIBUTE";
+                "ENGTH, NUMERIC_PRECISION, NUMERIC_SCALE, RECORDSOURCE, BK, PK, DI, DV_SAT_TABLEN" +
+                "AME, DV_HUB_TABLENAME, DV_HUB_BK FROM dbo.V_ATTRIBUTE";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         

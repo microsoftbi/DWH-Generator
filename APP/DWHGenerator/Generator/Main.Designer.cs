@@ -41,6 +41,7 @@
             this.lblVer = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lbDV = new System.Windows.Forms.ListBox();
+            this.btnGenerateMETADB = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbType1
@@ -63,7 +64,7 @@
             // 
             this.rtbContent.Location = new System.Drawing.Point(164, 5);
             this.rtbContent.Name = "rtbContent";
-            this.rtbContent.Size = new System.Drawing.Size(1185, 921);
+            this.rtbContent.Size = new System.Drawing.Size(1185, 953);
             this.rtbContent.TabIndex = 1;
             this.rtbContent.Text = "";
             // 
@@ -167,19 +168,32 @@
             this.lbDV.FormattingEnabled = true;
             this.lbDV.ItemHeight = 16;
             this.lbDV.Items.AddRange(new object[] {
-            "Table",
-            "USP Load from PSA"});
+            "Table SAT",
+            "USP SAT",
+            "Table HUB",
+            "USP HUB"});
             this.lbDV.Location = new System.Drawing.Point(2, 342);
             this.lbDV.Name = "lbDV";
             this.lbDV.Size = new System.Drawing.Size(156, 84);
             this.lbDV.TabIndex = 12;
             this.lbDV.SelectedIndexChanged += new System.EventHandler(this.LbDV_SelectedIndexChanged);
             // 
+            // btnGenerateMETADB
+            // 
+            this.btnGenerateMETADB.Location = new System.Drawing.Point(2, 728);
+            this.btnGenerateMETADB.Name = "btnGenerateMETADB";
+            this.btnGenerateMETADB.Size = new System.Drawing.Size(158, 37);
+            this.btnGenerateMETADB.TabIndex = 13;
+            this.btnGenerateMETADB.Text = "Generate META DB";
+            this.btnGenerateMETADB.UseVisualStyleBackColor = true;
+            this.btnGenerateMETADB.Click += new System.EventHandler(this.BtnGenerateMETADB_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1353, 901);
+            this.ClientSize = new System.Drawing.Size(1353, 960);
+            this.Controls.Add(this.btnGenerateMETADB);
             this.Controls.Add(this.lbDV);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblVer);
@@ -218,6 +232,7 @@
         private System.Windows.Forms.Label lblVer;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox lbDV;
+        private System.Windows.Forms.Button btnGenerateMETADB;
     }
 }
 

@@ -126,18 +126,30 @@ namespace Generator
                 switch (lbDV.SelectedIndex)
                 {
                     case 0:
-                        rtbContent.Text = DATAVAULT.GenerateTable();
+                        rtbContent.Text = DATAVAULT.GenerateTableSAT();
                         break;
                     case 1:
-                        rtbContent.Text = DATAVAULT.GenerateUSP();
+                        rtbContent.Text = DATAVAULT.GenerateUSPSAT();
                         break;
-                    
+                    case 2:
+                        rtbContent.Text = DATAVAULT.GenerateTableHUB();
+                        break;
+                    case 3:
+                        rtbContent.Text = DATAVAULT.GenerateUSPHUB();
+                        break;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void BtnGenerateMETADB_Click(object sender, EventArgs e)
+        {
+            METAScript frmMETA = new METAScript();
+
+            frmMETA.ShowDialog();
         }
     }
 }

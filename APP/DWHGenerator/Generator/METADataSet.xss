@@ -8,7 +8,7 @@
   <Shapes>
     <Shape ID="DesignTable:Layers" ZOrder="3" X="427" Y="59" Height="158" Width="211" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="99" />
     <Shape ID="DesignTable:RecordSource" ZOrder="2" X="768" Y="100" Height="158" Width="265" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="99" />
-    <Shape ID="DesignTable:V_ATTRIBUTE" ZOrder="1" X="63" Y="99" Height="365" Width="264" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="306" />
+    <Shape ID="DesignTable:V_ATTRIBUTE" ZOrder="1" X="53" Y="83" Height="365" Width="264" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="306" />
   </Shapes>
   <Connectors />
 </DiagramLayout>

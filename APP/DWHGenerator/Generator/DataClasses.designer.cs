@@ -241,11 +241,11 @@ namespace Generator
 		
 		private System.Nullable<int> _DI;
 		
-		private System.Nullable<int> _DVID;
+		private string _DV_SAT_TABLENAME;
 		
-		private string _DV_TYPE;
+		private string _DV_HUB_TABLENAME;
 		
-		private string _DV_TABLENAME;
+		private string _DV_HUB_BK;
 		
 		public ATTRIBUTE()
 		{
@@ -443,50 +443,50 @@ namespace Generator
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DVID", DbType="Int")]
-		public System.Nullable<int> DVID
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DV_SAT_TABLENAME", DbType="NVarChar(30)")]
+		public string DV_SAT_TABLENAME
 		{
 			get
 			{
-				return this._DVID;
+				return this._DV_SAT_TABLENAME;
 			}
 			set
 			{
-				if ((this._DVID != value))
+				if ((this._DV_SAT_TABLENAME != value))
 				{
-					this._DVID = value;
+					this._DV_SAT_TABLENAME = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DV_TYPE", DbType="NVarChar(1)")]
-		public string DV_TYPE
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DV_HUB_TABLENAME", DbType="NVarChar(30)")]
+		public string DV_HUB_TABLENAME
 		{
 			get
 			{
-				return this._DV_TYPE;
+				return this._DV_HUB_TABLENAME;
 			}
 			set
 			{
-				if ((this._DV_TYPE != value))
+				if ((this._DV_HUB_TABLENAME != value))
 				{
-					this._DV_TYPE = value;
+					this._DV_HUB_TABLENAME = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DV_TABLENAME", DbType="NVarChar(30)")]
-		public string DV_TABLENAME
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DV_HUB_BK", DbType="NVarChar(30)")]
+		public string DV_HUB_BK
 		{
 			get
 			{
-				return this._DV_TABLENAME;
+				return this._DV_HUB_BK;
 			}
 			set
 			{
-				if ((this._DV_TABLENAME != value))
+				if ((this._DV_HUB_BK != value))
 				{
-					this._DV_TABLENAME = value;
+					this._DV_HUB_BK = value;
 				}
 			}
 		}

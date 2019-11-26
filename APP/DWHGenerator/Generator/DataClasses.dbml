@@ -28,9 +28,9 @@
       <Column Name="BK" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="PK" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="DI" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DVID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DV_TYPE" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
-      <Column Name="DV_TABLENAME" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DV_SAT_TABLENAME" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DV_HUB_TABLENAME" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DV_HUB_BK" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

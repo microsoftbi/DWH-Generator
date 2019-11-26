@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(META));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.vATTRIBUTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mETADataSet = new Generator.METADataSet();
+            this.aTTRIBUTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.aTTRIBUTETableAdapter = new Generator.METADataSetTableAdapters.V_ATTRIBUTETableAdapter();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tABLECATALOGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tABLENAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -39,14 +43,13 @@
             this.cHARACTERMAXIMUMLENGTHDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nUMERICPRECISIONDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nUMERICSCALEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rECORDSOURCEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dIDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dVIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vATTRIBUTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mETADataSet = new Generator.METADataSet();
-            this.aTTRIBUTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.aTTRIBUTETableAdapter = new Generator.METADataSetTableAdapters.V_ATTRIBUTETableAdapter();
+            this.dVSATTABLENAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dVHUBTABLENAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dVHUBBKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vATTRIBUTEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mETADataSet)).BeginInit();
@@ -66,10 +69,13 @@
             this.cHARACTERMAXIMUMLENGTHDataGridViewTextBoxColumn,
             this.nUMERICPRECISIONDataGridViewTextBoxColumn,
             this.nUMERICSCALEDataGridViewTextBoxColumn,
+            this.rECORDSOURCEDataGridViewTextBoxColumn,
             this.bKDataGridViewTextBoxColumn,
             this.pKDataGridViewTextBoxColumn,
             this.dIDataGridViewTextBoxColumn,
-            this.dVIDDataGridViewTextBoxColumn});
+            this.dVSATTABLENAMEDataGridViewTextBoxColumn,
+            this.dVHUBTABLENAMEDataGridViewTextBoxColumn,
+            this.dVHUBBKDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.vATTRIBUTEBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
@@ -79,13 +85,32 @@
             this.dataGridView1.Size = new System.Drawing.Size(1112, 812);
             this.dataGridView1.TabIndex = 0;
             // 
+            // vATTRIBUTEBindingSource
+            // 
+            this.vATTRIBUTEBindingSource.DataMember = "V_ATTRIBUTE";
+            this.vATTRIBUTEBindingSource.DataSource = this.mETADataSet;
+            // 
+            // mETADataSet
+            // 
+            this.mETADataSet.DataSetName = "METADataSet";
+            this.mETADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // aTTRIBUTEBindingSource
+            // 
+            this.aTTRIBUTEBindingSource.DataMember = "V_ATTRIBUTE";
+            this.aTTRIBUTEBindingSource.DataSource = this.mETADataSet;
+            // 
+            // aTTRIBUTETableAdapter
+            // 
+            this.aTTRIBUTETableAdapter.ClearBeforeFill = true;
+            // 
             // iDDataGridViewTextBoxColumn
             // 
             this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
+            this.iDDataGridViewTextBoxColumn.FillWeight = 50F;
             this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
             this.iDDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
             this.iDDataGridViewTextBoxColumn.Width = 125;
             // 
             // tABLECATALOGDataGridViewTextBoxColumn
@@ -144,9 +169,18 @@
             this.nUMERICSCALEDataGridViewTextBoxColumn.Name = "nUMERICSCALEDataGridViewTextBoxColumn";
             this.nUMERICSCALEDataGridViewTextBoxColumn.Width = 125;
             // 
+            // rECORDSOURCEDataGridViewTextBoxColumn
+            // 
+            this.rECORDSOURCEDataGridViewTextBoxColumn.DataPropertyName = "RECORDSOURCE";
+            this.rECORDSOURCEDataGridViewTextBoxColumn.HeaderText = "RECORDSOURCE";
+            this.rECORDSOURCEDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.rECORDSOURCEDataGridViewTextBoxColumn.Name = "rECORDSOURCEDataGridViewTextBoxColumn";
+            this.rECORDSOURCEDataGridViewTextBoxColumn.Width = 125;
+            // 
             // bKDataGridViewTextBoxColumn
             // 
             this.bKDataGridViewTextBoxColumn.DataPropertyName = "BK";
+            this.bKDataGridViewTextBoxColumn.FillWeight = 50F;
             this.bKDataGridViewTextBoxColumn.HeaderText = "BK";
             this.bKDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.bKDataGridViewTextBoxColumn.Name = "bKDataGridViewTextBoxColumn";
@@ -155,6 +189,7 @@
             // pKDataGridViewTextBoxColumn
             // 
             this.pKDataGridViewTextBoxColumn.DataPropertyName = "PK";
+            this.pKDataGridViewTextBoxColumn.FillWeight = 50F;
             this.pKDataGridViewTextBoxColumn.HeaderText = "PK";
             this.pKDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.pKDataGridViewTextBoxColumn.Name = "pKDataGridViewTextBoxColumn";
@@ -163,37 +198,35 @@
             // dIDataGridViewTextBoxColumn
             // 
             this.dIDataGridViewTextBoxColumn.DataPropertyName = "DI";
+            this.dIDataGridViewTextBoxColumn.FillWeight = 50F;
             this.dIDataGridViewTextBoxColumn.HeaderText = "DI";
             this.dIDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.dIDataGridViewTextBoxColumn.Name = "dIDataGridViewTextBoxColumn";
             this.dIDataGridViewTextBoxColumn.Width = 125;
             // 
-            // dVIDDataGridViewTextBoxColumn
+            // dVSATTABLENAMEDataGridViewTextBoxColumn
             // 
-            this.dVIDDataGridViewTextBoxColumn.DataPropertyName = "DVID";
-            this.dVIDDataGridViewTextBoxColumn.HeaderText = "DVID";
-            this.dVIDDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.dVIDDataGridViewTextBoxColumn.Name = "dVIDDataGridViewTextBoxColumn";
-            this.dVIDDataGridViewTextBoxColumn.Width = 125;
+            this.dVSATTABLENAMEDataGridViewTextBoxColumn.DataPropertyName = "DV_SAT_TABLENAME";
+            this.dVSATTABLENAMEDataGridViewTextBoxColumn.HeaderText = "DV_SAT_TABLENAME";
+            this.dVSATTABLENAMEDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dVSATTABLENAMEDataGridViewTextBoxColumn.Name = "dVSATTABLENAMEDataGridViewTextBoxColumn";
+            this.dVSATTABLENAMEDataGridViewTextBoxColumn.Width = 125;
             // 
-            // vATTRIBUTEBindingSource
+            // dVHUBTABLENAMEDataGridViewTextBoxColumn
             // 
-            this.vATTRIBUTEBindingSource.DataMember = "V_ATTRIBUTE";
-            this.vATTRIBUTEBindingSource.DataSource = this.mETADataSet;
+            this.dVHUBTABLENAMEDataGridViewTextBoxColumn.DataPropertyName = "DV_HUB_TABLENAME";
+            this.dVHUBTABLENAMEDataGridViewTextBoxColumn.HeaderText = "DV_HUB_TABLENAME";
+            this.dVHUBTABLENAMEDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dVHUBTABLENAMEDataGridViewTextBoxColumn.Name = "dVHUBTABLENAMEDataGridViewTextBoxColumn";
+            this.dVHUBTABLENAMEDataGridViewTextBoxColumn.Width = 125;
             // 
-            // mETADataSet
+            // dVHUBBKDataGridViewTextBoxColumn
             // 
-            this.mETADataSet.DataSetName = "METADataSet";
-            this.mETADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // aTTRIBUTEBindingSource
-            // 
-            this.aTTRIBUTEBindingSource.DataMember = "V_ATTRIBUTE";
-            this.aTTRIBUTEBindingSource.DataSource = this.mETADataSet;
-            // 
-            // aTTRIBUTETableAdapter
-            // 
-            this.aTTRIBUTETableAdapter.ClearBeforeFill = true;
+            this.dVHUBBKDataGridViewTextBoxColumn.DataPropertyName = "DV_HUB_BK";
+            this.dVHUBBKDataGridViewTextBoxColumn.HeaderText = "DV_HUB_BK";
+            this.dVHUBBKDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.dVHUBBKDataGridViewTextBoxColumn.Name = "dVHUBBKDataGridViewTextBoxColumn";
+            this.dVHUBBKDataGridViewTextBoxColumn.Width = 125;
             // 
             // META
             // 
@@ -220,6 +253,9 @@
         private METADataSet mETADataSet;
         private System.Windows.Forms.BindingSource aTTRIBUTEBindingSource;
         private METADataSetTableAdapters.V_ATTRIBUTETableAdapter aTTRIBUTETableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RECORDSOURCE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dVIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource vATTRIBUTEBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tABLECATALOGDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tABLENAMEDataGridViewTextBoxColumn;
@@ -228,11 +264,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cHARACTERMAXIMUMLENGTHDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nUMERICPRECISIONDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nUMERICSCALEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RECORDSOURCE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn rECORDSOURCEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn bKDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn pKDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dIDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dVIDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource vATTRIBUTEBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dVSATTABLENAMEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dVHUBTABLENAMEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dVHUBBKDataGridViewTextBoxColumn;
     }
 }
