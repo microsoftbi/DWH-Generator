@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Generator
 {
@@ -82,6 +85,48 @@ namespace Generator
 
             result = (from p in dc.Layers where p.LayerName == "DV" select p.DatabaseName).First();
 
+            return result;
+        }
+
+        public static int ExecuteNonQueryWithGo(string strSQL)
+        {
+            int result = 0;
+            string[] arr = System.Text.RegularExpressions.Regex.Split(strSQL, "GO");
+            using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Generator.Properties.Settings.METAConnectionString"].ConnectionString))
+            {
+                conn.Open();
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                SqlTransaction tx = conn.BeginTransaction();
+                cmd.Transaction = tx;
+                try
+                {
+                    for (int n = 0; n < arr.Length; n++)
+                    {
+                        string strsql = arr[n];
+                        if (strsql.Trim().Length > 1)
+                        {
+                            cmd.CommandText = strsql;
+                            result = cmd.ExecuteNonQuery();
+                        }
+                    }
+                    tx.Commit();
+                }
+                catch (System.Data.SqlClient.SqlException E)
+                {
+                    tx.Rollback();
+                    //return -1;
+                    throw new Exception(E.Message);
+                }
+                finally
+                {
+                    if (conn.State != ConnectionState.Closed)
+                    {
+                        conn.Close();
+                        conn.Dispose();
+                    }
+                }
+            }
             return result;
         }
     }

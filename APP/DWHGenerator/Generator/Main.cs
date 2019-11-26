@@ -104,12 +104,14 @@ namespace Generator
         {
             try
             {
-                SqlConnection conn = new SqlConnection();
-                conn.ConnectionString = ConfigurationManager.ConnectionStrings["Generator.Properties.Settings.METAConnectionString"].ConnectionString;
-                conn.Open();
+                //SqlConnection conn = new SqlConnection();
+                //conn.ConnectionString = ConfigurationManager.ConnectionStrings["Generator.Properties.Settings.METAConnectionString"].ConnectionString;
+                //conn.Open();
 
-                SqlCommand comm = new SqlCommand(rtbContent.Text, conn);
-                comm.ExecuteNonQuery();
+                //SqlCommand comm = new SqlCommand(rtbContent.Text, conn);
+                //comm.ExecuteNonQuery();
+
+                Common.ExecuteNonQueryWithGo(rtbContent.Text);
 
                 MessageBox.Show("Script deployed successfully");
             }

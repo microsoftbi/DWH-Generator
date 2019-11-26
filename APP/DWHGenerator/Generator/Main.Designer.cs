@@ -81,7 +81,6 @@
             // 
             // btnDeploy
             // 
-            this.btnDeploy.Enabled = false;
             this.btnDeploy.Location = new System.Drawing.Point(0, 824);
             this.btnDeploy.Name = "btnDeploy";
             this.btnDeploy.Size = new System.Drawing.Size(157, 36);
@@ -151,9 +150,9 @@
             this.lblVer.AutoSize = true;
             this.lblVer.Location = new System.Drawing.Point(5, 878);
             this.lblVer.Name = "lblVer";
-            this.lblVer.Size = new System.Drawing.Size(48, 17);
+            this.lblVer.Size = new System.Drawing.Size(47, 17);
             this.lblVer.TabIndex = 9;
-            this.lblVer.Text = "1126b";
+            this.lblVer.Text = "1126c";
             // 
             // label3
             // 
