@@ -21,7 +21,9 @@ C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debu
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.csproj.CoreCompileInputs.cache
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.exe
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.pdb
-C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.csprojAssemblyReference.cache
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WINDV.resources
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.METAScript.resources
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\DEPLOY\METADB.sql
+C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\DEPLOY\CONFIGVERIFY.sql
+C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.csprojAssemblyReference.cache
+C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.Verify.resources

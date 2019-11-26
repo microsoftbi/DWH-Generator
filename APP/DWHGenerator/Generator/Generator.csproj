@@ -95,6 +95,12 @@
     <Compile Include="RECORDSOURCE.Designer.cs">
       <DependentUpon>RECORDSOURCE.cs</DependentUpon>
     </Compile>
+    <Compile Include="Verify.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Verify.Designer.cs">
+      <DependentUpon>Verify.cs</DependentUpon>
+    </Compile>
     <Compile Include="WINDV.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,9 @@
     </Compile>
     <EmbeddedResource Include="RECORDSOURCE.resx">
       <DependentUpon>RECORDSOURCE.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Verify.resx">
+      <DependentUpon>Verify.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WINDV.resx">
       <DependentUpon>WINDV.cs</DependentUpon>
@@ -162,6 +171,9 @@
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DEPLOY\CONFIGVERIFY.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="DEPLOY\METADB.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

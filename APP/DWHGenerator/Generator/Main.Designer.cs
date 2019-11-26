@@ -42,6 +42,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lbDV = new System.Windows.Forms.ListBox();
             this.btnGenerateMETADB = new System.Windows.Forms.Button();
+            this.btnVerify = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbType1
@@ -70,7 +71,7 @@
             // 
             // btnShowMETA
             // 
-            this.btnShowMETA.Location = new System.Drawing.Point(2, 559);
+            this.btnShowMETA.Location = new System.Drawing.Point(1, 449);
             this.btnShowMETA.Name = "btnShowMETA";
             this.btnShowMETA.Size = new System.Drawing.Size(159, 36);
             this.btnShowMETA.TabIndex = 2;
@@ -127,7 +128,7 @@
             // 
             // btn
             // 
-            this.btn.Location = new System.Drawing.Point(2, 602);
+            this.btn.Location = new System.Drawing.Point(1, 492);
             this.btn.Name = "btn";
             this.btn.Size = new System.Drawing.Size(159, 39);
             this.btn.TabIndex = 7;
@@ -137,7 +138,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(2, 647);
+            this.button1.Location = new System.Drawing.Point(1, 537);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(157, 37);
             this.button1.TabIndex = 8;
@@ -152,7 +153,7 @@
             this.lblVer.Name = "lblVer";
             this.lblVer.Size = new System.Drawing.Size(48, 17);
             this.lblVer.TabIndex = 9;
-            this.lblVer.Text = "1126a";
+            this.lblVer.Text = "1126b";
             // 
             // label3
             // 
@@ -188,11 +189,22 @@
             this.btnGenerateMETADB.UseVisualStyleBackColor = true;
             this.btnGenerateMETADB.Click += new System.EventHandler(this.BtnGenerateMETADB_Click);
             // 
+            // btnVerify
+            // 
+            this.btnVerify.Location = new System.Drawing.Point(2, 626);
+            this.btnVerify.Name = "btnVerify";
+            this.btnVerify.Size = new System.Drawing.Size(155, 34);
+            this.btnVerify.TabIndex = 14;
+            this.btnVerify.Text = "CONFIG verify";
+            this.btnVerify.UseVisualStyleBackColor = true;
+            this.btnVerify.Click += new System.EventHandler(this.BtnVerify_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1353, 960);
+            this.Controls.Add(this.btnVerify);
             this.Controls.Add(this.btnGenerateMETADB);
             this.Controls.Add(this.lbDV);
             this.Controls.Add(this.label3);
@@ -233,6 +245,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox lbDV;
         private System.Windows.Forms.Button btnGenerateMETADB;
+        private System.Windows.Forms.Button btnVerify;
     }
 }
 

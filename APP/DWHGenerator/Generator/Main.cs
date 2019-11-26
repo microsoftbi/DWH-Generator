@@ -121,8 +121,8 @@ namespace Generator
 
         private void LbDV_SelectedIndexChanged(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
                 switch (lbDV.SelectedIndex)
                 {
                     case 0:
@@ -138,11 +138,11 @@ namespace Generator
                         rtbContent.Text = DATAVAULT.GenerateUSPHUB();
                         break;
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show(ex.Message);
+            //}
         }
 
         private void BtnGenerateMETADB_Click(object sender, EventArgs e)
@@ -150,6 +150,12 @@ namespace Generator
             METAScript frmMETA = new METAScript();
 
             frmMETA.ShowDialog();
+        }
+
+        private void BtnVerify_Click(object sender, EventArgs e)
+        {
+            Verify frmVerify = new Verify();
+            frmVerify.ShowDialog();
         }
     }
 }
