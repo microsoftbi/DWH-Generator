@@ -126,10 +126,10 @@ namespace Generator
                 switch (lbDV.SelectedIndex)
                 {
                     case 0:
-                        rtbContent.Text = DATAVAULT.Generate();
+                        rtbContent.Text = DATAVAULT.GenerateTable();
                         break;
                     case 1:
-                        //rtbContent.Text = PSA_TYPE2.GenerateVIEWMTA();
+                        rtbContent.Text = DATAVAULT.GenerateUSP();
                         break;
                     
                 }

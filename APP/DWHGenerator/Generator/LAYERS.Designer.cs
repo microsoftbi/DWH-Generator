@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LAYERS));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.mETADataSet = new Generator.METADataSet();
-            this.layersBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.layersTableAdapter = new Generator.METADataSetTableAdapters.LayersTableAdapter();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.layerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.databaseNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.layersBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mETADataSet = new Generator.METADataSet();
+            this.layersTableAdapter = new Generator.METADataSetTableAdapters.LayersTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mETADataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layersBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mETADataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -55,22 +56,8 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(797, 314);
+            this.dataGridView1.Size = new System.Drawing.Size(797, 335);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // mETADataSet
-            // 
-            this.mETADataSet.DataSetName = "METADataSet";
-            this.mETADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // layersBindingSource
-            // 
-            this.layersBindingSource.DataMember = "Layers";
-            this.layersBindingSource.DataSource = this.mETADataSet;
-            // 
-            // layersTableAdapter
-            // 
-            this.layersTableAdapter.ClearBeforeFill = true;
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -97,12 +84,27 @@
             this.databaseNameDataGridViewTextBoxColumn.Name = "databaseNameDataGridViewTextBoxColumn";
             this.databaseNameDataGridViewTextBoxColumn.Width = 125;
             // 
+            // layersBindingSource
+            // 
+            this.layersBindingSource.DataMember = "Layers";
+            this.layersBindingSource.DataSource = this.mETADataSet;
+            // 
+            // mETADataSet
+            // 
+            this.mETADataSet.DataSetName = "METADataSet";
+            this.mETADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // layersTableAdapter
+            // 
+            this.layersTableAdapter.ClearBeforeFill = true;
+            // 
             // LAYERS
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 314);
+            this.ClientSize = new System.Drawing.Size(797, 335);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LAYERS";
@@ -110,8 +112,8 @@
             this.Text = "LAYERS";
             this.Load += new System.EventHandler(this.LAYERS_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mETADataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layersBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mETADataSet)).EndInit();
             this.ResumeLayout(false);
 
         }

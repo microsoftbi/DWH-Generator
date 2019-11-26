@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(META));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tABLECATALOGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,14 +43,14 @@
             this.pKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dIDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dVIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aTTRIBUTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mETADataSet = new Generator.METADataSet();
-            this.aTTRIBUTETableAdapter = new Generator.METADataSetTableAdapters.V_ATTRIBUTETableAdapter();
             this.vATTRIBUTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mETADataSet = new Generator.METADataSet();
+            this.aTTRIBUTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.aTTRIBUTETableAdapter = new Generator.METADataSetTableAdapters.V_ATTRIBUTETableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aTTRIBUTEBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mETADataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vATTRIBUTEBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mETADataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aTTRIBUTEBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -175,24 +176,24 @@
             this.dVIDDataGridViewTextBoxColumn.Name = "dVIDDataGridViewTextBoxColumn";
             this.dVIDDataGridViewTextBoxColumn.Width = 125;
             // 
-            // aTTRIBUTEBindingSource
+            // vATTRIBUTEBindingSource
             // 
-            this.aTTRIBUTEBindingSource.DataMember = "V_ATTRIBUTE";
-            this.aTTRIBUTEBindingSource.DataSource = this.mETADataSet;
+            this.vATTRIBUTEBindingSource.DataMember = "V_ATTRIBUTE";
+            this.vATTRIBUTEBindingSource.DataSource = this.mETADataSet;
             // 
             // mETADataSet
             // 
             this.mETADataSet.DataSetName = "METADataSet";
             this.mETADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // aTTRIBUTEBindingSource
+            // 
+            this.aTTRIBUTEBindingSource.DataMember = "V_ATTRIBUTE";
+            this.aTTRIBUTEBindingSource.DataSource = this.mETADataSet;
+            // 
             // aTTRIBUTETableAdapter
             // 
             this.aTTRIBUTETableAdapter.ClearBeforeFill = true;
-            // 
-            // vATTRIBUTEBindingSource
-            // 
-            this.vATTRIBUTEBindingSource.DataMember = "V_ATTRIBUTE";
-            this.vATTRIBUTEBindingSource.DataSource = this.mETADataSet;
             // 
             // META
             // 
@@ -200,14 +201,15 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1112, 812);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "META";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "META";
             this.Load += new System.EventHandler(this.META_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aTTRIBUTEBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mETADataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vATTRIBUTEBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mETADataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aTTRIBUTEBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

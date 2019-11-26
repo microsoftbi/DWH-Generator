@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RECORDSOURCE));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.recordSourceBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mETADataSet = new Generator.METADataSet();
-            this.recordSourceTableAdapter = new Generator.METADataSetTableAdapters.RecordSourceTableAdapter();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.recordSourceNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.databaseNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.recordSourceDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.recordSourceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mETADataSet = new Generator.METADataSet();
+            this.recordSourceTableAdapter = new Generator.METADataSetTableAdapters.RecordSourceTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recordSourceBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mETADataSet)).BeginInit();
@@ -59,20 +60,6 @@
             this.dataGridView1.RowTemplate.Height = 27;
             this.dataGridView1.Size = new System.Drawing.Size(800, 480);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // recordSourceBindingSource
-            // 
-            this.recordSourceBindingSource.DataMember = "RecordSource";
-            this.recordSourceBindingSource.DataSource = this.mETADataSet;
-            // 
-            // mETADataSet
-            // 
-            this.mETADataSet.DataSetName = "METADataSet";
-            this.mETADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // recordSourceTableAdapter
-            // 
-            this.recordSourceTableAdapter.ClearBeforeFill = true;
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -107,12 +94,27 @@
             this.recordSourceDescDataGridViewTextBoxColumn.Name = "recordSourceDescDataGridViewTextBoxColumn";
             this.recordSourceDescDataGridViewTextBoxColumn.Width = 125;
             // 
+            // recordSourceBindingSource
+            // 
+            this.recordSourceBindingSource.DataMember = "RecordSource";
+            this.recordSourceBindingSource.DataSource = this.mETADataSet;
+            // 
+            // mETADataSet
+            // 
+            this.mETADataSet.DataSetName = "METADataSet";
+            this.mETADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // recordSourceTableAdapter
+            // 
+            this.recordSourceTableAdapter.ClearBeforeFill = true;
+            // 
             // RECORDSOURCE
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 480);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "RECORDSOURCE";

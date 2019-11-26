@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.lbType1 = new System.Windows.Forms.ListBox();
             this.rtbContent = new System.Windows.Forms.RichTextBox();
             this.btnShowMETA = new System.Windows.Forms.Button();
@@ -150,7 +151,7 @@
             this.lblVer.Name = "lblVer";
             this.lblVer.Size = new System.Drawing.Size(48, 17);
             this.lblVer.TabIndex = 9;
-            this.lblVer.Text = "1125a";
+            this.lblVer.Text = "1126a";
             // 
             // label3
             // 
@@ -192,6 +193,7 @@
             this.Controls.Add(this.rtbContent);
             this.Controls.Add(this.lbType1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Main";
