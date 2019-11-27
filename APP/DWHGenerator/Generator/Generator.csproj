@@ -101,6 +101,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GeneratorLIB\PSA_T1.cs" />
     <Compile Include="GeneratorLIB\PSA_T2.cs" />
+    <Compile Include="WF_OBJECTCONFIG.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WF_OBJECTCONFIG.Designer.cs">
+      <DependentUpon>WF_OBJECTCONFIG.cs</DependentUpon>
+    </Compile>
     <Compile Include="WF_RECORDSOURCE.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -140,6 +146,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="WF_OBJECTCONFIG.resx">
+      <DependentUpon>WF_OBJECTCONFIG.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WF_RECORDSOURCE.resx">
       <DependentUpon>WF_RECORDSOURCE.cs</DependentUpon>
     </EmbeddedResource>

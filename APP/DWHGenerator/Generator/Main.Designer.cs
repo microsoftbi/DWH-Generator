@@ -41,6 +41,11 @@
             this.lbDV = new System.Windows.Forms.ListBox();
             this.btnGenerateMETADB = new System.Windows.Forms.Button();
             this.btnVerify = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.objectListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fULLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // lbType1
@@ -53,7 +58,7 @@
             "Table Stage",
             "USP HIS",
             "Table HIS"});
-            this.lbType1.Location = new System.Drawing.Point(1, 27);
+            this.lbType1.Location = new System.Drawing.Point(1, 87);
             this.lbType1.Name = "lbType1";
             this.lbType1.Size = new System.Drawing.Size(159, 84);
             this.lbType1.TabIndex = 0;
@@ -61,15 +66,15 @@
             // 
             // rtbContent
             // 
-            this.rtbContent.Location = new System.Drawing.Point(164, 5);
+            this.rtbContent.Location = new System.Drawing.Point(164, 31);
             this.rtbContent.Name = "rtbContent";
-            this.rtbContent.Size = new System.Drawing.Size(1185, 953);
+            this.rtbContent.Size = new System.Drawing.Size(1185, 927);
             this.rtbContent.TabIndex = 1;
             this.rtbContent.Text = "";
             // 
             // btnShowMETA
             // 
-            this.btnShowMETA.Location = new System.Drawing.Point(1, 449);
+            this.btnShowMETA.Location = new System.Drawing.Point(1, 509);
             this.btnShowMETA.Name = "btnShowMETA";
             this.btnShowMETA.Size = new System.Drawing.Size(159, 36);
             this.btnShowMETA.TabIndex = 2;
@@ -99,7 +104,7 @@
             "USP LOG",
             "Table LOG",
             "View Current"});
-            this.lbType2.Location = new System.Drawing.Point(1, 164);
+            this.lbType2.Location = new System.Drawing.Point(1, 224);
             this.lbType2.Name = "lbType2";
             this.lbType2.Size = new System.Drawing.Size(159, 116);
             this.lbType2.TabIndex = 4;
@@ -108,7 +113,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(-3, 5);
+            this.label1.Location = new System.Drawing.Point(-3, 65);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 17);
             this.label1.TabIndex = 5;
@@ -117,7 +122,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(-3, 143);
+            this.label2.Location = new System.Drawing.Point(-3, 203);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 17);
             this.label2.TabIndex = 6;
@@ -135,7 +140,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(2, 322);
+            this.label3.Location = new System.Drawing.Point(2, 382);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(74, 17);
             this.label3.TabIndex = 11;
@@ -150,7 +155,7 @@
             "USP SAT",
             "Table HUB",
             "USP HUB"});
-            this.lbDV.Location = new System.Drawing.Point(2, 342);
+            this.lbDV.Location = new System.Drawing.Point(2, 402);
             this.lbDV.Name = "lbDV";
             this.lbDV.Size = new System.Drawing.Size(156, 84);
             this.lbDV.TabIndex = 12;
@@ -176,6 +181,40 @@
             this.btnVerify.UseVisualStyleBackColor = true;
             this.btnVerify.Click += new System.EventHandler(this.BtnVerify_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.objectListToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1353, 28);
+            this.menuStrip1.TabIndex = 16;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // objectListToolStripMenuItem
+            // 
+            this.objectListToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fULLToolStripMenuItem,
+            this.configToolStripMenuItem});
+            this.objectListToolStripMenuItem.Name = "objectListToolStripMenuItem";
+            this.objectListToolStripMenuItem.Size = new System.Drawing.Size(90, 24);
+            this.objectListToolStripMenuItem.Text = "Object list";
+            // 
+            // fULLToolStripMenuItem
+            // 
+            this.fULLToolStripMenuItem.Name = "fULLToolStripMenuItem";
+            this.fULLToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.fULLToolStripMenuItem.Text = "FULL";
+            this.fULLToolStripMenuItem.Click += new System.EventHandler(this.FULLToolStripMenuItem_Click);
+            // 
+            // configToolStripMenuItem
+            // 
+            this.configToolStripMenuItem.Name = "configToolStripMenuItem";
+            this.configToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.configToolStripMenuItem.Text = "Config...";
+            this.configToolStripMenuItem.Click += new System.EventHandler(this.ConfigToolStripMenuItem_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -193,6 +232,7 @@
             this.Controls.Add(this.btnShowMETA);
             this.Controls.Add(this.rtbContent);
             this.Controls.Add(this.lbType1);
+            this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -200,6 +240,8 @@
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "PSA Generator";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -219,6 +261,10 @@
         private System.Windows.Forms.ListBox lbDV;
         private System.Windows.Forms.Button btnGenerateMETADB;
         private System.Windows.Forms.Button btnVerify;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem objectListToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fULLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem configToolStripMenuItem;
     }
 }
 

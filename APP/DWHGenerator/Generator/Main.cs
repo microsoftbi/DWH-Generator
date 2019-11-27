@@ -159,5 +159,42 @@ namespace Generator
             WF_Verify frmVerify = new WF_Verify();
             frmVerify.ShowDialog();
         }
+
+        private void BtnGenList_Click(object sender, EventArgs e)
+        {
+            DataClassesDataContext dc = new DataClassesDataContext();
+
+            try
+            {
+                dc.ExecuteCommand("EXEC  META.dbo.USP_INIT_LIST");
+                MessageBox.Show("Done.\n");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Failed!\n" + ex.Message);
+            }
+        }
+
+        private void FULLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataClassesDataContext dc = new DataClassesDataContext();
+
+            try
+            {
+                dc.ExecuteCommand("EXEC  META.dbo.USP_INIT_LIST");
+                MessageBox.Show("Done.\n");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Failed!\n" + ex.Message);
+            }
+        }
+
+        private void ConfigToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WF_OBJECTCONFIG frmOC = new WF_OBJECTCONFIG();
+
+            frmOC.ShowDialog();
+        }
     }
 }

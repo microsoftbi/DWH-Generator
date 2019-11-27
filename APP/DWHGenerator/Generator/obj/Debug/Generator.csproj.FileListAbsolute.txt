@@ -28,3 +28,4 @@ C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debu
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_Verify.resources
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_DATAVAULT.resources
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_METAResult.resources
+C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_OBJECTCONFIG.resources
