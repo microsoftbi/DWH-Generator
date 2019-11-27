@@ -30,7 +30,7 @@ namespace Generator
                 sb.AppendLine("(");
 
                 //Fields
-                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK==1 || p.BK==1 || p.DI==1 select p).ToList();
+                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK==true || p.BK== true || p.DI== true select p).ToList();
 
                 int n = lstColumns.Count;
                 int pt = 0;
@@ -82,7 +82,7 @@ namespace Generator
                 sb.AppendLine("(");
 
                 //Fields
-                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == 1 || p.BK == 1 || p.DI == 1 select p).ToList();
+                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == true || p.BK == true || p.DI == true select p).ToList();
 
                 foreach (var itemColumn in lstColumns)
                 {
@@ -125,7 +125,7 @@ namespace Generator
                 sb.AppendLine("(");
 
                 //Fields
-                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == 1 || p.BK == 1 || p.DI == 1 select p).ToList();
+                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == true || p.BK == true || p.DI == true select p).ToList();
 
                 foreach (var itemColumn in lstColumns)
                 {
@@ -182,7 +182,7 @@ namespace Generator
                 sb.AppendLine("\t\t\tSELECT");
 
                 //Fields
-                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == 1 || p.BK == 1 || p.DI == 1 select p).ToList();
+                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == true || p.BK == true || p.DI == true select p).ToList();
 
                 foreach (var itemColumn in lstColumns)
                 {
@@ -202,7 +202,7 @@ namespace Generator
                 {
                     pt++;
 
-                    if (itemColumn.PK == 1) continue;
+                    if (itemColumn.PK == true) continue;
 
 
                     if (pt == 1)
@@ -262,7 +262,7 @@ namespace Generator
             //Table
             foreach (var itemTable in lstTables.Distinct())
             {
-                PK = (from p in dc.ATTRIBUTEs where p.TABLE_NAME == itemTable.TABLE_NAME && p.PK == 1 select p.COLUMN_NAME).ToList()[0];
+                PK = (from p in dc.ATTRIBUTEs where p.TABLE_NAME == itemTable.TABLE_NAME && p.PK == true select p.COLUMN_NAME).ToList()[0];
 
                 sb.AppendLine("CREATE PROCEDURE ["+itemTable.RECORDSOURCE+"].[USP_" + itemTable.TABLE_NAME + "_HIS]");
                 sb.AppendLine("AS");
@@ -286,7 +286,7 @@ namespace Generator
                 sb.AppendLine("\t\t\tSELECT");
 
                 //Fields
-                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == 1 || p.BK == 1 || p.DI == 1 select p).ToList();
+                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == true || p.BK == true || p.DI == true  select p).ToList();
 
                 foreach (var itemColumn in lstColumns)
                 {

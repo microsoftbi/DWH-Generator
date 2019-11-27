@@ -1,6 +1,6 @@
 ﻿namespace Generator
 {
-    partial class RECORDSOURCE
+    partial class WF_LAYERS
     {
         /// <summary>
         /// Required designer variable.
@@ -29,17 +29,16 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RECORDSOURCE));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WF_LAYERS));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.recordSourceNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.layerNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.databaseNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.recordSourceDescDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.recordSourceBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.layersBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mETADataSet = new Generator.METADataSet();
-            this.recordSourceTableAdapter = new Generator.METADataSetTableAdapters.RecordSourceTableAdapter();
+            this.layersTableAdapter = new Generator.METADataSetTableAdapters.LayersTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recordSourceBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layersBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mETADataSet)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,16 +48,15 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iDDataGridViewTextBoxColumn,
-            this.recordSourceNameDataGridViewTextBoxColumn,
-            this.databaseNameDataGridViewTextBoxColumn,
-            this.recordSourceDescDataGridViewTextBoxColumn});
-            this.dataGridView1.DataSource = this.recordSourceBindingSource;
+            this.layerNameDataGridViewTextBoxColumn,
+            this.databaseNameDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.layersBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(800, 480);
+            this.dataGridView1.Size = new System.Drawing.Size(797, 335);
             this.dataGridView1.TabIndex = 0;
             // 
             // iDDataGridViewTextBoxColumn
@@ -70,13 +68,13 @@
             this.iDDataGridViewTextBoxColumn.ReadOnly = true;
             this.iDDataGridViewTextBoxColumn.Width = 125;
             // 
-            // recordSourceNameDataGridViewTextBoxColumn
+            // layerNameDataGridViewTextBoxColumn
             // 
-            this.recordSourceNameDataGridViewTextBoxColumn.DataPropertyName = "RecordSourceName";
-            this.recordSourceNameDataGridViewTextBoxColumn.HeaderText = "RecordSourceName";
-            this.recordSourceNameDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.recordSourceNameDataGridViewTextBoxColumn.Name = "recordSourceNameDataGridViewTextBoxColumn";
-            this.recordSourceNameDataGridViewTextBoxColumn.Width = 125;
+            this.layerNameDataGridViewTextBoxColumn.DataPropertyName = "LayerName";
+            this.layerNameDataGridViewTextBoxColumn.HeaderText = "LayerName";
+            this.layerNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.layerNameDataGridViewTextBoxColumn.Name = "layerNameDataGridViewTextBoxColumn";
+            this.layerNameDataGridViewTextBoxColumn.Width = 125;
             // 
             // databaseNameDataGridViewTextBoxColumn
             // 
@@ -86,42 +84,35 @@
             this.databaseNameDataGridViewTextBoxColumn.Name = "databaseNameDataGridViewTextBoxColumn";
             this.databaseNameDataGridViewTextBoxColumn.Width = 125;
             // 
-            // recordSourceDescDataGridViewTextBoxColumn
+            // layersBindingSource
             // 
-            this.recordSourceDescDataGridViewTextBoxColumn.DataPropertyName = "RecordSourceDesc";
-            this.recordSourceDescDataGridViewTextBoxColumn.HeaderText = "RecordSourceDesc";
-            this.recordSourceDescDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.recordSourceDescDataGridViewTextBoxColumn.Name = "recordSourceDescDataGridViewTextBoxColumn";
-            this.recordSourceDescDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // recordSourceBindingSource
-            // 
-            this.recordSourceBindingSource.DataMember = "RecordSource";
-            this.recordSourceBindingSource.DataSource = this.mETADataSet;
+            this.layersBindingSource.DataMember = "Layers";
+            this.layersBindingSource.DataSource = this.mETADataSet;
             // 
             // mETADataSet
             // 
             this.mETADataSet.DataSetName = "METADataSet";
             this.mETADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // recordSourceTableAdapter
+            // layersTableAdapter
             // 
-            this.recordSourceTableAdapter.ClearBeforeFill = true;
+            this.layersTableAdapter.ClearBeforeFill = true;
             // 
-            // RECORDSOURCE
+            // LAYERS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 480);
+            this.ClientSize = new System.Drawing.Size(797, 335);
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "RECORDSOURCE";
-            this.Text = "RECORDSOURCE";
-            this.Load += new System.EventHandler(this.RECORDSOURCE_Load);
+            this.Name = "LAYERS";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "LAYERS";
+            this.Load += new System.EventHandler(this.LAYERS_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recordSourceBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layersBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mETADataSet)).EndInit();
             this.ResumeLayout(false);
 
@@ -131,11 +122,10 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private METADataSet mETADataSet;
-        private System.Windows.Forms.BindingSource recordSourceBindingSource;
-        private METADataSetTableAdapters.RecordSourceTableAdapter recordSourceTableAdapter;
+        private System.Windows.Forms.BindingSource layersBindingSource;
+        private METADataSetTableAdapters.LayersTableAdapter layersTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn recordSourceNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn layerNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn databaseNameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn recordSourceDescDataGridViewTextBoxColumn;
     }
 }

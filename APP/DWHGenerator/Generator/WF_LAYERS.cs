@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Generator
 {
-    public partial class LAYERS : Form
+    public partial class WF_LAYERS : Form
     {
-        public LAYERS()
+        public WF_LAYERS()
         {
             InitializeComponent();
         }

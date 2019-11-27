@@ -94,7 +94,7 @@ namespace Generator
             //Table
             foreach (var itemTable in lstDVTables.Distinct())
             {
-                PK = (from p in dc.ATTRIBUTEs where p.DV_SAT_TABLENAME == itemTable.DV_SAT_TABLENAME && p.PK == 1 select p.COLUMN_NAME).ToList()[0];
+                PK = (from p in dc.ATTRIBUTEs where p.DV_SAT_TABLENAME == itemTable.DV_SAT_TABLENAME && p.PK == true select p.COLUMN_NAME).ToList()[0];
 
                 //Fields
                 var lstColumns = (from p in lstMetas where p.DV_SAT_TABLENAME == itemTable.DV_SAT_TABLENAME && string.IsNullOrEmpty(p.DV_SAT_TABLENAME) == false select p).ToList();
@@ -231,7 +231,7 @@ namespace Generator
             //Table
             foreach (var itemTable in lstDVTables.Distinct())
             {
-                PK = (from p in dc.ATTRIBUTEs where p.DV_HUB_TABLENAME == itemTable.DV_HUB_TABLENAME && p.PK == 1 select p.COLUMN_NAME).ToList()[0];
+                PK = (from p in dc.ATTRIBUTEs where p.DV_HUB_TABLENAME == itemTable.DV_HUB_TABLENAME && p.PK == true select p.COLUMN_NAME).ToList()[0];
 
                 sb.AppendLine("CREATE TABLE [dbo].["+itemTable.DV_HUB_TABLENAME+"]");
                 sb.AppendLine("(");
@@ -273,7 +273,7 @@ namespace Generator
             //Table
             foreach (var itemTable in lstDVTables.Distinct())
             {
-                PK = (from p in dc.ATTRIBUTEs where p.DV_HUB_TABLENAME == itemTable.DV_HUB_TABLENAME && p.PK == 1 select p.COLUMN_NAME).ToList()[0];
+                PK = (from p in dc.ATTRIBUTEs where p.DV_HUB_TABLENAME == itemTable.DV_HUB_TABLENAME && p.PK == true select p.COLUMN_NAME).ToList()[0];
 
                 //Fields
                 var lstColumns = (from p in lstMetas where p.DV_SAT_TABLENAME == itemTable.DV_HUB_TABLENAME && string.IsNullOrEmpty(p.DV_SAT_TABLENAME) == false select p).ToList();

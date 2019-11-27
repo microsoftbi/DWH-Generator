@@ -36,8 +36,6 @@
             this.lbType2 = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.btn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.lblVer = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.lbDV = new System.Windows.Forms.ListBox();
@@ -125,34 +123,14 @@
             this.label2.TabIndex = 6;
             this.label2.Text = "PSA Type 2";
             // 
-            // btn
-            // 
-            this.btn.Location = new System.Drawing.Point(1, 492);
-            this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(159, 39);
-            this.btn.TabIndex = 7;
-            this.btn.Text = "Show Layers";
-            this.btn.UseVisualStyleBackColor = true;
-            this.btn.Click += new System.EventHandler(this.btn_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1, 537);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(157, 37);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Show RecordSource";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // lblVer
             // 
             this.lblVer.AutoSize = true;
-            this.lblVer.Location = new System.Drawing.Point(5, 878);
+            this.lblVer.Location = new System.Drawing.Point(2, 934);
             this.lblVer.Name = "lblVer";
-            this.lblVer.Size = new System.Drawing.Size(47, 17);
+            this.lblVer.Size = new System.Drawing.Size(48, 17);
             this.lblVer.TabIndex = 9;
-            this.lblVer.Text = "1126c";
+            this.lblVer.Text = "1127a";
             // 
             // label3
             // 
@@ -182,7 +160,7 @@
             // 
             this.btnGenerateMETADB.Location = new System.Drawing.Point(2, 728);
             this.btnGenerateMETADB.Name = "btnGenerateMETADB";
-            this.btnGenerateMETADB.Size = new System.Drawing.Size(158, 37);
+            this.btnGenerateMETADB.Size = new System.Drawing.Size(154, 37);
             this.btnGenerateMETADB.TabIndex = 13;
             this.btnGenerateMETADB.Text = "Generate META DB";
             this.btnGenerateMETADB.UseVisualStyleBackColor = true;
@@ -190,7 +168,7 @@
             // 
             // btnVerify
             // 
-            this.btnVerify.Location = new System.Drawing.Point(2, 626);
+            this.btnVerify.Location = new System.Drawing.Point(1, 688);
             this.btnVerify.Name = "btnVerify";
             this.btnVerify.Size = new System.Drawing.Size(155, 34);
             this.btnVerify.TabIndex = 14;
@@ -208,8 +186,6 @@
             this.Controls.Add(this.lbDV);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.lblVer);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.btn);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbType2);
@@ -238,8 +214,6 @@
         private System.Windows.Forms.ListBox lbType2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btn;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label lblVer;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox lbDV;

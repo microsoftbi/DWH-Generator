@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace Generator
 {
-    public partial class Verify : Form
+    public partial class WF_Verify : Form
     {
-        public Verify()
+        public WF_Verify()
         {
             InitializeComponent();
         }

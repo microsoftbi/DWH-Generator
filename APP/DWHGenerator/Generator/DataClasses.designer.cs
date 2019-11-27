@@ -235,11 +235,11 @@ namespace Generator
 		
 		private string _RECORDSOURCE;
 		
-		private System.Nullable<int> _BK;
+		private System.Nullable<bool> _BK;
 		
-		private System.Nullable<int> _PK;
+		private System.Nullable<bool> _PK;
 		
-		private System.Nullable<int> _DI;
+		private System.Nullable<bool> _DI;
 		
 		private string _DV_SAT_TABLENAME;
 		
@@ -395,8 +395,8 @@ namespace Generator
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BK", DbType="Int")]
-		public System.Nullable<int> BK
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BK", DbType="Bit")]
+		public System.Nullable<bool> BK
 		{
 			get
 			{
@@ -411,8 +411,8 @@ namespace Generator
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PK", DbType="Int")]
-		public System.Nullable<int> PK
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PK", DbType="Bit")]
+		public System.Nullable<bool> PK
 		{
 			get
 			{
@@ -427,8 +427,8 @@ namespace Generator
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DI", DbType="Int")]
-		public System.Nullable<int> DI
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DI", DbType="Bit")]
+		public System.Nullable<bool> DI
 		{
 			get
 			{

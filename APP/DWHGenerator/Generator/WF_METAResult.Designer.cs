@@ -1,6 +1,6 @@
 ﻿namespace Generator
 {
-    partial class META
+    partial class WF_METAResult
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(META));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WF_METAResult));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.vATTRIBUTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mETADataSet = new Generator.METADataSet();
-            this.aTTRIBUTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.aTTRIBUTETableAdapter = new Generator.METADataSetTableAdapters.V_ATTRIBUTETableAdapter();
+            this.vATTRIBUTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.v_ATTRIBUTETableAdapter = new Generator.METADataSetTableAdapters.V_ATTRIBUTETableAdapter();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tABLECATALOGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tABLENAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -51,9 +50,8 @@
             this.dVHUBTABLENAMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dVHUBBKDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vATTRIBUTEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mETADataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aTTRIBUTEBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vATTRIBUTEBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -81,33 +79,27 @@
             this.dataGridView1.Location = new System.Drawing.Point(0, 0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(1112, 812);
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(1595, 711);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // vATTRIBUTEBindingSource
-            // 
-            this.vATTRIBUTEBindingSource.DataMember = "V_ATTRIBUTE";
-            this.vATTRIBUTEBindingSource.DataSource = this.mETADataSet;
             // 
             // mETADataSet
             // 
             this.mETADataSet.DataSetName = "METADataSet";
             this.mETADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // aTTRIBUTEBindingSource
+            // vATTRIBUTEBindingSource
             // 
-            this.aTTRIBUTEBindingSource.DataMember = "V_ATTRIBUTE";
-            this.aTTRIBUTEBindingSource.DataSource = this.mETADataSet;
+            this.vATTRIBUTEBindingSource.DataMember = "V_ATTRIBUTE";
+            this.vATTRIBUTEBindingSource.DataSource = this.mETADataSet;
             // 
-            // aTTRIBUTETableAdapter
+            // v_ATTRIBUTETableAdapter
             // 
-            this.aTTRIBUTETableAdapter.ClearBeforeFill = true;
+            this.v_ATTRIBUTETableAdapter.ClearBeforeFill = true;
             // 
             // iDDataGridViewTextBoxColumn
             // 
             this.iDDataGridViewTextBoxColumn.DataPropertyName = "ID";
-            this.iDDataGridViewTextBoxColumn.FillWeight = 50F;
             this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
             this.iDDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
@@ -180,7 +172,6 @@
             // bKDataGridViewTextBoxColumn
             // 
             this.bKDataGridViewTextBoxColumn.DataPropertyName = "BK";
-            this.bKDataGridViewTextBoxColumn.FillWeight = 50F;
             this.bKDataGridViewTextBoxColumn.HeaderText = "BK";
             this.bKDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.bKDataGridViewTextBoxColumn.Name = "bKDataGridViewTextBoxColumn";
@@ -189,7 +180,6 @@
             // pKDataGridViewTextBoxColumn
             // 
             this.pKDataGridViewTextBoxColumn.DataPropertyName = "PK";
-            this.pKDataGridViewTextBoxColumn.FillWeight = 50F;
             this.pKDataGridViewTextBoxColumn.HeaderText = "PK";
             this.pKDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.pKDataGridViewTextBoxColumn.Name = "pKDataGridViewTextBoxColumn";
@@ -198,7 +188,6 @@
             // dIDataGridViewTextBoxColumn
             // 
             this.dIDataGridViewTextBoxColumn.DataPropertyName = "DI";
-            this.dIDataGridViewTextBoxColumn.FillWeight = 50F;
             this.dIDataGridViewTextBoxColumn.HeaderText = "DI";
             this.dIDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.dIDataGridViewTextBoxColumn.Name = "dIDataGridViewTextBoxColumn";
@@ -228,21 +217,20 @@
             this.dVHUBBKDataGridViewTextBoxColumn.Name = "dVHUBBKDataGridViewTextBoxColumn";
             this.dVHUBBKDataGridViewTextBoxColumn.Width = 125;
             // 
-            // META
+            // WF_METAResult
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1112, 812);
+            this.ClientSize = new System.Drawing.Size(1595, 711);
             this.Controls.Add(this.dataGridView1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "META";
+            this.Name = "WF_METAResult";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "META";
-            this.Load += new System.EventHandler(this.META_Load);
+            this.Text = "META config result";
+            this.Load += new System.EventHandler(this.WF_METAResult_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vATTRIBUTEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mETADataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.aTTRIBUTEBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vATTRIBUTEBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -251,11 +239,8 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private METADataSet mETADataSet;
-        private System.Windows.Forms.BindingSource aTTRIBUTEBindingSource;
-        private METADataSetTableAdapters.V_ATTRIBUTETableAdapter aTTRIBUTETableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RECORDSOURCE;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dVIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource vATTRIBUTEBindingSource;
+        private METADataSetTableAdapters.V_ATTRIBUTETableAdapter v_ATTRIBUTETableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tABLECATALOGDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn tABLENAMEDataGridViewTextBoxColumn;

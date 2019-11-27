@@ -1,6 +1,6 @@
 ﻿namespace Generator
 {
-    partial class Verify
+    partial class WF_Verify
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Verify));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WF_Verify));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.mETADataSet = new Generator.METADataSet();
             this.cONFIGVERIFYBindingSource = new System.Windows.Forms.BindingSource(this.components);

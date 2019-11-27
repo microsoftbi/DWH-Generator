@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace Generator
 {
-    public partial class RECORDSOURCE : Form
+    public partial class WF_RECORDSOURCE : Form
     {
-        public RECORDSOURCE()
+        public WF_RECORDSOURCE()
         {
             InitializeComponent();
         }

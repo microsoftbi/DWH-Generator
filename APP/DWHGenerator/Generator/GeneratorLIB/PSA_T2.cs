@@ -37,7 +37,7 @@ namespace Generator
 
 
                 //Fields
-                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == 1 || p.BK == 1 || p.DI == 1 select p).ToList();
+                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == true || p.BK == true || p.DI == true select p).ToList();
 
                 int n = lstColumns.Count;
                 int pt = 0;
@@ -108,7 +108,7 @@ namespace Generator
 
 
                 //Fields
-                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == 1 || p.BK == 1 || p.DI == 1 select p).ToList();
+                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == true || p.BK == true || p.DI == true select p).ToList();
 
                 int n = lstColumns.Count;
                 int pt = 0;
@@ -179,7 +179,7 @@ namespace Generator
 
 
                 //Fields
-                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == 1 || p.BK == 1 || p.DI == 1 select p).ToList();
+                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == true || p.BK == true || p.DI == true select p).ToList();
 
                 int n = lstColumns.Count;
                 int pt = 0;
@@ -229,9 +229,9 @@ namespace Generator
             //Table
             foreach (var itemTable in lstTables.Distinct())
             {
-                PK = (from p in dc.ATTRIBUTEs where p.TABLE_NAME == itemTable.TABLE_NAME && p.PK==1 select p.COLUMN_NAME).ToList()[0];
+                PK = (from p in dc.ATTRIBUTEs where p.TABLE_NAME == itemTable.TABLE_NAME && p.PK== true select p.COLUMN_NAME).ToList()[0];
                 //Fields
-                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == 1 || p.BK == 1 || p.DI == 1 select p).ToList();
+                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == true || p.BK == true || p.DI == true select p).ToList();
 
                 sb.AppendLine("CREATE VIEW [" + itemTable.RECORDSOURCE + "].[V_" + itemTable.TABLE_NAME + "_MTA]");
                 sb.AppendLine("AS");
@@ -266,7 +266,7 @@ namespace Generator
                 {
                     pt++;
 
-                    if (itemColumn.PK == 1) continue;
+                    if (itemColumn.PK == true) continue;
 
                     if (pt == 1)
                     {
@@ -354,9 +354,9 @@ namespace Generator
             //Table
             foreach (var itemTable in lstTables.Distinct())
             {
-                PK = (from p in dc.ATTRIBUTEs where p.TABLE_NAME == itemTable.TABLE_NAME && p.PK == 1 select p.COLUMN_NAME).ToList()[0];
+                PK = (from p in dc.ATTRIBUTEs where p.TABLE_NAME == itemTable.TABLE_NAME && p.PK == true select p.COLUMN_NAME).ToList()[0];
                 //Fields
-                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == 1 || p.BK == 1 || p.DI == 1 select p).ToList();
+                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == true || p.BK == true || p.DI == true select p).ToList();
 
                 int n = lstColumns.Count;
                 int pt = 0;
@@ -427,6 +427,9 @@ namespace Generator
 
             StringBuilder sb = new StringBuilder();
 
+            string strDVDBName = Common.GetDVDatabaseName();
+            string strPSADBName = Common.GetPSADatabaseName();
+
             sb.AppendLine("USE " + Common.GetPSADatabaseName());
             sb.AppendLine("GO");
             sb.AppendLine();
@@ -440,14 +443,14 @@ namespace Generator
                 
 
                 //Fields
-                var lstColumns = (from metas in lstMetas where metas.TABLE_NAME == itemTable.TABLE_NAME where metas.PK == 1 || metas.BK == 1 || metas.DI == 1 select metas).ToList();
+                var lstColumns = (from metas in lstMetas where metas.TABLE_NAME == itemTable.TABLE_NAME where metas.PK == true || metas.BK == true || metas.DI == true select metas).ToList();
                 int n = lstColumns.Count;
                 int pt = 0;
 
                 sb.AppendLine("\tDECLARE @LOGSOURCE AS NVARCHAR(100);");
-                sb.AppendLine("\tSET @LOGSOURCE = N'STAGE.dbo.USP_XXX';");
+                sb.AppendLine("\tSET @LOGSOURCE = N'[" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[USP_" + itemTable.TABLE_NAME + "_LOG]';");
                 sb.AppendLine("\t");
-                sb.AppendLine("\tEXEC META.dbo.USP_WRITELOG N'Start to load "+itemTable.TABLE_NAME+"_LOG', @LOGSOURCE, N'N';");
+                sb.AppendLine("\tEXEC META.dbo.USP_WRITELOG N'Start to load [" + strPSADBName + "].["+ itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME+"_LOG]', @LOGSOURCE, N'N';");
                 sb.AppendLine("\t");
                 sb.AppendLine("\tBEGIN TRY");
                 sb.AppendLine("\t\tBEGIN TRAN;");
@@ -517,14 +520,14 @@ namespace Generator
                 sb.AppendLine("\t\t\t\tSELECT [HF] FROM [" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_LOG]");
                 sb.AppendLine("\t\t\t  );");
                 sb.AppendLine("\t\t\t");
-                sb.AppendLine("\t\t\tEXEC META.dbo.USP_WRITELOG N'Finish to load [" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_LOG]', @LOGSOURCE, N'N';");
+                sb.AppendLine("\t\t\tEXEC META.dbo.USP_WRITELOG N'Finish to load [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_LOG]', @LOGSOURCE, N'N';");
                 sb.AppendLine("\t\t\t");
                 sb.AppendLine("\t\tCOMMIT TRAN;");
                 sb.AppendLine("\tEND TRY");
                 sb.AppendLine("\tBEGIN CATCH");
                 sb.AppendLine("\t");
                 sb.AppendLine("\t\tDECLARE @ERROR_MESSAGE AS NVARCHAR(4000);");
-                sb.AppendLine("\t\tSET @ERROR_MESSAGE = N'Failed to load [" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_LOG]' + ISNULL(ERROR_MESSAGE(), '');");
+                sb.AppendLine("\t\tSET @ERROR_MESSAGE = N'Failed to load ["+ strPSADBName +"].[" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_LOG]' + ISNULL(ERROR_MESSAGE(), '');");
                 sb.AppendLine("\t\tEXEC META.dbo.USP_WRITELOG @ERROR_MESSAGE, @LOGSOURCE, N'E';");
                 sb.AppendLine("\tEND CATCH");
                 sb.AppendLine("\tEND;");
@@ -551,6 +554,9 @@ namespace Generator
 
             StringBuilder sb = new StringBuilder();
 
+            string strDVDBName = Common.GetDVDatabaseName();
+            string strPSADBName = Common.GetPSADatabaseName();
+
             sb.AppendLine("USE " + Common.GetPSADatabaseName());
             sb.AppendLine("GO");
             sb.AppendLine();
@@ -564,14 +570,14 @@ namespace Generator
 
 
                 //Fields
-                var lstColumns = (from metas in lstMetas where metas.TABLE_NAME == itemTable.TABLE_NAME where metas.PK == 1 || metas.BK == 1 || metas.DI == 1 select metas).ToList();
+                var lstColumns = (from metas in lstMetas where metas.TABLE_NAME == itemTable.TABLE_NAME where metas.PK == true || metas.BK == true || metas.DI == true select metas).ToList();
                 int n = lstColumns.Count;
                 int p = 0;
 
                 sb.AppendLine("\tDECLARE @LOGSOURCE AS NVARCHAR(100);");
-                sb.AppendLine("\tSET @LOGSOURCE = N'STAGE.[" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_CDC]';");
+                sb.AppendLine("\tSET @LOGSOURCE = N'[" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[USP_" + itemTable.TABLE_NAME + "_CDC]';");
                 sb.AppendLine("\t");
-                sb.AppendLine("\tEXEC META.dbo.USP_WRITELOG N'Start to load [" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_CDC]', @LOGSOURCE, N'N';");
+                sb.AppendLine("\tEXEC META.dbo.USP_WRITELOG N'Start to load [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_CDC]', @LOGSOURCE, N'N';");
                 sb.AppendLine("\t");
                 sb.AppendLine("\tTRUNCATE TABLE [" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_CDC];");
                 sb.AppendLine("\t");
@@ -771,14 +777,14 @@ namespace Generator
                 sb.AppendLine("\t\t\t\t\t\t''");
                 sb.AppendLine("\t\t\t\tEND <> '';");
 
-                sb.AppendLine("\t\t\tEXEC META.dbo.USP_WRITELOG N'Finish to load " + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_LOG', @LOGSOURCE, N'N';");
+                sb.AppendLine("\t\t\tEXEC META.dbo.USP_WRITELOG N'Finish to load [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_CDC', @LOGSOURCE, N'N';");
 
                 sb.AppendLine("\t\tCOMMIT TRAN;");
                 sb.AppendLine("\tEND TRY");
                 sb.AppendLine("\tBEGIN CATCH");
                 sb.AppendLine("\t\tROLLBACK TRAN;");
                 sb.AppendLine("\t\tDECLARE @ERROR_MESSAGE AS NVARCHAR(4000);");
-                sb.AppendLine("\t\tSET @ERROR_MESSAGE = N'Failed to load " + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_LOG' + ISNULL(ERROR_MESSAGE(), '');");
+                sb.AppendLine("\t\tSET @ERROR_MESSAGE = N'Failed to load [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_CDC' + ISNULL(ERROR_MESSAGE(), '');");
                 sb.AppendLine("\t\tEXEC META.dbo.USP_WRITELOG @ERROR_MESSAGE, @LOGSOURCE, N'E';");
                 sb.AppendLine("\tEND CATCH");
                 sb.AppendLine("END;");

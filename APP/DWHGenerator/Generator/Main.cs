@@ -49,7 +49,7 @@ namespace Generator
 
         private void btnShowMETA_Click(object sender, EventArgs e)
         {
-            META winMeta = new META();
+            WF_META winMeta = new WF_META();
             winMeta.ShowDialog();
         }
 
@@ -90,13 +90,13 @@ namespace Generator
 
         private void btn_Click(object sender, EventArgs e)
         {
-            LAYERS frmLayers = new LAYERS();
+            WF_LAYERS frmLayers = new WF_LAYERS();
             frmLayers.ShowDialog();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            RECORDSOURCE frmRS = new RECORDSOURCE();
+            WF_RECORDSOURCE frmRS = new WF_RECORDSOURCE();
             frmRS.ShowDialog();
         }
 
@@ -149,14 +149,14 @@ namespace Generator
 
         private void BtnGenerateMETADB_Click(object sender, EventArgs e)
         {
-            METAScript frmMETA = new METAScript();
+            WF_METAScript frmMETA = new WF_METAScript();
 
             frmMETA.ShowDialog();
         }
 
         private void BtnVerify_Click(object sender, EventArgs e)
         {
-            Verify frmVerify = new Verify();
+            WF_Verify frmVerify = new WF_Verify();
             frmVerify.ShowDialog();
         }
     }

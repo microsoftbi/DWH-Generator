@@ -55,12 +55,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </Compile>
-    <Compile Include="DATAVAULT.cs" />
-    <Compile Include="LAYERS.cs">
+    <Compile Include="GeneratorLIB\DATAVAULT.cs" />
+    <Compile Include="WF_DATAVAULT.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="LAYERS.Designer.cs">
-      <DependentUpon>LAYERS.cs</DependentUpon>
+    <Compile Include="WF_DATAVAULT.Designer.cs">
+      <DependentUpon>WF_DATAVAULT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF_LAYERS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WF_LAYERS.Designer.cs">
+      <DependentUpon>WF_LAYERS.cs</DependentUpon>
     </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -68,56 +74,62 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="META.cs">
+    <Compile Include="WF_META.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="META.Designer.cs">
-      <DependentUpon>META.cs</DependentUpon>
+    <Compile Include="WF_META.Designer.cs">
+      <DependentUpon>WF_META.cs</DependentUpon>
     </Compile>
     <Compile Include="METADataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>METADataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="METAScript.cs">
+    <Compile Include="WF_METAResult.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="METAScript.Designer.cs">
-      <DependentUpon>METAScript.cs</DependentUpon>
+    <Compile Include="WF_METAResult.Designer.cs">
+      <DependentUpon>WF_METAResult.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WF_METAScript.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WF_METAScript.Designer.cs">
+      <DependentUpon>WF_METAScript.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PSA_T1.cs" />
-    <Compile Include="PSA_T2.cs" />
-    <Compile Include="RECORDSOURCE.cs">
+    <Compile Include="GeneratorLIB\PSA_T1.cs" />
+    <Compile Include="GeneratorLIB\PSA_T2.cs" />
+    <Compile Include="WF_RECORDSOURCE.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RECORDSOURCE.Designer.cs">
-      <DependentUpon>RECORDSOURCE.cs</DependentUpon>
+    <Compile Include="WF_RECORDSOURCE.Designer.cs">
+      <DependentUpon>WF_RECORDSOURCE.cs</DependentUpon>
     </Compile>
-    <Compile Include="Verify.cs">
+    <Compile Include="WF_Verify.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Verify.Designer.cs">
-      <DependentUpon>Verify.cs</DependentUpon>
+    <Compile Include="WF_Verify.Designer.cs">
+      <DependentUpon>WF_Verify.cs</DependentUpon>
     </Compile>
-    <Compile Include="WINDV.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WINDV.Designer.cs">
-      <DependentUpon>WINDV.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="LAYERS.resx">
-      <DependentUpon>LAYERS.cs</DependentUpon>
+    <EmbeddedResource Include="WF_DATAVAULT.resx">
+      <DependentUpon>WF_DATAVAULT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF_LAYERS.resx">
+      <DependentUpon>WF_LAYERS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="META.resx">
-      <DependentUpon>META.cs</DependentUpon>
+    <EmbeddedResource Include="WF_META.resx">
+      <DependentUpon>WF_META.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="METAScript.resx">
-      <DependentUpon>METAScript.cs</DependentUpon>
+    <EmbeddedResource Include="WF_METAResult.resx">
+      <DependentUpon>WF_METAResult.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF_METAScript.resx">
+      <DependentUpon>WF_METAScript.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -128,14 +140,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RECORDSOURCE.resx">
-      <DependentUpon>RECORDSOURCE.cs</DependentUpon>
+    <EmbeddedResource Include="WF_RECORDSOURCE.resx">
+      <DependentUpon>WF_RECORDSOURCE.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Verify.resx">
-      <DependentUpon>Verify.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WINDV.resx">
-      <DependentUpon>WINDV.cs</DependentUpon>
+    <EmbeddedResource Include="WF_Verify.resx">
+      <DependentUpon>WF_Verify.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="DataClasses.dbml">

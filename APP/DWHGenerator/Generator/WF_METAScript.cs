@@ -6,14 +6,18 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Generator
 {
-    public partial class WINDV : Form
+    public partial class WF_METAScript : Form
     {
-        public WINDV()
+        public WF_METAScript()
         {
             InitializeComponent();
+
+            string strContent = File.ReadAllText(@"DEPLOY\METADB.sql");
+            rtbScript.Text = strContent;
         }
     }
 }
