@@ -6,9 +6,6 @@ C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Deb
 C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.exe
 C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.pdb
 C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\Generator.exe.config
-C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.META.resources
-C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.LAYERS.resources
-C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.RECORDSOURCE.resources
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\Generator.exe.config
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\Generator.exe
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\Generator.pdb
@@ -29,3 +26,15 @@ C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debu
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_DATAVAULT.resources
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_METAResult.resources
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_OBJECTCONFIG.resources
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\DEPLOY\CONFIGVERIFY.sql
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\DEPLOY\METADB.sql
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.csprojAssemblyReference.cache
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_DATAVAULT.resources
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_LAYERS.resources
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_META.resources
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_METAResult.resources
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_METAScript.resources
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_OBJECTCONFIG.resources
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_RECORDSOURCE.resources
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_Verify.resources
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\DEPLOY\IMPORT_SCHEMA.sql

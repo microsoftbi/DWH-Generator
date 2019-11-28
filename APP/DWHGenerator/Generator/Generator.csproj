@@ -192,6 +192,9 @@
     <Content Include="DEPLOY\CONFIGVERIFY.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="DEPLOY\IMPORT_SCHEMA.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="DEPLOY\METADB.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -797,5 +797,38 @@ namespace Generator
 
             return result;
         }
+
+        public static string GenerateExecuteFlow()
+        {
+            string result = "";
+
+            DataClassesDataContext dc = new DataClassesDataContext();
+
+            var lstMetas = (from p in dc.ATTRIBUTEs select p).ToList();
+
+            var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RECORDSOURCE }).ToList();
+
+            StringBuilder sb = new StringBuilder();
+
+            string strPSADBName= Common.GetPSADatabaseName();
+
+            sb.AppendLine("USE " + strPSADBName);
+            sb.AppendLine("GO");
+            sb.AppendLine();
+
+            //Table
+            foreach (var itemTable in lstTables.Distinct())
+            {
+                sb.AppendLine("EXEC TABLE [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[USP_" + itemTable.TABLE_NAME + "_CDC]");
+                sb.AppendLine("EXEC TABLE [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[USP_" + itemTable.TABLE_NAME + "_LOG]");
+
+
+
+            }
+
+            result = sb.ToString();
+
+            return result;
+        }
     }
 }

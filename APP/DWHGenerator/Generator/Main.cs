@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Configuration;
+using System.IO;
 
 namespace Generator
 {
@@ -43,7 +44,7 @@ namespace Generator
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -84,47 +85,30 @@ namespace Generator
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private void btn_Click(object sender, EventArgs e)
-        {
-            WF_LAYERS frmLayers = new WF_LAYERS();
-            frmLayers.ShowDialog();
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            WF_RECORDSOURCE frmRS = new WF_RECORDSOURCE();
-            frmRS.ShowDialog();
-        }
 
         private void btnDeploy_Click(object sender, EventArgs e)
         {
             try
             {
-                //SqlConnection conn = new SqlConnection();
-                //conn.ConnectionString = ConfigurationManager.ConnectionStrings["Generator.Properties.Settings.METAConnectionString"].ConnectionString;
-                //conn.Open();
-
-                //SqlCommand comm = new SqlCommand(rtbContent.Text, conn);
-                //comm.ExecuteNonQuery();
-
                 Common.ExecuteNonQueryWithGo(rtbContent.Text);
 
                 MessageBox.Show("Script deployed successfully");
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Deploy Failed!\n" + ex.Message);
+                MessageBox.Show("Deploy Failed!\n" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void LbDV_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 switch (lbDV.SelectedIndex)
                 {
                     case 0:
@@ -140,25 +124,16 @@ namespace Generator
                         rtbContent.Text = DATAVAULT.GenerateUSPHUB();
                         break;
                 }
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show(ex.Message);
-            //}
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        private void BtnGenerateMETADB_Click(object sender, EventArgs e)
-        {
-            WF_METAScript frmMETA = new WF_METAScript();
 
-            frmMETA.ShowDialog();
-        }
 
-        private void BtnVerify_Click(object sender, EventArgs e)
-        {
-            WF_Verify frmVerify = new WF_Verify();
-            frmVerify.ShowDialog();
-        }
+
 
         private void BtnGenList_Click(object sender, EventArgs e)
         {
@@ -171,7 +146,7 @@ namespace Generator
             }
             catch(Exception ex)
             {
-                MessageBox.Show("Failed!\n" + ex.Message);
+                MessageBox.Show("Failed!\n" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -186,7 +161,7 @@ namespace Generator
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Failed!\n" + ex.Message);
+                MessageBox.Show("Failed!\n" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -195,6 +170,92 @@ namespace Generator
             WF_OBJECTCONFIG frmOC = new WF_OBJECTCONFIG();
 
             frmOC.ShowDialog();
+        }
+
+        private void configurationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WF_META winMeta = new WF_META();
+            winMeta.ShowDialog();
+        }
+
+        private void verifyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WF_Verify frmVerify = new WF_Verify();
+            frmVerify.ShowDialog();
+        }
+
+        private void showMETADBScriptsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WF_METAScript frmMETA = new WF_METAScript();
+
+            frmMETA.ShowDialog();
+        }
+
+        private void scriptInWindowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Common.ExecuteNonQueryWithGo(rtbContent.Text);
+
+                MessageBox.Show("Script deployed successfully");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Deploy Failed!\n" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void pSAType2FlowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Confirm to deploy PSA Type 2 data flow?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                try
+                {
+                    Common.ExecuteNonQueryWithGo(PSA_TYPE2.GenerateTableSTG());
+                    Common.ExecuteNonQueryWithGo(PSA_TYPE2.GenerateVIEWMTA());
+                    Common.ExecuteNonQueryWithGo(PSA_TYPE2.GenerateTableCDC());
+                    Common.ExecuteNonQueryWithGo(PSA_TYPE2.GenerateUSPCDC());
+                    Common.ExecuteNonQueryWithGo(PSA_TYPE2.GenerateTableLOG());
+                    Common.ExecuteNonQueryWithGo(PSA_TYPE2.GenerateVIECURRENT());
+                    Common.ExecuteNonQueryWithGo(PSA_TYPE2.GenerateUSPLOG());
+
+                    MessageBox.Show("PSA type 2 Data flow deploy done.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("PSA type 2 Data flow deploy Failed!\n" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void otherScriptToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void executePSA1DataFlowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string strContent = "TBD";
+            rtbContent.Text = strContent;
+        }
+
+        private void executePSA2DataFlowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string strContent = PSA_TYPE2.GenerateExecuteFlow();
+            rtbContent.Text = strContent;
+        }
+
+        private void iMPORTSCHEMAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string strContent = File.ReadAllText(@"DEPLOY\IMPORT_SCHEMA.sql");
+                rtbContent.Text = strContent;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
