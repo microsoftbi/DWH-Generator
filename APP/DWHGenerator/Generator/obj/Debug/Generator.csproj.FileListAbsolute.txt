@@ -38,3 +38,4 @@ C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Deb
 C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_RECORDSOURCE.resources
 C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_Verify.resources
 C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\DEPLOY\IMPORT_SCHEMA.sql
+C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\DEPLOY\IMPORT_SCHEMA.sql

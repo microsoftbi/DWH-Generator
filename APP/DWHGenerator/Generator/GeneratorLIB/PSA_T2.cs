@@ -31,7 +31,7 @@ namespace Generator
 
                 sb.AppendLine("\t[SEQUENCE_NO] [bigint] NULL,");
                 sb.AppendLine("\t[SESSION_DTS] [datetimeoffset](7) NOT NULL,");
-                sb.AppendLine("\t[Fully_Qualified_File_Name] [varchar](25) NOT NULL,");
+                sb.AppendLine("\t[Fully_Qualified_File_Name] [varchar](256) NOT NULL,");
                 sb.AppendLine("\t[FILE_TRANSFER_DTS] [datetimeoffset](7) NOT NULL,");
                 sb.AppendLine("\t[REC_SRC] [varchar](20) NULL,");
 
