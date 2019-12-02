@@ -3,7 +3,6 @@ C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Rele
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Release\Generator.exe.config
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Release\Generator.exe
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Release\Generator.pdb
-C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.csprojAssemblyReference.cache
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.Main.resources
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.Properties.Resources.resources
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.csproj.GenerateResource.cache

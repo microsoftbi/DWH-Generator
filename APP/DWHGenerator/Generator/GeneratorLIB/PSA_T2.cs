@@ -519,7 +519,7 @@ namespace Generator
                 sb.AppendLine("\t\t\tWHERE CDC.[HF] NOT IN");
                 sb.AppendLine("\t\t\t(");
                 sb.AppendLine("\t\t\t\tSELECT [HF] FROM [" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_LOG]");
-                sb.AppendLine("\t\t\t  );");
+                sb.AppendLine("\t\t\t);");
                 sb.AppendLine("\t\t\t");
                 sb.AppendLine("\t\t\tEXEC META.dbo.USP_WRITELOG N'Finish to load [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_LOG]', @LOGSOURCE, N'N';");
                 sb.AppendLine("\t\t\t");
@@ -529,6 +529,111 @@ namespace Generator
                 sb.AppendLine("\t");
                 sb.AppendLine("\t\tDECLARE @ERROR_MESSAGE AS NVARCHAR(4000);");
                 sb.AppendLine("\t\tSET @ERROR_MESSAGE = N'Failed to load ["+ strPSADBName +"].[" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_LOG]' + ISNULL(ERROR_MESSAGE(), '');");
+                sb.AppendLine("\t\tEXEC META.dbo.USP_WRITELOG @ERROR_MESSAGE, @LOGSOURCE, N'E';");
+                sb.AppendLine("\tEND CATCH");
+                sb.AppendLine("\tEND;");
+                sb.AppendLine("\tGO");
+                sb.AppendLine("");
+                sb.AppendLine("");
+                sb.AppendLine("");
+            }
+
+            result = sb.ToString();
+
+            return result;
+        }
+
+        public static string GenerateUSPSTG()
+        {
+            string result = "";
+
+            DataClassesDataContext dc = new DataClassesDataContext();
+
+            var lstMetas = (from p in dc.ATTRIBUTEs select p).ToList();
+
+            var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RECORDSOURCE }).ToList();
+
+            StringBuilder sb = new StringBuilder();
+
+            string strDVDBName = Common.GetDVDatabaseName();
+            string strPSADBName = Common.GetPSADatabaseName();
+
+            sb.AppendLine("USE " + Common.GetPSADatabaseName());
+            sb.AppendLine("GO");
+            sb.AppendLine();
+
+            string PK = "";
+
+            //Table
+            foreach (var itemTable in lstTables.Distinct())
+            {
+                PK = (from p in dc.ATTRIBUTEs where p.TABLE_NAME == itemTable.TABLE_NAME && p.PK == true select p.COLUMN_NAME).ToList()[0];
+
+
+                sb.AppendLine("CREATE PROCEDURE [" + itemTable.RECORDSOURCE + "].[USP_" + itemTable.TABLE_NAME + "_STG]");
+                sb.AppendLine("AS");
+                sb.AppendLine("\tBEGIN");
+
+
+                //Fields
+                var lstColumns = (from metas in lstMetas where metas.TABLE_NAME == itemTable.TABLE_NAME where metas.PK == true || metas.BK == true || metas.DI == true select metas).ToList();
+                int n = lstColumns.Count;
+                int pt = 0;
+
+                sb.AppendLine("\tDECLARE @LOGSOURCE AS NVARCHAR(100);");
+                sb.AppendLine("\tSET @LOGSOURCE = N'[" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[USP_" + itemTable.TABLE_NAME + "_STG]';");
+                sb.AppendLine("\t");
+                sb.AppendLine("\tEXEC META.dbo.USP_WRITELOG N'Start to load [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_STG]', @LOGSOURCE, N'N';");
+                sb.AppendLine("\t");
+                sb.AppendLine("\tTRUNCATE TABLE [" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_STG];");
+                sb.AppendLine("\t");
+                sb.AppendLine("\tBEGIN TRY");
+                sb.AppendLine("\t\tBEGIN TRAN;");
+                sb.AppendLine("\t");
+                sb.AppendLine("\t\t\tINSERT INTO [" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_STG]");
+                sb.AppendLine("\t\t\t(");
+
+                foreach (var itemColumn in lstColumns)
+                {
+                    sb.AppendLine("\t\t\t\t[" + itemColumn.COLUMN_NAME + "],");
+                }
+
+                sb.AppendLine("\t\t\t\t[FULLY_QUALIFIED_FILE_NAME],");
+                sb.AppendLine("\t\t\t\t[FILE_TRANSFER_DTS],");
+                sb.AppendLine("\t\t\t\t[LOAD_DTS],");
+                sb.AppendLine("\t\t\t\t[REC_SRC],");
+                sb.AppendLine("\t\t\t\t[SEQUENCE_NO],");
+                sb.AppendLine("\t\t\t\t[SESSION_DTS]");
+
+                sb.AppendLine("\t\t\t)");
+                sb.AppendLine("\t\t\tSELECT");
+
+
+                //DI fields
+                foreach (var itemColumn in lstColumns)
+                {
+                    sb.AppendLine("\t\t\t\t[" + itemColumn.COLUMN_NAME + "],");
+                }
+
+                sb.AppendLine("\t\t\t\t[FULLY_QUALIFIED_FILE_NAME],");
+                sb.AppendLine("\t\t\t\t[FILE_TRANSFER_DTS],");
+                sb.AppendLine("\t\t\t\t[LOAD_DTS],");
+                sb.AppendLine("\t\t\t\t[REC_SRC],");
+                sb.AppendLine("\t\t\t\tROW_NUMBER() OVER (ORDER BY [" + PK + "]) AS [SEQUENCE_NO],");
+                sb.AppendLine("\t\t\t\tSYSDATETIMEOFFSET() AS [SESSION_DTS]");
+
+
+                sb.AppendLine("\t\t\tFROM [" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "]");
+                
+                sb.AppendLine("\t\t\t");
+                sb.AppendLine("\t\t\tEXEC META.dbo.USP_WRITELOG N'Finish to load [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_STG]', @LOGSOURCE, N'N';");
+                sb.AppendLine("\t\t\t");
+                sb.AppendLine("\t\tCOMMIT TRAN;");
+                sb.AppendLine("\tEND TRY");
+                sb.AppendLine("\tBEGIN CATCH");
+                sb.AppendLine("\t");
+                sb.AppendLine("\t\tDECLARE @ERROR_MESSAGE AS NVARCHAR(4000);");
+                sb.AppendLine("\t\tSET @ERROR_MESSAGE = N'Failed to load [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_STG]' + ISNULL(ERROR_MESSAGE(), '');");
                 sb.AppendLine("\t\tEXEC META.dbo.USP_WRITELOG @ERROR_MESSAGE, @LOGSOURCE, N'E';");
                 sb.AppendLine("\tEND CATCH");
                 sb.AppendLine("\tEND;");
@@ -806,11 +911,10 @@ namespace Generator
             //Table
             foreach (var itemTable in lstTables.Distinct())
             {
+                sb.AppendLine("EXEC [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[USP_" + itemTable.TABLE_NAME + "_STG]");
                 sb.AppendLine("EXEC [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[USP_" + itemTable.TABLE_NAME + "_CDC]");
                 sb.AppendLine("EXEC [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[USP_" + itemTable.TABLE_NAME + "_LOG]");
-
-
-
+                sb.AppendLine("");
             }
 
             result = sb.ToString();

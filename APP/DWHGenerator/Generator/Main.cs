@@ -61,24 +61,27 @@ namespace Generator
                 switch (lbType2.SelectedIndex)
                 {
                     case 0:
-                        rtbContent.Text = PSA_TYPE2.GenerateTableSTG();
+                        rtbContent.Text = PSA_TYPE2.GenerateUSPSTG();
                         break;
                     case 1:
-                        rtbContent.Text = PSA_TYPE2.GenerateVIEWMTA();
+                        rtbContent.Text = PSA_TYPE2.GenerateTableSTG();
                         break;
                     case 2:
-                        rtbContent.Text = PSA_TYPE2.GenerateUSPCDC();
+                        rtbContent.Text = PSA_TYPE2.GenerateVIEWMTA();
                         break;
                     case 3:
-                        rtbContent.Text = PSA_TYPE2.GenerateTableCDC();
+                        rtbContent.Text = PSA_TYPE2.GenerateUSPCDC();
                         break;
                     case 4:
-                        rtbContent.Text = PSA_TYPE2.GenerateUSPLOG();
+                        rtbContent.Text = PSA_TYPE2.GenerateTableCDC();
                         break;
                     case 5:
-                        rtbContent.Text = PSA_TYPE2.GenerateTableLOG();
+                        rtbContent.Text = PSA_TYPE2.GenerateUSPLOG();
                         break;
                     case 6:
+                        rtbContent.Text = PSA_TYPE2.GenerateTableLOG();
+                        break;
+                    case 7:
                         rtbContent.Text = PSA_TYPE2.GenerateVIECURRENT();
                         break;
                 }

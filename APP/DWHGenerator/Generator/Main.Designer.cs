@@ -82,7 +82,7 @@
             this.rtbContent.Name = "rtbContent";
             this.rtbContent.Size = new System.Drawing.Size(1185, 927);
             this.rtbContent.TabIndex = 1;
-            this.rtbContent.Text = "--Welcome to use PSA generator\n--Ver 1202a\n";
+            this.rtbContent.Text = "--Welcome to use PSA generator\n--Ver 1202b\n";
             // 
             // btnDeploy
             // 
@@ -99,6 +99,7 @@
             this.lbType2.FormattingEnabled = true;
             this.lbType2.ItemHeight = 16;
             this.lbType2.Items.AddRange(new object[] {
+            "USP STG",
             "Table STG",
             "View MTA",
             "USP CDC",
@@ -108,7 +109,7 @@
             "View Current"});
             this.lbType2.Location = new System.Drawing.Point(1, 224);
             this.lbType2.Name = "lbType2";
-            this.lbType2.Size = new System.Drawing.Size(159, 116);
+            this.lbType2.Size = new System.Drawing.Size(159, 132);
             this.lbType2.TabIndex = 4;
             this.lbType2.SelectedIndexChanged += new System.EventHandler(this.lbType2_SelectedIndexChanged);
             // 
