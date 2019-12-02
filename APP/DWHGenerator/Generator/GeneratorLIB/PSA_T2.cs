@@ -29,6 +29,7 @@ namespace Generator
                 sb.AppendLine("CREATE TABLE [" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_STG]");
                 sb.AppendLine("(");
 
+                sb.AppendLine("\t[LOAD_DTS] [DATETIMEOFFSET](7) NOT NULL,");
                 sb.AppendLine("\t[SEQUENCE_NO] [bigint] NULL,");
                 sb.AppendLine("\t[SESSION_DTS] [datetimeoffset](7) NOT NULL,");
                 sb.AppendLine("\t[Fully_Qualified_File_Name] [varchar](256) NOT NULL,");
@@ -236,7 +237,7 @@ namespace Generator
                 sb.AppendLine("CREATE VIEW [" + itemTable.RECORDSOURCE + "].[V_" + itemTable.TABLE_NAME + "_MTA]");
                 sb.AppendLine("AS");
 
-                sb.AppendLine("\tSELECT CAST(NULL AS DATETIMEOFFSET(7)) AS LOAD_DTS,");
+                sb.AppendLine("\tSELECT LOAD_DTS,");
                 sb.AppendLine("\t\tTODATETIMEOFFSET(");
                 sb.AppendLine("\t\t\tCAST(CAST(CAST([FILE_TRANSFER_DTS] AS DATE) AS VARCHAR(10)) + ' '");
                 sb.AppendLine("\t\t\t\t+ CAST(CAST('00:00:00' AS TIME) AS VARCHAR(16)) AS DATETIME2(7)),");
