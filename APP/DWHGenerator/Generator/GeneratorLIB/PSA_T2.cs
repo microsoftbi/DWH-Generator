@@ -614,21 +614,7 @@ namespace Generator
                 }
 
                 sb.AppendLine("\t\t\t)");
-                sb.AppendLine("\t\t\tSELECT DATEADD(");
-                sb.AppendLine("\t\t\t\tSECOND,");
-                sb.AppendLine("\t\t\t\t((IIF(Mta.SOURCE_ENTITY = 'HDA', 0, Mta.SEQUENCE_NO) * 100) / 1000000000),");
-                sb.AppendLine("\t\t\t\t DATEADD(");
-                sb.AppendLine("\t\t\t\t\tNANOSECOND,");
-                sb.AppendLine("\t\t\t\t\t((IIF(Mta.SOURCE_ENTITY = 'HDA', 0, Mta.SEQUENCE_NO)) * 100) % 1000000000,");
-                sb.AppendLine("\t\t\t\t\tIIF(Mta.SOURCE_ENTITY = 'HDA',");
-                sb.AppendLine("\t\t\t\t\t\t DATEADD(");
-                sb.AppendLine("\t\t\t\t\t\t\tNS,");
-                sb.AppendLine("\t\t\t\t\t\t\tROW_NUMBER() OVER (ORDER BY (SELECT 0)) * 100,");
-                sb.AppendLine("\t\t\t\t\t\t\tMAX_LTS.MAX_LOAD_DTS_BATCH");
-                sb.AppendLine("\t\t\t\t\t\t),");
-                sb.AppendLine("\t\t\t\t\t Mta.LOAD_DTS_BATCH)");
-                sb.AppendLine("\t\t\t\t\t )");
-                sb.AppendLine("\t\t\t\t) LOAD_DTS,");
+                sb.AppendLine("\t\t\tSELECT Mta.LOAD_DTS,");
                 sb.AppendLine("\t\t\t\tIIF(Mta.SOURCE_ENTITY = 'HDA', MAX_LTS.MAX_LOAD_DTS_BATCH, Mta.LOAD_DTS_BATCH) LOAD_DTS_BATCH,");
                 sb.AppendLine("\t\t\t\tIIF(Mta.SOURCE_ENTITY = 'HDA', 0, Mta.SEQUENCE_NO) SEQUENCE_NO,");
                 sb.AppendLine("\t\t\t\tCASE");
