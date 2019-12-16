@@ -13,7 +13,7 @@ namespace Generator
 
             DataClassesDataContext dc = new DataClassesDataContext();
 
-            var lstMetas = (from p in dc.ATTRIBUTEs select p).ToList();
+            var lstMetas = (from p in dc.V_ATTRIBUTE select p).ToList();
 
             var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RECORDSOURCE}).ToList();
 
@@ -65,7 +65,7 @@ namespace Generator
 
             DataClassesDataContext dc = new DataClassesDataContext();
 
-            var lstMetas = (from p in dc.ATTRIBUTEs select p).ToList();
+            var lstMetas = (from p in dc.V_ATTRIBUTE select p).ToList();
 
             var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RECORDSOURCE }).ToList();
 
@@ -108,7 +108,7 @@ namespace Generator
 
             DataClassesDataContext dc = new DataClassesDataContext();
 
-            var lstMetas = (from p in dc.ATTRIBUTEs select p).ToList();
+            var lstMetas = (from p in dc.V_ATTRIBUTE select p).ToList();
 
             var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RECORDSOURCE }).ToList();
 
@@ -154,7 +154,7 @@ namespace Generator
 
             DataClassesDataContext dc = new DataClassesDataContext();
 
-            var lstMetas = (from p in dc.ATTRIBUTEs select p).ToList();
+            var lstMetas = (from p in dc.V_ATTRIBUTE select p).ToList();
 
             var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RECORDSOURCE }).ToList();
 
@@ -247,7 +247,7 @@ namespace Generator
 
             DataClassesDataContext dc = new DataClassesDataContext();
 
-            var lstMetas = (from p in dc.ATTRIBUTEs select p).ToList();
+            var lstMetas = (from p in dc.V_ATTRIBUTE select p).ToList();
 
             var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RECORDSOURCE }).ToList();
 
@@ -262,7 +262,7 @@ namespace Generator
             //Table
             foreach (var itemTable in lstTables.Distinct())
             {
-                PK = (from p in dc.ATTRIBUTEs where p.TABLE_NAME == itemTable.TABLE_NAME && p.PK == true select p.COLUMN_NAME).ToList()[0];
+                PK = (from p in dc.V_ATTRIBUTE where p.TABLE_NAME == itemTable.TABLE_NAME && p.PK == true select p.COLUMN_NAME).ToList()[0];
 
                 sb.AppendLine("CREATE PROCEDURE ["+itemTable.RECORDSOURCE+"].[USP_" + itemTable.TABLE_NAME + "_HIS]");
                 sb.AppendLine("AS");

@@ -1,7 +1,7 @@
 # PSA-Generator
 A generator to create PSA(Presistent staging area) in SQLServer.
 
-Last update: 2019-11-26
+Last update: 2019-12-16
 By: Wade
 
 Generate scripts for PSA and Data Vault.
@@ -19,14 +19,16 @@ What is out of scope:
 
 
 About PSA TYPE1 and TYPE 2
-	PSA TYPE 1: Updateable PSA.
-	Historial data stored using:
-	- Valid From
-	- Valid To
-	- IS CURRENT
+PSA TYPE 1: Updateable PSA, for changed data, original data valid_to will be updated.
 
-	PSA TYPE 2: Insert only PSA.
-	Only record LOAD_DTS, no update to changed data row.
+Using IS_CURRENT to get latest data.
+Historial data stored using:
+- Valid From
+- Valid To
+- IS CURRENT
+
+PSA TYPE 2: Insert only PSA.
+Only record LOAD_DTS, no update to changed data row.
 
 
 How to use:

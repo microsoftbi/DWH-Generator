@@ -18,3 +18,17 @@ C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Rele
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.WF_OBJECTCONFIG.resources
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.WF_RECORDSOURCE.resources
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.WF_Verify.resources
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.csprojAssemblyReference.cache
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.WF_DATAVAULT.resources
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.WF_LAYERS.resources
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.Main.resources
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.WF_META.resources
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.WF_METAResult.resources
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.WF_METAScript.resources
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.Properties.Resources.resources
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.WF_OBJECTCONFIG.resources
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.WF_RECORDSOURCE.resources
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.WF_Verify.resources
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.csproj.GenerateResource.cache
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.exe
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.pdb
