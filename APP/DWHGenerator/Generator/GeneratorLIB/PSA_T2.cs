@@ -7,65 +7,65 @@ namespace Generator
 {
     public class PSA_TYPE2
     {
-        public static string GenerateTableSTG()
-        {
-            string result = "";
+        //public static string GenerateTableSTG()
+        //{
+        //    string result = "";
 
-            DataClassesDataContext dc = new DataClassesDataContext();
+        //    DataClassesDataContext dc = new DataClassesDataContext();
 
-            var lstMetas = (from p in dc.V_ATTRIBUTE select p).ToList();
+        //    var lstMetas = (from p in dc.V_ATTRIBUTE select p).ToList();
 
-            var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RECORDSOURCE }).ToList();
+        //    var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RECORDSOURCE }).ToList();
 
-            StringBuilder sb = new StringBuilder();
+        //    StringBuilder sb = new StringBuilder();
 
-            sb.AppendLine("USE "+Common.GetPSADatabaseName());
-            sb.AppendLine("GO");
-            sb.AppendLine();
+        //    sb.AppendLine("USE "+Common.GetPSADatabaseName());
+        //    sb.AppendLine("GO");
+        //    sb.AppendLine();
 
-            //Table
-            foreach (var itemTable in lstTables.Distinct())
-            {
-                sb.AppendLine("CREATE TABLE [" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_STG]");
-                sb.AppendLine("(");
+        //    //Table
+        //    foreach (var itemTable in lstTables.Distinct())
+        //    {
+        //        sb.AppendLine("CREATE TABLE [" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_STG]");
+        //        sb.AppendLine("(");
 
-                sb.AppendLine("\t[LOAD_DTS] [DATETIMEOFFSET](7) NOT NULL,");
-                sb.AppendLine("\t[SEQUENCE_NO] [bigint] NULL,");
-                sb.AppendLine("\t[SESSION_DTS] [datetimeoffset](7) NOT NULL,");
-                sb.AppendLine("\t[Fully_Qualified_File_Name] [varchar](256) NOT NULL,");
-                sb.AppendLine("\t[FILE_TRANSFER_DTS] [datetimeoffset](7) NOT NULL,");
-                sb.AppendLine("\t[REC_SRC] [varchar](20) NULL,");
+        //        sb.AppendLine("\t[LOAD_DTS] [DATETIMEOFFSET](7) NOT NULL,");
+        //        sb.AppendLine("\t[SEQUENCE_NO] [bigint] NULL,");
+        //        sb.AppendLine("\t[SESSION_DTS] [datetimeoffset](7) NOT NULL,");
+        //        sb.AppendLine("\t[Fully_Qualified_File_Name] [varchar](256) NOT NULL,");
+        //        sb.AppendLine("\t[FILE_TRANSFER_DTS] [datetimeoffset](7) NOT NULL,");
+        //        sb.AppendLine("\t[REC_SRC] [varchar](20) NULL,");
 
 
-                //Fields
-                var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == true || p.BK == true || p.DI == true select p).ToList();
+        //        //Fields
+        //        var lstColumns = (from p in lstMetas where p.TABLE_NAME == itemTable.TABLE_NAME where p.PK == true || p.BK == true || p.DI == true select p).ToList();
 
-                int n = lstColumns.Count;
-                int pt = 0;
+        //        int n = lstColumns.Count;
+        //        int pt = 0;
 
-                foreach (var itemColumn in lstColumns)
-                {
-                    pt++;
+        //        foreach (var itemColumn in lstColumns)
+        //        {
+        //            pt++;
 
-                    if (pt < n)
-                    {
-                        sb.AppendLine(Common.FieldGenerate(itemColumn.COLUMN_NAME, itemColumn.DATA_TYPE, itemColumn.CHARACTER_MAXIMUM_LENGTH, itemColumn.NUMERIC_PRECISION, itemColumn.NUMERIC_SCALE) + ",");
-                    }
-                    else
-                    {
-                        sb.AppendLine(Common.FieldGenerate(itemColumn.COLUMN_NAME, itemColumn.DATA_TYPE, itemColumn.CHARACTER_MAXIMUM_LENGTH, itemColumn.NUMERIC_PRECISION, itemColumn.NUMERIC_SCALE));
-                    }
-                }
+        //            if (pt < n)
+        //            {
+        //                sb.AppendLine(Common.FieldGenerate(itemColumn.COLUMN_NAME, itemColumn.DATA_TYPE, itemColumn.CHARACTER_MAXIMUM_LENGTH, itemColumn.NUMERIC_PRECISION, itemColumn.NUMERIC_SCALE) + ",");
+        //            }
+        //            else
+        //            {
+        //                sb.AppendLine(Common.FieldGenerate(itemColumn.COLUMN_NAME, itemColumn.DATA_TYPE, itemColumn.CHARACTER_MAXIMUM_LENGTH, itemColumn.NUMERIC_PRECISION, itemColumn.NUMERIC_SCALE));
+        //            }
+        //        }
 
-                sb.AppendLine(")");
-                sb.AppendLine("");
-                sb.AppendLine("");
-            }
+        //        sb.AppendLine(")");
+        //        sb.AppendLine("");
+        //        sb.AppendLine("");
+        //    }
 
-            result = sb.ToString();
+        //    result = sb.ToString();
 
-            return result;
-        }
+        //    return result;
+        //}
 
         public static string GenerateTableCDC()
         {
@@ -243,15 +243,15 @@ namespace Generator
                 sb.AppendLine("\t\t\t\t+ CAST(CAST('00:00:00' AS TIME) AS VARCHAR(16)) AS DATETIME2(7)),");
                 sb.AppendLine("\t\t\tDATEDIFF(MINUTE, GETUTCDATE(), GETDATE())");
                 sb.AppendLine("\t\t) AS LOAD_DTS_BATCH,");
-                sb.AppendLine("\t\t[SEQUENCE_NO],");
+                sb.AppendLine("\t\tROW_NUMBER() OVER (ORDER BY CONVERT(INT, CONVERT(NVARCHAR(30), [" + PK + "]))) AS [SEQUENCE_NO],");
                 sb.AppendLine("\t\tCAST(NULL AS NCHAR(1)) AS CDC_OPERATION_CODE,");
-                sb.AppendLine("\t\t[REC_SRC],");
+                sb.AppendLine("\t\t'" + itemTable.RECORDSOURCE + "' AS [REC_SRC],");
                 sb.AppendLine("\t\t[FULLY_QUALIFIED_FILE_NAME],");
                 sb.AppendLine("\t\tCAST(NULL AS DATETIMEOFFSET(7)) AS [INSERT_DTS],");
                 sb.AppendLine("\t\tCAST(NULL AS DATETIMEOFFSET(7)) AS [UPDATE_DTS],");
                 sb.AppendLine("\t\tCAST(NULL AS DATETIMEOFFSET(7)) AS [EXPORT_DTS],");
                 sb.AppendLine("\t\t[FILE_TRANSFER_DTS],");
-                sb.AppendLine("\t\t[SESSION_DTS],");
+                sb.AppendLine("\t\tSYSDATETIMEOFFSET() AS [SESSION_DTS],");
                 sb.AppendLine("\t\tCAST(NULL AS DATETIMEOFFSET(7)) AS [SOURCE_SLICE_DTS],");
                 sb.AppendLine("\t\tCAST('FULL' AS NVARCHAR(10)) AS [LOAD_TYPE],");
                 sb.AppendLine("\t\tCONVERT(CHAR(32), HASHBYTES('MD5', ISNULL(TRIM(CONVERT(NVARCHAR(50), ["+PK+"])), N'') + N'W|D'), 2) AS HK,");
@@ -283,13 +283,11 @@ namespace Generator
                 sb.AppendLine("\t\t\t2");
                 sb.AppendLine("\t\t\t) AS HD,");
 
-                //sb.AppendLine("\t\tCONVERT(CHAR(32), HASHBYTES('MD5', ISNULL(TRIM(CONVERT(NVARCHAR(50), ["+PK+"])), N'') + N'W|D'), 2) AS HK,");
                 sb.AppendLine("\t\tCONVERT(");
                 sb.AppendLine("\t\t\tCHAR(32),");
                 sb.AppendLine("\t\t\tHASHBYTES(");
                 sb.AppendLine("\t\t\t\t'MD5',");
 
-                //int n = lstColumns.Count;
                 pt = 0;
 
                 foreach (var itemColumn in lstColumns)
@@ -315,13 +313,33 @@ namespace Generator
                 foreach (var itemColumn in lstColumns)
                 {
                     pt++;
+
                     if (pt < n)
-                        sb.AppendLine("\t\t[" + itemColumn.COLUMN_NAME + "],");
+                    {
+                        if (string.IsNullOrEmpty(itemColumn.L_DATA_TYPE) == true)
+                        {
+                            sb.AppendLine("\t\t[" + itemColumn.COLUMN_NAME + "],");
+                        }
+                        else
+                        {
+                            sb.AppendLine("\t\t" + Common.FieldConvert(itemColumn.COLUMN_NAME, itemColumn.DATA_TYPE, itemColumn.CHARACTER_MAXIMUM_LENGTH, itemColumn.NUMERIC_PRECISION, itemColumn.NUMERIC_SCALE) + ",");
+                        }
+                    }
                     else
-                        sb.AppendLine("\t\t[" + itemColumn.COLUMN_NAME + "]");
+                    {
+                        if (string.IsNullOrEmpty(itemColumn.L_DATA_TYPE) == true)
+                        {
+                            sb.AppendLine("\t\t[" + itemColumn.COLUMN_NAME + "]");
+                        }
+                        else
+                        {
+                            sb.AppendLine("\t\t" + Common.FieldConvert(itemColumn.COLUMN_NAME, itemColumn.DATA_TYPE, itemColumn.CHARACTER_MAXIMUM_LENGTH, itemColumn.NUMERIC_PRECISION, itemColumn.NUMERIC_SCALE) + "");
+                        }
+                    }
+                    
                 }
 
-                sb.AppendLine("\tFROM [" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_STG];");
+                sb.AppendLine("\tFROM [" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "];");
                 sb.AppendLine("GO");
                 sb.AppendLine("");
                 sb.AppendLine("");
@@ -543,110 +561,110 @@ namespace Generator
             return result;
         }
 
-        public static string GenerateUSPSTG()
-        {
-            string result = "";
+        //public static string GenerateUSPSTG()
+        //{
+        //    string result = "";
 
-            DataClassesDataContext dc = new DataClassesDataContext();
+        //    DataClassesDataContext dc = new DataClassesDataContext();
 
-            var lstMetas = (from p in dc.V_ATTRIBUTE select p).ToList();
+        //    var lstMetas = (from p in dc.V_ATTRIBUTE select p).ToList();
 
-            var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RECORDSOURCE }).ToList();
+        //    var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RECORDSOURCE }).ToList();
 
-            StringBuilder sb = new StringBuilder();
+        //    StringBuilder sb = new StringBuilder();
 
-            string strDVDBName = Common.GetDVDatabaseName();
-            string strPSADBName = Common.GetPSADatabaseName();
+        //    string strDVDBName = Common.GetDVDatabaseName();
+        //    string strPSADBName = Common.GetPSADatabaseName();
 
-            sb.AppendLine("USE " + Common.GetPSADatabaseName());
-            sb.AppendLine("GO");
-            sb.AppendLine();
+        //    sb.AppendLine("USE " + Common.GetPSADatabaseName());
+        //    sb.AppendLine("GO");
+        //    sb.AppendLine();
 
-            string PK = "";
+        //    string PK = "";
 
-            //Table
-            foreach (var itemTable in lstTables.Distinct())
-            {
-                PK = (from p in dc.V_ATTRIBUTE where p.TABLE_NAME == itemTable.TABLE_NAME && p.PK == true select p.COLUMN_NAME).ToList()[0];
-
-
-                sb.AppendLine("CREATE PROCEDURE [" + itemTable.RECORDSOURCE + "].[USP_" + itemTable.TABLE_NAME + "_STG]");
-                sb.AppendLine("AS");
-                sb.AppendLine("\tBEGIN");
+        //    //Table
+        //    foreach (var itemTable in lstTables.Distinct())
+        //    {
+        //        PK = (from p in dc.V_ATTRIBUTE where p.TABLE_NAME == itemTable.TABLE_NAME && p.PK == true select p.COLUMN_NAME).ToList()[0];
 
 
-                //Fields
-                var lstColumns = (from metas in lstMetas where metas.TABLE_NAME == itemTable.TABLE_NAME where metas.PK == true || metas.BK == true || metas.DI == true select metas).ToList();
-                int n = lstColumns.Count;
-                int pt = 0;
-
-                sb.AppendLine("\tDECLARE @LOGSOURCE AS NVARCHAR(100);");
-                sb.AppendLine("\tSET @LOGSOURCE = N'[" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[USP_" + itemTable.TABLE_NAME + "_STG]';");
-                sb.AppendLine("\t");
-                sb.AppendLine("\tEXEC META.dbo.USP_WRITELOG N'Start to load [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_STG]', @LOGSOURCE, N'N';");
-                sb.AppendLine("\t");
-                sb.AppendLine("\tTRUNCATE TABLE [" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_STG];");
-                sb.AppendLine("\t");
-                sb.AppendLine("\tBEGIN TRY");
-                sb.AppendLine("\t\tBEGIN TRAN;");
-                sb.AppendLine("\t");
-                sb.AppendLine("\t\t\tINSERT INTO [" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_STG]");
-                sb.AppendLine("\t\t\t(");
-
-                foreach (var itemColumn in lstColumns)
-                {
-                    sb.AppendLine("\t\t\t\t[" + itemColumn.COLUMN_NAME + "],");
-                }
-
-                sb.AppendLine("\t\t\t\t[FULLY_QUALIFIED_FILE_NAME],");
-                sb.AppendLine("\t\t\t\t[FILE_TRANSFER_DTS],");
-                sb.AppendLine("\t\t\t\t[LOAD_DTS],");
-                sb.AppendLine("\t\t\t\t[REC_SRC],");
-                sb.AppendLine("\t\t\t\t[SEQUENCE_NO],");
-                sb.AppendLine("\t\t\t\t[SESSION_DTS]");
-
-                sb.AppendLine("\t\t\t)");
-                sb.AppendLine("\t\t\tSELECT");
+        //        sb.AppendLine("CREATE PROCEDURE [" + itemTable.RECORDSOURCE + "].[USP_" + itemTable.TABLE_NAME + "_STG]");
+        //        sb.AppendLine("AS");
+        //        sb.AppendLine("\tBEGIN");
 
 
-                //DI fields
-                foreach (var itemColumn in lstColumns)
-                {
-                    sb.AppendLine("\t\t\t\t[" + itemColumn.COLUMN_NAME + "],");
-                }
+        //        //Fields
+        //        var lstColumns = (from metas in lstMetas where metas.TABLE_NAME == itemTable.TABLE_NAME where metas.PK == true || metas.BK == true || metas.DI == true select metas).ToList();
+        //        int n = lstColumns.Count;
+        //        int pt = 0;
 
-                sb.AppendLine("\t\t\t\t[FULLY_QUALIFIED_FILE_NAME],");
-                sb.AppendLine("\t\t\t\t[FILE_TRANSFER_DTS],");
-                sb.AppendLine("\t\t\t\t[LOAD_DTS],");
-                sb.AppendLine("\t\t\t\t[REC_SRC],");
-                sb.AppendLine("\t\t\t\tROW_NUMBER() OVER (ORDER BY [" + PK + "]) AS [SEQUENCE_NO],");
-                sb.AppendLine("\t\t\t\tSYSDATETIMEOFFSET() AS [SESSION_DTS]");
+        //        sb.AppendLine("\tDECLARE @LOGSOURCE AS NVARCHAR(100);");
+        //        sb.AppendLine("\tSET @LOGSOURCE = N'[" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[USP_" + itemTable.TABLE_NAME + "_STG]';");
+        //        sb.AppendLine("\t");
+        //        sb.AppendLine("\tEXEC META.dbo.USP_WRITELOG N'Start to load [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_STG]', @LOGSOURCE, N'N';");
+        //        sb.AppendLine("\t");
+        //        sb.AppendLine("\tTRUNCATE TABLE [" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_STG];");
+        //        sb.AppendLine("\t");
+        //        sb.AppendLine("\tBEGIN TRY");
+        //        sb.AppendLine("\t\tBEGIN TRAN;");
+        //        sb.AppendLine("\t");
+        //        sb.AppendLine("\t\t\tINSERT INTO [" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_STG]");
+        //        sb.AppendLine("\t\t\t(");
+
+        //        foreach (var itemColumn in lstColumns)
+        //        {
+        //            sb.AppendLine("\t\t\t\t[" + itemColumn.COLUMN_NAME + "],");
+        //        }
+
+        //        sb.AppendLine("\t\t\t\t[FULLY_QUALIFIED_FILE_NAME],");
+        //        sb.AppendLine("\t\t\t\t[FILE_TRANSFER_DTS],");
+        //        sb.AppendLine("\t\t\t\t[LOAD_DTS],");
+        //        sb.AppendLine("\t\t\t\t[REC_SRC],");
+        //        sb.AppendLine("\t\t\t\t[SEQUENCE_NO],");
+        //        sb.AppendLine("\t\t\t\t[SESSION_DTS]");
+
+        //        sb.AppendLine("\t\t\t)");
+        //        sb.AppendLine("\t\t\tSELECT");
 
 
-                sb.AppendLine("\t\t\tFROM [" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "]");
+        //        //DI fields
+        //        foreach (var itemColumn in lstColumns)
+        //        {
+        //            sb.AppendLine("\t\t\t\t[" + itemColumn.COLUMN_NAME + "],");
+        //        }
+
+        //        sb.AppendLine("\t\t\t\t[FULLY_QUALIFIED_FILE_NAME],");
+        //        sb.AppendLine("\t\t\t\t[FILE_TRANSFER_DTS],");
+        //        sb.AppendLine("\t\t\t\t[LOAD_DTS],");
+        //        sb.AppendLine("\t\t\t\t[REC_SRC],");
+        //        sb.AppendLine("\t\t\t\tROW_NUMBER() OVER (ORDER BY [" + PK + "]) AS [SEQUENCE_NO],");
+        //        sb.AppendLine("\t\t\t\tSYSDATETIMEOFFSET() AS [SESSION_DTS]");
+
+
+        //        sb.AppendLine("\t\t\tFROM [" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "]");
                 
-                sb.AppendLine("\t\t\t");
-                sb.AppendLine("\t\t\tEXEC META.dbo.USP_WRITELOG N'Finish to load [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_STG]', @LOGSOURCE, N'N';");
-                sb.AppendLine("\t\t\t");
-                sb.AppendLine("\t\tCOMMIT TRAN;");
-                sb.AppendLine("\tEND TRY");
-                sb.AppendLine("\tBEGIN CATCH");
-                sb.AppendLine("\t");
-                sb.AppendLine("\t\tDECLARE @ERROR_MESSAGE AS NVARCHAR(4000);");
-                sb.AppendLine("\t\tSET @ERROR_MESSAGE = N'Failed to load [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_STG]' + ISNULL(ERROR_MESSAGE(), '');");
-                sb.AppendLine("\t\tEXEC META.dbo.USP_WRITELOG @ERROR_MESSAGE, @LOGSOURCE, N'E';");
-                sb.AppendLine("\tEND CATCH");
-                sb.AppendLine("\tEND;");
-                sb.AppendLine("\tGO");
-                sb.AppendLine("");
-                sb.AppendLine("");
-                sb.AppendLine("");
-            }
+        //        sb.AppendLine("\t\t\t");
+        //        sb.AppendLine("\t\t\tEXEC META.dbo.USP_WRITELOG N'Finish to load [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_STG]', @LOGSOURCE, N'N';");
+        //        sb.AppendLine("\t\t\t");
+        //        sb.AppendLine("\t\tCOMMIT TRAN;");
+        //        sb.AppendLine("\tEND TRY");
+        //        sb.AppendLine("\tBEGIN CATCH");
+        //        sb.AppendLine("\t");
+        //        sb.AppendLine("\t\tDECLARE @ERROR_MESSAGE AS NVARCHAR(4000);");
+        //        sb.AppendLine("\t\tSET @ERROR_MESSAGE = N'Failed to load [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[" + itemTable.TABLE_NAME + "_STG]' + ISNULL(ERROR_MESSAGE(), '');");
+        //        sb.AppendLine("\t\tEXEC META.dbo.USP_WRITELOG @ERROR_MESSAGE, @LOGSOURCE, N'E';");
+        //        sb.AppendLine("\tEND CATCH");
+        //        sb.AppendLine("\tEND;");
+        //        sb.AppendLine("\tGO");
+        //        sb.AppendLine("");
+        //        sb.AppendLine("");
+        //        sb.AppendLine("");
+        //    }
 
-            result = sb.ToString();
+        //    result = sb.ToString();
 
-            return result;
-        }
+        //    return result;
+        //}
 
         public static string GenerateUSPCDC()
         {

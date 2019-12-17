@@ -12,12 +12,17 @@ namespace Generator
 {
     public partial class WF_METAScript : Form
     {
+        public string Script
+        {
+            set{ rtbScript.Text = value; }
+        }
+        
         public WF_METAScript()
         {
             InitializeComponent();
 
-            string strContent = File.ReadAllText(@"DEPLOY\METADB.sql");
-            rtbScript.Text = strContent;
+            //string strContent = File.ReadAllText(@"DEPLOY\METADB.sql");
+            //rtbScript.Text = strContent;
         }
     }
 }
