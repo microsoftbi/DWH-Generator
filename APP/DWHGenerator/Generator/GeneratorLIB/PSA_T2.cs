@@ -215,6 +215,8 @@ namespace Generator
 
             DataClassesDataContext dc = new DataClassesDataContext();
 
+            string strHASHDUMMY = Common.GetHASHDUMMY();
+
             var lstMetas = (from p in dc.V_ATTRIBUTE select p).ToList();
 
             var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RECORDSOURCE }).ToList();
@@ -254,7 +256,7 @@ namespace Generator
                 sb.AppendLine("\t\tSYSDATETIMEOFFSET() AS [SESSION_DTS],");
                 sb.AppendLine("\t\tCAST(NULL AS DATETIMEOFFSET(7)) AS [SOURCE_SLICE_DTS],");
                 sb.AppendLine("\t\tCAST('FULL' AS NVARCHAR(10)) AS [LOAD_TYPE],");
-                sb.AppendLine("\t\tCONVERT(CHAR(32), HASHBYTES('MD5', ISNULL(TRIM(CONVERT(NVARCHAR(50), ["+PK+"])), N'') + N'W|D'), 2) AS HK,");
+                sb.AppendLine("\t\tCONVERT(CHAR(32), HASHBYTES('MD5', ISNULL(TRIM(CONVERT(NVARCHAR(50), ["+PK+"])), N'') + N'"+ strHASHDUMMY + "'), 2) AS HK,");
                 sb.AppendLine("\t\tCONVERT(");
                 sb.AppendLine("\t\t\tCHAR(32),");
                 sb.AppendLine("\t\t\tHASHBYTES(");
@@ -271,11 +273,11 @@ namespace Generator
 
                     if (pt == 1)
                     {
-                        sb.AppendLine("\t\t\t\tISNULL(TRIM(CONVERT(NVARCHAR(255), [" + itemColumn.COLUMN_NAME + "])), N'') + N'W|D'");
+                        sb.AppendLine("\t\t\t\tISNULL(TRIM(CONVERT(NVARCHAR(255), [" + itemColumn.COLUMN_NAME + "])), N'') + N'"+ strHASHDUMMY + "'");
                     }
                     else
                     {
-                        sb.AppendLine("\t\t\t\t+ ISNULL(TRIM(CONVERT(NVARCHAR(255), [" + itemColumn.COLUMN_NAME + "])), N'') + N'W|D'");
+                        sb.AppendLine("\t\t\t\t+ ISNULL(TRIM(CONVERT(NVARCHAR(255), [" + itemColumn.COLUMN_NAME + "])), N'') + N'"+ strHASHDUMMY + "'");
                     }
                 }
 
@@ -296,11 +298,11 @@ namespace Generator
 
                     if (pt == 1)
                     {
-                        sb.AppendLine("\t\t\t\tISNULL(TRIM(CONVERT(NVARCHAR(255), [" + itemColumn.COLUMN_NAME + "])), N'') + N'W|D'");
+                        sb.AppendLine("\t\t\t\tISNULL(TRIM(CONVERT(NVARCHAR(255), [" + itemColumn.COLUMN_NAME + "])), N'') + N'"+ strHASHDUMMY + "'");
                     }
                     else
                     {
-                        sb.AppendLine("\t\t\t\t+ ISNULL(TRIM(CONVERT(NVARCHAR(255), [" + itemColumn.COLUMN_NAME + "])), N'') + N'W|D'");
+                        sb.AppendLine("\t\t\t\t+ ISNULL(TRIM(CONVERT(NVARCHAR(255), [" + itemColumn.COLUMN_NAME + "])), N'') + N'"+ strHASHDUMMY + "'");
                     }
                 }
 

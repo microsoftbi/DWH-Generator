@@ -19,7 +19,7 @@ namespace Generator
         {
             InitializeComponent();
 
-            Generate();
+            //Generate();
         }
 
 
@@ -95,16 +95,19 @@ namespace Generator
 
         private void FULLToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DataClassesDataContext dc = new DataClassesDataContext();
+            if (MessageBox.Show("This will make all new and existing table to be configed, are you sure?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                DataClassesDataContext dc = new DataClassesDataContext();
 
-            try
-            {
-                dc.ExecuteCommand("EXEC  META.dbo.USP_INIT_LIST");
-                MessageBox.Show("Done.\n");
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Failed!\n" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                try
+                {
+                    dc.ExecuteCommand("EXEC  META.dbo.USP_INIT_LIST");
+                    MessageBox.Show("Done.\n");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Failed!\n" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -235,6 +238,20 @@ namespace Generator
             this.Enabled = true;
 
             MessageBox.Show("Done!");
+        }
+
+        private void versionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WF_METAScript frmScript = new WF_METAScript();
+            frmScript.Script = "1219a";
+            frmScript.ShowDialog();
+        }
+
+        private void gITURLToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WF_METAScript frmScript = new WF_METAScript();
+            frmScript.Script = "https://github.com/microsoftbi/generator";
+            frmScript.ShowDialog();
         }
     }
 }

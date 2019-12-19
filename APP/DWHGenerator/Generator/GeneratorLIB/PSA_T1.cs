@@ -152,6 +152,8 @@ namespace Generator
         {
             string result = "";
 
+            string strHASHDUMMY = Common.GetHASHDUMMY();
+
             DataClassesDataContext dc = new DataClassesDataContext();
 
             var lstMetas = (from p in dc.V_ATTRIBUTE select p).ToList();
@@ -207,11 +209,11 @@ namespace Generator
 
                     if (pt == 1)
                     {
-                        sb.AppendLine("\t\t\t\t\tISNULL(TRIM(CONVERT(NVARCHAR(255), [" + itemColumn.COLUMN_NAME+"])), N'') + N'W|D'");
+                        sb.AppendLine("\t\t\t\t\tISNULL(TRIM(CONVERT(NVARCHAR(255), [" + itemColumn.COLUMN_NAME+"])), N'') + N'"+ strHASHDUMMY + "'");
                     }
                     else
                     {
-                        sb.AppendLine("\t\t\t\t\t+ ISNULL(TRIM(CONVERT(NVARCHAR(255), [" + itemColumn.COLUMN_NAME+"])), N'') + N'W|D'");
+                        sb.AppendLine("\t\t\t\t\t+ ISNULL(TRIM(CONVERT(NVARCHAR(255), [" + itemColumn.COLUMN_NAME+"])), N'') + N'"+ strHASHDUMMY + "'");
                     }
                 }
 

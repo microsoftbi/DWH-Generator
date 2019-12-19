@@ -71,6 +71,12 @@ namespace Generator
                 case "INT":
                     result += "CONVERT(INT, CONVERT(NVARCHAR(30), [" + FieldName + "])) AS [" + FieldName + "]";
                     break;
+                case "BIGINT":
+                    result += "CONVERT(BIGINT, CONVERT(NVARCHAR(30), [" + FieldName + "])) AS [" + FieldName + "]";
+                    break;
+                case "TINYINT":
+                    result += "CONVERT(TINYINT, CONVERT(NVARCHAR(30), [" + FieldName + "])) AS [" + FieldName + "]";
+                    break;
                 case "CHAR":
                     result += "CONVERT(CHAR(" + CharLen.ToString() + "), [" + FieldName + "]) AS [" + FieldName + "]";
                     break;
@@ -92,6 +98,9 @@ namespace Generator
                 case "DATETIME":
                     result += "CONVERT(DATETIME, CONVERT(NVARCHAR(30), [" + FieldName + "])) AS [" + FieldName + "]";
                     break;
+                case "DATETIMEOFFSET":
+                    result += "CONVERT(DATETIMEOFFSET, CONVERT(NVARCHAR(30), [" + FieldName + "])) AS [" + FieldName + "]";
+                    break;//datetimeoffset
             }
 
             return result;
@@ -123,6 +132,21 @@ namespace Generator
             DataClassesDataContext dc = new DataClassesDataContext();
 
             result = (from p in dc.Layers where p.LayerName == "DV" select p.DatabaseName).First();
+
+            return result;
+        }
+
+        /// <summary>
+        /// Get HASH DUMMY
+        /// </summary>
+        /// <returns></returns>
+        public static string GetHASHDUMMY()
+        {
+            string result = "";
+
+            DataClassesDataContext dc = new DataClassesDataContext();
+
+            result = (from p in dc.CONFIGURATION where p.ConfigName == "HASHDUMMY" select p.ConfigValue).First();
 
             return result;
         }

@@ -37,4 +37,10 @@
       <Column Name="DV_HUB_BK" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.CONFIGURATION" Member="CONFIGURATION">
+    <Type Name="CONFIGURATION">
+      <Column Name="ConfigName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ConfigValue" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
 </Database>

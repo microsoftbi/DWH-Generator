@@ -85,6 +85,14 @@ namespace Generator
 				return this.GetTable<V_ATTRIBUTE>();
 			}
 		}
+		
+		public System.Data.Linq.Table<CONFIGURATION> CONFIGURATION
+		{
+			get
+			{
+				return this.GetTable<CONFIGURATION>();
+			}
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.RecordSource")]
@@ -559,6 +567,51 @@ namespace Generator
 				if ((this._DV_HUB_BK != value))
 				{
 					this._DV_HUB_BK = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CONFIGURATION")]
+	public partial class CONFIGURATION
+	{
+		
+		private string _ConfigName;
+		
+		private string _ConfigValue;
+		
+		public CONFIGURATION()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConfigName", DbType="NVarChar(50)")]
+		public string ConfigName
+		{
+			get
+			{
+				return this._ConfigName;
+			}
+			set
+			{
+				if ((this._ConfigName != value))
+				{
+					this._ConfigName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConfigValue", DbType="NVarChar(50)")]
+		public string ConfigValue
+		{
+			get
+			{
+				return this._ConfigValue;
+			}
+			set
+			{
+				if ((this._ConfigValue != value))
+				{
+					this._ConfigValue = value;
 				}
 			}
 		}

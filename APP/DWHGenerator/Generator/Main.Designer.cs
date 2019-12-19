@@ -37,6 +37,7 @@
             this.configurationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
+            this.reGenerateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deployToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pSAType1FlowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pSAType2FlowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -74,7 +75,9 @@
             this.rtbT1USPHIS = new System.Windows.Forms.RichTextBox();
             this.tabPage13 = new System.Windows.Forms.TabPage();
             this.rtbT1TableHIS = new System.Windows.Forms.RichTextBox();
-            this.reGenerateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.versionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gITURLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -101,7 +104,8 @@
             this.objectListToolStripMenuItem,
             this.mETADataToolStripMenuItem,
             this.deployToolStripMenuItem,
-            this.scriptsToolStripMenuItem});
+            this.scriptsToolStripMenuItem,
+            this.aboutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 2, 0, 2);
@@ -146,21 +150,28 @@
             // configurationToolStripMenuItem
             // 
             this.configurationToolStripMenuItem.Name = "configurationToolStripMenuItem";
-            this.configurationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.configurationToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.configurationToolStripMenuItem.Text = "Configuration";
             this.configurationToolStripMenuItem.Click += new System.EventHandler(this.configurationToolStripMenuItem_Click);
             // 
             // verifyToolStripMenuItem
             // 
             this.verifyToolStripMenuItem.Name = "verifyToolStripMenuItem";
-            this.verifyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verifyToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
             this.verifyToolStripMenuItem.Text = "Verify";
             this.verifyToolStripMenuItem.Click += new System.EventHandler(this.verifyToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(145, 6);
+            // 
+            // reGenerateToolStripMenuItem
+            // 
+            this.reGenerateToolStripMenuItem.Name = "reGenerateToolStripMenuItem";
+            this.reGenerateToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.reGenerateToolStripMenuItem.Text = "Re-Generate";
+            this.reGenerateToolStripMenuItem.Click += new System.EventHandler(this.reGenerateToolStripMenuItem_Click);
             // 
             // deployToolStripMenuItem
             // 
@@ -176,25 +187,25 @@
             // pSAType1FlowToolStripMenuItem
             // 
             this.pSAType1FlowToolStripMenuItem.Name = "pSAType1FlowToolStripMenuItem";
-            this.pSAType1FlowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pSAType1FlowToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.pSAType1FlowToolStripMenuItem.Text = "PSA Type1 flow";
             // 
             // pSAType2FlowToolStripMenuItem
             // 
             this.pSAType2FlowToolStripMenuItem.Name = "pSAType2FlowToolStripMenuItem";
-            this.pSAType2FlowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pSAType2FlowToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.pSAType2FlowToolStripMenuItem.Text = "PSA Type2 flow";
             this.pSAType2FlowToolStripMenuItem.Click += new System.EventHandler(this.pSAType2FlowToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(151, 6);
             // 
             // otherScriptToolStripMenuItem
             // 
             this.otherScriptToolStripMenuItem.Name = "otherScriptToolStripMenuItem";
-            this.otherScriptToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.otherScriptToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.otherScriptToolStripMenuItem.Text = "Other script";
             this.otherScriptToolStripMenuItem.Click += new System.EventHandler(this.otherScriptToolStripMenuItem_Click);
             // 
@@ -539,12 +550,28 @@
             this.rtbT1TableHIS.TabIndex = 2;
             this.rtbT1TableHIS.Text = "";
             // 
-            // reGenerateToolStripMenuItem
+            // aboutToolStripMenuItem
             // 
-            this.reGenerateToolStripMenuItem.Name = "reGenerateToolStripMenuItem";
-            this.reGenerateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.reGenerateToolStripMenuItem.Text = "Re-Generate";
-            this.reGenerateToolStripMenuItem.Click += new System.EventHandler(this.reGenerateToolStripMenuItem_Click);
+            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.versionToolStripMenuItem,
+            this.gITURLToolStripMenuItem});
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "About";
+            // 
+            // versionToolStripMenuItem
+            // 
+            this.versionToolStripMenuItem.Name = "versionToolStripMenuItem";
+            this.versionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.versionToolStripMenuItem.Text = "Version";
+            this.versionToolStripMenuItem.Click += new System.EventHandler(this.versionToolStripMenuItem_Click);
+            // 
+            // gITURLToolStripMenuItem
+            // 
+            this.gITURLToolStripMenuItem.Name = "gITURLToolStripMenuItem";
+            this.gITURLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gITURLToolStripMenuItem.Text = "GIT URL";
+            this.gITURLToolStripMenuItem.Click += new System.EventHandler(this.gITURLToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -630,6 +657,9 @@
         private System.Windows.Forms.TabPage tabPage13;
         private System.Windows.Forms.RichTextBox rtbT1TableHIS;
         private System.Windows.Forms.ToolStripMenuItem reGenerateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem versionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gITURLToolStripMenuItem;
     }
 }
 
