@@ -931,7 +931,7 @@ namespace Generator
             //Table
             foreach (var itemTable in lstTables.Distinct())
             {
-                sb.AppendLine("EXEC [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[USP_" + itemTable.TABLE_NAME + "_STG]");
+                //sb.AppendLine("EXEC [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[USP_" + itemTable.TABLE_NAME + "_STG]");
                 sb.AppendLine("EXEC [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[USP_" + itemTable.TABLE_NAME + "_CDC]");
                 sb.AppendLine("EXEC [" + strPSADBName + "].[" + itemTable.RECORDSOURCE + "].[USP_" + itemTable.TABLE_NAME + "_LOG]");
                 sb.AppendLine("");
