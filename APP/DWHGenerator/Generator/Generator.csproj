@@ -172,22 +172,22 @@
     <None Include="DataClasses.dbml.layout">
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </None>
-    <None Include="LoadPatterns\PSAT2\CDC.handlebar">
+    <None Include="LoadPatterns\PSAT2\CDC.handlebars">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="LoadPatterns\PSAT2\LOG.handlebar">
+    <None Include="LoadPatterns\PSAT2\LOG.handlebars">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="LoadPatterns\PSAT2\LOGCURRENT.handlebar">
+    <None Include="LoadPatterns\PSAT2\LOGCURRENT.handlebars">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="LoadPatterns\PSAT2\MTA.handlebar">
+    <None Include="LoadPatterns\PSAT2\MTA.handlebars">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="LoadPatterns\PSAT2\USPCDC.handlebar">
+    <None Include="LoadPatterns\PSAT2\USPCDC.handlebars">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="LoadPatterns\PSAT2\USPLOG.handlebar">
+    <None Include="LoadPatterns\PSAT2\USPLOG.handlebars">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="METADataSet.xsc">

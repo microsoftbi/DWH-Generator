@@ -106,7 +106,7 @@ namespace Generator
         {
             string result = "";
 
-            var template = Handlebars.Compile(File.ReadAllText(@"LoadPatterns/PSAT2/CDC.handlebar"));
+            var template = Handlebars.Compile(File.ReadAllText(@"LoadPatterns/PSAT2/CDC.handlebars"));
 
             result = template(MetaAttribute);
 
@@ -117,7 +117,7 @@ namespace Generator
         {
             string result = "";
 
-            var template = Handlebars.Compile(File.ReadAllText(@"LoadPatterns/PSAT2/LOG.handlebar"));
+            var template = Handlebars.Compile(File.ReadAllText(@"LoadPatterns/PSAT2/LOG.handlebars"));
 
             result = template(MetaAttribute);
 
@@ -128,7 +128,7 @@ namespace Generator
         {
             string result = "";
 
-            var template = Handlebars.Compile(File.ReadAllText(@"LoadPatterns/PSAT2/MTA.handlebar"));
+            var template = Handlebars.Compile(File.ReadAllText(@"LoadPatterns/PSAT2/MTA.handlebars"));
 
             result = template(MetaAttribute);
 
@@ -139,7 +139,7 @@ namespace Generator
         {
             string result = "";
 
-            var template = Handlebars.Compile(File.ReadAllText(@"LoadPatterns/PSAT2/LOGCURRENT.handlebar"));
+            var template = Handlebars.Compile(File.ReadAllText(@"LoadPatterns/PSAT2/LOGCURRENT.handlebars"));
 
             result = template(MetaAttribute);
 
@@ -150,7 +150,7 @@ namespace Generator
         {
             string result = "";
 
-            var template = Handlebars.Compile(File.ReadAllText(@"LoadPatterns/PSAT2/USPLOG.handlebar"));
+            var template = Handlebars.Compile(File.ReadAllText(@"LoadPatterns/PSAT2/USPLOG.handlebars"));
 
             result = template(MetaAttribute);
 
@@ -266,7 +266,7 @@ namespace Generator
         {
             string result = "";
 
-            var template = Handlebars.Compile(File.ReadAllText(@"LoadPatterns/PSAT2/USPCDC.handlebar"));
+            var template = Handlebars.Compile(File.ReadAllText(@"LoadPatterns/PSAT2/USPCDC.handlebars"));
 
             result = template(MetaAttribute);
 
