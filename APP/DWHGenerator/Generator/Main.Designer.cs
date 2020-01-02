@@ -48,6 +48,9 @@
             this.executePSA2DataFlowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripSeparator();
             this.iMPORTSCHEMAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.versionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gITURLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabControl2 = new System.Windows.Forms.TabControl();
@@ -75,9 +78,6 @@
             this.rtbT1USPHIS = new System.Windows.Forms.RichTextBox();
             this.tabPage13 = new System.Windows.Forms.TabPage();
             this.rtbT1TableHIS = new System.Windows.Forms.RichTextBox();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.versionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gITURLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -150,26 +150,26 @@
             // configurationToolStripMenuItem
             // 
             this.configurationToolStripMenuItem.Name = "configurationToolStripMenuItem";
-            this.configurationToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.configurationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.configurationToolStripMenuItem.Text = "Configuration";
             this.configurationToolStripMenuItem.Click += new System.EventHandler(this.configurationToolStripMenuItem_Click);
             // 
             // verifyToolStripMenuItem
             // 
             this.verifyToolStripMenuItem.Name = "verifyToolStripMenuItem";
-            this.verifyToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.verifyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.verifyToolStripMenuItem.Text = "Verify";
             this.verifyToolStripMenuItem.Click += new System.EventHandler(this.verifyToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(145, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 6);
             // 
             // reGenerateToolStripMenuItem
             // 
             this.reGenerateToolStripMenuItem.Name = "reGenerateToolStripMenuItem";
-            this.reGenerateToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.reGenerateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.reGenerateToolStripMenuItem.Text = "Re-Generate";
             this.reGenerateToolStripMenuItem.Click += new System.EventHandler(this.reGenerateToolStripMenuItem_Click);
             // 
@@ -223,28 +223,51 @@
             // executePSA1DataFlowToolStripMenuItem
             // 
             this.executePSA1DataFlowToolStripMenuItem.Name = "executePSA1DataFlowToolStripMenuItem";
-            this.executePSA1DataFlowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.executePSA1DataFlowToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.executePSA1DataFlowToolStripMenuItem.Text = "PSA1 data flow";
             this.executePSA1DataFlowToolStripMenuItem.Click += new System.EventHandler(this.executePSA1DataFlowToolStripMenuItem_Click);
             // 
             // executePSA2DataFlowToolStripMenuItem
             // 
             this.executePSA2DataFlowToolStripMenuItem.Name = "executePSA2DataFlowToolStripMenuItem";
-            this.executePSA2DataFlowToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.executePSA2DataFlowToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.executePSA2DataFlowToolStripMenuItem.Text = "PSA2 data flow";
             this.executePSA2DataFlowToolStripMenuItem.Click += new System.EventHandler(this.executePSA2DataFlowToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(164, 6);
             // 
             // iMPORTSCHEMAToolStripMenuItem
             // 
             this.iMPORTSCHEMAToolStripMenuItem.Name = "iMPORTSCHEMAToolStripMenuItem";
-            this.iMPORTSCHEMAToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.iMPORTSCHEMAToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.iMPORTSCHEMAToolStripMenuItem.Text = "IMPORT SCHEMA";
             this.iMPORTSCHEMAToolStripMenuItem.Click += new System.EventHandler(this.iMPORTSCHEMAToolStripMenuItem_Click);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.versionToolStripMenuItem,
+            this.gITURLToolStripMenuItem});
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.aboutToolStripMenuItem.Text = "About";
+            // 
+            // versionToolStripMenuItem
+            // 
+            this.versionToolStripMenuItem.Name = "versionToolStripMenuItem";
+            this.versionToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.versionToolStripMenuItem.Text = "Version";
+            this.versionToolStripMenuItem.Click += new System.EventHandler(this.versionToolStripMenuItem_Click);
+            // 
+            // gITURLToolStripMenuItem
+            // 
+            this.gITURLToolStripMenuItem.Name = "gITURLToolStripMenuItem";
+            this.gITURLToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.gITURLToolStripMenuItem.Text = "GIT URL";
+            this.gITURLToolStripMenuItem.Click += new System.EventHandler(this.gITURLToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
@@ -549,29 +572,6 @@
             this.rtbT1TableHIS.Size = new System.Drawing.Size(987, 635);
             this.rtbT1TableHIS.TabIndex = 2;
             this.rtbT1TableHIS.Text = "";
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.versionToolStripMenuItem,
-            this.gITURLToolStripMenuItem});
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.aboutToolStripMenuItem.Text = "About";
-            // 
-            // versionToolStripMenuItem
-            // 
-            this.versionToolStripMenuItem.Name = "versionToolStripMenuItem";
-            this.versionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.versionToolStripMenuItem.Text = "Version";
-            this.versionToolStripMenuItem.Click += new System.EventHandler(this.versionToolStripMenuItem_Click);
-            // 
-            // gITURLToolStripMenuItem
-            // 
-            this.gITURLToolStripMenuItem.Name = "gITURLToolStripMenuItem";
-            this.gITURLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.gITURLToolStripMenuItem.Text = "GIT URL";
-            this.gITURLToolStripMenuItem.Click += new System.EventHandler(this.gITURLToolStripMenuItem_Click);
             // 
             // Main
             // 

@@ -28,7 +28,6 @@ C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debu
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_OBJECTCONFIG.resources
 C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\DEPLOY\CONFIGVERIFY.sql
 C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\DEPLOY\METADB.sql
-C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.csprojAssemblyReference.cache
 C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_DATAVAULT.resources
 C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_LAYERS.resources
 C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_META.resources
@@ -39,3 +38,11 @@ C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Deb
 C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_Verify.resources
 C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\DEPLOY\IMPORT_SCHEMA.sql
 C:\Users\wade\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\DEPLOY\IMPORT_SCHEMA.sql
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\LoadPatterns\PSAT2\MTA.handlebar
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\Handlebars.dll
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.csproj.CopyComplete
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\LoadPatterns\PSAT2\LOGCURRENT.handlebar
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\LoadPatterns\PSAT2\CDC.handlebar
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\LoadPatterns\PSAT2\LOG.handlebar
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\LoadPatterns\PSAT2\USPCDC.handlebar
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\LoadPatterns\PSAT2\USPLOG.handlebar

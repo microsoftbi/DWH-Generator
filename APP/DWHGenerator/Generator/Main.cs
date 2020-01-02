@@ -162,7 +162,7 @@ namespace Generator
                     Common.ExecuteNonQueryWithGo(PSA_TYPE2.GenerateTableCDC());
                     Common.ExecuteNonQueryWithGo(PSA_TYPE2.GenerateUSPCDC());
                     Common.ExecuteNonQueryWithGo(PSA_TYPE2.GenerateTableLOG());
-                    Common.ExecuteNonQueryWithGo(PSA_TYPE2.GenerateVIECURRENT());
+                    Common.ExecuteNonQueryWithGo(PSA_TYPE2.GenerateVIEWCURRENT());
                     Common.ExecuteNonQueryWithGo(PSA_TYPE2.GenerateUSPLOG());
 
                     MessageBox.Show("PSA type 2 Data flow deploy done.");
@@ -216,12 +216,14 @@ namespace Generator
 
         private void Generate()
         {
+            PSA_TYPE2.LoadMetaAttribute();
+            
             rtbT2ViewMETA.Text = PSA_TYPE2.GenerateVIEWMTA();
             rtbT2USPCDC.Text = PSA_TYPE2.GenerateUSPCDC();
             rtbT2TableCDC.Text = PSA_TYPE2.GenerateTableCDC();
             rtbT2TableLOG.Text = PSA_TYPE2.GenerateTableLOG();
             rtbT2USPLOG.Text = PSA_TYPE2.GenerateUSPLOG();
-            rtbT2ViewCurrent.Text = PSA_TYPE2.GenerateVIECURRENT();
+            rtbT2ViewCurrent.Text = PSA_TYPE2.GenerateVIEWCURRENT();
 
             rtbT1TableLanding.Text = PSA_TYPE1.GenerateLandingZone();
             rtbT1TableStage.Text = PSA_TYPE1.GenerateSTG();
@@ -233,7 +235,7 @@ namespace Generator
         private void reGenerateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Enabled = false;
-            Thread.Sleep(2000);
+            //Thread.Sleep(2000);
             Generate();
             this.Enabled = true;
 
@@ -243,7 +245,7 @@ namespace Generator
         private void versionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             WF_METAScript frmScript = new WF_METAScript();
-            frmScript.Script = "1219a";
+            frmScript.Script = "0102a";
             frmScript.ShowDialog();
         }
 

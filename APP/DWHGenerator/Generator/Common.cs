@@ -10,6 +10,35 @@ namespace Generator
 {
     class Common
     {
+        public static string FieldTypeGenerate(string FieldType, int? CharLen, int? nPrecision, int? nScale)
+        {
+            string result = "";
+
+            result = FieldType.ToUpper();
+
+            switch (FieldType.ToUpper())
+            {
+                case "NVARCHAR":
+                    result += "(" + CharLen.ToString() + ")";
+                    break;
+                case "CHAR":
+                    result += "(" + CharLen.ToString() + ")";
+                    break;
+                case "NCHAR":
+                    result += "(" + CharLen.ToString() + ")";
+                    break;
+                case "VARCHAR":
+                    result += "(" + CharLen.ToString() + ")";
+                    break;
+                case "DECIMAL":
+                    result += "(" + nPrecision.ToString() + "," + nScale.ToString() + ")";
+                    break;
+            }
+
+            return result;
+        }
+        
+        
         /// <summary>
         /// Generate filed expr script accouding to type defination information.(Information schema)
         /// </summary>
