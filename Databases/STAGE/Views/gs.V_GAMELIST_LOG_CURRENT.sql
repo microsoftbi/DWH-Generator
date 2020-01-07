@@ -3,6 +3,7 @@ GO
 SET ANSI_NULLS ON
 GO
 
+
 CREATE VIEW [gs].[V_GAMELIST_LOG_CURRENT]
 AS
 	SELECT LogTable.[LOAD_DTS],
@@ -25,7 +26,6 @@ AS
 		[Game name],
 		[AREA],
 		[PRICE],
-		[FLAG01],
 		[Operator]
 	FROM [gs].[GAMELIST_LOG] AS LogTable
 	INNER JOIN

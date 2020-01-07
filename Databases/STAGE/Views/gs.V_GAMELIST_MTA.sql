@@ -3,6 +3,7 @@ GO
 SET ANSI_NULLS ON
 GO
 
+
 CREATE VIEW [gs].[V_GAMELIST_MTA]
 AS
 	SELECT CAST(NULL AS DATETIMEOFFSET(7)) AS LOAD_DTS,
@@ -30,7 +31,6 @@ AS
 				+ ISNULL(TRIM(CONVERT(NVARCHAR(255), [Game name])), N'') + N'W|D'
 				+ ISNULL(TRIM(CONVERT(NVARCHAR(255), [AREA])), N'') + N'W|D'
 				+ ISNULL(TRIM(CONVERT(NVARCHAR(255), [PRICE])), N'') + N'W|D'
-				+ ISNULL(TRIM(CONVERT(NVARCHAR(255), [FLAG01])), N'') + N'W|D'
 				+ ISNULL(TRIM(CONVERT(NVARCHAR(255), [Operator])), N'') + N'W|D'
 				),
 			2
@@ -43,7 +43,6 @@ AS
 				+ ISNULL(TRIM(CONVERT(NVARCHAR(255), [Game name])), N'') + N'W|D'
 				+ ISNULL(TRIM(CONVERT(NVARCHAR(255), [AREA])), N'') + N'W|D'
 				+ ISNULL(TRIM(CONVERT(NVARCHAR(255), [PRICE])), N'') + N'W|D'
-				+ ISNULL(TRIM(CONVERT(NVARCHAR(255), [FLAG01])), N'') + N'W|D'
 				+ ISNULL(TRIM(CONVERT(NVARCHAR(255), [Operator])), N'') + N'W|D'
 				),
 			2
@@ -52,7 +51,6 @@ AS
 		[Game name],
 		[AREA],
 		[PRICE],
-		[FLAG01],
 		[Operator]
-	FROM [gs].[GAMELIST];
+	FROM [gs].[GAMELIST_STG];
 GO

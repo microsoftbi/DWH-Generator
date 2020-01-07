@@ -3,13 +3,14 @@ GO
 SET ANSI_NULLS ON
 GO
 
+
 CREATE PROCEDURE [gs].[USP_GAMELIST_CDC]
 AS
 	BEGIN
 	DECLARE @LOGSOURCE AS NVARCHAR(100);
-	SET @LOGSOURCE = N'STAGE.[gs].[GAMELIST_CDC]';
+	SET @LOGSOURCE = N'[STAGE].[gs].[USP_GAMELIST_CDC]';
 	
-	EXEC META.dbo.USP_WRITELOG N'Start to load [gs].[GAMELIST_CDC]', @LOGSOURCE, N'N';
+	EXEC META.dbo.USP_WRITELOG N'Start to load [STAGE].[gs].[GAMELIST_CDC]', @LOGSOURCE, N'N';
 	
 	TRUNCATE TABLE [gs].[GAMELIST_CDC];
 	
@@ -37,7 +38,6 @@ AS
 				[Game name],
 				[AREA],
 				[PRICE],
-				[FLAG01],
 				[Operator]
 			)
 			SELECT DATEADD(
@@ -88,7 +88,6 @@ AS
 				[Game name],
 				[AREA],
 				[PRICE],
-				[FLAG01],
 				[Operator]
 			FROM
 			(
@@ -114,7 +113,6 @@ AS
 					[Game name],
 					[AREA],
 					[PRICE],
-					[FLAG01],
 					[Operator],
 					[SOURCE_ENTITY],
 					[RNK]
@@ -140,7 +138,6 @@ AS
 						[Game name],
 						[AREA],
 						[PRICE],
-						[FLAG01],
 						[Operator],
 						'HDA' AS SOURCE_ENTITY,
 						1 AS RNK
@@ -166,7 +163,6 @@ AS
 						[Game name],
 						[AREA],
 						[PRICE],
-						[FLAG01],
 						[Operator],
 						'CDC' AS SOURCE_ENTITY,
 						2 AS RNK
@@ -195,13 +191,13 @@ AS
 					ELSE
 						''
 				END <> '';
-			EXEC META.dbo.USP_WRITELOG N'Finish to load gs].[GAMELIST_LOG', @LOGSOURCE, N'N';
+			EXEC META.dbo.USP_WRITELOG N'Finish to load [STAGE].[gs].[GAMELIST_CDC', @LOGSOURCE, N'N';
 		COMMIT TRAN;
 	END TRY
 	BEGIN CATCH
 		ROLLBACK TRAN;
 		DECLARE @ERROR_MESSAGE AS NVARCHAR(4000);
-		SET @ERROR_MESSAGE = N'Failed to load gs].[GAMELIST_LOG' + ISNULL(ERROR_MESSAGE(), '');
+		SET @ERROR_MESSAGE = N'Failed to load [STAGE].[gs].[GAMELIST_CDC' + ISNULL(ERROR_MESSAGE(), '');
 		EXEC META.dbo.USP_WRITELOG @ERROR_MESSAGE, @LOGSOURCE, N'E';
 	END CATCH
 END;

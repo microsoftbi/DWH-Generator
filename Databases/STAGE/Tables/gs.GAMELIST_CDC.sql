@@ -20,7 +20,6 @@ CREATE TABLE [gs].[GAMELIST_CDC]
 [Game name] [nvarchar] (50) COLLATE Chinese_PRC_CI_AS NULL,
 [AREA] [nvarchar] (20) COLLATE Chinese_PRC_CI_AS NULL,
 [PRICE] [decimal] (10, 2) NULL,
-[FLAG01] [int] NULL,
 [Operator] [nvarchar] (20) COLLATE Chinese_PRC_CI_AS NULL
 ) ON [PRIMARY]
 GO
