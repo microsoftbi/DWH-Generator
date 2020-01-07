@@ -1,34 +1,27 @@
-# PSA-Generator
-A generator to create PSA(Presistent staging area) in SQLServer.
+# DWH Generator
+A generator to create DWH base on META data configuration.
 
-Last update: 2019-12-16
+Including:
+
+PSA(Presistent staging area).
+
+DV((RAW) Data Vault)
+
+
+Platform:
+
+SQLServer
+
+Last update: 2020-01-07
 By: Wade
 
-Generate scripts for PSA and Data Vault.
+Generate scripts for DWH including PSA and Data Vault.
 
-What is in scope:
-- Generate PSA tables, store procedures and VIEWS base on PSA TYPE1 or TYPE2.
-- Generate hash diff scripts.
-- Create SAT tables.
-- Create HUB tables.(In planning)
-- Write log.
 
 
 What is out of scope:
 - Load source to stage. 
 
-
-About PSA TYPE1 and TYPE 2
-PSA TYPE 1: Updateable PSA, for changed data, original data valid_to will be updated.
-
-Using IS_CURRENT to get latest data.
-Historial data stored using:
-- Valid From
-- Valid To
-- IS CURRENT
-
-PSA TYPE 2: Insert only PSA.
-Only record LOAD_DTS, no update to changed data row.
 
 
 How to use:
