@@ -1,0 +1,19 @@
+USE [{{COREDatabaseName}}]
+GO
+
+{{#each DVHUBMTA}}
+
+CREATE TABLE [dbo].[{{TableName}}](
+	[LOAD_DTS] [DATETIMEOFFSET](7) NOT NULL,
+	[LOAD_END_DTS] [DATETIMEOFFSET](7) NOT NULL,
+	[CDC_OPERATION_CODE] [CHAR](1) NOT NULL,
+	[RECORD_SOURCE] [NVARCHAR](15) NOT NULL,
+	[SESSION_DTS] [DATETIMEOFFSET](7) NULL,
+	[HK] [CHAR](32) NOT NULL,
+	{{#each PK}}
+	[{{FieldName}}] {{FieldType}} NULL{{#unless @last}},{{/unless}}
+	{{/each}}
+) ON [PRIMARY]
+GO
+
+{{/each}}

@@ -14,6 +14,12 @@
       <Column Name="DatabaseName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.CONFIGURATION" Member="CONFIGURATION">
+    <Type Name="CONFIGURATION">
+      <Column Name="ConfigName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ConfigValue" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.V_ATTRIBUTE" Member="V_ATTRIBUTE">
     <Type Name="V_ATTRIBUTE">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -32,15 +38,11 @@
       <Column Name="BK" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="PK" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="DI" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FK" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="DV_SAT_TABLENAME" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="DV_HUB_TABLENAME" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-      <Column Name="DV_HUB_BK" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.CONFIGURATION" Member="CONFIGURATION">
-    <Type Name="CONFIGURATION">
-      <Column Name="ConfigName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ConfigValue" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DV_LINK_TABLENAME" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="DV_COLUMN_NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

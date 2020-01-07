@@ -172,6 +172,21 @@
     <None Include="DataClasses.dbml.layout">
       <DependentUpon>DataClasses.dbml</DependentUpon>
     </None>
+    <None Include="LoadPatterns\DV\DV_HUB.handlebars">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="LoadPatterns\DV\DV_LINK.handlebars">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="LoadPatterns\DV\DV_SAT.handlebars">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="LoadPatterns\DV\DV_USPHUB.handlebars">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="LoadPatterns\DV\DV_USPLINK.handlebars">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="LoadPatterns\PSAT2\CDC.handlebars">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -228,7 +243,6 @@
     <Content Include="GEN.ico" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="LoadPatterns\DV\" />
     <Folder Include="LoadPatterns\PSAT1\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

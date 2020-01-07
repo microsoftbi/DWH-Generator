@@ -78,19 +78,19 @@ namespace Generator
 			}
 		}
 		
-		public System.Data.Linq.Table<V_ATTRIBUTE> V_ATTRIBUTE
-		{
-			get
-			{
-				return this.GetTable<V_ATTRIBUTE>();
-			}
-		}
-		
 		public System.Data.Linq.Table<CONFIGURATION> CONFIGURATION
 		{
 			get
 			{
 				return this.GetTable<CONFIGURATION>();
+			}
+		}
+		
+		public System.Data.Linq.Table<V_ATTRIBUTE> V_ATTRIBUTE
+		{
+			get
+			{
+				return this.GetTable<V_ATTRIBUTE>();
 			}
 		}
 	}
@@ -221,6 +221,51 @@ namespace Generator
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CONFIGURATION")]
+	public partial class CONFIGURATION
+	{
+		
+		private string _ConfigName;
+		
+		private string _ConfigValue;
+		
+		public CONFIGURATION()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConfigName", DbType="NVarChar(50)")]
+		public string ConfigName
+		{
+			get
+			{
+				return this._ConfigName;
+			}
+			set
+			{
+				if ((this._ConfigName != value))
+				{
+					this._ConfigName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConfigValue", DbType="NVarChar(50)")]
+		public string ConfigValue
+		{
+			get
+			{
+				return this._ConfigValue;
+			}
+			set
+			{
+				if ((this._ConfigValue != value))
+				{
+					this._ConfigValue = value;
+				}
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.V_ATTRIBUTE")]
 	public partial class V_ATTRIBUTE
 	{
@@ -257,11 +302,15 @@ namespace Generator
 		
 		private System.Nullable<bool> _DI;
 		
+		private System.Nullable<bool> _FK;
+		
 		private string _DV_SAT_TABLENAME;
 		
 		private string _DV_HUB_TABLENAME;
 		
-		private string _DV_HUB_BK;
+		private string _DV_LINK_TABLENAME;
+		
+		private string _DV_COLUMN_NAME;
 		
 		public V_ATTRIBUTE()
 		{
@@ -523,6 +572,22 @@ namespace Generator
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FK", DbType="Bit")]
+		public System.Nullable<bool> FK
+		{
+			get
+			{
+				return this._FK;
+			}
+			set
+			{
+				if ((this._FK != value))
+				{
+					this._FK = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DV_SAT_TABLENAME", DbType="NVarChar(30)")]
 		public string DV_SAT_TABLENAME
 		{
@@ -555,63 +620,34 @@ namespace Generator
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DV_HUB_BK", DbType="NVarChar(30)")]
-		public string DV_HUB_BK
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DV_LINK_TABLENAME", DbType="NVarChar(30)")]
+		public string DV_LINK_TABLENAME
 		{
 			get
 			{
-				return this._DV_HUB_BK;
+				return this._DV_LINK_TABLENAME;
 			}
 			set
 			{
-				if ((this._DV_HUB_BK != value))
+				if ((this._DV_LINK_TABLENAME != value))
 				{
-					this._DV_HUB_BK = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CONFIGURATION")]
-	public partial class CONFIGURATION
-	{
-		
-		private string _ConfigName;
-		
-		private string _ConfigValue;
-		
-		public CONFIGURATION()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConfigName", DbType="NVarChar(50)")]
-		public string ConfigName
-		{
-			get
-			{
-				return this._ConfigName;
-			}
-			set
-			{
-				if ((this._ConfigName != value))
-				{
-					this._ConfigName = value;
+					this._DV_LINK_TABLENAME = value;
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConfigValue", DbType="NVarChar(50)")]
-		public string ConfigValue
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DV_COLUMN_NAME", DbType="NVarChar(50)")]
+		public string DV_COLUMN_NAME
 		{
 			get
 			{
-				return this._ConfigValue;
+				return this._DV_COLUMN_NAME;
 			}
 			set
 			{
-				if ((this._ConfigValue != value))
+				if ((this._DV_COLUMN_NAME != value))
 				{
-					this._ConfigValue = value;
+					this._DV_COLUMN_NAME = value;
 				}
 			}
 		}

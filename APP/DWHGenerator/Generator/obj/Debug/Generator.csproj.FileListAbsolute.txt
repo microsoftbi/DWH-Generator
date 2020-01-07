@@ -46,3 +46,9 @@ C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Deb
 C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\LoadPatterns\PSAT2\MTA.handlebars
 C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\LoadPatterns\PSAT2\USPCDC.handlebars
 C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\LoadPatterns\PSAT2\USPLOG.handlebars
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.csprojAssemblyReference.cache
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\LoadPatterns\DV\DV_HUB.handlebars
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\LoadPatterns\DV\DV_LINK.handlebars
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\LoadPatterns\DV\DV_SAT.handlebars
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\LoadPatterns\DV\DV_USPHUB.handlebars
+C:\Users\aspne\Documents\GitHub\PSA-Generator\APP\DWHGenerator\Generator\bin\Debug\LoadPatterns\DV\DV_USPLINK.handlebars

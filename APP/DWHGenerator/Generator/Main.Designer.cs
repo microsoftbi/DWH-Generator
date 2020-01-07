@@ -78,6 +78,20 @@
             this.rtbT1USPHIS = new System.Windows.Forms.RichTextBox();
             this.tabPage13 = new System.Windows.Forms.TabPage();
             this.rtbT1TableHIS = new System.Windows.Forms.RichTextBox();
+            this.tabPage14 = new System.Windows.Forms.TabPage();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage15 = new System.Windows.Forms.TabPage();
+            this.tabPage16 = new System.Windows.Forms.TabPage();
+            this.tabPage17 = new System.Windows.Forms.TabPage();
+            this.tabPage18 = new System.Windows.Forms.TabPage();
+            this.tabPage19 = new System.Windows.Forms.TabPage();
+            this.tabPage20 = new System.Windows.Forms.TabPage();
+            this.rtbDVTHUB = new System.Windows.Forms.RichTextBox();
+            this.rtbDVTSAT = new System.Windows.Forms.RichTextBox();
+            this.rtbDVTLINK = new System.Windows.Forms.RichTextBox();
+            this.rtbDVUHUB = new System.Windows.Forms.RichTextBox();
+            this.rtbDVUSAT = new System.Windows.Forms.RichTextBox();
+            this.rtbDVULINK = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -95,6 +109,14 @@
             this.tabPage11.SuspendLayout();
             this.tabPage12.SuspendLayout();
             this.tabPage13.SuspendLayout();
+            this.tabPage14.SuspendLayout();
+            this.tabControl3.SuspendLayout();
+            this.tabPage15.SuspendLayout();
+            this.tabPage16.SuspendLayout();
+            this.tabPage17.SuspendLayout();
+            this.tabPage18.SuspendLayout();
+            this.tabPage19.SuspendLayout();
+            this.tabPage20.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -273,6 +295,7 @@
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage14);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 24);
             this.tabControl1.Name = "tabControl1";
@@ -573,6 +596,160 @@
             this.rtbT1TableHIS.TabIndex = 2;
             this.rtbT1TableHIS.Text = "";
             // 
+            // tabPage14
+            // 
+            this.tabPage14.Controls.Add(this.tabControl3);
+            this.tabPage14.Location = new System.Drawing.Point(4, 22);
+            this.tabPage14.Name = "tabPage14";
+            this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage14.Size = new System.Drawing.Size(1007, 673);
+            this.tabPage14.TabIndex = 2;
+            this.tabPage14.Text = "RAW Data Vault";
+            this.tabPage14.UseVisualStyleBackColor = true;
+            // 
+            // tabControl3
+            // 
+            this.tabControl3.Controls.Add(this.tabPage15);
+            this.tabControl3.Controls.Add(this.tabPage16);
+            this.tabControl3.Controls.Add(this.tabPage17);
+            this.tabControl3.Controls.Add(this.tabPage18);
+            this.tabControl3.Controls.Add(this.tabPage19);
+            this.tabControl3.Controls.Add(this.tabPage20);
+            this.tabControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl3.Location = new System.Drawing.Point(3, 3);
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(1001, 667);
+            this.tabControl3.TabIndex = 0;
+            // 
+            // tabPage15
+            // 
+            this.tabPage15.Controls.Add(this.rtbDVTHUB);
+            this.tabPage15.Location = new System.Drawing.Point(4, 22);
+            this.tabPage15.Name = "tabPage15";
+            this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage15.Size = new System.Drawing.Size(993, 641);
+            this.tabPage15.TabIndex = 0;
+            this.tabPage15.Text = "Table HUB";
+            this.tabPage15.UseVisualStyleBackColor = true;
+            // 
+            // tabPage16
+            // 
+            this.tabPage16.Controls.Add(this.rtbDVTSAT);
+            this.tabPage16.Location = new System.Drawing.Point(4, 22);
+            this.tabPage16.Name = "tabPage16";
+            this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage16.Size = new System.Drawing.Size(993, 641);
+            this.tabPage16.TabIndex = 1;
+            this.tabPage16.Text = "Table SAT";
+            this.tabPage16.UseVisualStyleBackColor = true;
+            // 
+            // tabPage17
+            // 
+            this.tabPage17.Controls.Add(this.rtbDVTLINK);
+            this.tabPage17.Location = new System.Drawing.Point(4, 22);
+            this.tabPage17.Name = "tabPage17";
+            this.tabPage17.Size = new System.Drawing.Size(993, 641);
+            this.tabPage17.TabIndex = 2;
+            this.tabPage17.Text = "Table LINK";
+            this.tabPage17.UseVisualStyleBackColor = true;
+            // 
+            // tabPage18
+            // 
+            this.tabPage18.Controls.Add(this.rtbDVUHUB);
+            this.tabPage18.Location = new System.Drawing.Point(4, 22);
+            this.tabPage18.Name = "tabPage18";
+            this.tabPage18.Size = new System.Drawing.Size(993, 641);
+            this.tabPage18.TabIndex = 3;
+            this.tabPage18.Text = "USP_HUB";
+            this.tabPage18.UseVisualStyleBackColor = true;
+            // 
+            // tabPage19
+            // 
+            this.tabPage19.Controls.Add(this.rtbDVUSAT);
+            this.tabPage19.Location = new System.Drawing.Point(4, 22);
+            this.tabPage19.Name = "tabPage19";
+            this.tabPage19.Size = new System.Drawing.Size(993, 641);
+            this.tabPage19.TabIndex = 4;
+            this.tabPage19.Text = "USP SAT";
+            this.tabPage19.UseVisualStyleBackColor = true;
+            // 
+            // tabPage20
+            // 
+            this.tabPage20.Controls.Add(this.rtbDVULINK);
+            this.tabPage20.Location = new System.Drawing.Point(4, 22);
+            this.tabPage20.Name = "tabPage20";
+            this.tabPage20.Size = new System.Drawing.Size(993, 641);
+            this.tabPage20.TabIndex = 5;
+            this.tabPage20.Text = "USP_LINK";
+            this.tabPage20.UseVisualStyleBackColor = true;
+            // 
+            // rtbDVTHUB
+            // 
+            this.rtbDVTHUB.BackColor = System.Drawing.Color.Black;
+            this.rtbDVTHUB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbDVTHUB.ForeColor = System.Drawing.Color.ForestGreen;
+            this.rtbDVTHUB.Location = new System.Drawing.Point(3, 3);
+            this.rtbDVTHUB.Name = "rtbDVTHUB";
+            this.rtbDVTHUB.Size = new System.Drawing.Size(987, 635);
+            this.rtbDVTHUB.TabIndex = 0;
+            this.rtbDVTHUB.Text = "";
+            // 
+            // rtbDVTSAT
+            // 
+            this.rtbDVTSAT.BackColor = System.Drawing.Color.Black;
+            this.rtbDVTSAT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbDVTSAT.ForeColor = System.Drawing.Color.ForestGreen;
+            this.rtbDVTSAT.Location = new System.Drawing.Point(3, 3);
+            this.rtbDVTSAT.Name = "rtbDVTSAT";
+            this.rtbDVTSAT.Size = new System.Drawing.Size(987, 635);
+            this.rtbDVTSAT.TabIndex = 0;
+            this.rtbDVTSAT.Text = "";
+            // 
+            // rtbDVTLINK
+            // 
+            this.rtbDVTLINK.BackColor = System.Drawing.Color.Black;
+            this.rtbDVTLINK.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbDVTLINK.ForeColor = System.Drawing.Color.ForestGreen;
+            this.rtbDVTLINK.Location = new System.Drawing.Point(0, 0);
+            this.rtbDVTLINK.Name = "rtbDVTLINK";
+            this.rtbDVTLINK.Size = new System.Drawing.Size(993, 641);
+            this.rtbDVTLINK.TabIndex = 0;
+            this.rtbDVTLINK.Text = "";
+            // 
+            // rtbDVUHUB
+            // 
+            this.rtbDVUHUB.BackColor = System.Drawing.Color.Black;
+            this.rtbDVUHUB.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbDVUHUB.ForeColor = System.Drawing.Color.ForestGreen;
+            this.rtbDVUHUB.Location = new System.Drawing.Point(0, 0);
+            this.rtbDVUHUB.Name = "rtbDVUHUB";
+            this.rtbDVUHUB.Size = new System.Drawing.Size(993, 641);
+            this.rtbDVUHUB.TabIndex = 0;
+            this.rtbDVUHUB.Text = "";
+            // 
+            // rtbDVUSAT
+            // 
+            this.rtbDVUSAT.BackColor = System.Drawing.Color.Black;
+            this.rtbDVUSAT.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbDVUSAT.ForeColor = System.Drawing.Color.ForestGreen;
+            this.rtbDVUSAT.Location = new System.Drawing.Point(0, 0);
+            this.rtbDVUSAT.Name = "rtbDVUSAT";
+            this.rtbDVUSAT.Size = new System.Drawing.Size(993, 641);
+            this.rtbDVUSAT.TabIndex = 0;
+            this.rtbDVUSAT.Text = "";
+            // 
+            // rtbDVULINK
+            // 
+            this.rtbDVULINK.BackColor = System.Drawing.Color.Black;
+            this.rtbDVULINK.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rtbDVULINK.ForeColor = System.Drawing.Color.ForestGreen;
+            this.rtbDVULINK.Location = new System.Drawing.Point(0, 0);
+            this.rtbDVULINK.Name = "rtbDVULINK";
+            this.rtbDVULINK.Size = new System.Drawing.Size(993, 641);
+            this.rtbDVULINK.TabIndex = 0;
+            this.rtbDVULINK.Text = "";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -605,6 +782,14 @@
             this.tabPage11.ResumeLayout(false);
             this.tabPage12.ResumeLayout(false);
             this.tabPage13.ResumeLayout(false);
+            this.tabPage14.ResumeLayout(false);
+            this.tabControl3.ResumeLayout(false);
+            this.tabPage15.ResumeLayout(false);
+            this.tabPage16.ResumeLayout(false);
+            this.tabPage17.ResumeLayout(false);
+            this.tabPage18.ResumeLayout(false);
+            this.tabPage19.ResumeLayout(false);
+            this.tabPage20.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -660,6 +845,20 @@
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem versionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gITURLToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabPage14;
+        private System.Windows.Forms.TabControl tabControl3;
+        private System.Windows.Forms.TabPage tabPage15;
+        private System.Windows.Forms.TabPage tabPage16;
+        private System.Windows.Forms.TabPage tabPage17;
+        private System.Windows.Forms.TabPage tabPage18;
+        private System.Windows.Forms.TabPage tabPage19;
+        private System.Windows.Forms.TabPage tabPage20;
+        private System.Windows.Forms.RichTextBox rtbDVTHUB;
+        private System.Windows.Forms.RichTextBox rtbDVTSAT;
+        private System.Windows.Forms.RichTextBox rtbDVTLINK;
+        private System.Windows.Forms.RichTextBox rtbDVUHUB;
+        private System.Windows.Forms.RichTextBox rtbDVUSAT;
+        private System.Windows.Forms.RichTextBox rtbDVULINK;
     }
 }
 

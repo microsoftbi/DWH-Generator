@@ -1,0 +1,77 @@
+USE [{{COREDatabaseName}}];
+GO
+
+{{#each DVLINKMTA}}
+
+CREATE PROCEDURE [dbo].[USP_{{TableName}}]
+AS
+BEGIN
+    DECLARE @LOGSOURCE AS NVARCHAR(100);
+    SET @LOGSOURCE = N'[{{../COREDatabaseName}}].[dbo].[USP_{{TableName}}]';
+
+    EXEC META.dbo.USP_WRITELOG N'Start to load [{{../COREDatabaseName}}].[dbo].[{{TableName}}]',
+                               @LOGSOURCE,
+                               N'N';
+
+    BEGIN TRY
+        BEGIN TRAN;
+
+        INSERT INTO CORE.DBO.[{{TableName}}]
+        (
+            [LOAD_DTS],
+            [LOAD_END_DTS],
+            [CDC_OPERATION_CODE],
+            [RECORD_SOURCE],
+            [SESSION_DTS],
+			[HK],
+			{{#each FK}}
+			[{{FieldName}}],
+            [{{FieldName}}_HK]{{#unless @last}},{{/unless}}
+			{{/each}}
+        )
+        SELECT PSA.[LOAD_DTS],
+               PSA.[LOAD_END_DTS],
+               PSA.[CDC_OPERATION_CODE],
+               PSA.[RECORD_SOURCE],
+               PSA.[SESSION_DTS],
+			   PSA.[HK],
+			   {{#each FK}}
+			   PSA.[{{FieldName}}],
+			   PSA.[{{FieldName}}_HK]{{#unless @last}},{{/unless}}
+			   {{/each}}
+        FROM
+        (
+            SELECT LOAD_DTS,
+                   '9999-12-31' AS [LOAD_END_DTS],
+                   CDC_OPERATION_CODE,
+                   RECORD_SOURCE,
+                   NULL AS [SESSION_DTS],
+                   CONVERT(CHAR(32), HASHBYTES('MD5', {{#each FK}}ISNULL(TRIM(CONVERT(NVARCHAR(50), [{{FieldName}}])+N'{{../../HASHTail}}'), N''){{#unless @last}} + {{/unless}}{{/each}}), 2) AS HK,
+                   {{#each FK}}
+				   CONVERT(CHAR(32), HASHBYTES('MD5', ISNULL(TRIM(CONVERT(NVARCHAR(50), [{{FieldName}}])+N'@|@'), N'')), 2) AS {{FieldName}}_HK,
+				   [{{FieldName}}] AS [{{FieldName}}],
+				   {{/each}}
+                   ROW_NUMBER() OVER (PARTITION BY {{#each FK}}ISNULL(TRIM(CONVERT(NVARCHAR(50), [{{FieldName}}])), N''){{#unless @last}} + {{/unless}}{{/each}} ORDER BY LOAD_DTS ASC) AS ROW_NR
+            FROM [{{../PSADatabaseName}}].[{{PSASchemaName}}].[{{PSATableName}}_LOG]
+        ) PSA
+            LEFT JOIN [{{../COREDatabaseName}}].dbo.[{{TableName}}] [TARGET]
+                ON {{#each FK}}ISNULL(TRIM(CONVERT(NVARCHAR(50), PSA.[{{FieldName}}])), N''){{#unless @last}} + {{/unless}}{{/each}} = {{#each FK}}ISNULL(TRIM(CONVERT(NVARCHAR(50), [TARGET].[{{FieldName}}])), N''){{#unless @last}} + {{/unless}}{{/each}}
+        WHERE [TARGET].HK IS NULL
+              AND ROW_NR = 1;
+
+
+        EXEC META.dbo.USP_WRITELOG N'Finish to load [{{../COREDatabaseName}}].[dbo].[{{TableName}}]',
+                                   @LOGSOURCE,
+                                   N'N';
+        COMMIT TRAN;
+    END TRY
+    BEGIN CATCH
+        ROLLBACK TRAN;
+        DECLARE @ERROR_MESSAGE AS NVARCHAR(4000);
+        SET @ERROR_MESSAGE = N'Failed to load [{{../COREDatabaseName}}].[dbo].[{{TableName}}]' + ISNULL(ERROR_MESSAGE(), '');
+        EXEC META.dbo.USP_WRITELOG @ERROR_MESSAGE, @LOGSOURCE, N'E';
+    END CATCH;
+END;
+GO
+
+{{/each}}

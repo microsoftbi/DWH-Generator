@@ -225,11 +225,20 @@ namespace Generator
             rtbT2USPLOG.Text = PSA_TYPE2.GenerateUSPLOG();
             rtbT2ViewCurrent.Text = PSA_TYPE2.GenerateVIEWCURRENT();
 
-            rtbT1TableLanding.Text = PSA_TYPE1.GenerateLandingZone();
-            rtbT1TableStage.Text = PSA_TYPE1.GenerateSTG();
-            rtbT1USPStage.Text = PSA_TYPE1.GenerateUSPSTG();
-            rtbT1TableHIS.Text = PSA_TYPE1.GenerateHIS();
-            rtbT1USPHIS.Text = PSA_TYPE1.GenerateUSPHIS();
+
+            DATAVAULT.LoadMetaAttribute();
+
+            rtbDVTSAT.Text = DATAVAULT.GenerateTableSAT();
+            rtbDVTHUB.Text = DATAVAULT.GenerateTableHUB();
+            rtbDVTLINK.Text = DATAVAULT.GenerateTableLINK();
+            rtbDVUHUB.Text = DATAVAULT.GenerateUSPHUB();
+            rtbDVULINK.Text = DATAVAULT.GenerateUSPLINK();
+
+            //rtbT1TableLanding.Text = PSA_TYPE1.GenerateLandingZone();
+            //rtbT1TableStage.Text = PSA_TYPE1.GenerateSTG();
+            //rtbT1USPStage.Text = PSA_TYPE1.GenerateUSPSTG();
+            //rtbT1TableHIS.Text = PSA_TYPE1.GenerateHIS();
+            //rtbT1USPHIS.Text = PSA_TYPE1.GenerateUSPHIS();
         }
 
         private void reGenerateToolStripMenuItem_Click(object sender, EventArgs e)
