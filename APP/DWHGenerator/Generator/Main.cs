@@ -233,6 +233,7 @@ namespace Generator
             rtbDVTLINK.Text = DATAVAULT.GenerateTableLINK();
             rtbDVUHUB.Text = DATAVAULT.GenerateUSPHUB();
             rtbDVULINK.Text = DATAVAULT.GenerateUSPLINK();
+            rtbDVUSAT.Text = DATAVAULT.GenerateUSPSAT();
 
             //rtbT1TableLanding.Text = PSA_TYPE1.GenerateLandingZone();
             //rtbT1TableStage.Text = PSA_TYPE1.GenerateSTG();
@@ -254,7 +255,7 @@ namespace Generator
         private void versionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             WF_METAScript frmScript = new WF_METAScript();
-            frmScript.Script = "0102a";
+            frmScript.Script = "0107a";
             frmScript.ShowDialog();
         }
 

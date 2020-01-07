@@ -86,6 +86,17 @@ namespace Generator
 
         }
 
+        public static string GenerateUSPSAT()
+        {
+            string result = "";
+
+            var template = Handlebars.Compile(File.ReadAllText(@"LoadPatterns/DV/DV_USPSAT.handlebars"));
+
+            result = template(MetaAttribute);
+
+            return result;
+        }
+
         public static string GenerateUSPLINK()
         {
             string result = "";

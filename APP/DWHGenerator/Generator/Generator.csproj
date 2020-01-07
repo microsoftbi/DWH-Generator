@@ -187,6 +187,9 @@
     <None Include="LoadPatterns\DV\DV_USPLINK.handlebars">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="LoadPatterns\DV\DV_USPSAT.handlebars">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="LoadPatterns\PSAT2\CDC.handlebars">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
