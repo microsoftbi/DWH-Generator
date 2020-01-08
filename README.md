@@ -45,9 +45,9 @@ Deploy META database.
 
 In META database:
 
-	- Table: LAYERS, set database name for PSA, DV and Data Mart.
+- Table: LAYERS, set database name for PSA, DV and Data Mart.
   
-	- Table: RECORDSOURCE, set value about which RecrodSource is from which source database.
+- Table: RECORDSOURCE, set value about which RecrodSource is from which source database.
   
 
 Load schema:
