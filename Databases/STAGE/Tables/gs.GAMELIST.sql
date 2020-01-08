@@ -1,15 +1,13 @@
 CREATE TABLE [gs].[GAMELIST]
 (
-[SEQUENCE_NO] [bigint] NULL,
-[SESSION_DTS] [datetimeoffset] NOT NULL,
-[Fully_Qualified_File_Name] [varchar] (25) COLLATE Chinese_PRC_CI_AS NOT NULL,
-[FILE_TRANSFER_DTS] [datetimeoffset] NOT NULL,
-[REC_SRC] [varchar] (20) COLLATE Chinese_PRC_CI_AS NULL,
+[Fully_Qualified_File_Name] [varchar] (25) COLLATE Chinese_PRC_CI_AS NOT NULL CONSTRAINT [DF_GAMELIST_Fully_Qualified_File_Name] DEFAULT ('gs.GAME'),
+[FILE_TRANSFER_DTS] [datetimeoffset] NOT NULL CONSTRAINT [DF_GAMELIST_FILE_TRANSFER_DTS] DEFAULT (getdate()),
+[REC_SRC] [varchar] (20) COLLATE Chinese_PRC_CI_AS NOT NULL CONSTRAINT [DF_GAMELIST_REC_SRC] DEFAULT ('GS'),
 [ID] [int] NULL,
 [Game name] [nvarchar] (50) COLLATE Chinese_PRC_CI_AS NULL,
 [AREA] [nvarchar] (20) COLLATE Chinese_PRC_CI_AS NULL,
 [PRICE] [decimal] (10, 2) NULL,
-[FLAG01] [int] NULL,
-[Operator] [nvarchar] (20) COLLATE Chinese_PRC_CI_AS NULL
+[Operator] [nvarchar] (20) COLLATE Chinese_PRC_CI_AS NULL,
+[LOAD_DTS] [datetimeoffset] NULL CONSTRAINT [DF_GAMELIST_LOAD_DTS] DEFAULT (getdate())
 ) ON [PRIMARY]
 GO

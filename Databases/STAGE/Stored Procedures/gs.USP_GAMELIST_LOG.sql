@@ -4,6 +4,7 @@ SET ANSI_NULLS ON
 GO
 
 
+
 CREATE PROCEDURE [gs].[USP_GAMELIST_LOG]
 AS
 	BEGIN
@@ -55,16 +56,15 @@ AS
 				CDC.HK AS HK,
 				CDC.HD AS HD,
 				CDC.HF AS HF,
-				[ID],
-				[Game name],
-				[AREA],
-				[PRICE],
-				[Operator]
+				CDC.[ID],
+				CDC.[Game name],
+				CDC.[AREA],
+				CDC.[PRICE],
+				CDC.[Operator]
 			FROM [gs].[GAMELIST_CDC] AS CDC
-			WHERE CDC.[HF] NOT IN
-			(
-				SELECT [HF] FROM [gs].[GAMELIST_LOG]
-			  );
+			LEFT JOIN [gs].[GAMELIST_LOG] AS HDA WITH (NOLOCK)
+				ON HDA.HK = CDC.HK AND HDA.LOAD_DTS = CDC.LOAD_DTS
+			WHERE HDA.HK IS NULL;
 			
 			EXEC META.dbo.USP_WRITELOG N'Finish to load [STAGE].[gs].[GAMELIST_LOG]', @LOGSOURCE, N'N';
 			
@@ -77,5 +77,4 @@ AS
 		EXEC META.dbo.USP_WRITELOG @ERROR_MESSAGE, @LOGSOURCE, N'E';
 	END CATCH
 	END;
-	
 GO
