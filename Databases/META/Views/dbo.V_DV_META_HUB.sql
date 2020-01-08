@@ -1,0 +1,32 @@
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_NULLS ON
+GO
+
+
+CREATE VIEW [dbo].[V_DV_META_HUB] AS
+SELECT 
+       HUB.TableName AS DV_SAT_TABLENAME,
+	   ATT.[COLUMN_NAME],
+	   ATT.[DV_COLUMN_NAME],
+       ATT.[DATA_TYPE],
+       ATT.[CHARACTER_MAXIMUM_LENGTH],
+       ATT.[NUMERIC_PRECISION],
+       ATT.[NUMERIC_SCALE],
+
+       RS.RecordSourceName AS RECORDSOURCE,
+
+       [PK]
+       
+FROM [META].[dbo].[ATTRIBUTE] ATT
+    
+    LEFT JOIN META.dbo.RecordSource RS
+        ON ATT.TABLE_CATALOG = RS.DatabaseName
+    LEFT JOIN META.dbo.DV_HUB HUB
+        ON ATT.DV_HUB_ID = HUB.ID
+
+WHERE HUB.TableName IS NOT NULL
+
+
+
+GO
