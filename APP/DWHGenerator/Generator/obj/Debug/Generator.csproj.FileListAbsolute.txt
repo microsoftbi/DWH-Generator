@@ -120,7 +120,4 @@ C:\Users\ffi8a9l\Desktop\GIT\DWH-Generator\APP\DWHGenerator\Generator\obj\Debug\
 C:\Users\ffi8a9l\Desktop\GIT\DWH-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.csproj.CopyComplete
 C:\Users\ffi8a9l\Desktop\GIT\DWH-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.exe
 C:\Users\ffi8a9l\Desktop\GIT\DWH-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.pdb
-<<<<<<< HEAD
 C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\bin\Debug\LoadPatterns\PSAT2\STG.handlebars
-=======
->>>>>>> ff68d4325b808178c3384380dec78e4a056da504

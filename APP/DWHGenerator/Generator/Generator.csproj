@@ -63,6 +63,11 @@
     </Compile>
     <Compile Include="GeneratorLIB\DATAVAULT.cs" />
     <Compile Include="Metadata.cs" />
+    <Compile Include="METADataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>METADataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="WF_DATAVAULT.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,11 +91,6 @@
     </Compile>
     <Compile Include="WF_META.Designer.cs">
       <DependentUpon>WF_META.cs</DependentUpon>
-    </Compile>
-    <Compile Include="METADataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>METADataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="WF_METAResult.cs">
       <SubType>Form</SubType>

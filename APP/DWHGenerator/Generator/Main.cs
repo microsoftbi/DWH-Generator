@@ -256,7 +256,7 @@ namespace Generator
         private void versionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             WF_METAScript frmScript = new WF_METAScript();
-            frmScript.Script = "0107a";
+            frmScript.Script = "0115a";
             frmScript.ShowDialog();
         }
 

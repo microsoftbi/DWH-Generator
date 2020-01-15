@@ -33,7 +33,7 @@
             this.vATTRIBUTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mETADataSet = new Generator.METADataSet();
             this.aTTRIBUTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.aTTRIBUTETableAdapter = new Generator.METADataSetTableAdapters.V_ATTRIBUTETableAdapter();
+            //this.aTTRIBUTETableAdapter = new Generator.METADataSetTableAdapters.V_ATTRIBUTETableAdapter();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,7 +68,7 @@
             // 
             // aTTRIBUTETableAdapter
             // 
-            this.aTTRIBUTETableAdapter.ClearBeforeFill = true;
+            //this.aTTRIBUTETableAdapter.ClearBeforeFill = true;
             // 
             // dataGridView1
             // 
@@ -178,7 +178,7 @@
         #endregion
         private METADataSet mETADataSet;
         private System.Windows.Forms.BindingSource aTTRIBUTEBindingSource;
-        private METADataSetTableAdapters.V_ATTRIBUTETableAdapter aTTRIBUTETableAdapter;
+        //private METADataSetTableAdapters.V_ATTRIBUTETableAdapter aTTRIBUTETableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn RECORDSOURCE;
         private System.Windows.Forms.DataGridViewTextBoxColumn dVIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource vATTRIBUTEBindingSource;

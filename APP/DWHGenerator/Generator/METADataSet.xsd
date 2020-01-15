@@ -63,36 +63,6 @@
             </Mappings>
             <Sources />
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_ATTRIBUTETableAdapter" GeneratorDataComponentClassName="V_ATTRIBUTETableAdapter" Name="V_ATTRIBUTE" UserDataComponentName="V_ATTRIBUTETableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="METAConnectionString (Settings)" DbObjectName="META.dbo.V_ATTRIBUTE" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT ID, TABLE_CATALOG, TABLE_NAME, COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, NUMERIC_PRECISION, NUMERIC_SCALE, RECORDSOURCE, BK, PK, DI, DV_SAT_TABLENAME, DV_HUB_TABLENAME, DV_HUB_BK FROM dbo.V_ATTRIBUTE</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="ID" DataSetColumn="ID" />
-              <Mapping SourceColumn="TABLE_CATALOG" DataSetColumn="TABLE_CATALOG" />
-              <Mapping SourceColumn="TABLE_NAME" DataSetColumn="TABLE_NAME" />
-              <Mapping SourceColumn="COLUMN_NAME" DataSetColumn="COLUMN_NAME" />
-              <Mapping SourceColumn="DATA_TYPE" DataSetColumn="DATA_TYPE" />
-              <Mapping SourceColumn="CHARACTER_MAXIMUM_LENGTH" DataSetColumn="CHARACTER_MAXIMUM_LENGTH" />
-              <Mapping SourceColumn="NUMERIC_PRECISION" DataSetColumn="NUMERIC_PRECISION" />
-              <Mapping SourceColumn="NUMERIC_SCALE" DataSetColumn="NUMERIC_SCALE" />
-              <Mapping SourceColumn="RECORDSOURCE" DataSetColumn="RECORDSOURCE" />
-              <Mapping SourceColumn="BK" DataSetColumn="BK" />
-              <Mapping SourceColumn="PK" DataSetColumn="PK" />
-              <Mapping SourceColumn="DI" DataSetColumn="DI" />
-              <Mapping SourceColumn="DV_SAT_TABLENAME" DataSetColumn="DV_SAT_TABLENAME" />
-              <Mapping SourceColumn="DV_HUB_TABLENAME" DataSetColumn="DV_HUB_TABLENAME" />
-              <Mapping SourceColumn="DV_HUB_BK" DataSetColumn="DV_HUB_BK" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CONFIG_VERIFYTableAdapter" GeneratorDataComponentClassName="CONFIG_VERIFYTableAdapter" Name="CONFIG_VERIFY" UserDataComponentName="CONFIG_VERIFYTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="METAConnectionString (Settings)" DbObjectName="META.dbo.CONFIG_VERIFY" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -173,6 +143,43 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_ATTRIBUTETableAdapter" GeneratorDataComponentClassName="V_ATTRIBUTETableAdapter" Name="V_ATTRIBUTE" UserDataComponentName="V_ATTRIBUTETableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="METAConnectionString (Settings)" DbObjectName="META.dbo.V_ATTRIBUTE" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT ID, TABLE_CATALOG, TABLE_NAME, COLUMN_NAME, DATA_TYPE, CHARACTER_MAXIMUM_LENGTH, NUMERIC_PRECISION, NUMERIC_SCALE, L_DATA_TYPE, L_CHARACTER_MAXIMUM_LENGTH, L_NUMERIC_PRECISION, L_NUMERIC_SCALE, RECORDSOURCE, BK, PK, DI, FK, DV_SAT_TABLENAME, DV_HUB_TABLENAME, DV_LINK_TABLENAME, DV_COLUMN_NAME, IS_FULLLOAD FROM dbo.V_ATTRIBUTE</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="ID" DataSetColumn="ID" />
+              <Mapping SourceColumn="TABLE_CATALOG" DataSetColumn="TABLE_CATALOG" />
+              <Mapping SourceColumn="TABLE_NAME" DataSetColumn="TABLE_NAME" />
+              <Mapping SourceColumn="COLUMN_NAME" DataSetColumn="COLUMN_NAME" />
+              <Mapping SourceColumn="DATA_TYPE" DataSetColumn="DATA_TYPE" />
+              <Mapping SourceColumn="CHARACTER_MAXIMUM_LENGTH" DataSetColumn="CHARACTER_MAXIMUM_LENGTH" />
+              <Mapping SourceColumn="NUMERIC_PRECISION" DataSetColumn="NUMERIC_PRECISION" />
+              <Mapping SourceColumn="NUMERIC_SCALE" DataSetColumn="NUMERIC_SCALE" />
+              <Mapping SourceColumn="L_DATA_TYPE" DataSetColumn="L_DATA_TYPE" />
+              <Mapping SourceColumn="L_CHARACTER_MAXIMUM_LENGTH" DataSetColumn="L_CHARACTER_MAXIMUM_LENGTH" />
+              <Mapping SourceColumn="L_NUMERIC_PRECISION" DataSetColumn="L_NUMERIC_PRECISION" />
+              <Mapping SourceColumn="L_NUMERIC_SCALE" DataSetColumn="L_NUMERIC_SCALE" />
+              <Mapping SourceColumn="RECORDSOURCE" DataSetColumn="RECORDSOURCE" />
+              <Mapping SourceColumn="BK" DataSetColumn="BK" />
+              <Mapping SourceColumn="PK" DataSetColumn="PK" />
+              <Mapping SourceColumn="DI" DataSetColumn="DI" />
+              <Mapping SourceColumn="FK" DataSetColumn="FK" />
+              <Mapping SourceColumn="DV_SAT_TABLENAME" DataSetColumn="DV_SAT_TABLENAME" />
+              <Mapping SourceColumn="DV_HUB_TABLENAME" DataSetColumn="DV_HUB_TABLENAME" />
+              <Mapping SourceColumn="DV_LINK_TABLENAME" DataSetColumn="DV_LINK_TABLENAME" />
+              <Mapping SourceColumn="DV_COLUMN_NAME" DataSetColumn="DV_COLUMN_NAME" />
+              <Mapping SourceColumn="IS_FULLLOAD" DataSetColumn="IS_FULLLOAD" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -224,75 +231,6 @@
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="100" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="V_ATTRIBUTE" msprop:Generator_TableClassName="V_ATTRIBUTEDataTable" msprop:Generator_TableVarName="tableV_ATTRIBUTE" msprop:Generator_TablePropName="V_ATTRIBUTE" msprop:Generator_RowDeletingName="V_ATTRIBUTERowDeleting" msprop:Generator_RowChangingName="V_ATTRIBUTERowChanging" msprop:Generator_RowEvHandlerName="V_ATTRIBUTERowChangeEventHandler" msprop:Generator_RowDeletedName="V_ATTRIBUTERowDeleted" msprop:Generator_UserTableName="V_ATTRIBUTE" msprop:Generator_RowChangedName="V_ATTRIBUTERowChanged" msprop:Generator_RowEvArgName="V_ATTRIBUTERowChangeEvent" msprop:Generator_RowClassName="V_ATTRIBUTERow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
-              <xs:element name="TABLE_CATALOG" msprop:Generator_ColumnVarNameInTable="columnTABLE_CATALOG" msprop:Generator_ColumnPropNameInRow="TABLE_CATALOG" msprop:Generator_ColumnPropNameInTable="TABLE_CATALOGColumn" msprop:Generator_UserColumnName="TABLE_CATALOG" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="128" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="TABLE_NAME" msprop:Generator_ColumnVarNameInTable="columnTABLE_NAME" msprop:Generator_ColumnPropNameInRow="TABLE_NAME" msprop:Generator_ColumnPropNameInTable="TABLE_NAMEColumn" msprop:Generator_UserColumnName="TABLE_NAME">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="128" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="COLUMN_NAME" msprop:Generator_ColumnVarNameInTable="columnCOLUMN_NAME" msprop:Generator_ColumnPropNameInRow="COLUMN_NAME" msprop:Generator_ColumnPropNameInTable="COLUMN_NAMEColumn" msprop:Generator_UserColumnName="COLUMN_NAME" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="128" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="DATA_TYPE" msprop:Generator_ColumnVarNameInTable="columnDATA_TYPE" msprop:Generator_ColumnPropNameInRow="DATA_TYPE" msprop:Generator_ColumnPropNameInTable="DATA_TYPEColumn" msprop:Generator_UserColumnName="DATA_TYPE" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="128" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="CHARACTER_MAXIMUM_LENGTH" msprop:Generator_ColumnVarNameInTable="columnCHARACTER_MAXIMUM_LENGTH" msprop:Generator_ColumnPropNameInRow="CHARACTER_MAXIMUM_LENGTH" msprop:Generator_ColumnPropNameInTable="CHARACTER_MAXIMUM_LENGTHColumn" msprop:Generator_UserColumnName="CHARACTER_MAXIMUM_LENGTH" type="xs:int" minOccurs="0" />
-              <xs:element name="NUMERIC_PRECISION" msprop:Generator_ColumnVarNameInTable="columnNUMERIC_PRECISION" msprop:Generator_ColumnPropNameInRow="NUMERIC_PRECISION" msprop:Generator_ColumnPropNameInTable="NUMERIC_PRECISIONColumn" msprop:Generator_UserColumnName="NUMERIC_PRECISION" type="xs:unsignedByte" minOccurs="0" />
-              <xs:element name="NUMERIC_SCALE" msprop:Generator_ColumnVarNameInTable="columnNUMERIC_SCALE" msprop:Generator_ColumnPropNameInRow="NUMERIC_SCALE" msprop:Generator_ColumnPropNameInTable="NUMERIC_SCALEColumn" msprop:Generator_UserColumnName="NUMERIC_SCALE" type="xs:int" minOccurs="0" />
-              <xs:element name="RECORDSOURCE" msprop:Generator_ColumnVarNameInTable="columnRECORDSOURCE" msprop:Generator_ColumnPropNameInRow="RECORDSOURCE" msprop:Generator_ColumnPropNameInTable="RECORDSOURCEColumn" msprop:Generator_UserColumnName="RECORDSOURCE" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="20" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="BK" msprop:Generator_ColumnVarNameInTable="columnBK" msprop:Generator_ColumnPropNameInRow="BK" msprop:Generator_ColumnPropNameInTable="BKColumn" msprop:Generator_UserColumnName="BK" type="xs:int" minOccurs="0" />
-              <xs:element name="PK" msprop:Generator_ColumnVarNameInTable="columnPK" msprop:Generator_ColumnPropNameInRow="PK" msprop:Generator_ColumnPropNameInTable="PKColumn" msprop:Generator_UserColumnName="PK" type="xs:int" minOccurs="0" />
-              <xs:element name="DI" msprop:Generator_ColumnVarNameInTable="columnDI" msprop:Generator_ColumnPropNameInRow="DI" msprop:Generator_ColumnPropNameInTable="DIColumn" msprop:Generator_UserColumnName="DI" type="xs:int" minOccurs="0" />
-              <xs:element name="DV_SAT_TABLENAME" msprop:Generator_ColumnVarNameInTable="columnDV_SAT_TABLENAME" msprop:Generator_ColumnPropNameInRow="DV_SAT_TABLENAME" msprop:Generator_ColumnPropNameInTable="DV_SAT_TABLENAMEColumn" msprop:Generator_UserColumnName="DV_SAT_TABLENAME" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="30" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="DV_HUB_TABLENAME" msprop:Generator_ColumnVarNameInTable="columnDV_HUB_TABLENAME" msprop:Generator_ColumnPropNameInRow="DV_HUB_TABLENAME" msprop:Generator_ColumnPropNameInTable="DV_HUB_TABLENAMEColumn" msprop:Generator_UserColumnName="DV_HUB_TABLENAME" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="30" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="DV_HUB_BK" msprop:Generator_ColumnVarNameInTable="columnDV_HUB_BK" msprop:Generator_ColumnPropNameInRow="DV_HUB_BK" msprop:Generator_ColumnPropNameInTable="DV_HUB_BKColumn" msprop:Generator_UserColumnName="DV_HUB_BK" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="30" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -351,6 +289,94 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="V_ATTRIBUTE" msprop:Generator_TableClassName="V_ATTRIBUTEDataTable" msprop:Generator_TableVarName="tableV_ATTRIBUTE" msprop:Generator_TablePropName="V_ATTRIBUTE" msprop:Generator_RowDeletingName="V_ATTRIBUTERowDeleting" msprop:Generator_RowChangingName="V_ATTRIBUTERowChanging" msprop:Generator_RowEvHandlerName="V_ATTRIBUTERowChangeEventHandler" msprop:Generator_RowDeletedName="V_ATTRIBUTERowDeleted" msprop:Generator_UserTableName="V_ATTRIBUTE" msprop:Generator_RowChangedName="V_ATTRIBUTERowChanged" msprop:Generator_RowEvArgName="V_ATTRIBUTERowChangeEvent" msprop:Generator_RowClassName="V_ATTRIBUTERow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="TABLE_CATALOG" msprop:Generator_ColumnVarNameInTable="columnTABLE_CATALOG" msprop:Generator_ColumnPropNameInRow="TABLE_CATALOG" msprop:Generator_ColumnPropNameInTable="TABLE_CATALOGColumn" msprop:Generator_UserColumnName="TABLE_CATALOG" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="128" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TABLE_NAME" msprop:Generator_ColumnVarNameInTable="columnTABLE_NAME" msprop:Generator_ColumnPropNameInRow="TABLE_NAME" msprop:Generator_ColumnPropNameInTable="TABLE_NAMEColumn" msprop:Generator_UserColumnName="TABLE_NAME">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="128" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COLUMN_NAME" msprop:Generator_ColumnVarNameInTable="columnCOLUMN_NAME" msprop:Generator_ColumnPropNameInRow="COLUMN_NAME" msprop:Generator_ColumnPropNameInTable="COLUMN_NAMEColumn" msprop:Generator_UserColumnName="COLUMN_NAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="128" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DATA_TYPE" msprop:Generator_ColumnVarNameInTable="columnDATA_TYPE" msprop:Generator_ColumnPropNameInRow="DATA_TYPE" msprop:Generator_ColumnPropNameInTable="DATA_TYPEColumn" msprop:Generator_UserColumnName="DATA_TYPE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="128" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CHARACTER_MAXIMUM_LENGTH" msprop:Generator_ColumnVarNameInTable="columnCHARACTER_MAXIMUM_LENGTH" msprop:Generator_ColumnPropNameInRow="CHARACTER_MAXIMUM_LENGTH" msprop:Generator_ColumnPropNameInTable="CHARACTER_MAXIMUM_LENGTHColumn" msprop:Generator_UserColumnName="CHARACTER_MAXIMUM_LENGTH" type="xs:int" minOccurs="0" />
+              <xs:element name="NUMERIC_PRECISION" msprop:Generator_ColumnVarNameInTable="columnNUMERIC_PRECISION" msprop:Generator_ColumnPropNameInRow="NUMERIC_PRECISION" msprop:Generator_ColumnPropNameInTable="NUMERIC_PRECISIONColumn" msprop:Generator_UserColumnName="NUMERIC_PRECISION" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="NUMERIC_SCALE" msprop:Generator_ColumnVarNameInTable="columnNUMERIC_SCALE" msprop:Generator_ColumnPropNameInRow="NUMERIC_SCALE" msprop:Generator_ColumnPropNameInTable="NUMERIC_SCALEColumn" msprop:Generator_UserColumnName="NUMERIC_SCALE" type="xs:int" minOccurs="0" />
+              <xs:element name="L_DATA_TYPE" msprop:Generator_ColumnVarNameInTable="columnL_DATA_TYPE" msprop:Generator_ColumnPropNameInRow="L_DATA_TYPE" msprop:Generator_ColumnPropNameInTable="L_DATA_TYPEColumn" msprop:Generator_UserColumnName="L_DATA_TYPE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="128" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="L_CHARACTER_MAXIMUM_LENGTH" msprop:Generator_ColumnVarNameInTable="columnL_CHARACTER_MAXIMUM_LENGTH" msprop:Generator_ColumnPropNameInRow="L_CHARACTER_MAXIMUM_LENGTH" msprop:Generator_ColumnPropNameInTable="L_CHARACTER_MAXIMUM_LENGTHColumn" msprop:Generator_UserColumnName="L_CHARACTER_MAXIMUM_LENGTH" type="xs:int" minOccurs="0" />
+              <xs:element name="L_NUMERIC_PRECISION" msprop:Generator_ColumnVarNameInTable="columnL_NUMERIC_PRECISION" msprop:Generator_ColumnPropNameInRow="L_NUMERIC_PRECISION" msprop:Generator_ColumnPropNameInTable="L_NUMERIC_PRECISIONColumn" msprop:Generator_UserColumnName="L_NUMERIC_PRECISION" type="xs:unsignedByte" minOccurs="0" />
+              <xs:element name="L_NUMERIC_SCALE" msprop:Generator_ColumnVarNameInTable="columnL_NUMERIC_SCALE" msprop:Generator_ColumnPropNameInRow="L_NUMERIC_SCALE" msprop:Generator_ColumnPropNameInTable="L_NUMERIC_SCALEColumn" msprop:Generator_UserColumnName="L_NUMERIC_SCALE" type="xs:int" minOccurs="0" />
+              <xs:element name="RECORDSOURCE" msprop:Generator_ColumnVarNameInTable="columnRECORDSOURCE" msprop:Generator_ColumnPropNameInRow="RECORDSOURCE" msprop:Generator_ColumnPropNameInTable="RECORDSOURCEColumn" msprop:Generator_UserColumnName="RECORDSOURCE" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BK" msprop:Generator_ColumnVarNameInTable="columnBK" msprop:Generator_ColumnPropNameInRow="BK" msprop:Generator_ColumnPropNameInTable="BKColumn" msprop:Generator_UserColumnName="BK" type="xs:boolean" minOccurs="0" />
+              <xs:element name="PK" msprop:Generator_ColumnVarNameInTable="columnPK" msprop:Generator_ColumnPropNameInRow="PK" msprop:Generator_ColumnPropNameInTable="PKColumn" msprop:Generator_UserColumnName="PK" type="xs:boolean" minOccurs="0" />
+              <xs:element name="DI" msprop:Generator_ColumnVarNameInTable="columnDI" msprop:Generator_ColumnPropNameInRow="DI" msprop:Generator_ColumnPropNameInTable="DIColumn" msprop:Generator_UserColumnName="DI" type="xs:boolean" minOccurs="0" />
+              <xs:element name="FK" msprop:Generator_ColumnVarNameInTable="columnFK" msprop:Generator_ColumnPropNameInRow="FK" msprop:Generator_ColumnPropNameInTable="FKColumn" msprop:Generator_UserColumnName="FK" type="xs:boolean" minOccurs="0" />
+              <xs:element name="DV_SAT_TABLENAME" msprop:Generator_ColumnVarNameInTable="columnDV_SAT_TABLENAME" msprop:Generator_ColumnPropNameInRow="DV_SAT_TABLENAME" msprop:Generator_ColumnPropNameInTable="DV_SAT_TABLENAMEColumn" msprop:Generator_UserColumnName="DV_SAT_TABLENAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DV_HUB_TABLENAME" msprop:Generator_ColumnVarNameInTable="columnDV_HUB_TABLENAME" msprop:Generator_ColumnPropNameInRow="DV_HUB_TABLENAME" msprop:Generator_ColumnPropNameInTable="DV_HUB_TABLENAMEColumn" msprop:Generator_UserColumnName="DV_HUB_TABLENAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DV_LINK_TABLENAME" msprop:Generator_ColumnVarNameInTable="columnDV_LINK_TABLENAME" msprop:Generator_ColumnPropNameInRow="DV_LINK_TABLENAME" msprop:Generator_ColumnPropNameInTable="DV_LINK_TABLENAMEColumn" msprop:Generator_UserColumnName="DV_LINK_TABLENAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="30" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DV_COLUMN_NAME" msprop:Generator_ColumnVarNameInTable="columnDV_COLUMN_NAME" msprop:Generator_ColumnPropNameInRow="DV_COLUMN_NAME" msprop:Generator_ColumnPropNameInTable="DV_COLUMN_NAMEColumn" msprop:Generator_UserColumnName="DV_COLUMN_NAME" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IS_FULLLOAD" msprop:Generator_ColumnVarNameInTable="columnIS_FULLLOAD" msprop:Generator_ColumnPropNameInRow="IS_FULLLOAD" msprop:Generator_ColumnPropNameInTable="IS_FULLLOADColumn" msprop:Generator_UserColumnName="IS_FULLLOAD" type="xs:boolean" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
