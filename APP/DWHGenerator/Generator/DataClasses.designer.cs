@@ -312,6 +312,8 @@ namespace Generator
 		
 		private string _DV_COLUMN_NAME;
 		
+		private System.Nullable<bool> _IS_FULLLOAD;
+		
 		public V_ATTRIBUTE()
 		{
 		}
@@ -648,6 +650,22 @@ namespace Generator
 				if ((this._DV_COLUMN_NAME != value))
 				{
 					this._DV_COLUMN_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IS_FULLLOAD", DbType="Bit")]
+		public System.Nullable<bool> IS_FULLLOAD
+		{
+			get
+			{
+				return this._IS_FULLLOAD;
+			}
+			set
+			{
+				if ((this._IS_FULLLOAD != value))
+				{
+					this._IS_FULLLOAD = value;
 				}
 			}
 		}

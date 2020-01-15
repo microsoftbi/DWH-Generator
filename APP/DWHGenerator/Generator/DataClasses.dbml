@@ -43,6 +43,7 @@
       <Column Name="DV_HUB_TABLENAME" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="DV_LINK_TABLENAME" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
       <Column Name="DV_COLUMN_NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IS_FULLLOAD" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

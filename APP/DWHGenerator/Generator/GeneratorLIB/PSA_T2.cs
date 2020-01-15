@@ -79,7 +79,7 @@ namespace Generator
 
             var lstMetas = (from p in dc.V_ATTRIBUTE select p).ToList();
 
-            var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RECORDSOURCE }).ToList();
+            var lstTables = (from p in lstMetas select new { p.TABLE_NAME, p.RECORDSOURCE, p.IS_FULLLOAD }).ToList();
 
             MetaAttribute = new Metadata();
 
@@ -97,9 +97,21 @@ namespace Generator
                 mtObj.ObjectName = itemTable.TABLE_NAME;
                 mtObj.SchemaName = itemTable.RECORDSOURCE;
                 mtObj.RecordSource = itemTable.RECORDSOURCE;
+                mtObj.Is_FullLoad = itemTable.IS_FULLLOAD == true ? "FULL" : "INC";
 
                 MetaAttribute.MTA.Add(mtObj);
             }
+        }
+
+        public static string GenerateTableSTG()
+        {
+            string result = "";
+
+            var template = Handlebars.Compile(File.ReadAllText(@"LoadPatterns/PSAT2/STG.handlebars"));
+
+            result = template(MetaAttribute);
+
+            return result;
         }
 
         public static string GenerateTableCDC()

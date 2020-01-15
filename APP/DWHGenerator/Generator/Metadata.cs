@@ -31,6 +31,7 @@ namespace Generator
         public string ObjectName { get; set; }
         public string SchemaName { get; set; }
         public string RecordSource { get; set; }
+        public string Is_FullLoad { get; set; }
         public List<Field> PK { get; set; }
         public List<Field> DI { get; set; }
         public List<Field> FK { get; set; }

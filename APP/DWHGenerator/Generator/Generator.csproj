@@ -202,6 +202,9 @@
     <None Include="LoadPatterns\PSAT2\MTA.handlebars">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="LoadPatterns\PSAT2\STG.handlebars">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="LoadPatterns\PSAT2\USPCDC.handlebars">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

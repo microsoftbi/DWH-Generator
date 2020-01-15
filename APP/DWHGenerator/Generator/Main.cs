@@ -217,7 +217,8 @@ namespace Generator
         private void Generate()
         {
             PSA_TYPE2.LoadMetaAttribute();
-            
+
+            rtbT2TableSTG.Text = PSA_TYPE2.GenerateTableSTG();
             rtbT2ViewMETA.Text = PSA_TYPE2.GenerateVIEWMTA();
             rtbT2USPCDC.Text = PSA_TYPE2.GenerateUSPCDC();
             rtbT2TableCDC.Text = PSA_TYPE2.GenerateTableCDC();
