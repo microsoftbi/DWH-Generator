@@ -80,6 +80,8 @@
             this.rtbDVUSAT = new System.Windows.Forms.RichTextBox();
             this.tabPage20 = new System.Windows.Forms.TabPage();
             this.rtbDVULINK = new System.Windows.Forms.RichTextBox();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -129,20 +131,22 @@
             // fULLToolStripMenuItem
             // 
             this.fULLToolStripMenuItem.Name = "fULLToolStripMenuItem";
-            this.fULLToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.fULLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fULLToolStripMenuItem.Text = "FULL";
             this.fULLToolStripMenuItem.Click += new System.EventHandler(this.FULLToolStripMenuItem_Click);
             // 
             // configToolStripMenuItem
             // 
             this.configToolStripMenuItem.Name = "configToolStripMenuItem";
-            this.configToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.configToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.configToolStripMenuItem.Text = "Config...";
             this.configToolStripMenuItem.Click += new System.EventHandler(this.ConfigToolStripMenuItem_Click);
             // 
             // mETADataToolStripMenuItem
             // 
             this.mETADataToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem4,
+            this.toolStripSeparator1,
             this.configurationToolStripMenuItem,
             this.verifyToolStripMenuItem,
             this.toolStripMenuItem2,
@@ -247,14 +251,14 @@
             // versionToolStripMenuItem
             // 
             this.versionToolStripMenuItem.Name = "versionToolStripMenuItem";
-            this.versionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.versionToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.versionToolStripMenuItem.Text = "Version";
             this.versionToolStripMenuItem.Click += new System.EventHandler(this.versionToolStripMenuItem_Click);
             // 
             // gITURLToolStripMenuItem
             // 
             this.gITURLToolStripMenuItem.Name = "gITURLToolStripMenuItem";
-            this.gITURLToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gITURLToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
             this.gITURLToolStripMenuItem.Text = "GIT URL";
             this.gITURLToolStripMenuItem.Click += new System.EventHandler(this.gITURLToolStripMenuItem_Click);
             // 
@@ -604,6 +608,18 @@
             this.rtbDVULINK.TabIndex = 0;
             this.rtbDVULINK.Text = "";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem4.Text = "META Import";
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -695,6 +711,8 @@
         private System.Windows.Forms.RichTextBox rtbDVULINK;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.RichTextBox rtbT2TableSTG;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
     }
 }
 

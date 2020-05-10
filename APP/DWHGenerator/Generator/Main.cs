@@ -266,5 +266,11 @@ namespace Generator
             frmScript.Script = "https://github.com/microsoftbi/generator";
             frmScript.ShowDialog();
         }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            WF_MetaImport frmMI = new WF_MetaImport();
+            frmMI.ShowDialog();
+        }
     }
 }

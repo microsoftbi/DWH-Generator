@@ -92,6 +92,12 @@
     <Compile Include="WF_META.Designer.cs">
       <DependentUpon>WF_META.cs</DependentUpon>
     </Compile>
+    <Compile Include="WF_MetaImport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WF_MetaImport.Designer.cs">
+      <DependentUpon>WF_MetaImport.cs</DependentUpon>
+    </Compile>
     <Compile Include="WF_METAResult.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +143,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WF_META.resx">
       <DependentUpon>WF_META.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="WF_MetaImport.resx">
+      <DependentUpon>WF_MetaImport.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WF_METAResult.resx">
       <DependentUpon>WF_METAResult.cs</DependentUpon>
