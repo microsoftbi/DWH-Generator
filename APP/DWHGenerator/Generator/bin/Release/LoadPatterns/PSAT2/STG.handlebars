@@ -1,0 +1,48 @@
+USE [{{PSADatabaseName}}]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+{{#each MTA}}
+
+CREATE TABLE [{{SchemaName}}].[{{ObjectName}}](
+	[LOAD_DTS] [datetimeoffset](7) NOT NULL,
+	[LOAD_DTS_BATCH] [datetimeoffset](7) NOT NULL,
+	[RECORD_SOURCE] [nvarchar](15) NOT NULL,
+	[FULLY_QUALIFIED_FILE_NAME] [nvarchar](256) NULL,
+	[INSERT_DTS] [datetimeoffset](7) NULL,
+	[UPDATE_DTS] [datetimeoffset](7) NULL,
+	[EXPORT_DTS] [datetimeoffset](7) NULL,
+	[FILE_TRANSFER_DTS] [datetimeoffset](7) NULL,
+	[LOAD_TYPE] [nvarchar](10) NULL,
+	[HK] [char](32) NOT NULL,
+	[HD] [char](32) NOT NULL,
+	[HF] [char](32) NOT NULL,
+	{{#each PK}}
+	[{{FieldName}}] {{FieldType}} NULL,
+	{{/each}}
+	{{#each DI}}
+	[{{FieldName}}]  {{FieldType}} NULL{{#unless @last}},{{/unless}}
+	{{/each}}		
+) ON [PRIMARY]
+GO
+
+
+ALTER TABLE [{{SchemaName}}].[{{ObjectName}}] ADD  CONSTRAINT [DF_{{ObjectName}}_Fully_Qualified_File_Name]  DEFAULT ('{{SchemaName}}.{{ObjectName}}') FOR [Fully_Qualified_File_Name]
+GO
+
+ALTER TABLE [{{SchemaName}}].[{{ObjectName}}] ADD  CONSTRAINT [DF_{{ObjectName}}_FILE_TRANSFER_DTS]  DEFAULT (getdate()) FOR [FILE_TRANSFER_DTS]
+GO
+
+ALTER TABLE [{{SchemaName}}].[{{ObjectName}}] ADD  CONSTRAINT [DF_{{ObjectName}}_REC_SRC]  DEFAULT ('{{SchemaName}}') FOR [REC_SRC]
+GO
+
+ALTER TABLE [{{SchemaName}}].[{{ObjectName}}] ADD  CONSTRAINT [DF_{{ObjectName}}_LOAD_DTS]  DEFAULT (getdate()) FOR [LOAD_DTS]
+GO
+
+
+{{/each}}
