@@ -16,7 +16,7 @@ BEGIN
     BEGIN TRY
         BEGIN TRAN;
 
-        INSERT INTO CORE.DBO.[{{TableName}}]
+        INSERT INTO [{{../COREDatabaseName}}].[DBO].[{{TableName}}]
         (
             [LOAD_DTS],
             [LOAD_END_DTS],
