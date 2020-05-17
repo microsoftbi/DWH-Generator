@@ -67,3 +67,4 @@ C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\obj\Rel
 C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.csproj.CopyComplete
 C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.exe
 C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.pdb
+C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.csprojAssemblyReference.cache

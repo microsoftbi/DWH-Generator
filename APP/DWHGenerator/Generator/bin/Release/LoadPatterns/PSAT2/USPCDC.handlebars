@@ -176,10 +176,10 @@ AS
 					WHEN LEAD_HF IS NULL
 						AND SOURCE_ENTITY = 'HDA'
 						AND MAX_LTS.LOAD_TYPE = 'FULL' THEN
-						'D' --kein Nachfolger für HDA-Datensatz in CDC
+						'D'
 					WHEN LAG_HF IS NULL
 						AND SOURCE_ENTITY = 'CDC' THEN
-						'I' --kein Vorgänger für CDC-Datensatz in HDA
+						'I'
 					WHEN LAG_HF <> HF
 						AND NOT LAG_HF IS NULL
 						AND SOURCE_ENTITY = 'CDC' THEN
