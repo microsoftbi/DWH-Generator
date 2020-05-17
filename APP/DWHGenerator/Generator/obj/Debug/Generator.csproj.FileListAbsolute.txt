@@ -121,3 +121,4 @@ C:\Users\ffi8a9l\Desktop\GIT\DWH-Generator\APP\DWHGenerator\Generator\obj\Debug\
 C:\Users\ffi8a9l\Desktop\GIT\DWH-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.pdb
 C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\bin\Debug\LoadPatterns\PSAT2\STG.handlebars
 C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_MetaImport.resources
+C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.csprojAssemblyReference.cache

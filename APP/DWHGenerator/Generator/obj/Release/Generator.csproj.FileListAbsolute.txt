@@ -52,7 +52,6 @@ C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\bin\Rel
 C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\bin\Release\Generator.exe
 C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\bin\Release\Generator.pdb
 C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\bin\Release\Handlebars.dll
-C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.csprojAssemblyReference.cache
 C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.WF_DATAVAULT.resources
 C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.WF_LAYERS.resources
 C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\obj\Release\Generator.Main.resources
