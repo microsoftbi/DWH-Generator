@@ -21,6 +21,9 @@ namespace Generator
                 case "NVARCHAR":
                     result += "(" + CharLen.ToString() + ")";
                     break;
+                case "NUMERIC":
+                    result += "(" + nPrecision.ToString() + ")";
+                    break;
                 case "CHAR":
                     result += "(" + CharLen.ToString() + ")";
                     break;
@@ -58,6 +61,9 @@ namespace Generator
                 case "NVARCHAR":
                     result += "(" + CharLen.ToString() + ")";
                     break;
+                case "NUMERIC":
+                    result += "(" + nPrecision.ToString() + ")";
+                    break;
                 case "CHAR":
                     result += "(" + CharLen.ToString() + ")";
                     break;
@@ -90,6 +96,7 @@ namespace Generator
         /// <param name="LnPrecision"></param>
         /// <param name="LnScale"></param>
         /// <returns></returns>
+        /// This is useless function, I won't plan to do type converation in the tool.
         /// public static string FieldConvert(string FieldName, string FieldType, int? CharLen, int? nPrecision, int? nScale, string LFieldType, int? LCharLen, int? LnPrecision, int? LnScale)
         public static string FieldConvert(string FieldName, string FieldType, int? CharLen, int? nPrecision, int? nScale)
         {
