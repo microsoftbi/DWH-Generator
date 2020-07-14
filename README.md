@@ -1,77 +1,73 @@
-# DWH Generator
-A generator to create DWH base on META data configuration.
+DWH generator
 
-Including:
+# Introduction
 
-PSA(Presistent staging area).
+The generator helps you to generate data warehouse script, which following PSA
+and Data Vault approach.
 
-DV((RAW) Data Vault)
+For data vault currently the generator only support part of the Data Vault 2.0
+standard, and only for SAT and HUB tables.
 
+PSA are using INSERT ONLY approach, which only LOAD_DTS will be maintained, no
+LOAD_END_DTS.
 
-Platform:
+# How to use
 
-SQLServer
+## Preparation
 
-Last update: 2020-01-07
-By: Wade
+Make sure first table of PSA is ready, including technical fields.
 
-Generate scripts for DWH including PSA and Data Vault.
+## Load meta data
 
+Open generator, META data -\> META Import
 
+Input the first table of PSA, format: [Schema name].[Table name], then click
+"Check table meta".
 
-What is out of scope:
-- Load source to stage. 
+If all technical fields in the first table of PSA is ready, the check will
+succeed, then click "Load to META".
 
+Then put the new table into object list, click "Object list"-\>"FULL"
 
+Then specify in the system, only work with the new table, "Object
+list"-\>"Config…", only check the new table added.
 
-How to use:
+## Config meta data for PSA
 
-- DEPLOY META DB.
+META data-\>Configuration.
 
-- Load SCHEMA_INFORMATION into META.dbo.ATTRIBUTE table.
+The table fields are listed in the windows, by default all fields are marked as
+"DI" (descriptive information), find the business key fields, un-check "DI",
+check "BK" and "PK".
 
-- Config PK, DI, and DV in the ATTRIBUTE table.
+Then click "UPDATE".
 
-- Config other tables in META database, including LAYERS, RECORDSOURCE.
+## Generate code for PSA
 
-- Open Generator, generate PSA tables, views and USP, then DV tables and USP.
+META data-\>Re-Generate, we can get each tables, views and USPs scripts are
+generated.
 
-- Start to load data from PSA to DV.
+## Deploy PSA
 
+Deploy-\>PSA data flow, the PSA relevant tables(except first table of PSA) will
+be deployed.
 
-Initiation:
+## Config meta data for DV
 
-Deploy META database.
+Open table META.DBO.DV_SAT in SSMS, add new SAT table name, and also give it an
+ID.
 
-In META database:
+Open generator, META data-\>Configuration, in DV_SAT_ID fields, input the SAT
+ID, for the fields which need to load to SAT.
 
-- Table: LAYERS, set database name for PSA, DV and Data Mart.
-  
-- Table: RECORDSOURCE, set value about which RecrodSource is from which source database.
-  
+Click "META data" -\> "Update" to update meta configuration, also click "META
+data" -\> "Show META result" to check if the SAT table name shows correctly.
 
-Load schema:
+## Generate code for DV
 
-For table need to generate, import information_schema into META database.
+META data-\>Re-Generate, we can get each tables, views and USPs scripts are
+generated.
 
+## Deploy DV
 
-Meta configuration:
-
-Open generator, choose which fields are PK, which are DI, with these information to generate PSA.
-
-
-If need further to DV:
-
-Open DV tables include: DV_HUB, DV_LINK, DV_SAT.
-
-For example in DV_SAT, config SAT table name, then remember the ID.
-
-Then go to ATTRIBUTE table, set DV_SAT value as the ID just configed in DV_SAT, for the fields needed to go to satellite table.
-
-For each DV tables, below configuration is mandatory:
-
-SAT: PK, DI.
-
-LINK: FK(at least two).
-
-HUB: PK. 
+DV scripts can be only deployed manually.
