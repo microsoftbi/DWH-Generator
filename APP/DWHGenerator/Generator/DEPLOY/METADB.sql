@@ -1,3 +1,7 @@
+---------------------------------------------------------------------
+--Database
+---------------------------------------------------------------------
+
 USE [master];
 GO
 
@@ -22,155 +26,379 @@ GO
 
 
 
-USE [META];
+
+---------------------------------------------------------------------
+--Tables
+---------------------------------------------------------------------
+
+USE [META]
+GO
+/****** Object:  Table [dbo].[DV_SAT]    Script Date: 1/13/2021 3:27:14 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DV_SAT](
+	[ID] [int] NULL,
+	[TableName] [nvarchar](50) NULL
+) ON [PRIMARY]
 GO
 
-SET ANSI_NULLS ON;
+/****** Object:  Table [dbo].[RecordSource]    Script Date: 1/13/2021 3:27:14 PM ******/
+SET ANSI_NULLS ON
 GO
-SET QUOTED_IDENTIFIER ON;
+SET QUOTED_IDENTIFIER ON
 GO
-CREATE TABLE [dbo].[RecordSource]
+CREATE TABLE [dbo].[RecordSource](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[RecordSourceName] [nvarchar](20) NULL,
+	[DatabaseName] [nvarchar](20) NULL,
+	[RecordSourceDesc] [nvarchar](100) NULL
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[DV_HUB]    Script Date: 1/13/2021 3:27:14 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DV_HUB](
+	[ID] [int] NULL,
+	[TableName] [nvarchar](30) NULL,
+	[BKNAMEAS] [nvarchar](30) NULL
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[GEN_LIST]    Script Date: 1/13/2021 3:27:14 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[GEN_LIST](
+	[id] [int] IDENTITY(1,1) NOT NULL,
+	[TABLE_CATALOG] [nvarchar](128) NULL,
+	[TABLE_NAME] [nvarchar](128) NULL,
+	[IS_GEN] [bit] NULL,
+	[IS_FULLLOAD] [bit] NULL,
+ CONSTRAINT [PK_GEN_LIST] PRIMARY KEY CLUSTERED 
 (
-    [ID] [INT] IDENTITY(1, 1) NOT NULL,
-    [RecordSourceName] [NVARCHAR](20) NULL,
-    [DatabaseName] [NVARCHAR](20) NULL,
-    [RecordSourceDesc] [NVARCHAR](100) NULL
-) ON [PRIMARY];
+	[id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
 GO
 
-SET ANSI_NULLS ON;
+/****** Object:  Table [dbo].[ATTRIBUTE_LANDING]    Script Date: 1/13/2021 3:27:14 PM ******/
+SET ANSI_NULLS ON
 GO
-SET QUOTED_IDENTIFIER ON;
+SET QUOTED_IDENTIFIER ON
 GO
-CREATE TABLE [dbo].[DV_HUB]
+CREATE TABLE [dbo].[ATTRIBUTE_LANDING](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[TABLE_CATALOG] [nvarchar](128) NULL,
+	[TABLE_NAME] [sysname] NOT NULL,
+	[COLUMN_NAME] [sysname] NULL,
+	[DATA_TYPE] [nvarchar](128) NULL,
+	[CHARACTER_MAXIMUM_LENGTH] [int] NULL,
+	[NUMERIC_PRECISION] [tinyint] NULL,
+	[NUMERIC_SCALE] [int] NULL,
+ CONSTRAINT [PK_ATTRIBUTE_LANDING] PRIMARY KEY CLUSTERED 
 (
-    [ID] [INT] NULL,
-    [TableName] [NVARCHAR](30) NULL,
-    [BKNAMEAS] [NVARCHAR](30) NULL
-) ON [PRIMARY];
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
 GO
 
-SET ANSI_NULLS ON;
+/****** Object:  Table [dbo].[DV_LINK]    Script Date: 1/13/2021 3:27:14 PM ******/
+SET ANSI_NULLS ON
 GO
-SET QUOTED_IDENTIFIER ON;
+SET QUOTED_IDENTIFIER ON
 GO
-CREATE TABLE [dbo].[ATTRIBUTE]
+CREATE TABLE [dbo].[DV_LINK](
+	[ID] [int] NULL,
+	[TableName] [nvarchar](30) NULL
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[ATTRIBUTE]    Script Date: 1/13/2021 3:27:14 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ATTRIBUTE](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[TABLE_CATALOG] [nvarchar](128) NULL,
+	[TABLE_NAME] [sysname] NOT NULL,
+	[COLUMN_NAME] [sysname] NULL,
+	[DATA_TYPE] [nvarchar](128) NULL,
+	[CHARACTER_MAXIMUM_LENGTH] [int] NULL,
+	[NUMERIC_PRECISION] [tinyint] NULL,
+	[NUMERIC_SCALE] [int] NULL,
+	[BK] [bit] NULL,
+	[PK] [bit] NULL,
+	[DI] [bit] NULL,
+	[FK] [bit] NULL,
+	[DV_SAT_ID] [int] NULL,
+	[DV_HUB_ID] [int] NULL,
+	[DV_LINK_ID] [int] NULL,
+	[DV_COLUMN_NAME] [nvarchar](50) NULL,
+ CONSTRAINT [PK_ATTRIBUTE] PRIMARY KEY CLUSTERED 
 (
-    [ID] [INT] IDENTITY(1, 1) NOT NULL,
-    [TABLE_CATALOG] [NVARCHAR](128) NULL,
-    [TABLE_NAME] [sysname] NOT NULL,
-    [COLUMN_NAME] [sysname] NULL,
-    [DATA_TYPE] [NVARCHAR](128) NULL,
-    [CHARACTER_MAXIMUM_LENGTH] [INT] NULL,
-    [NUMERIC_PRECISION] [TINYINT] NULL,
-    [NUMERIC_SCALE] [INT] NULL,
-    [BK] [BIT] NULL,
-    [PK] [BIT] NULL,
-    [DI] [BIT] NULL,
-    [DV_SAT_ID] [INT] NULL,
-    [DV_HUB_ID] [INT] NULL,
-    CONSTRAINT [PK_ATTRIBUTE]
-        PRIMARY KEY CLUSTERED ([ID] ASC)
-        WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON,
-              ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF
-             ) ON [PRIMARY]
-) ON [PRIMARY];
+	[ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
 GO
 
-SET ANSI_NULLS ON;
+/****** Object:  Table [dbo].[LOG]    Script Date: 1/13/2021 3:27:14 PM ******/
+SET ANSI_NULLS ON
 GO
-SET QUOTED_IDENTIFIER ON;
+SET QUOTED_IDENTIFIER ON
 GO
-CREATE TABLE [dbo].[DV_SAT]
-(
-    [ID] [INT] NULL,
-    [TableName] [NVARCHAR](30) NULL
-) ON [PRIMARY];
+CREATE TABLE [dbo].[LOG](
+	[ID] [bigint] IDENTITY(1,1) NOT NULL,
+	[LOGDATE] [datetime] NULL,
+	[LOGMESSAGE] [nvarchar](600) NULL,
+	[LOGSOURCE] [nvarchar](100) NULL,
+	[MESSAGETYPE] [nvarchar](1) NULL
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[GEN_LIST] ADD  CONSTRAINT [DF_GEN_LIST_IS_GEN]  DEFAULT ((1)) FOR [IS_GEN]
+GO
+ALTER TABLE [dbo].[GEN_LIST] ADD  CONSTRAINT [DF_GEN_LIST_IS_FULLLOAD]  DEFAULT ((1)) FOR [IS_FULLLOAD]
+GO
+ALTER TABLE [dbo].[LOG] ADD  CONSTRAINT [DF_LOG_LOGDATE]  DEFAULT (getdate()) FOR [LOGDATE]
 GO
 
-SET ANSI_NULLS ON;
+/****** Object:  Table [dbo].[CONFIG_VERIFY]    Script Date: 1/13/2021 3:27:14 PM ******/
+SET ANSI_NULLS ON
 GO
-SET QUOTED_IDENTIFIER ON;
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CONFIG_VERIFY](
+	[RESULTCONTENT] [nvarchar](200) NULL,
+	[RESULTTYPE] [nvarchar](20) NULL
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[CONFIGURATION]    Script Date: 1/13/2021 3:27:14 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[CONFIGURATION](
+	[ConfigName] [nvarchar](50) NULL,
+	[ConfigValue] [nvarchar](50) NULL
+) ON [PRIMARY]
+GO
+
+/****** Object:  Table [dbo].[Layers]    Script Date: 1/13/2021 3:27:14 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Layers](
+	[ID] [int] IDENTITY(1,1) NOT NULL,
+	[LayerName] [nvarchar](20) NULL,
+	[DatabaseName] [nvarchar](20) NULL
+) ON [PRIMARY]
 GO
 
 
+---------------------------------------------------------------------
+--Views
+---------------------------------------------------------------------
 
+
+/****** Object:  View [dbo].[V_ATTRIBUTE]    Script Date: 1/13/2021 3:27:14 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
 CREATE VIEW [dbo].[V_ATTRIBUTE]
 AS
+
 SELECT ATT.[ID],
-       [TABLE_CATALOG],
-       [TABLE_NAME],
-       [COLUMN_NAME],
-       [DATA_TYPE],
-       [CHARACTER_MAXIMUM_LENGTH],
-       [NUMERIC_PRECISION],
-       [NUMERIC_SCALE],
+       ATT.[TABLE_CATALOG],
+       ATT.[TABLE_NAME],
+       ATT.[COLUMN_NAME],
+       ATT.[DATA_TYPE],
+       ATT.[CHARACTER_MAXIMUM_LENGTH],
+       ATT.[NUMERIC_PRECISION],
+       ATT.[NUMERIC_SCALE],
+       ATTL.[DATA_TYPE] AS L_DATA_TYPE,
+       ATTL.[CHARACTER_MAXIMUM_LENGTH] AS [L_CHARACTER_MAXIMUM_LENGTH],
+       ATTL.[NUMERIC_PRECISION] AS [L_NUMERIC_PRECISION],
+       ATTL.[NUMERIC_SCALE] AS [L_NUMERIC_SCALE],
        RS.RecordSourceName AS RECORDSOURCE,
        [BK],
        [PK],
        [DI],
+	   [FK],
        --,[DVID]
        SAT.TableName AS DV_SAT_TABLENAME,
        HUB.TableName AS DV_HUB_TABLENAME,
-       HUB.BKNAMEAS AS DV_HUB_BK
+	   LINK.TableName AS DV_LINK_TABLENAME,
+       --HUB.BKNAMEAS AS DV_HUB_BK,
+	   ATT.DV_COLUMN_NAME,
+	   IS_FULLLOAD
 FROM [META].[dbo].[ATTRIBUTE] ATT
+    LEFT JOIN [META].[dbo].[ATTRIBUTE_LANDING] ATTL
+        ON ATT.TABLE_CATALOG = ATTL.[TABLE_CATALOG]
+           AND ATT.TABLE_NAME = ATTL.TABLE_NAME
+           AND ATT.[COLUMN_NAME] = ATTL.[COLUMN_NAME]
     LEFT JOIN META.dbo.RecordSource RS
         ON ATT.TABLE_CATALOG = RS.DatabaseName
     LEFT JOIN META.dbo.DV_SAT SAT
         ON ATT.DV_SAT_ID = SAT.ID
     LEFT JOIN META.dbo.DV_HUB HUB
-        ON ATT.DV_HUB_ID = HUB.ID;
+        ON ATT.DV_HUB_ID = HUB.ID
+	LEFT JOIN META.dbo.DV_LINK LINK
+		ON ATT.DV_LINK_ID= LINK.ID
+	INNER JOIN [META].[dbo].GEN_LIST GEN
+		ON ATT.[TABLE_CATALOG] + ATT.[TABLE_NAME]=GEN.[TABLE_CATALOG] + GEN.[TABLE_NAME] --AND IS_GEN=1
+WHERE IS_GEN = 1;
 GO
 
-SET ANSI_NULLS ON;
+
+/****** Object:  View [dbo].[V_DV_META_HUB]    Script Date: 1/13/2021 3:27:14 PM ******/
+SET ANSI_NULLS ON
 GO
-SET QUOTED_IDENTIFIER ON;
-GO
-CREATE TABLE [dbo].[CONFIG_VERIFY]
-(
-    [RESULTCONTENT] [NVARCHAR](200) NULL,
-    [RESULTTYPE] [NVARCHAR](20) NULL
-) ON [PRIMARY];
+SET QUOTED_IDENTIFIER ON
 GO
 
-SET ANSI_NULLS ON;
+
+CREATE VIEW [dbo].[V_DV_META_HUB] AS
+SELECT 
+       HUB.TableName AS DV_SAT_TABLENAME,
+	   ATT.[COLUMN_NAME],
+	   ATT.[DV_COLUMN_NAME],
+       ATT.[DATA_TYPE],
+       ATT.[CHARACTER_MAXIMUM_LENGTH],
+       ATT.[NUMERIC_PRECISION],
+       ATT.[NUMERIC_SCALE],
+
+       RS.RecordSourceName AS RECORDSOURCE,
+
+       [PK]
+       
+FROM [META].[dbo].[ATTRIBUTE] ATT
+    
+    LEFT JOIN META.dbo.RecordSource RS
+        ON ATT.TABLE_CATALOG = RS.DatabaseName
+    LEFT JOIN META.dbo.DV_HUB HUB
+        ON ATT.DV_HUB_ID = HUB.ID
+
+WHERE HUB.TableName IS NOT NULL
+
+
 GO
-SET QUOTED_IDENTIFIER ON;
+/****** Object:  View [dbo].[V_DV_META_LINK]    Script Date: 1/13/2021 3:27:14 PM ******/
+SET ANSI_NULLS ON
 GO
-CREATE TABLE [dbo].[Layers]
-(
-    [ID] [INT] IDENTITY(1, 1) NOT NULL,
-    [LayerName] [NVARCHAR](20) NULL,
-    [DatabaseName] [NVARCHAR](20) NULL
-) ON [PRIMARY];
+SET QUOTED_IDENTIFIER ON
 GO
 
-SET ANSI_NULLS ON;
-GO
-SET QUOTED_IDENTIFIER ON;
-GO
-CREATE TABLE [dbo].[LOG]
-(
-    [ID] [BIGINT] IDENTITY(1, 1) NOT NULL,
-    [LOGDATE] [DATETIME] NULL,
-    [LOGMESSAGE] [NVARCHAR](600) NULL,
-    [LOGSOURCE] [NVARCHAR](100) NULL,
-    [MESSAGETYPE] [NVARCHAR](1) NULL
-) ON [PRIMARY];
-GO
-ALTER TABLE [dbo].[LOG]
-ADD CONSTRAINT [DF_LOG_LOGDATE]
-    DEFAULT (GETDATE()) FOR [LOGDATE];
+
+CREATE VIEW [dbo].[V_DV_META_LINK] AS
+SELECT 
+       LINK.TableName AS DV_LINK_TABLENAME,
+	   ATT.[COLUMN_NAME],
+	   ATT.[DV_COLUMN_NAME],
+       ATT.[DATA_TYPE],
+       ATT.[CHARACTER_MAXIMUM_LENGTH],
+       ATT.[NUMERIC_PRECISION],
+       ATT.[NUMERIC_SCALE],
+
+       RS.RecordSourceName AS RECORDSOURCE,
+
+       [FK]
+       
+FROM [META].[dbo].[ATTRIBUTE] ATT
+    
+    LEFT JOIN META.dbo.RecordSource RS
+        ON ATT.TABLE_CATALOG = RS.DatabaseName
+    LEFT JOIN META.dbo.DV_LINK LINK
+        ON ATT.DV_LINK_ID = LINK.ID
+
+WHERE LINK.TableName IS NOT NULL
+
+
 GO
 
-SET ANSI_NULLS ON;
+/****** Object:  View [dbo].[V_DV_META_SAT]    Script Date: 1/13/2021 3:27:14 PM ******/
+SET ANSI_NULLS ON
 GO
-SET QUOTED_IDENTIFIER ON;
+SET QUOTED_IDENTIFIER ON
 GO
+
+
+CREATE VIEW [dbo].[V_DV_META_SAT] AS
+SELECT 
+       SAT.TableName AS DV_SAT_TABLENAME,
+	   ATT.[COLUMN_NAME],
+	   ATT.[DV_COLUMN_NAME],
+       ATT.[DATA_TYPE],
+       ATT.[CHARACTER_MAXIMUM_LENGTH],
+       ATT.[NUMERIC_PRECISION],
+       ATT.[NUMERIC_SCALE],
+
+       RS.RecordSourceName AS RECORDSOURCE,
+
+       [PK],
+       [DI]
+       
+FROM [META].[dbo].[ATTRIBUTE] ATT
+    
+    LEFT JOIN META.dbo.RecordSource RS
+        ON ATT.TABLE_CATALOG = RS.DatabaseName
+    LEFT JOIN META.dbo.DV_SAT SAT
+        ON ATT.DV_SAT_ID = SAT.ID
+
+WHERE SAT.TableName IS NOT NULL
+
+GO
+
+
+
+---------------------------------------------------------------------
+--USP
+---------------------------------------------------------------------
+
+/****** Script for SelectTopNRows command from SSMS  ******/
+CREATE PROCEDURE [dbo].[USP_INIT_LIST]
+AS
+BEGIN
+--TRUNCATE TABLE META.DBO.GEN_LIST
+
+INSERT INTO META.DBO.GEN_LIST
+( 
+	[TABLE_CATALOG]
+	,[TABLE_NAME]
+	,IS_GEN
+	,IS_FULLLOAD
+)
+SELECT DISTINCT
+	[TABLE_CATALOG]
+	,[TABLE_NAME]
+	,0
+	,1
+FROM META.DBO.ATTRIBUTE
+WHERE [TABLE_CATALOG]+[TABLE_NAME] NOT IN (SELECT [TABLE_CATALOG]+[TABLE_NAME] FROM META.DBO.GEN_LIST)
+	  
+--UPDATE [META].[dbo].[GEN_LIST] SET IS_GEN=0
+
+END
+GO
+
+/****** Object:  StoredProcedure [dbo].[USP_WRITELOG]    Script Date: 1/13/2021 3:27:14 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+
 CREATE PROCEDURE [dbo].[USP_WRITELOG]
     @LOGMESSAGE NVARCHAR(600),
     @LOGSOURCE NVARCHAR(100),
-    @MESSAGETYPE NVARCHAR(1)
+	@MESSAGETYPE NVARCHAR(1)
 AS
 BEGIN
 
@@ -179,13 +407,15 @@ BEGIN
         LOGDATE,
         LOGMESSAGE,
         LOGSOURCE,
-        MESSAGETYPE
+		MESSAGETYPE
     )
     VALUES
     (   GETDATE(),   -- LOGDATE - datetime
         @LOGMESSAGE, -- LOGMESSAGE - nvarchar(600)
-        @LOGSOURCE,  -- LOGSOURCE - nvarchar(100)
-        @MESSAGETYPE);
+        @LOGSOURCE,   -- LOGSOURCE - nvarchar(100)
+		@MESSAGETYPE
+        );
 
 END;
 GO
+
