@@ -257,8 +257,6 @@
     </Content>
     <Content Include="GEN.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="LoadPatterns\PSAT1\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

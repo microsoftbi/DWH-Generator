@@ -33,7 +33,7 @@ GO
 
 USE [META]
 GO
-/****** Object:  Table [dbo].[DV_SAT]    Script Date: 1/13/2021 3:27:14 PM ******/
+
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -44,11 +44,8 @@ CREATE TABLE [dbo].[DV_SAT](
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[RecordSource]    Script Date: 1/13/2021 3:27:14 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
+
 CREATE TABLE [dbo].[RecordSource](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[RecordSourceName] [nvarchar](20) NULL,
@@ -57,11 +54,8 @@ CREATE TABLE [dbo].[RecordSource](
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[DV_HUB]    Script Date: 1/13/2021 3:27:14 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
+
 CREATE TABLE [dbo].[DV_HUB](
 	[ID] [int] NULL,
 	[TableName] [nvarchar](30) NULL,
@@ -69,11 +63,7 @@ CREATE TABLE [dbo].[DV_HUB](
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[GEN_LIST]    Script Date: 1/13/2021 3:27:14 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
 CREATE TABLE [dbo].[GEN_LIST](
 	[id] [int] IDENTITY(1,1) NOT NULL,
 	[TABLE_CATALOG] [nvarchar](128) NULL,
@@ -86,12 +76,12 @@ CREATE TABLE [dbo].[GEN_LIST](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+ALTER TABLE [dbo].[GEN_LIST] ADD  CONSTRAINT [DF_GEN_LIST_IS_GEN]  DEFAULT ((1)) FOR [IS_GEN]
+GO
+ALTER TABLE [dbo].[GEN_LIST] ADD  CONSTRAINT [DF_GEN_LIST_IS_FULLLOAD]  DEFAULT ((1)) FOR [IS_FULLLOAD]
+GO
 
-/****** Object:  Table [dbo].[ATTRIBUTE_LANDING]    Script Date: 1/13/2021 3:27:14 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
 CREATE TABLE [dbo].[ATTRIBUTE_LANDING](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[TABLE_CATALOG] [nvarchar](128) NULL,
@@ -108,22 +98,14 @@ CREATE TABLE [dbo].[ATTRIBUTE_LANDING](
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[DV_LINK]    Script Date: 1/13/2021 3:27:14 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
 CREATE TABLE [dbo].[DV_LINK](
 	[ID] [int] NULL,
 	[TableName] [nvarchar](30) NULL
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[ATTRIBUTE]    Script Date: 1/13/2021 3:27:14 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
 CREATE TABLE [dbo].[ATTRIBUTE](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[TABLE_CATALOG] [nvarchar](128) NULL,
@@ -148,53 +130,35 @@ CREATE TABLE [dbo].[ATTRIBUTE](
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[LOG]    Script Date: 1/13/2021 3:27:14 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
 CREATE TABLE [dbo].[LOG](
 	[ID] [bigint] IDENTITY(1,1) NOT NULL,
 	[LOGDATE] [datetime] NULL,
 	[LOGMESSAGE] [nvarchar](600) NULL,
 	[LOGSOURCE] [nvarchar](100) NULL,
-	[MESSAGETYPE] [nvarchar](1) NULL
+	[MESSAGETYPE] [nvarchar](1) NULL,
+	[ROWCOUNT] [bigint] NULL
 ) ON [PRIMARY]
 GO
-ALTER TABLE [dbo].[GEN_LIST] ADD  CONSTRAINT [DF_GEN_LIST_IS_GEN]  DEFAULT ((1)) FOR [IS_GEN]
-GO
-ALTER TABLE [dbo].[GEN_LIST] ADD  CONSTRAINT [DF_GEN_LIST_IS_FULLLOAD]  DEFAULT ((1)) FOR [IS_FULLLOAD]
-GO
+
 ALTER TABLE [dbo].[LOG] ADD  CONSTRAINT [DF_LOG_LOGDATE]  DEFAULT (getdate()) FOR [LOGDATE]
 GO
 
-/****** Object:  Table [dbo].[CONFIG_VERIFY]    Script Date: 1/13/2021 3:27:14 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
 CREATE TABLE [dbo].[CONFIG_VERIFY](
 	[RESULTCONTENT] [nvarchar](200) NULL,
 	[RESULTTYPE] [nvarchar](20) NULL
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[CONFIGURATION]    Script Date: 1/13/2021 3:27:14 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
 CREATE TABLE [dbo].[CONFIGURATION](
 	[ConfigName] [nvarchar](50) NULL,
 	[ConfigValue] [nvarchar](50) NULL
 ) ON [PRIMARY]
 GO
 
-/****** Object:  Table [dbo].[Layers]    Script Date: 1/13/2021 3:27:14 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
 CREATE TABLE [dbo].[Layers](
 	[ID] [int] IDENTITY(1,1) NOT NULL,
 	[LayerName] [nvarchar](20) NULL,
@@ -208,11 +172,7 @@ GO
 ---------------------------------------------------------------------
 
 
-/****** Object:  View [dbo].[V_ATTRIBUTE]    Script Date: 1/13/2021 3:27:14 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
 CREATE VIEW [dbo].[V_ATTRIBUTE]
 AS
 
@@ -259,11 +219,7 @@ WHERE IS_GEN = 1;
 GO
 
 
-/****** Object:  View [dbo].[V_DV_META_HUB]    Script Date: 1/13/2021 3:27:14 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
 
 
 CREATE VIEW [dbo].[V_DV_META_HUB] AS
@@ -287,15 +243,11 @@ FROM [META].[dbo].[ATTRIBUTE] ATT
     LEFT JOIN META.dbo.DV_HUB HUB
         ON ATT.DV_HUB_ID = HUB.ID
 
-WHERE HUB.TableName IS NOT NULL
+WHERE HUB.TableName IS NOT NULL;
+GO
 
 
-GO
-/****** Object:  View [dbo].[V_DV_META_LINK]    Script Date: 1/13/2021 3:27:14 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
 
 
 CREATE VIEW [dbo].[V_DV_META_LINK] AS
@@ -319,16 +271,11 @@ FROM [META].[dbo].[ATTRIBUTE] ATT
     LEFT JOIN META.dbo.DV_LINK LINK
         ON ATT.DV_LINK_ID = LINK.ID
 
-WHERE LINK.TableName IS NOT NULL
-
+WHERE LINK.TableName IS NOT NULL;
 
 GO
 
-/****** Object:  View [dbo].[V_DV_META_SAT]    Script Date: 1/13/2021 3:27:14 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
+
 
 
 CREATE VIEW [dbo].[V_DV_META_SAT] AS
@@ -363,7 +310,7 @@ GO
 --USP
 ---------------------------------------------------------------------
 
-/****** Script for SelectTopNRows command from SSMS  ******/
+
 CREATE PROCEDURE [dbo].[USP_INIT_LIST]
 AS
 BEGIN
@@ -389,11 +336,6 @@ WHERE [TABLE_CATALOG]+[TABLE_NAME] NOT IN (SELECT [TABLE_CATALOG]+[TABLE_NAME] F
 END
 GO
 
-/****** Object:  StoredProcedure [dbo].[USP_WRITELOG]    Script Date: 1/13/2021 3:27:14 PM ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
 
 CREATE PROCEDURE [dbo].[USP_WRITELOG]
     @LOGMESSAGE NVARCHAR(600),
@@ -419,3 +361,29 @@ BEGIN
 END;
 GO
 
+CREATE PROCEDURE [dbo].[USP_WRITELOG2]
+    @LOGMESSAGE NVARCHAR(600),
+    @LOGSOURCE NVARCHAR(100),
+	@MESSAGETYPE NVARCHAR(1),
+	@ROWCOUNT bigint
+AS
+BEGIN
+
+    INSERT INTO META.dbo.LOG
+    (
+        LOGDATE,
+        LOGMESSAGE,
+        LOGSOURCE,
+		MESSAGETYPE,
+		[ROWCOUNT]
+    )
+    VALUES
+    (   GETDATE(),   -- LOGDATE - datetime
+        @LOGMESSAGE, -- LOGMESSAGE - nvarchar(600)
+        @LOGSOURCE,   -- LOGSOURCE - nvarchar(100)
+		@MESSAGETYPE,
+		@ROWCOUNT
+        );
+
+END;
+GO

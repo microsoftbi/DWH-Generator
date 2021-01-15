@@ -39,45 +39,52 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 30);
+            this.label1.Location = new System.Drawing.Point(15, 38);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(287, 12);
+            this.label1.Size = new System.Drawing.Size(579, 19);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Provide table name, to import to META database.";
+            this.label1.Text = "Provide the stage table name, to import to META database.";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // tbTableName
             // 
-            this.tbTableName.Location = new System.Drawing.Point(12, 60);
+            this.tbTableName.Location = new System.Drawing.Point(16, 75);
+            this.tbTableName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tbTableName.Name = "tbTableName";
-            this.tbTableName.Size = new System.Drawing.Size(286, 21);
+            this.tbTableName.Size = new System.Drawing.Size(380, 25);
             this.tbTableName.TabIndex = 1;
             // 
             // dgvMETA
             // 
             this.dgvMETA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvMETA.Location = new System.Drawing.Point(13, 107);
+            this.dgvMETA.Location = new System.Drawing.Point(17, 134);
+            this.dgvMETA.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvMETA.Name = "dgvMETA";
             this.dgvMETA.ReadOnly = true;
+            this.dgvMETA.RowHeadersWidth = 51;
             this.dgvMETA.RowTemplate.Height = 23;
-            this.dgvMETA.Size = new System.Drawing.Size(826, 463);
+            this.dgvMETA.Size = new System.Drawing.Size(1101, 579);
             this.dgvMETA.TabIndex = 2;
             // 
             // btnCheck
             // 
-            this.btnCheck.Location = new System.Drawing.Point(469, 12);
+            this.btnCheck.Location = new System.Drawing.Point(625, 15);
+            this.btnCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCheck.Name = "btnCheck";
-            this.btnCheck.Size = new System.Drawing.Size(147, 77);
+            this.btnCheck.Size = new System.Drawing.Size(196, 96);
             this.btnCheck.TabIndex = 3;
-            this.btnCheck.Text = "Check table meta";
+            this.btnCheck.Text = "Check the stage table meta";
             this.btnCheck.UseVisualStyleBackColor = true;
             this.btnCheck.Click += new System.EventHandler(this.btnCheck_Click);
             // 
             // btnLoad
             // 
             this.btnLoad.Enabled = false;
-            this.btnLoad.Location = new System.Drawing.Point(692, 12);
+            this.btnLoad.Location = new System.Drawing.Point(923, 15);
+            this.btnLoad.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(147, 77);
+            this.btnLoad.Size = new System.Drawing.Size(196, 96);
             this.btnLoad.TabIndex = 5;
             this.btnLoad.Text = "Load to META.";
             this.btnLoad.UseVisualStyleBackColor = true;
@@ -85,14 +92,15 @@
             // 
             // WF_MetaImport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(851, 582);
+            this.ClientSize = new System.Drawing.Size(1135, 728);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnCheck);
             this.Controls.Add(this.dgvMETA);
             this.Controls.Add(this.tbTableName);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "WF_MetaImport";

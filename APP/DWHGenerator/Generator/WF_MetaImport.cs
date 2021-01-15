@@ -132,5 +132,10 @@ namespace Generator
                 MessageBox.Show("Verify failed to be executed!\n" + ex.Message, "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
