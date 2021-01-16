@@ -65,7 +65,6 @@ C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\bin\Deb
 C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\bin\Debug\LoadPatterns\PSAT2\USPCDC.handlebars
 C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\bin\Debug\LoadPatterns\PSAT2\USPLOG.handlebars
 C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\bin\Debug\DEPLOY\CONFIGVERIFY.sql
-C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\bin\Debug\DEPLOY\IMPORT_SCHEMA.sql
 C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\bin\Debug\DEPLOY\METADB.sql
 C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\bin\Debug\Generator.exe.config
 C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\bin\Debug\Generator.exe

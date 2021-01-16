@@ -24,17 +24,11 @@ AS
 			INSERT INTO [{{SchemaName}}].[{{ObjectName}}_CDC]
 			(
 				[LOAD_DTS],
-				[LOAD_DTS_BATCH],
 				[SEQUENCE_NO],
 				[CDC_OPERATION_CODE],
 				[RECORD_SOURCE],
 				[FULLY_QUALIFIED_FILE_NAME],
-				[INSERT_DTS],
-				[UPDATE_DTS],
-				[EXPORT_DTS],
 				[FILE_TRANSFER_DTS],
-				[SESSION_DTS],
-				[SOURCE_SLICE_DTS],
 				[LOAD_TYPE],
 				[HK],
 				[HD],
@@ -47,7 +41,6 @@ AS
 				{{/each}}
 			)
 			SELECT Mta.LOAD_DTS,
-				IIF(Mta.SOURCE_ENTITY = 'HDA', MAX_LTS.MAX_LOAD_DTS_BATCH, Mta.LOAD_DTS_BATCH) LOAD_DTS_BATCH,
 				IIF(Mta.SOURCE_ENTITY = 'HDA', 0, Mta.SEQUENCE_NO) SEQUENCE_NO,
 				CASE
 					WHEN Mta.LEAD_HF IS NULL
@@ -66,12 +59,7 @@ AS
 				END [CDC_OPERATION_CODE],
 				Mta.[RECORD_SOURCE],
 				Mta.[FULLY_QUALIFIED_FILE_NAME],
-				Mta.[INSERT_DTS],
-				Mta.[UPDATE_DTS],
-				Mta.[EXPORT_DTS],
 				Mta.[FILE_TRANSFER_DTS],
-				Mta.[SESSION_DTS],
-				Mta.[SOURCE_SLICE_DTS],
 				Mta.[LOAD_TYPE],
 				Mta.[HK],
 				Mta.[HD],
@@ -87,17 +75,11 @@ AS
 				SELECT LAG(HF) OVER (PARTITION BY HK ORDER BY LOAD_DTS_BATCH, RNK, SEQUENCE_NO) AS LAG_HF,
 					LEAD(HF) OVER (PARTITION BY HK ORDER BY LOAD_DTS_BATCH, RNK, SEQUENCE_NO) AS LEAD_HF,
 					[LOAD_DTS],
-					[LOAD_DTS_BATCH],
 					[SEQUENCE_NO],
 					[CDC_OPERATION_CODE],
 					[RECORD_SOURCE],
 					[FULLY_QUALIFIED_FILE_NAME],
-					[INSERT_DTS],
-					[UPDATE_DTS],
-					[EXPORT_DTS],
 					[FILE_TRANSFER_DTS],
-					[SESSION_DTS],
-					[SOURCE_SLICE_DTS],
 					[LOAD_TYPE],
 					[HK],
 					[HD],
@@ -113,17 +95,11 @@ AS
 				FROM
 				(
 					SELECT [LOAD_DTS],
-						[LOAD_DTS_BATCH],
 						[SEQUENCE_NO],
 						[CDC_OPERATION_CODE],
 						[RECORD_SOURCE],
 						[FULLY_QUALIFIED_FILE_NAME],
-						[INSERT_DTS],
-						[UPDATE_DTS],
-						[EXPORT_DTS],
 						[FILE_TRANSFER_DTS],
-						[SESSION_DTS],
-						[SOURCE_SLICE_DTS],
 						[LOAD_TYPE],
 						[HK],
 						[HD],
@@ -139,17 +115,11 @@ AS
 					FROM [{{SchemaName}}].[V_{{ObjectName}}_LOG_CURRENT]
 					UNION ALL
 					SELECT [LOAD_DTS],
-						[LOAD_DTS_BATCH],
 						[SEQUENCE_NO],
 						[CDC_OPERATION_CODE],
 						[REC_SRC],
 						[FULLY_QUALIFIED_FILE_NAME],
-						[INSERT_DTS],
-						[UPDATE_DTS],
-						[EXPORT_DTS],
 						[FILE_TRANSFER_DTS],
-						[SESSION_DTS],
-						[SOURCE_SLICE_DTS],
 						[LOAD_TYPE],
 						[HK],
 						[HD],
@@ -187,7 +157,7 @@ AS
 					ELSE
 						''
 				END <> '';
-			EXEC META.dbo.USP_WRITELOG N'Finish to load [{{../PSADatabaseName}}].[{{SchemaName}}].[{{ObjectName}}_CDC', @LOGSOURCE, N'N';
+			EXEC META.dbo.USP_WRITELOG2 N'Finish to load [{{../PSADatabaseName}}].[{{SchemaName}}].[{{ObjectName}}_CDC', @LOGSOURCE, N'N', @@ROWCOUNT;
 		COMMIT TRAN;
 	END TRY
 	BEGIN CATCH

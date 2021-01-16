@@ -60,9 +60,10 @@ BEGIN
               AND ROW_NR = 1;
 
 
-        EXEC META.dbo.USP_WRITELOG N'Finish to load [{{../COREDatabaseName}}].[dbo].[{{TableName}}]',
+        EXEC META.dbo.USP_WRITELOG2 N'Finish to load [{{../COREDatabaseName}}].[dbo].[{{TableName}}]',
                                    @LOGSOURCE,
-                                   N'N';
+                                   N'N',
+								   @@ROWCOUNT;
         COMMIT TRAN;
     END TRY
     BEGIN CATCH

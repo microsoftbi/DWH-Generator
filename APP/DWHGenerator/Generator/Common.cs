@@ -152,7 +152,8 @@ namespace Generator
 
             DataClassesDataContext dc = new DataClassesDataContext();
 
-            result = (from p in dc.Layers where p.LayerName == "PSA" select p.DatabaseName).First();
+            //result = (from p in dc.Layers where p.LayerName == "PSA" select p.DatabaseName).First();
+            result = ConfigurationManager.AppSettings["PSA"];
 
             return result;
         }
@@ -167,7 +168,8 @@ namespace Generator
 
             DataClassesDataContext dc = new DataClassesDataContext();
 
-            result = (from p in dc.Layers where p.LayerName == "DV" select p.DatabaseName).First();
+            //result = (from p in dc.Layers where p.LayerName == "DV" select p.DatabaseName).First();
+            result = ConfigurationManager.AppSettings["DV"];
 
             return result;
         }
@@ -182,7 +184,8 @@ namespace Generator
 
             DataClassesDataContext dc = new DataClassesDataContext();
 
-            result = (from p in dc.CONFIGURATION where p.ConfigName == "HASHDUMMY" select p.ConfigValue).First();
+            //result = (from p in dc.CONFIGURATION where p.ConfigName == "HASHDUMMY" select p.ConfigValue).First();
+            result = ConfigurationManager.AppSettings["HASHDUMMY"];
 
             return result;
         }
