@@ -159,13 +159,6 @@ CREATE TABLE [dbo].[CONFIGURATION](
 GO
 
 
-CREATE TABLE [dbo].[Layers](
-	[ID] [int] IDENTITY(1,1) NOT NULL,
-	[LayerName] [nvarchar](20) NULL,
-	[DatabaseName] [nvarchar](20) NULL
-) ON [PRIMARY]
-GO
-
 
 ---------------------------------------------------------------------
 --Views

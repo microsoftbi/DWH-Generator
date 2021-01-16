@@ -13,17 +13,11 @@ CREATE VIEW [{{SchemaName}}].[V_{{ObjectName}}_LOG_CURRENT]
 AS
 	SELECT 
 		LogTable.[LOAD_DTS],
-		LogTable.[LOAD_DTS_BATCH],
 		LogTable.[SEQUENCE_NO],
 		LogTable.[CDC_OPERATION_CODE],
 		LogTable.[RECORD_SOURCE],
 		LogTable.[FULLY_QUALIFIED_FILE_NAME],
-		LogTable.[INSERT_DTS],
-		LogTable.[UPDATE_DTS],
-		LogTable.[EXPORT_DTS],
 		LogTable.[FILE_TRANSFER_DTS],
-		LogTable.[SESSION_DTS],
-		LogTable.[SOURCE_SLICE_DTS],
 		LogTable.[LOAD_TYPE],
 		LogTable.[HK],
 		LogTable.[HD],

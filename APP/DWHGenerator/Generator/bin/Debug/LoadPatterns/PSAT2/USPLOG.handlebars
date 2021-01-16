@@ -23,17 +23,11 @@ AS
 			INSERT INTO [{{SchemaName}}].[{{ObjectName}}_LOG]
 			(
 				[LOAD_DTS],
-				[LOAD_DTS_BATCH],
 				[SEQUENCE_NO],
 				[CDC_OPERATION_CODE],
 				[RECORD_SOURCE],
 				[FULLY_QUALIFIED_FILE_NAME],
-				[INSERT_DTS],
-				[UPDATE_DTS],
-				[EXPORT_DTS],
 				[FILE_TRANSFER_DTS],
-				[SESSION_DTS],
-				[SOURCE_SLICE_DTS],
 				[LOAD_TYPE],
 				[HK],
 				[HD],
@@ -46,17 +40,11 @@ AS
 				{{/each}}
 			)
 			SELECT CDC.LOAD_DTS,
-				CDC.LOAD_DTS_BATCH,
 				CDC.SEQUENCE_NO,
 				CDC.CDC_OPERATION_CODE,
 				CDC.RECORD_SOURCE,
 				CDC.FULLY_QUALIFIED_FILE_NAME,
-				CDC.INSERT_DTS,
-				CDC.UPDATE_DTS,
-				CDC.EXPORT_DTS,
 				CDC.FILE_TRANSFER_DTS,
-				CDC.SESSION_DTS,
-				CDC.SOURCE_SLICE_DTS,
 				CDC.LOAD_TYPE AS LOAD_TYPE,
 				CDC.HK AS HK,
 				CDC.HD AS HD,
@@ -72,7 +60,7 @@ AS
 				ON HDA.HK = CDC.HK AND HDA.LOAD_DTS = CDC.LOAD_DTS
 			WHERE HDA.HK IS NULL;
 			
-			EXEC META.dbo.USP_WRITELOG N'Finish to load [{{../PSADatabaseName}}].[{{SchemaName}}].[{{ObjectName}}_LOG]', @LOGSOURCE, N'N';
+			EXEC META.dbo.USP_WRITELOG2 N'Finish to load [{{../PSADatabaseName}}].[{{SchemaName}}].[{{ObjectName}}_LOG]', @LOGSOURCE, N'N', @@ROWCOUNT;
 			
 		COMMIT TRAN;
 	END TRY

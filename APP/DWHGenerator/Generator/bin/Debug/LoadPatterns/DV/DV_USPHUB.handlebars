@@ -9,9 +9,10 @@ BEGIN
     DECLARE @LOGSOURCE AS NVARCHAR(100);
     SET @LOGSOURCE = N'[{{../COREDatabaseName}}].[dbo].[USP_{{TableName}}]';
 
-    EXEC META.dbo.USP_WRITELOG N'Start to load [{{../COREDatabaseName}}].[dbo].[{{TableName}}]',
+    EXEC META.dbo.USP_WRITELOG2 N'Start to load [{{../COREDatabaseName}}].[dbo].[{{TableName}}]',
                                @LOGSOURCE,
-                               N'N';
+                               N'N',
+							   @@ROWCOUNT;
 
     BEGIN TRY
         BEGIN TRAN;
