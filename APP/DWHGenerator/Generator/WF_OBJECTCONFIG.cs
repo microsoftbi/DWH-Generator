@@ -11,6 +11,9 @@ using System.Windows.Forms;
 
 namespace Generator
 {
+    /// <summary>
+    /// Config windows, to config object list of generator
+    /// </summary>
     public partial class WF_OBJECTCONFIG : Form
     {
         SqlDataAdapter adapter = null;

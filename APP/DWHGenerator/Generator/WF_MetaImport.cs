@@ -120,7 +120,12 @@ namespace Generator
                 conn.ConnectionString = ConfigurationManager.ConnectionStrings["Generator.Properties.Settings.METAConnectionString"].ConnectionString;
                 conn.Open();
 
+                //First add meta attribute
                 SqlCommand comm = new SqlCommand(sbsql.ToString(), conn);
+                comm.ExecuteNonQuery();
+
+                //Then init GEN_LIST, also set IS_GEN as 0 by default
+                comm = new SqlCommand("EXEC  META.dbo.USP_INIT_LIST", conn);
                 comm.ExecuteNonQuery();
 
                 MessageBox.Show(strTableName+" meta data imported!", "DONE", MessageBoxButtons.OK, MessageBoxIcon.Information);

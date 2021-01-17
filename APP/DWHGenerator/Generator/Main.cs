@@ -272,5 +272,36 @@ namespace Generator
             WF_MetaImport frmMI = new WF_MetaImport();
             frmMI.ShowDialog();
         }
+
+        private void layersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WF_LAYERS frmLayers = new WF_LAYERS();
+            frmLayers.ShowDialog();
+        }
+
+        private void recordSourceToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WF_RECORDSOURCE frmRS = new WF_RECORDSOURCE();
+            frmRS.ShowDialog();
+        }
+
+        private void dVTablesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WF_DATAVAULT frmDV = new WF_DATAVAULT();
+            frmDV.ShowDialog();
+        }
+
+        private void objectToGenerateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WF_OBJECTCONFIG frmOC = new WF_OBJECTCONFIG();
+            frmOC.ShowDialog();
+        }
+
+        private void deployMETADatabaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WF_DEPLOYMETADB frmDM = new WF_DEPLOYMETADB();
+            frmDM.ShowDialog();
+
+        }
     }
 }

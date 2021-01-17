@@ -5,6 +5,11 @@ using System.Text;
 
 namespace Generator
 {
+    /// <summary>
+    /// This code is my first version of the generator, and it is exired now, the code is not deleted, just for a memory.
+    /// At the beginning I write it jusing juse string appendline.
+    /// Then I learnt how to use handler with meta data behind.
+    /// </summary>
     public class PSA_TYPE1
     {
         public static string GenerateLandingZone()

@@ -70,22 +70,6 @@ namespace Generator
 			}
 		}
 		
-		public System.Data.Linq.Table<Layers> Layers
-		{
-			get
-			{
-				return this.GetTable<Layers>();
-			}
-		}
-		
-		public System.Data.Linq.Table<CONFIGURATION> CONFIGURATION
-		{
-			get
-			{
-				return this.GetTable<CONFIGURATION>();
-			}
-		}
-		
 		public System.Data.Linq.Table<V_ATTRIBUTE> V_ATTRIBUTE
 		{
 			get
@@ -153,114 +137,6 @@ namespace Generator
 				if ((this._RecordSourceDesc != value))
 				{
 					this._RecordSourceDesc = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Layers")]
-	public partial class Layers
-	{
-		
-		private int _ID;
-		
-		private string _LayerName;
-		
-		private string _DatabaseName;
-		
-		public Layers()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this._ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LayerName", DbType="NVarChar(20)")]
-		public string LayerName
-		{
-			get
-			{
-				return this._LayerName;
-			}
-			set
-			{
-				if ((this._LayerName != value))
-				{
-					this._LayerName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DatabaseName", DbType="NVarChar(20)")]
-		public string DatabaseName
-		{
-			get
-			{
-				return this._DatabaseName;
-			}
-			set
-			{
-				if ((this._DatabaseName != value))
-				{
-					this._DatabaseName = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.CONFIGURATION")]
-	public partial class CONFIGURATION
-	{
-		
-		private string _ConfigName;
-		
-		private string _ConfigValue;
-		
-		public CONFIGURATION()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConfigName", DbType="NVarChar(50)")]
-		public string ConfigName
-		{
-			get
-			{
-				return this._ConfigName;
-			}
-			set
-			{
-				if ((this._ConfigName != value))
-				{
-					this._ConfigName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConfigValue", DbType="NVarChar(50)")]
-		public string ConfigValue
-		{
-			get
-			{
-				return this._ConfigValue;
-			}
-			set
-			{
-				if ((this._ConfigValue != value))
-				{
-					this._ConfigValue = value;
 				}
 			}
 		}

@@ -7,19 +7,6 @@
       <Column Name="RecordSourceDesc" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Layers" Member="Layers">
-    <Type Name="Layers">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="LayerName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-      <Column Name="DatabaseName" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.CONFIGURATION" Member="CONFIGURATION">
-    <Type Name="CONFIGURATION">
-      <Column Name="ConfigName" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ConfigValue" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.V_ATTRIBUTE" Member="V_ATTRIBUTEs">
     <Type Name="V_ATTRIBUTE">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
