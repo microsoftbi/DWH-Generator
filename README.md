@@ -25,11 +25,11 @@ Copy the app into your computer/server.
 
 Check app.config Configuration:
 
--   PSA: change to your PSA database name.
+-   **PSA**: change to your PSA database name.
 
--   DV: change to your data vault database name.
+-   **DV**: change to your data vault database name.
 
--   HASHDUMMY: Put your dummy string for HASH calculation.
+-   **HASHDUMMY**: Put your dummy string for HASH calculation.
 
 And you need to make sure first table of PSA is ready, including technical
 fields.

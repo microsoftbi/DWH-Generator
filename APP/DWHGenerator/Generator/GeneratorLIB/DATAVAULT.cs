@@ -9,8 +9,14 @@ namespace Generator
 {
     public static class DATAVAULT
     {
+        /// <summary>
+        /// Meta data container
+        /// </summary>
         public static Metadata MetaAttribute { get; set; }
 
+        /// <summary>
+        /// Load Meta data to container
+        /// </summary>
         public static void LoadMetaAttribute()
         {
             DataClassesDataContext dc = new DataClassesDataContext();

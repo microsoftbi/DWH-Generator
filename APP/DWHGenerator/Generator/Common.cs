@@ -8,8 +8,19 @@ using System.Configuration;
 
 namespace Generator
 {
+    /// <summary>
+    /// Some common functions.
+    /// </summary>
     class Common
     {
+        /// <summary>
+        /// Provide field information, then resutn SQL part string.
+        /// </summary>
+        /// <param name="FieldType"></param>
+        /// <param name="CharLen"></param>
+        /// <param name="nPrecision"></param>
+        /// <param name="nScale"></param>
+        /// <returns></returns>
         public static string FieldTypeGenerate(string FieldType, int? CharLen, int? nPrecision, int? nScale)
         {
             string result = "";
@@ -84,65 +95,6 @@ namespace Generator
         }
 
         /// <summary>
-        /// Data type convert in MTA view.
-        /// </summary>
-        /// <param name="FieldName"></param>
-        /// <param name="FieldType"></param>
-        /// <param name="CharLen"></param>
-        /// <param name="nPrecision"></param>
-        /// <param name="nScale"></param>
-        /// <param name="LFieldType"></param>
-        /// <param name="LCharLen"></param>
-        /// <param name="LnPrecision"></param>
-        /// <param name="LnScale"></param>
-        /// <returns></returns>
-        /// This is useless function, I won't plan to do type converation in the tool.
-        /// public static string FieldConvert(string FieldName, string FieldType, int? CharLen, int? nPrecision, int? nScale, string LFieldType, int? LCharLen, int? LnPrecision, int? LnScale)
-        public static string FieldConvert(string FieldName, string FieldType, int? CharLen, int? nPrecision, int? nScale)
-        {
-            string result = "";
-
-            switch (FieldType.ToUpper())
-            {
-                case "INT":
-                    result += "CONVERT(INT, CONVERT(NVARCHAR(30), [" + FieldName + "])) AS [" + FieldName + "]";
-                    break;
-                case "BIGINT":
-                    result += "CONVERT(BIGINT, CONVERT(NVARCHAR(30), [" + FieldName + "])) AS [" + FieldName + "]";
-                    break;
-                case "TINYINT":
-                    result += "CONVERT(TINYINT, CONVERT(NVARCHAR(30), [" + FieldName + "])) AS [" + FieldName + "]";
-                    break;
-                case "CHAR":
-                    result += "CONVERT(CHAR(" + CharLen.ToString() + "), [" + FieldName + "]) AS [" + FieldName + "]";
-                    break;
-                case "NCHAR":
-                    result += "CONVERT(NCHAR(" + CharLen.ToString() + "), [" + FieldName + "]) AS [" + FieldName + "]";
-                    break;
-                case "VARCHAR":
-                    result += "CONVERT(VARCHAR(" + CharLen.ToString() + "), [" + FieldName + "]) AS [" + FieldName + "]";
-                    break;
-                case "NVARCHAR":
-                    result += "CONVERT(NVARCHAR(" + CharLen.ToString() + "), [" + FieldName + "]) AS [" + FieldName + "]";
-                    break;
-                case "DECIMAL":
-                    result += "CONVERT(DECIMAL(" + nPrecision.ToString() + "," + nScale.ToString() + "), CONVERT(NVARCHAR(20), [" + FieldName + "])) AS [" + FieldName + "]";
-                    break;
-                case "DATE":
-                    result += "CONVERT(DATE, CONVERT(NVARCHAR(20), [" + FieldName + "])) AS [" + FieldName + "]";
-                    break;
-                case "DATETIME":
-                    result += "CONVERT(DATETIME, CONVERT(NVARCHAR(30), [" + FieldName + "])) AS [" + FieldName + "]";
-                    break;
-                case "DATETIMEOFFSET":
-                    result += "CONVERT(DATETIMEOFFSET, CONVERT(NVARCHAR(30), [" + FieldName + "])) AS [" + FieldName + "]";
-                    break;//datetimeoffset
-            }
-
-            return result;
-        }
-
-        /// <summary>
         /// Get PSA database name
         /// </summary>
         /// <returns></returns>
@@ -190,6 +142,11 @@ namespace Generator
             return result;
         }
 
+        /// <summary>
+        /// Method used to deploy generated code to target server.
+        /// </summary>
+        /// <param name="strSQL"></param>
+        /// <returns></returns>
         public static int ExecuteNonQueryWithGo(string strSQL)
         {
             int result = 0;
