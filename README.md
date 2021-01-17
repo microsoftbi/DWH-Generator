@@ -5,6 +5,8 @@ DWH generator
 The generator helps you to generate data warehouse script, which following PSA
 and Data Vault approach.
 
+For ETL process, this tool covers part of T and L. So you need to make sure part E is finshed to load to your STAGE table. Then the tool can help you to generate PSA and DV code base one the table loaded.
+
 For data vault currently the generator only support part of the Data Vault 2.0
 standard, and only for SAT and HUB tables.
 
@@ -15,7 +17,23 @@ LOAD_END_DTS.
 
 ## Preparation
 
-Make sure first table of PSA is ready, including technical fields.
+Deploy META database.
+The deploy SQL code is under /DEPLOY/METADB.sql
+
+Copy the app into your computer/server.
+
+Check app.config.
+
+Configuration: 
+
+PSA: change to your PSA database name.
+
+DV: change to your data vault database name.
+
+HASHDUMMY: Put your dummy string for HASH calculation.
+
+
+And you need to make sure first table of PSA is ready, including technical fields.
 
 ## Load meta data
 
