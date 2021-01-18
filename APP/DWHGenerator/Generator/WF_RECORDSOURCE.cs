@@ -22,5 +22,12 @@ namespace Generator
             this.recordSourceTableAdapter.Fill(this.mETADataSet.RecordSource);
 
         }
+
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.recordSourceTableAdapter.Update(this.mETADataSet.RecordSource); ;
+
+            MessageBox.Show("Done");
+        }
     }
 }

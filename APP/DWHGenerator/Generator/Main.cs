@@ -303,5 +303,11 @@ namespace Generator
             frmDM.ShowDialog();
 
         }
+
+        private void connectionStringToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WF_CONN frmCONN = new WF_CONN();
+            frmCONN.ShowDialog();
+        }
     }
 }

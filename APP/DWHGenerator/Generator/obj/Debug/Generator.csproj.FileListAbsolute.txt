@@ -158,3 +158,5 @@ C:\Users\Wade\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\bin\Debu
 C:\Users\Wade\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.csproj.CopyComplete
 C:\Users\Wade\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.csprojAssemblyReference.cache
 C:\Users\Wade\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_DEPLOYMETADB.resources
+C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_DEPLOYMETADB.resources
+C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_CONN.resources

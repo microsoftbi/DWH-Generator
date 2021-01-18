@@ -24,5 +24,13 @@ namespace Generator
             this.dV_SATTableAdapter.Fill(this.mETADataSet.DV_SAT);
 
         }
+
+        private void updateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.dV_HUBTableAdapter.Update(this.mETADataSet.DV_HUB);
+            this.dV_SATTableAdapter.Update(this.mETADataSet.DV_SAT);
+
+            MessageBox.Show("Done");
+        }
     }
 }

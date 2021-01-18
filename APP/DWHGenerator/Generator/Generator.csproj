@@ -71,6 +71,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>METADataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="WF_CONN.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WF_CONN.Designer.cs">
+      <DependentUpon>WF_CONN.cs</DependentUpon>
+    </Compile>
     <Compile Include="WF_DATAVAULT.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +147,9 @@
     <Compile Include="WF_Verify.Designer.cs">
       <DependentUpon>WF_Verify.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="WF_CONN.resx">
+      <DependentUpon>WF_CONN.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WF_DATAVAULT.resx">
       <DependentUpon>WF_DATAVAULT.cs</DependentUpon>
     </EmbeddedResource>

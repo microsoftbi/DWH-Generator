@@ -32,26 +32,30 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WF_DATAVAULT));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.mETADataSet = new Generator.METADataSet();
-            this.dVSATBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dV_SATTableAdapter = new Generator.METADataSetTableAdapters.DV_SATTableAdapter();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dVSATBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mETADataSet = new Generator.METADataSet();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dVHUBBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dV_HUBTableAdapter = new Generator.METADataSetTableAdapters.DV_HUBTableAdapter();
             this.iDDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableNameDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.bKNAMEASDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dVHUBBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dV_SATTableAdapter = new Generator.METADataSetTableAdapters.DV_SATTableAdapter();
+            this.dV_HUBTableAdapter = new Generator.METADataSetTableAdapters.DV_HUBTableAdapter();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.dataVaultToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mETADataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dVSATBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mETADataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dVHUBBindingSource)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -64,18 +68,17 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.dataGridView1);
+            this.splitContainer1.Panel1.Controls.Add(this.menuStrip1);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView2);
-            this.splitContainer1.Size = new System.Drawing.Size(729, 789);
-            this.splitContainer1.SplitterDistance = 361;
+            this.splitContainer1.Size = new System.Drawing.Size(820, 888);
+            this.splitContainer1.SplitterDistance = 406;
             this.splitContainer1.TabIndex = 0;
             // 
             // dataGridView1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -83,27 +86,12 @@
             this.tableNameDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.dVSATBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 0);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 24);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(729, 361);
+            this.dataGridView1.Size = new System.Drawing.Size(820, 382);
             this.dataGridView1.TabIndex = 0;
-            // 
-            // mETADataSet
-            // 
-            this.mETADataSet.DataSetName = "METADataSet";
-            this.mETADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dVSATBindingSource
-            // 
-            this.dVSATBindingSource.DataMember = "DV_SAT";
-            this.dVSATBindingSource.DataSource = this.mETADataSet;
-            // 
-            // dV_SATTableAdapter
-            // 
-            this.dV_SATTableAdapter.ClearBeforeFill = true;
             // 
             // iDDataGridViewTextBoxColumn
             // 
@@ -111,7 +99,6 @@
             this.iDDataGridViewTextBoxColumn.HeaderText = "ID";
             this.iDDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.iDDataGridViewTextBoxColumn.Name = "iDDataGridViewTextBoxColumn";
-            this.iDDataGridViewTextBoxColumn.ReadOnly = true;
             this.iDDataGridViewTextBoxColumn.Width = 125;
             // 
             // tableNameDataGridViewTextBoxColumn
@@ -120,13 +107,20 @@
             this.tableNameDataGridViewTextBoxColumn.HeaderText = "TableName";
             this.tableNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.tableNameDataGridViewTextBoxColumn.Name = "tableNameDataGridViewTextBoxColumn";
-            this.tableNameDataGridViewTextBoxColumn.ReadOnly = true;
             this.tableNameDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // dVSATBindingSource
+            // 
+            this.dVSATBindingSource.DataMember = "DV_SAT";
+            this.dVSATBindingSource.DataSource = this.mETADataSet;
+            // 
+            // mETADataSet
+            // 
+            this.mETADataSet.DataSetName = "METADataSet";
+            this.mETADataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // dataGridView2
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
             this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -137,20 +131,10 @@
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersWidth = 51;
             this.dataGridView2.RowTemplate.Height = 24;
-            this.dataGridView2.Size = new System.Drawing.Size(729, 424);
+            this.dataGridView2.Size = new System.Drawing.Size(820, 478);
             this.dataGridView2.TabIndex = 0;
-            // 
-            // dVHUBBindingSource
-            // 
-            this.dVHUBBindingSource.DataMember = "DV_HUB";
-            this.dVHUBBindingSource.DataSource = this.mETADataSet;
-            // 
-            // dV_HUBTableAdapter
-            // 
-            this.dV_HUBTableAdapter.ClearBeforeFill = true;
             // 
             // iDDataGridViewTextBoxColumn1
             // 
@@ -158,7 +142,6 @@
             this.iDDataGridViewTextBoxColumn1.HeaderText = "ID";
             this.iDDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.iDDataGridViewTextBoxColumn1.Name = "iDDataGridViewTextBoxColumn1";
-            this.iDDataGridViewTextBoxColumn1.ReadOnly = true;
             this.iDDataGridViewTextBoxColumn1.Width = 125;
             // 
             // tableNameDataGridViewTextBoxColumn1
@@ -167,7 +150,6 @@
             this.tableNameDataGridViewTextBoxColumn1.HeaderText = "TableName";
             this.tableNameDataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.tableNameDataGridViewTextBoxColumn1.Name = "tableNameDataGridViewTextBoxColumn1";
-            this.tableNameDataGridViewTextBoxColumn1.ReadOnly = true;
             this.tableNameDataGridViewTextBoxColumn1.Width = 125;
             // 
             // bKNAMEASDataGridViewTextBoxColumn
@@ -176,30 +158,71 @@
             this.bKNAMEASDataGridViewTextBoxColumn.HeaderText = "BKNAMEAS";
             this.bKNAMEASDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.bKNAMEASDataGridViewTextBoxColumn.Name = "bKNAMEASDataGridViewTextBoxColumn";
-            this.bKNAMEASDataGridViewTextBoxColumn.ReadOnly = true;
             this.bKNAMEASDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // dVHUBBindingSource
+            // 
+            this.dVHUBBindingSource.DataMember = "DV_HUB";
+            this.dVHUBBindingSource.DataSource = this.mETADataSet;
+            // 
+            // dV_SATTableAdapter
+            // 
+            this.dV_SATTableAdapter.ClearBeforeFill = true;
+            // 
+            // dV_HUBTableAdapter
+            // 
+            this.dV_HUBTableAdapter.ClearBeforeFill = true;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dataVaultToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(820, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // dataVaultToolStripMenuItem
+            // 
+            this.dataVaultToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.updateToolStripMenuItem});
+            this.dataVaultToolStripMenuItem.Name = "dataVaultToolStripMenuItem";
+            this.dataVaultToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.dataVaultToolStripMenuItem.Text = "Data Vault";
+            // 
+            // updateToolStripMenuItem
+            // 
+            this.updateToolStripMenuItem.Name = "updateToolStripMenuItem";
+            this.updateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.updateToolStripMenuItem.Text = "Update";
+            this.updateToolStripMenuItem.Click += new System.EventHandler(this.updateToolStripMenuItem_Click);
             // 
             // WF_DATAVAULT
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(729, 789);
+            this.ClientSize = new System.Drawing.Size(820, 888);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "WF_DATAVAULT";
             this.Text = "DATAVAULT";
             this.Load += new System.EventHandler(this.WF_DATAVAULT_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mETADataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dVSATBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mETADataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dVHUBBindingSource)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -219,5 +242,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn tableNameDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn bKNAMEASDataGridViewTextBoxColumn;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem dataVaultToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem updateToolStripMenuItem;
     }
 }
