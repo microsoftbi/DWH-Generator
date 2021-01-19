@@ -309,5 +309,10 @@ namespace Generator
             WF_CONN frmCONN = new WF_CONN();
             frmCONN.ShowDialog();
         }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

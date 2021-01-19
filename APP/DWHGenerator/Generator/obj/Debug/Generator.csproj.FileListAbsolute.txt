@@ -160,3 +160,4 @@ C:\Users\Wade\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\obj\Debu
 C:\Users\Wade\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_DEPLOYMETADB.resources
 C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_DEPLOYMETADB.resources
 C:\Users\aspne\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_CONN.resources
+C:\Users\Wade\Documents\GitHub\DWH-Generator\APP\DWHGenerator\Generator\obj\Debug\Generator.WF_CONN.resources
