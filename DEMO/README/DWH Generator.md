@@ -46,7 +46,7 @@ Vault的方式，它是把键，关系和基本信息都放在单独的表里去
 
 4.  从Data Vault加载到Mart层中，这里可以有宽表，也可以有维度模型。
 
-![](media/369504955e285602c620c97fc24719f7.png)
+![](https://github.com/microsoftbi/DWH-Generator/edit/master/DEMO/README/media/369504955e285602c620c97fc24719f7.png)
 
 # 工具范围
 
@@ -79,7 +79,7 @@ Hub和Link表。也就是说，这个工具完成的是第二步和第三步的�
 
 然后运行这个工具。
 
-![](media/357b7a4fce86e824835d7671211f7833.png)
+![](https://github.com/microsoftbi/DWH-Generator/edit/master/DEMO/README/media/357b7a4fce86e824835d7671211f7833.png)
 
 这个工具界面的主要元素是生成的代码。
 
@@ -87,7 +87,7 @@ Hub和Link表。也就是说，这个工具完成的是第二步和第三步的�
 
 首先打开Configuration:
 
-![](media/5f2b811760a30438e6da7ab279ae0b7c.png)
+![](https://github.com/microsoftbi/DWH-Generator/edit/master/DEMO/README/media/5f2b811760a30438e6da7ab279ae0b7c.png)
 
 这里可以查看数据库的连接，不过修改只能在config文件里进行。
 
