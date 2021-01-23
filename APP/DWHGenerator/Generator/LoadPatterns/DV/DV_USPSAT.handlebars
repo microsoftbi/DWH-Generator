@@ -22,8 +22,7 @@ BEGIN
 			[HF],
 			[HD],
 			[LOAD_DTS],
-			--[LOAD_END_DTS],
-			[RECORD_SOURCE],
+			[REC_SRC],
 			[CDC_OPERATION_CODE],
 			{{#each PK}}
 			[{{FieldName}}],
@@ -40,8 +39,7 @@ BEGIN
 				[HF],
 				[HD],
 				[LOAD_DTS],
-				--'9999-12-31' [LOAD_END_DTS],
-				[RECORD_SOURCE],
+				[REC_SRC],
 				[CDC_OPERATION_CODE],
 				{{#each PK}}
 				[{{FieldName}}],
@@ -52,7 +50,7 @@ BEGIN
 			FROM
 			(
 				SELECT [LOAD_DTS],
-					[RECORD_SOURCE],
+					[REC_SRC],
 					[CDC_OPERATION_CODE],
 					[HK],
 					[HF],
@@ -78,7 +76,7 @@ BEGIN
 				FROM
 				(
 					SELECT [LOAD_DTS],
-							[RECORD_SOURCE],
+							[REC_SRC],
 							[CDC_OPERATION_CODE],
 							{{#each PK}}
 							[{{FieldName}}],

@@ -5,10 +5,8 @@ GO
 
 CREATE TABLE [dbo].[{{TableName}}](
 	[LOAD_DTS] [datetimeoffset](7) NOT NULL,
-	--[LOAD_END_DTS] [datetimeoffset](7) NOT NULL,
 	[CDC_OPERATION_CODE] [char](1) NOT NULL,
-	[RECORD_SOURCE] [nvarchar](15) NOT NULL,
-	[SESSION_DTS] [datetimeoffset](7) NULL,
+	[REC_SRC] [nvarchar](15) NOT NULL,
 	[HK] [char](32) NOT NULL,
 	[HD] [char](32) NOT NULL,
 	[HF] [char](32) NOT NULL,

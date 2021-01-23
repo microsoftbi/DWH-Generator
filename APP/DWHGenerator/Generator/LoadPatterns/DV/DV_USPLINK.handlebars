@@ -19,10 +19,8 @@ BEGIN
         INSERT INTO [{{../COREDatabaseName}}].[DBO].[{{TableName}}]
         (
             [LOAD_DTS],
-            [LOAD_END_DTS],
             [CDC_OPERATION_CODE],
-            [RECORD_SOURCE],
-            [SESSION_DTS],
+            [REC_SRC],
 			[HK],
 			{{#each FK}}
 			[{{FieldName}}],
@@ -30,10 +28,8 @@ BEGIN
 			{{/each}}
         )
         SELECT PSA.[LOAD_DTS],
-               PSA.[LOAD_END_DTS],
                PSA.[CDC_OPERATION_CODE],
-               PSA.[RECORD_SOURCE],
-               PSA.[SESSION_DTS],
+               PSA.[REC_SRC],
 			   PSA.[HK],
 			   {{#each FK}}
 			   PSA.[{{FieldName}}],
@@ -42,10 +38,8 @@ BEGIN
         FROM
         (
             SELECT LOAD_DTS,
-                   '9999-12-31' AS [LOAD_END_DTS],
                    CDC_OPERATION_CODE,
-                   RECORD_SOURCE,
-                   NULL AS [SESSION_DTS],
+                   REC_SRC,
                    CONVERT(CHAR(32), HASHBYTES('MD5', {{#each FK}}ISNULL(TRIM(CONVERT(NVARCHAR(50), [{{FieldName}}])+N'{{../../HASHTail}}'), N''){{#unless @last}} + {{/unless}}{{/each}}), 2) AS HK,
                    {{#each FK}}
 				   CONVERT(CHAR(32), HASHBYTES('MD5', ISNULL(TRIM(CONVERT(NVARCHAR(50), [{{FieldName}}])+N'@|@'), N'')), 2) AS {{FieldName}}_HK,

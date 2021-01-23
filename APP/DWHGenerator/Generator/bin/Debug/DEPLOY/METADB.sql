@@ -176,7 +176,7 @@ SELECT ATT.[ID],
 	   IS_FULLLOAD
 FROM [META].[dbo].[ATTRIBUTE] ATT
     LEFT JOIN META.dbo.RecordSource RS
-        ON ATT.TABLE_CATALOG = RS.DatabaseName
+        ON ATT.TABLE_CATALOG = RS.[RecordSourceName]
     LEFT JOIN META.dbo.DV_SAT SAT
         ON ATT.DV_SAT_ID = SAT.ID
     LEFT JOIN META.dbo.DV_HUB HUB

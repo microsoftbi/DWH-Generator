@@ -45,12 +45,12 @@ namespace Generator
             sbsql.AppendLine("'"+strSchemaName+"' AS TABLE_CATALOG,TABLE_NAME,COLUMN_NAME,DATA_TYPE,");
             sbsql.AppendLine("CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE");
             sbsql.AppendLine("FROM "+PSAName+".INFORMATION_SCHEMA.COLUMNS");
-            sbsql.AppendLine("WHERE TABLE_NAME IN ('"+strTableName+"') --AND COLUMN_NAME NOT IN ('FULLY_QUALIFIED_FILE_NAME','FILE_TRANSFER_DTS','LOAD_DTS','REC_SRC')");
+            sbsql.AppendLine("WHERE TABLE_NAME IN ('"+strTableName+"') --AND COLUMN_NAME NOT IN ('REC_PATH','TRANSFER_DTS','LOAD_DTS','REC_SRC')");
 
             StringBuilder sbsqlverify = new StringBuilder();
             sbsqlverify.AppendLine("SELECT COUNT(1)");
             sbsqlverify.AppendLine("FROM " + PSAName + ".INFORMATION_SCHEMA.COLUMNS");
-            sbsqlverify.AppendLine("WHERE TABLE_SCHEMA='"+strSchemaName+"' AND TABLE_NAME IN ('" + strTableName + "') AND COLUMN_NAME IN ('FULLY_QUALIFIED_FILE_NAME','FILE_TRANSFER_DTS','LOAD_DTS','REC_SRC')");
+            sbsqlverify.AppendLine("WHERE TABLE_SCHEMA='"+strSchemaName+"' AND TABLE_NAME IN ('" + strTableName + "') AND COLUMN_NAME IN ('REC_PATH','TRANSFER_DTS','LOAD_DTS','REC_SRC')");
 
             try
             {
@@ -112,7 +112,7 @@ namespace Generator
             sbsql.AppendLine("'" + strSchemaName + "' AS TABLE_CATALOG,TABLE_NAME,COLUMN_NAME,DATA_TYPE,");
             sbsql.AppendLine("CHARACTER_MAXIMUM_LENGTH,NUMERIC_PRECISION,NUMERIC_SCALE,1");
             sbsql.AppendLine("FROM " + PSAName + ".INFORMATION_SCHEMA.COLUMNS");
-            sbsql.AppendLine("WHERE TABLE_NAME IN ('" + strTableName + "') AND COLUMN_NAME NOT IN ('FULLY_QUALIFIED_FILE_NAME','FILE_TRANSFER_DTS','LOAD_DTS','REC_SRC')");
+            sbsql.AppendLine("WHERE TABLE_NAME IN ('" + strTableName + "') AND COLUMN_NAME NOT IN ('REC_PATH','TRANSFER_DTS','LOAD_DTS','REC_SRC')");
 
             try
             {
