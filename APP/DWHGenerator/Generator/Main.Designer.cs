@@ -33,6 +33,7 @@
             this.objectListToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectionStringToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deployMETADatabaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.layersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dVTablesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.recordSourceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,7 +86,6 @@
             this.rtbDVUSAT = new System.Windows.Forms.RichTextBox();
             this.tabPage20 = new System.Windows.Forms.TabPage();
             this.rtbDVULINK = new System.Windows.Forms.RichTextBox();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -150,6 +150,11 @@
             this.deployMETADatabaseToolStripMenuItem.Text = "Deploy META database";
             this.deployMETADatabaseToolStripMenuItem.Click += new System.EventHandler(this.deployMETADatabaseToolStripMenuItem_Click);
             // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(191, 6);
+            // 
             // layersToolStripMenuItem
             // 
             this.layersToolStripMenuItem.Name = "layersToolStripMenuItem";
@@ -188,45 +193,45 @@
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(173, 22);
             this.toolStripMenuItem4.Text = "META Import";
             this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
             // objectToGenerateToolStripMenuItem
             // 
             this.objectToGenerateToolStripMenuItem.Name = "objectToGenerateToolStripMenuItem";
-            this.objectToGenerateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.objectToGenerateToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.objectToGenerateToolStripMenuItem.Text = "Object to Generate";
             this.objectToGenerateToolStripMenuItem.Click += new System.EventHandler(this.objectToGenerateToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(170, 6);
             // 
             // configurationToolStripMenuItem
             // 
             this.configurationToolStripMenuItem.Name = "configurationToolStripMenuItem";
-            this.configurationToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.configurationToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.configurationToolStripMenuItem.Text = "Configuration";
             this.configurationToolStripMenuItem.Click += new System.EventHandler(this.configurationToolStripMenuItem_Click);
             // 
             // verifyToolStripMenuItem
             // 
             this.verifyToolStripMenuItem.Name = "verifyToolStripMenuItem";
-            this.verifyToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.verifyToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.verifyToolStripMenuItem.Text = "Verify";
             this.verifyToolStripMenuItem.Click += new System.EventHandler(this.verifyToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(170, 6);
             // 
             // reGenerateToolStripMenuItem
             // 
             this.reGenerateToolStripMenuItem.Name = "reGenerateToolStripMenuItem";
-            this.reGenerateToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reGenerateToolStripMenuItem.Size = new System.Drawing.Size(173, 22);
             this.reGenerateToolStripMenuItem.Text = "Re-Generate";
             this.reGenerateToolStripMenuItem.Click += new System.EventHandler(this.reGenerateToolStripMenuItem_Click);
             // 
@@ -319,7 +324,7 @@
             this.tabPage1.Controls.Add(this.tabControl2);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(1007, 657);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "PSA";
@@ -346,7 +351,7 @@
             this.tabPage2.Controls.Add(this.rtbT2TableSTG);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(993, 625);
             this.tabPage2.TabIndex = 6;
             this.tabPage2.Text = "Table STG";
@@ -361,15 +366,15 @@
             this.rtbT2TableSTG.Name = "rtbT2TableSTG";
             this.rtbT2TableSTG.Size = new System.Drawing.Size(987, 619);
             this.rtbT2TableSTG.TabIndex = 0;
-            this.rtbT2TableSTG.Text = "";
+            this.rtbT2TableSTG.Text = resources.GetString("rtbT2TableSTG.Text");
             // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.rtbT2ViewMETA);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage3.Size = new System.Drawing.Size(996, 638);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(993, 625);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "View META";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -381,7 +386,7 @@
             this.rtbT2ViewMETA.ForeColor = System.Drawing.Color.ForestGreen;
             this.rtbT2ViewMETA.Location = new System.Drawing.Point(3, 3);
             this.rtbT2ViewMETA.Name = "rtbT2ViewMETA";
-            this.rtbT2ViewMETA.Size = new System.Drawing.Size(990, 632);
+            this.rtbT2ViewMETA.Size = new System.Drawing.Size(987, 619);
             this.rtbT2ViewMETA.TabIndex = 0;
             this.rtbT2ViewMETA.Text = "";
             // 
@@ -390,8 +395,8 @@
             this.tabPage4.Controls.Add(this.rtbT2USPCDC);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage4.Size = new System.Drawing.Size(996, 638);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(993, 625);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "USP CDC";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -403,7 +408,7 @@
             this.rtbT2USPCDC.ForeColor = System.Drawing.Color.ForestGreen;
             this.rtbT2USPCDC.Location = new System.Drawing.Point(3, 3);
             this.rtbT2USPCDC.Name = "rtbT2USPCDC";
-            this.rtbT2USPCDC.Size = new System.Drawing.Size(990, 632);
+            this.rtbT2USPCDC.Size = new System.Drawing.Size(987, 619);
             this.rtbT2USPCDC.TabIndex = 1;
             this.rtbT2USPCDC.Text = "";
             // 
@@ -412,8 +417,8 @@
             this.tabPage5.Controls.Add(this.rtbT2TableCDC);
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage5.Size = new System.Drawing.Size(996, 638);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(993, 625);
             this.tabPage5.TabIndex = 2;
             this.tabPage5.Text = "Table CDC";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -425,7 +430,7 @@
             this.rtbT2TableCDC.ForeColor = System.Drawing.Color.ForestGreen;
             this.rtbT2TableCDC.Location = new System.Drawing.Point(3, 3);
             this.rtbT2TableCDC.Name = "rtbT2TableCDC";
-            this.rtbT2TableCDC.Size = new System.Drawing.Size(990, 632);
+            this.rtbT2TableCDC.Size = new System.Drawing.Size(987, 619);
             this.rtbT2TableCDC.TabIndex = 1;
             this.rtbT2TableCDC.Text = "";
             // 
@@ -434,8 +439,8 @@
             this.tabPage6.Controls.Add(this.rtbT2USPLOG);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage6.Size = new System.Drawing.Size(996, 638);
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(993, 625);
             this.tabPage6.TabIndex = 3;
             this.tabPage6.Text = "USP LOG";
             this.tabPage6.UseVisualStyleBackColor = true;
@@ -447,7 +452,7 @@
             this.rtbT2USPLOG.ForeColor = System.Drawing.Color.ForestGreen;
             this.rtbT2USPLOG.Location = new System.Drawing.Point(3, 3);
             this.rtbT2USPLOG.Name = "rtbT2USPLOG";
-            this.rtbT2USPLOG.Size = new System.Drawing.Size(990, 632);
+            this.rtbT2USPLOG.Size = new System.Drawing.Size(987, 619);
             this.rtbT2USPLOG.TabIndex = 1;
             this.rtbT2USPLOG.Text = "";
             // 
@@ -456,8 +461,8 @@
             this.tabPage7.Controls.Add(this.rtbT2TableLOG);
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage7.Size = new System.Drawing.Size(996, 638);
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(993, 625);
             this.tabPage7.TabIndex = 4;
             this.tabPage7.Text = "Table LOG";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -469,7 +474,7 @@
             this.rtbT2TableLOG.ForeColor = System.Drawing.Color.ForestGreen;
             this.rtbT2TableLOG.Location = new System.Drawing.Point(3, 3);
             this.rtbT2TableLOG.Name = "rtbT2TableLOG";
-            this.rtbT2TableLOG.Size = new System.Drawing.Size(990, 632);
+            this.rtbT2TableLOG.Size = new System.Drawing.Size(987, 619);
             this.rtbT2TableLOG.TabIndex = 1;
             this.rtbT2TableLOG.Text = "";
             // 
@@ -478,8 +483,8 @@
             this.tabPage8.Controls.Add(this.rtbT2ViewCurrent);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage8.Size = new System.Drawing.Size(996, 638);
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(993, 625);
             this.tabPage8.TabIndex = 5;
             this.tabPage8.Text = "View Current";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -491,7 +496,7 @@
             this.rtbT2ViewCurrent.ForeColor = System.Drawing.Color.ForestGreen;
             this.rtbT2ViewCurrent.Location = new System.Drawing.Point(3, 3);
             this.rtbT2ViewCurrent.Name = "rtbT2ViewCurrent";
-            this.rtbT2ViewCurrent.Size = new System.Drawing.Size(990, 632);
+            this.rtbT2ViewCurrent.Size = new System.Drawing.Size(987, 619);
             this.rtbT2ViewCurrent.TabIndex = 1;
             this.rtbT2ViewCurrent.Text = "";
             // 
@@ -500,8 +505,8 @@
             this.tabPage14.Controls.Add(this.tabControl3);
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
-            this.tabPage14.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage14.Size = new System.Drawing.Size(1007, 665);
+            this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage14.Size = new System.Drawing.Size(1007, 657);
             this.tabPage14.TabIndex = 2;
             this.tabPage14.Text = "Data Vault";
             this.tabPage14.UseVisualStyleBackColor = true;
@@ -518,7 +523,7 @@
             this.tabControl3.Location = new System.Drawing.Point(3, 3);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(1001, 659);
+            this.tabControl3.Size = new System.Drawing.Size(1001, 651);
             this.tabControl3.TabIndex = 0;
             // 
             // tabPage15
@@ -526,8 +531,8 @@
             this.tabPage15.Controls.Add(this.rtbDVTHUB);
             this.tabPage15.Location = new System.Drawing.Point(4, 22);
             this.tabPage15.Name = "tabPage15";
-            this.tabPage15.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage15.Size = new System.Drawing.Size(993, 633);
+            this.tabPage15.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage15.Size = new System.Drawing.Size(993, 625);
             this.tabPage15.TabIndex = 0;
             this.tabPage15.Text = "Table HUB";
             this.tabPage15.UseVisualStyleBackColor = true;
@@ -539,7 +544,7 @@
             this.rtbDVTHUB.ForeColor = System.Drawing.Color.ForestGreen;
             this.rtbDVTHUB.Location = new System.Drawing.Point(3, 3);
             this.rtbDVTHUB.Name = "rtbDVTHUB";
-            this.rtbDVTHUB.Size = new System.Drawing.Size(987, 627);
+            this.rtbDVTHUB.Size = new System.Drawing.Size(987, 619);
             this.rtbDVTHUB.TabIndex = 0;
             this.rtbDVTHUB.Text = "";
             // 
@@ -548,8 +553,8 @@
             this.tabPage16.Controls.Add(this.rtbDVTSAT);
             this.tabPage16.Location = new System.Drawing.Point(4, 22);
             this.tabPage16.Name = "tabPage16";
-            this.tabPage16.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabPage16.Size = new System.Drawing.Size(996, 646);
+            this.tabPage16.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage16.Size = new System.Drawing.Size(993, 633);
             this.tabPage16.TabIndex = 1;
             this.tabPage16.Text = "Table SAT";
             this.tabPage16.UseVisualStyleBackColor = true;
@@ -561,7 +566,7 @@
             this.rtbDVTSAT.ForeColor = System.Drawing.Color.ForestGreen;
             this.rtbDVTSAT.Location = new System.Drawing.Point(3, 3);
             this.rtbDVTSAT.Name = "rtbDVTSAT";
-            this.rtbDVTSAT.Size = new System.Drawing.Size(990, 640);
+            this.rtbDVTSAT.Size = new System.Drawing.Size(987, 627);
             this.rtbDVTSAT.TabIndex = 0;
             this.rtbDVTSAT.Text = "";
             // 
@@ -570,7 +575,7 @@
             this.tabPage17.Controls.Add(this.rtbDVTLINK);
             this.tabPage17.Location = new System.Drawing.Point(4, 22);
             this.tabPage17.Name = "tabPage17";
-            this.tabPage17.Size = new System.Drawing.Size(996, 646);
+            this.tabPage17.Size = new System.Drawing.Size(993, 633);
             this.tabPage17.TabIndex = 2;
             this.tabPage17.Text = "Table LINK";
             this.tabPage17.UseVisualStyleBackColor = true;
@@ -582,7 +587,7 @@
             this.rtbDVTLINK.ForeColor = System.Drawing.Color.ForestGreen;
             this.rtbDVTLINK.Location = new System.Drawing.Point(0, 0);
             this.rtbDVTLINK.Name = "rtbDVTLINK";
-            this.rtbDVTLINK.Size = new System.Drawing.Size(996, 646);
+            this.rtbDVTLINK.Size = new System.Drawing.Size(993, 633);
             this.rtbDVTLINK.TabIndex = 0;
             this.rtbDVTLINK.Text = "";
             // 
@@ -591,7 +596,7 @@
             this.tabPage18.Controls.Add(this.rtbDVUHUB);
             this.tabPage18.Location = new System.Drawing.Point(4, 22);
             this.tabPage18.Name = "tabPage18";
-            this.tabPage18.Size = new System.Drawing.Size(996, 646);
+            this.tabPage18.Size = new System.Drawing.Size(993, 633);
             this.tabPage18.TabIndex = 3;
             this.tabPage18.Text = "USP_HUB";
             this.tabPage18.UseVisualStyleBackColor = true;
@@ -603,7 +608,7 @@
             this.rtbDVUHUB.ForeColor = System.Drawing.Color.ForestGreen;
             this.rtbDVUHUB.Location = new System.Drawing.Point(0, 0);
             this.rtbDVUHUB.Name = "rtbDVUHUB";
-            this.rtbDVUHUB.Size = new System.Drawing.Size(996, 646);
+            this.rtbDVUHUB.Size = new System.Drawing.Size(993, 633);
             this.rtbDVUHUB.TabIndex = 0;
             this.rtbDVUHUB.Text = "";
             // 
@@ -612,7 +617,7 @@
             this.tabPage19.Controls.Add(this.rtbDVUSAT);
             this.tabPage19.Location = new System.Drawing.Point(4, 22);
             this.tabPage19.Name = "tabPage19";
-            this.tabPage19.Size = new System.Drawing.Size(996, 646);
+            this.tabPage19.Size = new System.Drawing.Size(993, 633);
             this.tabPage19.TabIndex = 4;
             this.tabPage19.Text = "USP SAT";
             this.tabPage19.UseVisualStyleBackColor = true;
@@ -624,7 +629,7 @@
             this.rtbDVUSAT.ForeColor = System.Drawing.Color.ForestGreen;
             this.rtbDVUSAT.Location = new System.Drawing.Point(0, 0);
             this.rtbDVUSAT.Name = "rtbDVUSAT";
-            this.rtbDVUSAT.Size = new System.Drawing.Size(996, 646);
+            this.rtbDVUSAT.Size = new System.Drawing.Size(993, 633);
             this.rtbDVUSAT.TabIndex = 0;
             this.rtbDVUSAT.Text = "";
             // 
@@ -633,7 +638,7 @@
             this.tabPage20.Controls.Add(this.rtbDVULINK);
             this.tabPage20.Location = new System.Drawing.Point(4, 22);
             this.tabPage20.Name = "tabPage20";
-            this.tabPage20.Size = new System.Drawing.Size(996, 646);
+            this.tabPage20.Size = new System.Drawing.Size(993, 633);
             this.tabPage20.TabIndex = 5;
             this.tabPage20.Text = "USP_LINK";
             this.tabPage20.UseVisualStyleBackColor = true;
@@ -645,14 +650,9 @@
             this.rtbDVULINK.ForeColor = System.Drawing.Color.ForestGreen;
             this.rtbDVULINK.Location = new System.Drawing.Point(0, 0);
             this.rtbDVULINK.Name = "rtbDVULINK";
-            this.rtbDVULINK.Size = new System.Drawing.Size(996, 646);
+            this.rtbDVULINK.Size = new System.Drawing.Size(993, 633);
             this.rtbDVULINK.TabIndex = 0;
             this.rtbDVULINK.Text = "";
-            // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(191, 6);
             // 
             // Main
             // 
@@ -663,7 +663,7 @@
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MinimizeBox = false;
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

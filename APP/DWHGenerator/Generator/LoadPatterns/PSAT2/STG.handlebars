@@ -14,7 +14,6 @@ CREATE TABLE [{{SchemaName}}].[{{ObjectName}}](
 	[REC_SRC] [nvarchar](15) NOT NULL,
 	[REC_PATH] [nvarchar](256) NULL,
 	[TRANSFER_DTS] [datetimeoffset](7) NULL,
-	[LOAD_TYPE] [nvarchar](10) NULL,
 	{{#each PK}}
 	[{{FieldName}}] {{FieldType}} NULL,
 	{{/each}}

@@ -120,6 +120,13 @@
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="rtbT2TableSTG.Text" xml:space="preserve">
+    <value>Please note the tool is just a toy.
+Don't use it in production.
+Target to build the tool is to help us to learn Data Vault and PSA concepts.
+If you really want to do someting in professional way, I strongly suggest to check Roelant's project: https://github.com/roelantvos, which I also learnt lots of things from him and his projects.
+</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
