@@ -24,10 +24,6 @@ namespace Generator
 
         private void META_Load(object sender, EventArgs e)
         {
-            // TODO: 这行代码将数据加载到表“mETADataSet.ATTRIBUTE”中。您可以根据需要移动或删除它。
-            //this.aTTRIBUTETableAdapter.Fill(this.mETADataSet.V_ATTRIBUTE);
-
-
             adapter = new SqlDataAdapter("select * from ATTRIBUTE ATT WHERE ATT.[TABLE_CATALOG]+ATT.[TABLE_NAME] IN (SELECT  GEN.[TABLE_CATALOG]+GEN.[TABLE_NAME] FROM [META].[dbo].GEN_LIST GEN WHERE IS_GEN=1)", strConn);
             dSet = new DataSet();
             adapter.Fill(dSet);

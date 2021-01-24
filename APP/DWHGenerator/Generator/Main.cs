@@ -256,7 +256,7 @@ namespace Generator
         private void versionToolStripMenuItem_Click(object sender, EventArgs e)
         {
             WF_METAScript frmScript = new WF_METAScript();
-            frmScript.Script = "0.1117a";
+            frmScript.Script = "0.10124a\nPublished in 24th Jan 2021\nBy iHuskies and Chowtwofat.";
             frmScript.ShowDialog();
         }
 

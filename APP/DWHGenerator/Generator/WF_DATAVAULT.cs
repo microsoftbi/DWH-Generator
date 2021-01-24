@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -11,6 +13,16 @@ namespace Generator
 {
     public partial class WF_DATAVAULT : Form
     {
+        
+        private static string strConn = ConfigurationManager.ConnectionStrings["Generator.Properties.Settings.METAConnectionString"].ConnectionString;
+        DataSet dSetSAT = null;
+        SqlDataAdapter adapterSAT = null;
+        DataSet dSetHUB = null;
+        SqlDataAdapter adapterHUB = null;
+        DataSet dSetLINK = null;
+        SqlDataAdapter adapterLINK = null;
+
+
         public WF_DATAVAULT()
         {
             InitializeComponent();
@@ -18,21 +30,42 @@ namespace Generator
 
         private void WF_DATAVAULT_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'mETADataSet.DV_LINK' table. You can move, or remove it, as needed.
-            this.dV_LINKTableAdapter.Fill(this.mETADataSet.DV_LINK);
-            // TODO: This line of code loads data into the 'mETADataSet.DV_HUB' table. You can move, or remove it, as needed.
-            this.dV_HUBTableAdapter.Fill(this.mETADataSet.DV_HUB);
-            // TODO: This line of code loads data into the 'mETADataSet.DV_SAT' table. You can move, or remove it, as needed.
-            this.dV_SATTableAdapter.Fill(this.mETADataSet.DV_SAT);
+            adapterSAT = new SqlDataAdapter("select * from DV_SAT", strConn);
+            dSetSAT = new DataSet();
+            adapterSAT.Fill(dSetSAT);
+            adapterHUB = new SqlDataAdapter("select * from DV_HUB", strConn);
+            dSetHUB = new DataSet();
+            adapterHUB.Fill(dSetHUB);
+            adapterLINK = new SqlDataAdapter("select * from DV_LINK", strConn);
+            dSetLINK = new DataSet();
+            adapterLINK.Fill(dSetLINK);
+
+            dataGridView1.DataSource = dSetSAT.Tables[0];
+            dataGridView2.DataSource = dSetHUB.Tables[0];
+            dataGridView3.DataSource = dSetLINK.Tables[0];
 
         }
 
         private void updateToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.dV_HUBTableAdapter.Update(this.mETADataSet.DV_HUB);
-            this.dV_SATTableAdapter.Update(this.mETADataSet.DV_SAT);
+            SqlCommandBuilder scbSAT = new SqlCommandBuilder(adapterSAT);
+            SqlCommandBuilder scbHUB = new SqlCommandBuilder(adapterHUB);
+            SqlCommandBuilder scbLINK = new SqlCommandBuilder(adapterLINK);
 
-            MessageBox.Show("Done");
+            try
+            {
+                adapterSAT.Update(dSetSAT);
+                adapterHUB.Update(dSetHUB);
+                adapterLINK.Update(dSetLINK);
+
+                MessageBox.Show("Done");
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Failed." + ex.Message);
+            }
+
+            
         }
     }
 }
