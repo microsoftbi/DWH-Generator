@@ -46,7 +46,7 @@ Vault的方式，它是把键，关系和基本信息都放在单独的表里去
 
 4.  从Data Vault加载到Mart层中，这里可以有宽表，也可以有维度模型。
 
-![](https://raw.githubusercontent.com/microsoftbi/DWH-Generator/edit/master/DEMO/README/media/369504955e285602c620c97fc24719f7.png)
+![image](https://raw.githubusercontent.com/microsoftbi/DWH-Generator/edit/master/DEMO/README/media/369504955e285602c620c97fc24719f7.png)
 
 # 工具范围
 
