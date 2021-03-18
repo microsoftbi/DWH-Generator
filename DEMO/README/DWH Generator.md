@@ -116,7 +116,7 @@ source信息进行维护。
 
 ![image](https://raw.githubusercontent.com/microsoftbi/DWH-Generator/master/DEMO/README/media/40c8af1df737f38e69785bd444cf7743.png)
 
-![image](https://github.com/microsoftbi/DWH-Generator/master/DEMO/README/media/b1198eddc57806bc711a4198ae812d04.png)
+![image](https://raw.githubusercontent.com/microsoftbi/DWH-Generator/master/DEMO/README/media/b1198eddc57806bc711a4198ae812d04.png)
 
 这里指定STAGE表的名称，比如gs.CUSTOMER。
 
@@ -124,17 +124,17 @@ source信息进行维护。
 
 如果通过检查，就可以点击Load to META把这个表的元数据导入了。
 
-![image](https://github.com/microsoftbi/DWH-Generator/edit/master/DEMO/README/media/be2a3dfb1a71312f069197b904a15b8b.png)
+![image](https://raw.githubusercontent.com/microsoftbi/DWH-Generator/edit/master/DEMO/README/media/be2a3dfb1a71312f069197b904a15b8b.png)
 
 接下来点击Object to generate，需要指定配置哪个表的生成。
 
-![image](https://github.com/microsoftbi/DWH-Generator/master/DEMO/README/media/ba8d113189c27d36de3c83c7ad8f2f72.png)
+![image](https://raw.githubusercontent.com/microsoftbi/DWH-Generator/master/DEMO/README/media/ba8d113189c27d36de3c83c7ad8f2f72.png)
 
 这里勾选第一行IS_GEN列。
 
 点击菜单的Configuration，打开字段配置。
 
-![image](https://github.com/microsoftbi/DWH-Generator/master/DEMO/README/media/56180f83e58145f1d5cf342b7c37f301.png)
+![image](https://raw.githubusercontent.com/microsoftbi/DWH-Generator/master/DEMO/README/media/56180f83e58145f1d5cf342b7c37f301.png)
 
 这里需要指定数据的用法。
 
@@ -142,22 +142,22 @@ source信息进行维护。
 
 设置表CUSTOMER的DV_SAT_ID为1，对应刚才配置的S_CUSTOMER表。
 
-![image](https://github.com/microsoftbi/DWH-Generator/master/DEMO/README/media/37e26c1210aa5b1bcf97233c2fa3e017.png)
+![image](https://raw.githubusercontent.com/microsoftbi/DWH-Generator/master/DEMO/README/media/37e26c1210aa5b1bcf97233c2fa3e017.png)
 
 最后回到主界面点击菜单项的re-generate就可以生成对应的代码了。
 
-![image](https://github.com/microsoftbi/DWH-Generator/master/DEMO/README/media/684ede929c28a399ecac1fd9475a361a.png)
+![image](https://raw.githubusercontent.com/microsoftbi/DWH-Generator/master/DEMO/README/media/684ede929c28a399ecac1fd9475a361a.png)
 
 可以看到生成的所有PSA层的对象。
 
 同时也可以点击菜单Deploy下的PSA data flow来把PSA的脚本直接部署到数据仓库中。
 
-![image](https://github.com/microsoftbi/DWH-Generator/master/DEMO/README/media/cc99145447fe0c9f13c1f6d9295a2ede.png)
+![image](https://raw.githubusercontent.com/microsoftbi/DWH-Generator/master/DEMO/README/media/cc99145447fe0c9f13c1f6d9295a2ede.png)
 
 部署成功后可以点击Scripts下的Execute PSA data flow来获取运行PSA的代码。
 
-![image](https://github.com/microsoftbi/DWH-Generator/master/DEMO/README/media/6ecc4df5e8a540b5473036188e39828a.png)
+![image](https://raw.githubusercontent.com/microsoftbi/DWH-Generator/master/DEMO/README/media/6ecc4df5e8a540b5473036188e39828a.png)
 
-![image](https://github.com/microsoftbi/DWH-Generator/master/DEMO/README/media/9b4746cbe19d2e20b2d3a28c5cf2b432.png)
+![image](https://raw.githubusercontent.com/microsoftbi/DWH-Generator/master/DEMO/README/media/9b4746cbe19d2e20b2d3a28c5cf2b432.png)
 
 可以将这个脚本复制出来运行查看数据在PSA层运行的结果。
