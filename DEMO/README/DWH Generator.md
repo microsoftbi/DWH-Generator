@@ -79,7 +79,7 @@ Hub和Link表。也就是说，这个工具完成的是第二步和第三步的�
 
 然后运行这个工具。
 
-![image](https://raw.githubusercontent.com/microsoftbi/DWH-Generator/edit/master/DEMO/README/media/357b7a4fce86e824835d7671211f7833.png)
+![image](https://raw.githubusercontent.com/microsoftbi/DWH-Generator/master/DEMO/README/media/357b7a4fce86e824835d7671211f7833.png)
 
 这个工具界面的主要元素是生成的代码。
 
@@ -87,7 +87,7 @@ Hub和Link表。也就是说，这个工具完成的是第二步和第三步的�
 
 首先打开Configuration:
 
-![image](https://raw.githubusercontent.com/microsoftbi/DWH-Generator/edit/master/DEMO/README/media/5f2b811760a30438e6da7ab279ae0b7c.png)
+![image](https://raw.githubusercontent.com/microsoftbi/DWH-Generator/master/DEMO/README/media/5f2b811760a30438e6da7ab279ae0b7c.png)
 
 这里可以查看数据库的连接，不过修改只能在config文件里进行。
 
@@ -95,17 +95,17 @@ Hub和Link表。也就是说，这个工具完成的是第二步和第三步的�
 
 Layers配置数据仓库数据库名，可以根据自己的项目去更改。
 
-![image](https://raw.githubusercontent.com/microsoftbi/DWH-Generator/edit/master/DEMO/README/media/2e4d3eeaffff9c1541df5db44432bb44.png)
+![image](https://raw.githubusercontent.com/microsoftbi/DWH-Generator/master/DEMO/README/media/2e4d3eeaffff9c1541df5db44432bb44.png)
 
 以及Data Vault数据表的配置。这里指定DataVault表的名称，后续
 在配置字段映射的时候需要前面对应的ID进行配置。
 
-![image](https://github.com/microsoftbi/DWH-Generator/master/DEMO/README/media/08d5c819d0c0b8aa4052c3e5a9975db0.png)
+![image](https://raw.githubusercontent.com/microsoftbi/DWH-Generator/master/DEMO/README/media/08d5c819d0c0b8aa4052c3e5a9975db0.png)
 
 和Record
 Source的配置。这个字段里记录的是数据源的简要信息，以及在Stage数据库里对应的Schema的信息。
 
-![image](https://github.com/microsoftbi/DWH-Generator/master/DEMO/README/media/39c9471da6b878e5e33ceb2341795fc5.png)
+![image](https://raw.githubusercontent.com/microsoftbi/DWH-Generator/master/DEMO/README/media/39c9471da6b878e5e33ceb2341795fc5.png)
 
 这里面遵循的方式是，STAGE里根据不同数据源来的表都单独放在独立的schema里，同时也作为record
 source信息进行维护。
@@ -114,7 +114,7 @@ source信息进行维护。
 
 首先需要导入元数据，通过META Import。
 
-![image](https://github.com/microsoftbi/DWH-Generator/master/DEMO/README/media/40c8af1df737f38e69785bd444cf7743.png)
+![image](https://raw.githubusercontent.com/microsoftbi/DWH-Generator/master/DEMO/README/media/40c8af1df737f38e69785bd444cf7743.png)
 
 ![image](https://github.com/microsoftbi/DWH-Generator/master/DEMO/README/media/b1198eddc57806bc711a4198ae812d04.png)
 
