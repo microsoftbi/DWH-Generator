@@ -1,6 +1,6 @@
-DWH generator
+# DWH generator
 
-# Introduction
+## Introduction
 
 The generator helps you to generate data warehouse script, which following PSA
 and Data Vault approach.
@@ -15,9 +15,9 @@ standard, and only for SAT and HUB tables.
 PSA are using INSERT ONLY approach, which only LOAD_DTS will be maintained, no
 LOAD_END_DTS.
 
-# How to use
+## How to use
 
-## Preparation
+### Preparation
 
 Deploy META database. The deploy SQL code is under /DEPLOY/METADB.sql
 
@@ -34,7 +34,7 @@ Check app.config Configuration:
 And you need to make sure first table of PSA is ready, including technical
 fields.
 
-## Load meta data
+### Load meta data
 
 Open generator, META data -\> META Import
 
@@ -49,7 +49,7 @@ Then put the new table into object list, click "Object list"-\>"FULL"
 Then specify in the system, only work with the new table, "Object
 list"-\>"Config…", only check the new table added.
 
-## Config meta data for PSA
+### Config meta data for PSA
 
 META data-\>Configuration.
 
@@ -59,17 +59,17 @@ check "BK" and "PK".
 
 Then click "UPDATE".
 
-## Generate code for PSA
+### Generate code for PSA
 
 META data-\>Re-Generate, we can get each tables, views and USPs scripts are
 generated.
 
-## Deploy PSA
+### Deploy PSA
 
 Deploy-\>PSA data flow, the PSA relevant tables(except first table of PSA) will
 be deployed.
 
-## Config meta data for DV
+### Config meta data for DV
 
 Open table META.DBO.DV_SAT in SSMS, add new SAT table name, and also give it an
 ID.
@@ -80,11 +80,14 @@ ID, for the fields which need to load to SAT.
 Click "META data" -\> "Update" to update meta configuration, also click "META
 data" -\> "Show META result" to check if the SAT table name shows correctly.
 
-## Generate code for DV
+### Generate code for DV
 
 META data-\>Re-Generate, we can get each tables, views and USPs scripts are
 generated.
 
-## Deploy DV
+### Deploy DV
 
 DV scripts can be only deployed manually.
+
+## Databases
+Please check Intro.md in folder Docs
