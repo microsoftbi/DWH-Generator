@@ -2,6 +2,8 @@
 
 ## Introduction
 
+** Important: Please note that this project will not be updated any more, as it is migrated into another project: https://github.com/microsoftbi/DataVaultGen
+
 The generator helps you to generate data warehouse script, which following PSA
 and Data Vault approach.
 
